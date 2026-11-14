@@ -11,18 +11,24 @@ interface DepartmentFormProps {
   departmentTitle: string;
   setDepartmentTitle: (val: string) => void;
   onSubmit: (e: React.FormEvent) => void;
+  disabled?: boolean;
+  editing?: boolean;
+  onCancel?: () => void;
 }
 
 export function DepartmentForm({
   departmentTitle,
   setDepartmentTitle,
   onSubmit,
+  disabled,
+  editing,
+  onCancel,
 }: DepartmentFormProps) {
   return (
     <AdminCard className="p-8 h-full bg-gradient-to-br from-white/60 to-sidebar/5">
       <div className="flex items-center justify-between mb-6">
         <h4 className="text-sm font-bold text-gray-500   flex items-center gap-2">
-          Add New Department
+          {editing ? "Edit Department" : "Add New Department"}
           <div className="h-1 w-12 bg-sidebar/20 rounded-full"></div>
         </h4>
       </div>
@@ -30,7 +36,7 @@ export function DepartmentForm({
       <form onSubmit={onSubmit} className="space-y-6 flex-1">
         <div className="space-y-4">
           <div className="space-y-2">
-            <Label className=" text-[10px]  text-gray-500 font-bold">
+            <Label htmlFor="department-title" className=" text-[10px]  text-gray-500 font-bold">
               Department Title <span className="text-red-500">*</span>
             </Label>
             <div className="relative">
@@ -39,6 +45,9 @@ export function DepartmentForm({
                 size={14}
               />
               <Input
+                id="department-title"
+                maxLength={150}
+                disabled={disabled}
                 placeholder="e.g. Academic Department"
                 value={departmentTitle}
                 onChange={(e) => setDepartmentTitle(e.target.value)}
@@ -51,14 +60,30 @@ export function DepartmentForm({
 
         <div className="pt-2">
           <Button
+            disabled={disabled}
             type="submit"
             className="w-full py-6 text-xs font-semibold  tracking-[0.2em] bg-secondary hover:bg-secondary/90 text-white shadow-lg transition-all active:scale-[0.98]"
           >
             <div className="flex items-center gap-2">
               <FaCheck className="" />
-              Save Department
+              {disabled
+                ? "Saving..."
+                : editing
+                  ? "Update Department"
+                  : "Save Department"}
             </div>
           </Button>
+          {editing && (
+            <Button
+              type="button"
+              variant="ghost"
+              disabled={disabled}
+              onClick={onCancel}
+              className="w-full mt-2"
+            >
+              Cancel
+            </Button>
+          )}
         </div>
       </form>
     </AdminCard>

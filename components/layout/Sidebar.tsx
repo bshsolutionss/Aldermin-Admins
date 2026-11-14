@@ -30,9 +30,11 @@ import {
   FaHotel,
   FaBus,
   FaUserShield,
+  FaSignOutAlt,
 } from "react-icons/fa";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { cn } from "@/lib/utils";
+import { apiService } from "@/lib/api-service";
 
 type SubMenuItem = {
   label: string;
@@ -711,6 +713,20 @@ export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
               );
             })}
           </ul>
+          <div className="p-4 border-t border-sidebar-border/30 mt-4 mb-2">
+            <button
+              onClick={async () => {
+                try {
+                  await apiService.auth.logout();
+                } catch {}
+                window.location.href = "/";
+              }}
+              className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sidebar-foreground/70 hover:text-rose-400 hover:bg-rose-500/10 transition-colors text-xs font-semibold cursor-pointer"
+            >
+              <FaSignOutAlt className="text-base" />
+              <span>Sign Out</span>
+            </button>
+          </div>
         </nav>
       </aside>
     </>

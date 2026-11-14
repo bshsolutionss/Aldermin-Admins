@@ -1,30 +1,27 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { PageHeader } from "@/components/common/PageHeader";
 import { AssignSubjectForm } from "@/components/modules/academics/AssignSubjectForm";
 import { Button } from "@/components/ui/button";
 import { FaPlus } from "react-icons/fa";
 import { DataTable } from "@/components/common/DataTable";
-import { apiService } from "@/lib/api-service";
+import { apiService, type SubjectAssignment as AssignedSubject } from "@/lib/api-service";
 import { ListActionButtons } from "@/components/common/ListActionButtons";
-
-interface AssignedSubject {
-  id: number;
-  subject: string;
-  section: string;
-  teacher: string;
-}
 
 export default function AssignSubjectPage() {
   const [assignedSubjects, setAssignedSubjects] = useState<AssignedSubject[]>(
     [],
   );
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [saving, setSaving] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const busy = useRef(false);
   const [options, setOptions] = useState({
-    subjects: [] as string[],
-    sections: [] as string[],
-    teachers: [] as string[],
+    subjects: [] as { id: string; name: string }[],
+    sections: [] as { id: string; name: string }[],
+    teachers: [] as { id: string; name: string }[],
   });
 
   const [selectedSubject, setSelectedSubject] = useState("");
@@ -34,20 +31,18 @@ export default function AssignSubjectPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [assignments, subjects, sections, staff] = await Promise.all([
+        const [assignments, choices] = await Promise.all([
           apiService.academics.getSubjectAssignments(),
-          apiService.academics.getSubjects(),
-          apiService.academics.getSections(),
-          apiService.hr.getStaff(),
+          apiService.subjectAssignments.getOptions(),
         ]);
-        setAssignedSubjects(assignments as AssignedSubject[]);
+        setAssignedSubjects(assignments);
         setOptions({
-          subjects: (subjects as any[]).map((s) => s.name),
-          sections: sections as string[],
-          teachers: (staff as any[]).map((s) => s.name),
+          subjects: choices.subjects,
+          sections: choices.classSections.map(section => ({ id: section.id, name: `${section.className} / ${section.sectionName} (${section.academicYearName})` })),
+          teachers: choices.teachers.map(teacher => ({ id: teacher.id, name: `${teacher.name} (${teacher.staffNo})` })),
         });
       } catch (error) {
-        console.error("Error fetching assignments:", error);
+        setError(error instanceof Error ? error.message : "Unable to load subject options");
       } finally {
         setIsLoading(false);
       }
@@ -55,24 +50,30 @@ export default function AssignSubjectPage() {
     fetchData();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selectedSubject || !selectedSection || !selectedTeacher) return;
+    if (busy.current || !selectedSubject || !selectedSection || !selectedTeacher) return;
+    busy.current = true; setSaving(true); setError("");
+    try {
+      const payload = { subjectId: selectedSubject, classSectionId: selectedSection, staffId: selectedTeacher };
+      if (editingId) await apiService.subjectAssignments.update(editingId, payload);
+      else await apiService.subjectAssignments.create(payload);
+      setAssignedSubjects(await apiService.subjectAssignments.getAll());
+      setSelectedSubject(""); setSelectedSection(""); setSelectedTeacher("");
+      setEditingId(null);
+    } catch (err) { setError(err instanceof Error ? err.message : "Unable to save assignment"); }
+    finally { busy.current = false; setSaving(false); }
+  };
 
-    setAssignedSubjects([
-      ...assignedSubjects,
-      {
-        id: Math.random(),
-        subject: selectedSubject,
-        section: selectedSection,
-        teacher: selectedTeacher,
-      },
-    ]);
-
-    // Reset form
-    setSelectedSubject("");
-    setSelectedSection("");
-    setSelectedTeacher("");
+  const handleDelete = async (id: string) => {
+    if (busy.current) return;
+    busy.current = true; setSaving(true); setError("");
+    try {
+      await apiService.subjectAssignments.delete(id);
+      setAssignedSubjects(await apiService.subjectAssignments.getAll());
+      if (editingId === id) { setEditingId(null); setSelectedSubject(""); setSelectedSection(""); setSelectedTeacher(""); }
+    } catch (err) { setError(err instanceof Error ? err.message : "Unable to delete assignment"); }
+    finally { busy.current = false; setSaving(false); }
   };
 
   const columns = [
@@ -83,7 +84,7 @@ export default function AssignSubjectPage() {
     },
     {
       header: "Logical Section",
-      accessor: "section" as keyof AssignedSubject,
+      accessor: (item: AssignedSubject) => item.legacy ? `${item.section} (legacy)` : `${item.className} / ${item.section}`,
       className: "font-bold text-secondary",
     },
     {
@@ -95,12 +96,12 @@ export default function AssignSubjectPage() {
       header: "Action",
       accessor: (item: AssignedSubject) => (
         <ListActionButtons
-          onEdit={() => console.log("Edit", item.id)}
-          onDelete={() =>
-            setAssignedSubjects(
-              assignedSubjects.filter((s) => s.id !== item.id),
-            )
-          }
+          onEdit={item.legacy ? undefined : () => {
+            if (busy.current) return;
+            setEditingId(item.id); setSelectedSubject(item.subjectId);
+            setSelectedSection(item.classSectionId ?? ""); setSelectedTeacher(item.staffId ?? "");
+          }}
+          onDelete={() => void handleDelete(item.id)}
         />
       ),
       className: "text-right",
@@ -110,20 +111,25 @@ export default function AssignSubjectPage() {
 
   return (
     <div className="container mx-auto space-y-8 pb-10">
+      {error && <p role="alert" className="text-red-600 text-sm">{error}</p>}
       <PageHeader
         title="Subject Allocation"
         subtitle="Academics Management"
         action={
-          <Button className="bg-secondary hover:bg-secondary/90 text-white gap-2 py-6 px-6 rounded-xl font-bold text-[10px] shadow-lg shadow-secondary/10 transition-all">
+          <Button disabled={saving} onClick={() => { setEditingId(null); setSelectedSubject(""); setSelectedSection(""); setSelectedTeacher(""); }} className="bg-secondary hover:bg-secondary/90 text-white gap-2 py-6 px-6 rounded-xl font-bold text-[10px] shadow-lg shadow-secondary/10 transition-all">
             <FaPlus /> Assign Subject
           </Button>
         }
       />
+      {!isLoading && !options.teachers.length && <p className="text-sm text-gray-500">Add an active staff member in Human Resource before assigning subjects.</p>}
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* FORM */}
-        <div className="lg:col-span-4 h-full sticky top-8">
+        <div className="lg:col-span-4 h-full lg:sticky lg:top-8">
           <AssignSubjectForm
+            editing={!!editingId}
+            onCancel={() => { setEditingId(null); setSelectedSubject(""); setSelectedSection(""); setSelectedTeacher(""); }}
+            disabled={saving || isLoading}
             selectedSubject={selectedSubject}
             setSelectedSubject={setSelectedSubject}
             selectedSection={selectedSection}

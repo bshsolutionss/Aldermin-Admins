@@ -1,13 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
-import AdminLayout from "@/components/layout/AdminLayout";
+import { apiService } from "@/lib/api-service";
 
 export default function ForgotPasswordPage() {
-  const router = useRouter();
-
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -25,45 +22,21 @@ export default function ForgotPasswordPage() {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      setError("Please enter a valid email");
+      setError("Please enter a valid email address");
       return;
     }
 
     setLoading(true);
 
     try {
-      const res = await fetch(
-        "https://api.aldermin.online/Admin/forgot-password",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({ email }),
-        }
+      const res = await apiService.auth.forgotPassword(email);
+      setSuccess(
+        res.message || "If this email exists, a password reset link has been sent to your inbox."
       );
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.message || "Something went wrong");
-      }
-
-      setSuccess(data.message || "Password reset link sent successfully");
-
-      // save email for OTP / verify page
-      localStorage.setItem("forgotEmail", email);
-
-      setTimeout(() => {
-        router.push("/otp");
-      }, 4000);
     } catch (err) {
-      if (err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError("An unexpected error occurred");
-      }
+      setError(
+        err instanceof Error ? err.message : "Failed to send password reset link"
+      );
     } finally {
       setLoading(false);
     }
@@ -72,7 +45,6 @@ export default function ForgotPasswordPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="bg-white w-full max-w-md rounded-2xl shadow-lg p-8">
-
         {/* Logo */}
         <div className="text-center mb-8">
           <img
@@ -84,7 +56,7 @@ export default function ForgotPasswordPage() {
             Forgot Password
           </h1>
           <p className="text-sm text-gray-500 mt-2">
-            Enter your email to receive reset link
+            Enter your email to receive a password reset link
           </p>
         </div>
 
@@ -96,7 +68,7 @@ export default function ForgotPasswordPage() {
         )}
 
         {success && (
-          <div className="mb-5 bg-green-50 text-green-600 text-sm text-center py-3 rounded-lg">
+          <div className="mb-5 bg-green-50 text-green-700 text-sm text-center py-3 rounded-lg">
             {success}
           </div>
         )}
@@ -105,42 +77,39 @@ export default function ForgotPasswordPage() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Email
+              Email Address
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter email"
-              disabled={!!success}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg
-                         focus:outline-none focus:ring-2 focus:ring-blue-500
-                         transition disabled:bg-gray-100"
+              disabled={loading || !!success}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition disabled:bg-gray-100"
             />
           </div>
 
           <button
             type="submit"
-            disabled={loading}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white
-                       font-semibold py-3 rounded-lg transition-all
-                       shadow-md hover:shadow-lg
-                       disabled:opacity-70"
+            disabled={loading || !!success}
+            className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white font-semibold py-3 rounded-lg transition-all shadow-md hover:shadow-lg"
           >
-            {loading ? "Sending..." : "Send Reset Link"}
+            {loading ? "Sending Link..." : "Send Reset Link"}
           </button>
         </form>
 
         {/* Back to login */}
         <div className="mt-6 text-center text-sm">
-        <Link
+          <Link
             href="/auth/login"
             className="text-blue-600 hover:underline"
-        >
-            Back to Login
-        </Link>
+          >
+            Portal Login
+          </Link>
+        <span className="mx-3 text-gray-300">|</span>
+        <Link href="/" className="text-blue-600 hover:underline">Admin Login</Link>
         </div>
-
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { apiService, type SubjectAssignment, type SubjectAssignmentOptions } from "@/lib/api-service";
 import {
   FaUserTie,
   FaBookOpen,
   FaLayerGroup,
-  FaPlus,
   FaTrash,
   FaEdit,
   FaCheck,
@@ -13,20 +13,52 @@ import {
 } from "react-icons/fa";
 
 export default function AssignSubjectPage() {
-  const [assignments, setAssignments] = useState([
-    {
-      id: 1,
-      subject: "Mathematics",
-      section: "Section A",
-      teacher: "Prof. Julian Sterling",
-    },
-    {
-      id: 2,
-      subject: "Physics",
-      section: "Section B",
-      teacher: "Dr. Elara Vance",
-    },
-  ]);
+  const [assignments, setAssignments] = useState<SubjectAssignment[]>([]);
+  const [options, setOptions] = useState<SubjectAssignmentOptions>({ academicYearId: null, subjects: [], teachers: [], classSections: [] });
+  const [form, setForm] = useState({ subjectId: "", classSectionId: "", staffId: "" });
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
+  const busy = useRef(false);
+  const reload = async () => {
+    setIsLoading(true); setError("");
+    try {
+      const [rows, choices] = await Promise.all([apiService.subjectAssignments.getAll(), apiService.subjectAssignments.getOptions()]);
+      setAssignments(rows); setOptions(choices);
+    } catch (err) { setError(err instanceof Error ? err.message : "Unable to load allocations"); }
+    finally { setIsLoading(false); }
+  };
+  useEffect(() => {
+    let active = true;
+    Promise.all([apiService.subjectAssignments.getAll(), apiService.subjectAssignments.getOptions()])
+      .then(([rows, choices]) => { if (active) { setAssignments(rows); setOptions(choices); } })
+      .catch((err: unknown) => { if (active) setError(err instanceof Error ? err.message : "Unable to load allocations"); })
+      .finally(() => { if (active) setIsLoading(false); });
+    return () => { active = false; };
+  }, []);
+  const submit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (busy.current || isLoading || !form.subjectId || !form.classSectionId || !form.staffId) return;
+    busy.current = true; setSaving(true); setError("");
+    try {
+      if (editingId) await apiService.subjectAssignments.update(editingId, form);
+      else await apiService.subjectAssignments.create(form);
+      setAssignments(await apiService.subjectAssignments.getAll());
+      setEditingId(null); setForm({ subjectId: "", classSectionId: "", staffId: "" });
+    } catch (err) { setError(err instanceof Error ? err.message : "Unable to save allocation"); }
+    finally { busy.current = false; setSaving(false); }
+  };
+  const remove = async (id: string) => {
+    if (busy.current) return;
+    busy.current = true; setSaving(true); setError("");
+    try {
+      await apiService.subjectAssignments.delete(id);
+      setAssignments(await apiService.subjectAssignments.getAll());
+      if (editingId === id) { setEditingId(null); setForm({ subjectId: "", classSectionId: "", staffId: "" }); }
+    } catch (err) { setError(err instanceof Error ? err.message : "Unable to delete allocation"); }
+    finally { busy.current = false; setSaving(false); }
+  };
 
   return (
     <div className="container mx-auto p-4 space-y-8">
@@ -39,16 +71,17 @@ export default function AssignSubjectPage() {
         </h1>
       </div>
 
+      {error && <div role="alert" className="text-red-600 text-sm">{error} <button type="button" onClick={() => void reload()}>Retry</button></div>}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Assignment Form */}
         <div className="lg:col-span-4">
           <div className="rounded-3xl bg-white p-8 shadow-xl border border-gray-100 ring-1 ring-black/5 flex flex-col h-full bg-gradient-to-br from-white to-gray-50/10">
             <h4 className="mb-8 text-xs font-semibold text-gray-400   leading-none flex items-center gap-2">
-              Create Assignment
+              {editingId ? "Edit Assignment" : "Create Assignment"}
               <div className="h-[1px] flex-1 bg-gray-100"></div>
             </h4>
 
-            <form className="space-y-6 flex-1">
+            <form onSubmit={submit} className="space-y-6 flex-1">
               <div className="space-y-4">
                 <div>
                   <label className="block text-[10px] font-semibold text-gray-400   mb-2 px-1">
@@ -59,9 +92,10 @@ export default function AssignSubjectPage() {
                       className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"
                       size={12}
                     />
-                    <select className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm appearance-none">
-                      <option>Select Subject</option>
-                      <option>Advanced Mathematics</option>
+                    <select required disabled={saving || isLoading} value={form.subjectId} onChange={e => setForm({ ...form, subjectId: e.target.value })} className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm appearance-none">
+                      <option value="">Select Subject</option>
+                      {isLoading && <option disabled>Loading subjects...</option>}
+                      {options.subjects.map(subject => <option key={subject.id} value={subject.id}>{subject.name}</option>)}
                     </select>
                   </div>
                 </div>
@@ -75,9 +109,9 @@ export default function AssignSubjectPage() {
                       className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"
                       size={12}
                     />
-                    <select className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm appearance-none">
-                      <option>Select Unit</option>
-                      <option>Section Alpha</option>
+                    <select required disabled={saving || isLoading} value={form.classSectionId} onChange={e => setForm({ ...form, classSectionId: e.target.value })} className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm appearance-none">
+                      <option value="">Select Class / Section</option>
+                      {options.classSections.map(section => <option key={section.id} value={section.id}>{section.className} / {section.sectionName} ({section.academicYearName})</option>)}
                     </select>
                   </div>
                 </div>
@@ -91,9 +125,9 @@ export default function AssignSubjectPage() {
                       className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"
                       size={12}
                     />
-                    <select className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs font-semibold text-indigo-600 outline-none bg-indigo-50/30 appearance-none">
-                      <option>Select Faculty</option>
-                      <option>Dr. Julian Sterling</option>
+                    <select required disabled={saving || isLoading} value={form.staffId} onChange={e => setForm({ ...form, staffId: e.target.value })} className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs font-semibold text-indigo-600 outline-none bg-indigo-50/30 appearance-none">
+                      <option value="">Select Faculty</option>
+                      {options.teachers.map(teacher => <option key={teacher.id} value={teacher.id}>{teacher.name} ({teacher.staffNo})</option>)}
                     </select>
                   </div>
                 </div>
@@ -102,6 +136,7 @@ export default function AssignSubjectPage() {
               <div className="pt-6">
                 <button
                   type="submit"
+                  disabled={saving || isLoading || !form.subjectId || !form.classSectionId || !form.staffId}
                   className="w-full relative overflow-hidden rounded-2xl bg-indigo-600 px-8 py-5 text-white font-semibold text-xs   transition-all hover:bg-indigo-700 active:scale-[0.98] shadow-2xl shadow-indigo-100"
                 >
                   <div className="relative z-10 flex items-center justify-center gap-2">
@@ -169,15 +204,15 @@ export default function AssignSubjectPage() {
                       </td>
                       <td className="px-5 py-8 text-center">
                         <span className="px-4 py-1.5 bg-gray-900 text-white text-[9px] font-semibold rounded-lg   ">
-                          {a.section}
+                          {a.legacy ? `${a.section} (legacy)` : `${a.className} / ${a.section}`}
                         </span>
                       </td>
                       <td className="px-5 py-8 text-center">
                         <div className="flex justify-center gap-1">
-                          <button className="p-3 rounded-xl bg-gray-50 text-blue-500 hover:bg-blue-600 hover:text-white transition-all shadow-sm">
+                          <button disabled={saving || a.legacy} onClick={() => { setEditingId(a.id); setForm({ subjectId: a.subjectId, classSectionId: a.classSectionId ?? "", staffId: a.staffId ?? "" }); }} className="p-3 rounded-xl bg-gray-50 text-blue-500 hover:bg-blue-600 hover:text-white transition-all shadow-sm">
                             <FaEdit size={14} />
                           </button>
-                          <button className="p-3 rounded-xl bg-gray-50 text-rose-500 hover:bg-rose-600 hover:text-white transition-all shadow-sm">
+                          <button disabled={saving} onClick={() => void remove(a.id)} className="p-3 rounded-xl bg-gray-50 text-rose-500 hover:bg-rose-600 hover:text-white transition-all shadow-sm">
                             <FaTrash size={14} />
                           </button>
                         </div>

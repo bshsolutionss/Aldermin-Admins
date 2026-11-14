@@ -13,6 +13,9 @@ interface ClassRoomFormProps {
   capacity: string;
   setCapacity: (val: string) => void;
   handleSubmit: (e: React.FormEvent) => void;
+  disabled?: boolean;
+  editing?: boolean;
+  onCancel?: () => void;
 }
 
 export function ClassRoomForm({
@@ -21,12 +24,15 @@ export function ClassRoomForm({
   capacity,
   setCapacity,
   handleSubmit,
+  disabled,
+  editing,
+  onCancel,
 }: ClassRoomFormProps) {
   return (
     <AdminCard className="p-8 h-full bg-gradient-to-br from-white/60 to-sidebar/5">
       <div className="flex items-center justify-between mb-6">
         <h4 className="text-sm font-bold text-gray-500   flex items-center gap-2">
-          Add Classroom
+          {editing ? "Edit Classroom" : "Add Classroom"}
           <div className="h-1 w-12 bg-sidebar/20 rounded-full"></div>
         </h4>
       </div>
@@ -43,6 +49,8 @@ export function ClassRoomForm({
                 size={14}
               />
               <Input
+                disabled={disabled}
+                maxLength={100}
                 placeholder="e.g. 101"
                 value={roomNumber}
                 onChange={(e) => setRoomNumber(e.target.value)}
@@ -62,6 +70,11 @@ export function ClassRoomForm({
                 size={14}
               />
               <Input
+                disabled={disabled}
+                type="number"
+                min={1}
+                max={2147483647}
+                step={1}
                 placeholder="e.g. 40"
                 value={capacity}
                 onChange={(e) => setCapacity(e.target.value)}
@@ -75,6 +88,7 @@ export function ClassRoomForm({
         <div className="pt-2">
           <Button
             type="submit"
+            disabled={disabled}
             className="w-full py-6 text-xs font-semibold  tracking-[0.2em] bg-secondary hover:bg-secondary/90 text-white shadow-lg transition-all active:scale-[0.98]"
           >
             <div className="flex items-center gap-2">
@@ -82,6 +96,7 @@ export function ClassRoomForm({
               Save Room
             </div>
           </Button>
+          {editing && <Button type="button" variant="outline" disabled={disabled} onClick={onCancel} className="w-full mt-2">Cancel</Button>}
         </div>
       </form>
     </AdminCard>

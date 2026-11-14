@@ -6,7 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:auth": "node --test tests/auth/session.test.cjs tests/auth/portal.test.cjs",
+    "test:subjects": "node --test tests/subjects/subjects.test.cjs",
+    "test:assignments": "node --test tests/subjects/assignments.test.cjs",
+    "test:academic-years": "node --test tests/subjects/academic-years.test.cjs",
+    "test:sections": "node --test tests/subjects/sections.test.cjs",
+    "test:classes": "node --test tests/subjects/classes.test.cjs",
+    "test:hr": "node --test tests/hr/hr.test.cjs",
+    "test:class-teacher": "node --test tests/academics/class-teacher.test.cjs",
+    "test:classrooms": "node --test tests/academics/classrooms.test.cjs",
+    "test:class-routines": "node --test tests/academics/class-routines.test.cjs",
+    "test:foundations": "node --test tests/settings/admin-foundations.test.cjs",
+    "test:student-records": "node --test tests/students/records.test.cjs",
+    "test:school-content": "node --test tests/students/content.test.cjs",
+    "test:school-operations": "node --test tests/students/operations.test.cjs"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.11",

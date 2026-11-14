@@ -1,54 +1,21 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { FaPlus } from "react-icons/fa";
 import { PageHeader } from "@/components/common/PageHeader";
 import { SubjectForm } from "@/components/modules/academics/SubjectForm";
 import { Button } from "@/components/ui/button";
 import { DataTable } from "@/components/common/DataTable";
-import { apiService } from "@/lib/api-service";
+import { type SchoolSubject as Subject } from "@/lib/api-service";
+import { useSchoolSubjects } from "@/lib/use-school-subjects";
 import { ListActionButtons } from "@/components/common/ListActionButtons";
 
-interface Subject {
-  id: number;
-  name: string;
-  code: string;
-  type: string;
-}
-
 export default function SubjectPage() {
-  const [subjects, setSubjects] = useState<Subject[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [form, setForm] = useState<Omit<Subject, "id">>({
-    name: "",
-    code: "",
-    type: "Theory",
-  });
-
-  useEffect(() => {
-    const fetchSubjects = async () => {
-      try {
-        const data = (await apiService.academics.getSubjects()) as Subject[];
-        setSubjects(data);
-      } catch (error) {
-        console.error("Error fetching subjects:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchSubjects();
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.name) return;
-    setSubjects([...subjects, { ...form, id: Math.random() }]);
-    setForm({ name: "", code: "", type: "Theory" });
-  };
+  const { subjects, form, setForm, editingId, isLoading, isSubmitting, error, reload, reset, edit, submit, remove } = useSchoolSubjects();
 
   const columns = [
     {
-      header: "Course Name",
+      header: "Subject Name",
       accessor: "name" as keyof Subject,
       className: "font-semibold text-foreground",
     },
@@ -66,8 +33,8 @@ export default function SubjectPage() {
       header: "Action",
       accessor: (item: Subject) => (
         <ListActionButtons
-          onEdit={() => console.log("Edit", item.id)}
-          onDelete={() => setSubjects(subjects.filter((s) => s.id !== item.id))}
+          onEdit={() => edit(item)}
+          onDelete={() => void remove(item.id)}
         />
       ),
       className: "text-right",
@@ -81,19 +48,23 @@ export default function SubjectPage() {
         title="Knowledge Inventory"
         subtitle="Syllabus Management"
         action={
-          <Button className="bg-secondary hover:bg-secondary/90 text-white gap-2 py-6 px-6 rounded-xl font-bold text-[10px] shadow-lg shadow-secondary/10 transition-all">
+          <Button disabled={isSubmitting} onClick={reset} className="bg-secondary hover:bg-secondary/90 text-white gap-2 py-6 px-6 rounded-xl font-bold text-[10px] shadow-lg shadow-secondary/10 transition-all">
             <FaPlus /> Authorize Subject
           </Button>
         }
       />
 
+      {error && <div role="alert" className="text-red-600 text-sm">{error} <button type="button" disabled={isSubmitting} onClick={() => void reload()}>Retry</button></div>}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Creation Form */}
-        <div className="lg:col-span-4 h-full sticky top-8">
+        <div className="lg:col-span-4 h-full lg:sticky lg:top-8">
           <SubjectForm
-            form={form as any}
-            setForm={setForm as any}
-            onSubmit={handleSubmit}
+            form={form}
+            setForm={setForm}
+            onSubmit={submit}
+            disabled={isSubmitting || isLoading}
+            editing={!!editingId}
+            onCancel={reset}
           />
         </div>
 
@@ -103,7 +74,7 @@ export default function SubjectPage() {
             data={subjects}
             columns={columns}
             searchKey="name"
-            searchPlaceholder="Search courses..."
+            searchPlaceholder="Search subjects..."
             title="Registered Curriculum"
             isLoading={isLoading}
           />

@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import { useClassrooms } from "@/lib/use-classrooms";
 import {
   FaDoorOpen,
   FaUsers,
-  FaPlus,
   FaTrash,
   FaEdit,
   FaCheck,
@@ -12,28 +12,12 @@ import {
 } from "react-icons/fa";
 
 export default function AcademicClassRoomPage() {
-  const [roomNumber, setRoomNumber] = useState("");
-  const [capacity, setCapacity] = useState("");
-  const [rooms, setRooms] = useState([
-    { id: 1, number: "Room-101", capacity: "40" },
-    { id: 2, number: "Room-102", capacity: "35" },
-    { id: 3, number: "Lecture Hall B", capacity: "120" },
-  ]);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (roomNumber.trim() && capacity.trim()) {
-      setRooms([
-        ...rooms,
-        { id: rooms.length + 1, number: roomNumber, capacity: capacity },
-      ]);
-      setRoomNumber("");
-      setCapacity("");
-    }
-  };
+  const { rooms, roomNumber, setRoomNumber, capacity, setCapacity, handleSubmit,
+    editingId, error, isLoading, saving, edit, remove, reset, reload } = useClassrooms();
 
   return (
     <div className="container mx-auto p-4 space-y-8">
+      {error && <p role="alert" className="text-sm text-red-600">{error} <button type="button" disabled={saving || isLoading} onClick={() => void reload()}>Retry</button></p>}
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold text-gray-900 tracking-tighter flex items-center gap-3">
           <div className="p-2 bg-indigo-600 rounded-xl shadow-lg ring-4 ring-indigo-50">
@@ -48,7 +32,7 @@ export default function AcademicClassRoomPage() {
         <div className="lg:col-span-4">
           <div className="rounded-3xl bg-white p-8 shadow-xl border border-gray-100 ring-1 ring-black/5 flex flex-col h-full bg-gradient-to-br from-white to-gray-50/10">
             <h4 className="mb-6 text-xs font-semibold text-gray-400   leading-none flex items-center justify-between">
-              Register Space
+              {editingId ? "Edit Space" : "Register Space"}
               <div className="h-1 w-12 bg-indigo-100 rounded-full"></div>
             </h4>
 
@@ -63,6 +47,8 @@ export default function AcademicClassRoomPage() {
                     size={14}
                   />
                   <input
+                    disabled={saving || isLoading}
+                    maxLength={100}
                     type="text"
                     value={roomNumber}
                     onChange={(e) => setRoomNumber(e.target.value)}
@@ -84,6 +70,10 @@ export default function AcademicClassRoomPage() {
                   />
                   <input
                     type="number"
+                    disabled={saving || isLoading}
+                    min={1}
+                    max={2147483647}
+                    step={1}
                     value={capacity}
                     onChange={(e) => setCapacity(e.target.value)}
                     className="w-full rounded-2xl border-gray-100 p-4 pl-12 text-sm font-semibold focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500/20 outline-none transition-all placeholder:font-medium bg-white shadow-sm "
@@ -96,6 +86,7 @@ export default function AcademicClassRoomPage() {
               <div className="pt-4">
                 <button
                   type="submit"
+                  disabled={saving || isLoading}
                   className="group w-full relative overflow-hidden rounded-2xl bg-gray-900 px-8 py-5 text-white font-semibold text-xs   transition-all hover:bg-black active:scale-[0.98] shadow-2xl shadow-gray-200"
                 >
                   <div className="relative z-10 flex items-center justify-center gap-2">
@@ -103,6 +94,7 @@ export default function AcademicClassRoomPage() {
                     Archive Space
                   </div>
                 </button>
+                {editingId && <button type="button" disabled={saving} onClick={reset} className="w-full mt-2 text-sm text-gray-500">Cancel</button>}
               </div>
             </form>
           </div>
@@ -152,7 +144,7 @@ export default function AcademicClassRoomPage() {
                             <FaDoorOpen size={20} />
                           </div>
                           <span className="font-semibold text-gray-900 tracking-tight text-lg    leading-none">
-                            {r.number}
+                            {r.roomNumber}
                           </span>
                         </div>
                       </td>
@@ -164,10 +156,10 @@ export default function AcademicClassRoomPage() {
                       </td>
                       <td className="px-6 py-8 text-center">
                         <div className="flex justify-center gap-1">
-                          <button className="p-3 rounded-xl bg-gray-50 text-blue-500 hover:bg-blue-600 hover:text-white transition-all shadow-sm">
+                          <button disabled={saving} onClick={() => edit(r)} className="p-3 rounded-xl bg-gray-50 text-blue-500 hover:bg-blue-600 hover:text-white transition-all shadow-sm">
                             <FaEdit size={14} />
                           </button>
-                          <button className="p-3 rounded-xl bg-gray-50 text-rose-500 hover:bg-rose-600 hover:text-white transition-all shadow-sm">
+                          <button disabled={saving} onClick={() => void remove(r.id)} className="p-3 rounded-xl bg-gray-50 text-rose-500 hover:bg-rose-600 hover:text-white transition-all shadow-sm">
                             <FaTrash size={14} />
                           </button>
                         </div>

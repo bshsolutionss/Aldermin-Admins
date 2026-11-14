@@ -1,9 +1,29 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AdminCard } from "@/components/common/AdminCard";
+import { apiService, UserAccount } from "@/lib/api-service";
 
 export function WelcomeCard() {
+  const [currentUser, setCurrentUser] = useState<UserAccount | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    apiService.auth
+      .getMe()
+      .then((user) => {
+        if (isMounted) setCurrentUser(user);
+      })
+      .catch(() => {});
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const recipient = currentUser?.name
+    ? `${currentUser.name}!`
+    : "The Deenway School Team!";
+
   return (
     <AdminCard className="h-full p-6 sm:p-8 relative overflow-hidden flex flex-col md:flex-row justify-between items-center group min-h-[220px]">
       {/* Text Section */}
@@ -11,7 +31,7 @@ export function WelcomeCard() {
         <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 tracking-tight">
           Welcome back,{" "}
           <span className="text-secondary block sm:inline">
-            The Deenway School Team!
+            {recipient}
           </span>
         </h2>
         <p className="text-muted-foreground leading-relaxed text-sm sm:text-base font-medium max-w-md mx-auto md:mx-0">

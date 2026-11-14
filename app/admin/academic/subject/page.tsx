@@ -1,48 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
   FaBookOpen,
-  FaPlus,
   FaTrash,
   FaEdit,
   FaCheck,
   FaFlask,
   FaMicroscope,
 } from "react-icons/fa";
+import { useSchoolSubjects } from "@/lib/use-school-subjects";
 
 export default function SubjectPage() {
-  const [subjectName, setSubjectName] = useState("");
-  const [subjectCode, setSubjectCode] = useState("");
-  const [subjectType, setSubjectType] = useState("Theory");
-
-  const [subjectList, setSubjectList] = useState([
-    { id: 1, name: "Advanced Mathematics", type: "Theory", code: "MAT-401" },
-    {
-      id: 2,
-      name: "Computational Physics",
-      type: "Practical",
-      code: "PHY-402",
-    },
-    { id: 3, name: "Organic Chemistry", type: "Theory", code: "CHM-403" },
-  ]);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (subjectName.trim() && subjectCode.trim()) {
-      setSubjectList([
-        ...subjectList,
-        {
-          id: subjectList.length + 1,
-          name: subjectName,
-          type: subjectType,
-          code: subjectCode,
-        },
-      ]);
-      setSubjectName("");
-      setSubjectCode("");
-    }
-  };
+  const { subjects: subjectList, form, setForm, editingId, isLoading, isSubmitting, error, reload, reset, edit, submit, remove } = useSchoolSubjects();
+  const subjectName = form.name;
+  const subjectCode = form.code ?? "";
+  const subjectType = form.type;
 
   return (
     <div className="container mx-auto p-4 space-y-8">
@@ -55,17 +28,19 @@ export default function SubjectPage() {
         </h1>
       </div>
 
+      {error && <div role="alert" className="text-red-600 text-sm">{error} <button type="button" disabled={isSubmitting} onClick={() => void reload()}>Retry</button></div>}
+      {isLoading && <p role="status">Loading subjects...</p>}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Creation Form */}
         <div className="lg:col-span-4">
           <div className="rounded-3xl bg-white p-8 shadow-xl border border-gray-100 ring-1 ring-black/5 flex flex-col h-full bg-gradient-to-br from-white to-gray-50/10">
             <h4 className="mb-8 text-xs font-semibold text-gray-400   leading-none flex items-center gap-2">
-              Add Curricular Discipline
+              {editingId ? "Edit Curricular Discipline" : "Add Curricular Discipline"}
               <div className="h-[1px] flex-1 bg-gray-100"></div>
             </h4>
 
-            <form onSubmit={handleSubmit} className="space-y-6 flex-1">
-              <div className="space-y-4">
+            <form onSubmit={submit} className="space-y-6 flex-1">
+              <fieldset disabled={isSubmitting || isLoading} className="min-w-0 space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label className="block text-[10px] font-semibold text-gray-400   mb-2 px-1 text-nowrap">
@@ -73,8 +48,9 @@ export default function SubjectPage() {
                     </label>
                     <input
                       type="text"
+                      maxLength={200}
                       value={subjectName}
-                      onChange={(e) => setSubjectName(e.target.value)}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
                       className="w-full rounded-2xl border-gray-100 p-4 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm"
                       placeholder="e.g. Topology"
                       required
@@ -86,8 +62,9 @@ export default function SubjectPage() {
                     </label>
                     <input
                       type="text"
+                      maxLength={50}
                       value={subjectCode}
-                      onChange={(e) => setSubjectCode(e.target.value)}
+                      onChange={(e) => setForm({ ...form, code: e.target.value })}
                       className="w-full rounded-2xl border-gray-100 p-4 text-xs  font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm"
                       placeholder="TOP-101"
                       required
@@ -101,7 +78,7 @@ export default function SubjectPage() {
                   </label>
                   <div className="grid grid-cols-2 gap-4">
                     <div
-                      onClick={() => setSubjectType("Theory")}
+                      onClick={() => !isSubmitting && setForm({ ...form, type: "Theory" })}
                       className={`p-4 rounded-2xl border cursor-pointer transition-all flex items-center gap-3 ${
                         subjectType === "Theory"
                           ? "bg-indigo-600 border-indigo-600 text-white shadow-lg"
@@ -121,7 +98,7 @@ export default function SubjectPage() {
                       </span>
                     </div>
                     <div
-                      onClick={() => setSubjectType("Practical")}
+                      onClick={() => !isSubmitting && setForm({ ...form, type: "Practical" })}
                       className={`p-4 rounded-2xl border cursor-pointer transition-all flex items-center gap-3 ${
                         subjectType === "Practical"
                           ? "bg-indigo-600 border-indigo-600 text-white shadow-lg"
@@ -142,19 +119,21 @@ export default function SubjectPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </fieldset>
 
               <div className="pt-6">
                 <button
                   type="submit"
+                  disabled={isSubmitting || isLoading}
                   className="w-full relative overflow-hidden rounded-2xl bg-gray-900 border-b-4 border-gray-700 text-white px-8 py-5 text-xs font-semibold   transition-all hover:bg-black active:scale-[0.98] active:border-b-0 active:translate-y-1 shadow-2xl shadow-gray-200"
                 >
                   <div className="relative z-10 flex items-center justify-center gap-2">
                     <FaCheck className="" />
-                    Catalog Discipline
+                    {editingId ? "Update Discipline" : "Catalog Discipline"}
                   </div>
                 </button>
               </div>
+              {editingId && <button type="button" disabled={isSubmitting} onClick={reset}>Cancel edit</button>}
             </form>
           </div>
         </div>
@@ -189,6 +168,7 @@ export default function SubjectPage() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-50/70">
+                  {!isLoading && subjectList.length === 0 && <tr><td colSpan={4} className="p-8 text-center text-gray-500">No subjects found.</td></tr>}
                   {subjectList.map((s, index) => (
                     <tr
                       key={s.id}
@@ -229,10 +209,15 @@ export default function SubjectPage() {
                       </td>
                       <td className="px-5 py-8 text-center">
                         <div className="flex justify-center gap-1">
-                          <button className="p-3 rounded-xl bg-gray-50 text-blue-500 hover:bg-blue-600 hover:text-white transition-all shadow-sm">
+                          <button aria-label={`Edit ${s.name}`} disabled={isSubmitting} onClick={() => edit(s)} className="p-3 rounded-xl bg-gray-50 text-blue-500 hover:bg-blue-600 hover:text-white transition-all shadow-sm">
                             <FaEdit size={14} />
                           </button>
-                          <button className="p-3 rounded-xl bg-gray-50 text-rose-500 hover:bg-rose-600 hover:text-white transition-all shadow-sm">
+                          <button
+                            aria-label={`Delete ${s.name}`}
+                            disabled={isSubmitting}
+                            onClick={() => void remove(s.id)}
+                            className="p-3 rounded-xl bg-gray-50 text-rose-500 hover:bg-rose-600 hover:text-white transition-all shadow-sm cursor-pointer"
+                          >
                             <FaTrash size={14} />
                           </button>
                         </div>

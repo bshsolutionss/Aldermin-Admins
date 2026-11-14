@@ -1,29 +1,42 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { apiService } from "@/lib/api-service";
 
 export default function LoginPage() {
-  const router = useRouter();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (username === "admin" && password === "Admin@123") {
-      router.push("/admin");
-    } else {
-      setError("Invalid username or password");
+    setError("");
+    setSuccess("");
+    setLoading(true);
+
+    try {
+      const res = await apiService.auth.login({
+        email: email.trim(),
+        password,
+        portal: "portal",
+      });
+
+      setSuccess(`Signed in successfully as ${res.user.name} (${res.user.role.toUpperCase()}).`);
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Authentication failed"
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="bg-white w-full max-w-md rounded-2xl shadow-lg p-8">
-
-        {/* Logo */}
         <div className="text-center mb-8">
           <img
             src="/assets/images/aldermin-logo.png"
@@ -35,28 +48,31 @@ export default function LoginPage() {
           </p>
         </div>
 
-        {/* Error */}
         {error && (
-          <div className="mb-5 bg-red-50 text-red-600 text-sm text-center py-3 rounded-lg">
+          <div role="alert" className="mb-5 bg-red-50 text-red-600 text-sm text-center py-3 rounded-lg">
             {error}
           </div>
         )}
 
-        {/* Form */}
+        {success && (
+          <div role="status" className="mb-5 bg-green-50 text-green-700 text-sm text-center py-3 rounded-lg">
+            {success}
+          </div>
+        )}
+
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Username
+              Email
             </label>
             <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Enter username"
+              type="email"
+              value={email}
+              onChange={(e) => { setEmail(e.target.value); setSuccess(""); }}
+              placeholder="Enter email"
+              autoComplete="email"
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg
-                         focus:outline-none focus:ring-2 focus:ring-blue-500
-                         transition"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
             />
           </div>
 
@@ -67,35 +83,40 @@ export default function LoginPage() {
             <input
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => { setPassword(e.target.value); setSuccess(""); }}
               placeholder="Enter password"
+              autoComplete="current-password"
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg
-                         focus:outline-none focus:ring-2 focus:ring-blue-500
-                         transition"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
             />
           </div>
 
-          {/* Forgot Password */}
-            <div className="flex justify-end">
+          <div className="flex justify-between items-center text-sm">
             <Link
-                href="/auth/forgot-password"
-                className="text-sm text-blue-600 hover:underline"
+              href="/"
+              className="text-gray-500 hover:text-gray-800 transition"
             >
-                Forgot password?
+              Admin Portal
             </Link>
-            </div>
+            <Link
+              href="/auth/forgot-password"
+              className="text-blue-600 hover:underline"
+            >
+              Forgot password?
+            </Link>
+          </div>
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white
-                       font-semibold py-3 rounded-lg transition-all
-                       shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+            disabled={loading}
+            className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white font-semibold py-3 rounded-lg transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 cursor-pointer"
           >
-            Sign In
+            {loading ? "Signing In..." : "Sign In"}
           </button>
         </form>
-
+        <p className="mt-6 text-sm text-center text-gray-500">
+          New student? <Link href="/auth/register" className="text-blue-600 hover:underline">Create an account</Link>
+        </p>
       </div>
     </div>
   );

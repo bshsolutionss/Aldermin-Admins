@@ -1,46 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import { useClassRoutines, routineDays } from "@/lib/use-class-routines";
 import {
   FaCalendarAlt,
   FaClock,
   FaBook,
   FaUserTie,
   FaDoorOpen,
-  FaPlus,
   FaTrash,
   FaEdit,
   FaCheck,
-  FaChalkboard,
   FaLayerGroup,
 } from "react-icons/fa";
 
 export default function ClassRoutinePage() {
-  const [routines, setRoutines] = useState([
-    {
-      id: 1,
-      className: "Class 10",
-      section: "Section A",
-      day: "Monday",
-      time: "08:00 - 08:40",
-      subject: "Advanced Physics",
-      teacher: "Prof. Silas Vance",
-      room: "LAB-01",
-    },
-    {
-      id: 2,
-      className: "Class 09",
-      section: "Section B",
-      day: "Tuesday",
-      time: "09:00 - 09:40",
-      subject: "Quantum Calculus",
-      teacher: "Dr. Elara Vance",
-      room: "HALL-C",
-    },
-  ]);
+  const { routines, options, formData, change, handleSubmit, editingId, error, isLoading, saving,
+    edit, remove, reset, reload, classes, sections, subjects, selectedAllocation } = useClassRoutines();
 
   return (
     <div className="container mx-auto p-4 space-y-8">
+      {error && <p role="alert" className="text-sm text-red-600">{error} <button type="button" disabled={saving || isLoading} onClick={() => void reload()}>Retry</button></p>}
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold text-gray-900 tracking-tighter flex items-center gap-3">
           <div className="p-2 bg-indigo-600 rounded-xl shadow-lg ring-4 ring-indigo-50">
@@ -50,31 +30,34 @@ export default function ClassRoutinePage() {
         </h1>
       </div>
 
+      <label className="block text-sm text-gray-500">Academic year <select aria-label="Academic year" value={options.academicYearId ?? ""} disabled={saving || isLoading} onChange={e => void reload(e.target.value)} className="ml-2 rounded-xl border border-gray-200 bg-white px-3 py-2"><option value="" disabled>Select year</option>{options.academicYears.map(year => <option key={year.id} value={year.id}>{year.name}</option>)}</select></label>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Creation Form */}
         <div className="lg:col-span-4">
           <div className="rounded-3xl bg-white p-8 shadow-xl border border-gray-100 ring-1 ring-black/5 flex flex-col h-full bg-gradient-to-br from-white to-indigo-50/5">
             <h4 className="mb-8 text-xs font-semibold text-gray-400   leading-none flex items-center gap-2">
-              Add To Chronology
+              {editingId ? "Edit Chronology" : "Add To Chronology"}
               <div className="h-[1px] flex-1 bg-gray-100"></div>
             </h4>
 
-            <form className="space-y-5 flex-1">
+            <form onSubmit={handleSubmit} className="space-y-5 flex-1">
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-[10px] font-semibold text-gray-400   mb-2 px-1">
                     Grade
                   </label>
-                  <select className="w-full rounded-2xl border-gray-100 p-4 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm appearance-none">
-                    <option>Class 10</option>
+                  <select required disabled={saving || isLoading} value={formData.class} onChange={e => change("class", e.target.value)} className="w-full rounded-2xl border-gray-100 p-4 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm appearance-none">
+                    <option value="">Select Class</option>
+                    {classes.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
                   </select>
                 </div>
                 <div>
                   <label className="block text-[10px] font-semibold text-gray-400   mb-2 px-1">
                     Unit
                   </label>
-                  <select className="w-full rounded-2xl border-gray-100 p-4 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm appearance-none">
-                    <option>Section A</option>
+                  <select required disabled={saving || isLoading || !formData.class} value={formData.section} onChange={e => change("section", e.target.value)} className="w-full rounded-2xl border-gray-100 p-4 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm appearance-none">
+                    <option value="">Select Section</option>
+                    {sections.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
                   </select>
                 </div>
               </div>
@@ -83,12 +66,9 @@ export default function ClassRoutinePage() {
                 <label className="block text-[10px] font-semibold text-gray-400   mb-2 px-1">
                   Academic Day
                 </label>
-                <select className="w-full rounded-2xl border-gray-100 p-4 text-xs font-semibold text-indigo-600 outline-none bg-indigo-50/30 appearance-none ">
-                  <option>Monday</option>
-                  <option>Tuesday</option>
-                  <option>Wednesday</option>
-                  <option>Thursday</option>
-                  <option>Friday</option>
+                <select required disabled={saving || isLoading} value={formData.day} onChange={e => change("day", e.target.value)} className="w-full rounded-2xl border-gray-100 p-4 text-xs font-semibold text-indigo-600 outline-none bg-indigo-50/30 appearance-none ">
+                  <option value="">Select Day</option>
+                  {routineDays.map((day,index) => <option key={day} value={String(index+1)}>{day}</option>)}
                 </select>
               </div>
 
@@ -103,7 +83,8 @@ export default function ClassRoutinePage() {
                       size={12}
                     />
                     <input
-                      type="text"
+                      type="time"
+                      required disabled={saving || isLoading} value={formData.startTime} onChange={e => change("startTime", e.target.value)}
                       placeholder="08:00 AM"
                       className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs  font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm"
                     />
@@ -119,7 +100,8 @@ export default function ClassRoutinePage() {
                       size={12}
                     />
                     <input
-                      type="text"
+                      type="time"
+                      required disabled={saving || isLoading} value={formData.endTime} onChange={e => change("endTime", e.target.value)}
                       placeholder="08:40 AM"
                       className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs  font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm"
                     />
@@ -136,8 +118,9 @@ export default function ClassRoutinePage() {
                     className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"
                     size={12}
                   />
-                  <select className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm appearance-none">
-                    <option>Advanced Physics</option>
+                  <select required disabled={saving || isLoading || !formData.section} value={formData.subject} onChange={e => change("subject", e.target.value)} className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm appearance-none">
+                    <option value="">Select Subject</option>
+                    {subjects.map(s => <option key={s.id} value={s.id}>{s.subjectName}</option>)}
                   </select>
                 </div>
               </div>
@@ -151,8 +134,9 @@ export default function ClassRoutinePage() {
                     className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"
                     size={12}
                   />
-                  <select className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm appearance-none group">
-                    <option>Prof. Silas Vance</option>
+                  <select disabled value={formData.teacher} className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm appearance-none group">
+                    <option value="">Assigned Teacher</option>
+                    {selectedAllocation && <option value={selectedAllocation.staffId}>{selectedAllocation.teacherName}</option>}
                   </select>
                 </div>
               </div>
@@ -166,17 +150,17 @@ export default function ClassRoutinePage() {
                     className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"
                     size={12}
                   />
-                  <input
-                    type="text"
-                    placeholder="LAB-01"
+                  <select
+                    required disabled={saving || isLoading} value={formData.room} onChange={e => change("room", e.target.value)}
                     className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm  "
-                  />
+                  ><option value="">Select Room</option>{options.classrooms.map(room => <option key={room.id} value={room.id}>{room.roomNumber}</option>)}</select>
                 </div>
               </div>
 
               <div className="pt-4">
                 <button
                   type="submit"
+                  disabled={saving || isLoading}
                   className="w-full relative overflow-hidden rounded-2xl bg-gray-900 px-8 py-5 text-white font-semibold text-xs   transition-all hover:bg-black active:scale-[0.98] shadow-2xl shadow-gray-200"
                 >
                   <div className="relative z-10 flex items-center justify-center gap-2">
@@ -184,6 +168,7 @@ export default function ClassRoutinePage() {
                     Save To Routine
                   </div>
                 </button>
+                {editingId && <button type="button" disabled={saving} onClick={reset} className="w-full mt-2 text-sm text-gray-500">Cancel</button>}
               </div>
             </form>
           </div>
@@ -232,7 +217,7 @@ export default function ClassRoutinePage() {
                       </td>
                       <td className="px-5 py-8">
                         <div className="font-semibold text-gray-900 leading-tight text-xs   tracking-tighter mb-1">
-                          {r.className}
+                          {r.class}
                         </div>
                         <div className="flex items-center gap-1.5 text-[8px] font-semibold text-indigo-500  ">
                           <FaLayerGroup size={8} /> {r.section}
@@ -244,7 +229,7 @@ export default function ClassRoutinePage() {
                         </div>
                         <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-50 rounded-lg text-[9px]  text-gray-500 border border-gray-100">
                           <FaClock size={8} className="text-indigo-400" />{" "}
-                          {r.time}
+                          {r.startTime} - {r.endTime}
                         </div>
                       </td>
                       <td className="px-5 py-8">
@@ -264,10 +249,10 @@ export default function ClassRoutinePage() {
                       </td>
                       <td className="px-5 py-8 text-center text-[10px] font-semibold  text-gray-400 ">
                         <div className="flex justify-center gap-1">
-                          <button className="p-3 rounded-xl bg-gray-50 text-blue-500 hover:bg-blue-600 hover:text-white transition-all shadow-sm">
+                          <button disabled={saving || isLoading} onClick={() => edit(r)} className="p-3 rounded-xl bg-gray-50 text-blue-500 hover:bg-blue-600 hover:text-white transition-all shadow-sm">
                             <FaEdit size={12} />
                           </button>
-                          <button className="p-3 rounded-xl bg-gray-50 text-rose-500 hover:bg-rose-600 hover:text-white transition-all shadow-sm">
+                          <button disabled={saving || isLoading} onClick={() => void remove(r.id)} className="p-3 rounded-xl bg-gray-50 text-rose-500 hover:bg-rose-600 hover:text-white transition-all shadow-sm">
                             <FaTrash size={12} />
                           </button>
                         </div>

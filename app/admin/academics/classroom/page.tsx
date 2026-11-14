@@ -1,47 +1,18 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { PageHeader } from "@/components/common/PageHeader";
 import { ClassRoomForm } from "@/components/modules/academics/ClassRoomForm";
 import { Button } from "@/components/ui/button";
 import { FaPlus } from "react-icons/fa";
 import { DataTable } from "@/components/common/DataTable";
-import { apiService } from "@/lib/api-service";
+import { type Classroom as Room } from "@/lib/api-service";
+import { useClassrooms } from "@/lib/use-classrooms";
 import { ListActionButtons } from "@/components/common/ListActionButtons";
 
-interface Room {
-  id: number;
-  roomNumber: string;
-  capacity: string;
-}
-
 export default function ClassRoomPage() {
-  const [rooms, setRooms] = useState<Room[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [roomNumber, setRoomNumber] = useState("");
-  const [capacity, setCapacity] = useState("");
-
-  useEffect(() => {
-    const fetchRooms = async () => {
-      try {
-        const data = (await apiService.academics.getClassRooms()) as Room[];
-        setRooms(data);
-      } catch (error) {
-        console.error("Error fetching rooms:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchRooms();
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!roomNumber || !capacity) return;
-    setRooms([...rooms, { id: Math.random(), roomNumber, capacity }]);
-    setRoomNumber("");
-    setCapacity("");
-  };
+  const { rooms, isLoading, roomNumber, setRoomNumber, capacity, setCapacity, handleSubmit,
+    error, saving, editingId, edit, remove, reset, reload } = useClassrooms();
 
   const columns = [
     {
@@ -63,8 +34,8 @@ export default function ClassRoomPage() {
       header: "Action",
       accessor: (item: Room) => (
         <ListActionButtons
-          onEdit={() => console.log("Edit", item.id)}
-          onDelete={() => setRooms(rooms.filter((r) => r.id !== item.id))}
+          onEdit={() => edit(item)}
+          onDelete={() => void remove(item.id)}
         />
       ),
       className: "text-right",
@@ -74,11 +45,12 @@ export default function ClassRoomPage() {
 
   return (
     <div className="container mx-auto space-y-8 pb-10">
+      {error && <p role="alert" className="text-sm text-red-600">{error} <button type="button" disabled={saving || isLoading} onClick={() => void reload()}>Retry</button></p>}
       <PageHeader
         title="Classroom Management"
         subtitle="Infrastructure"
         action={
-          <Button className="bg-secondary hover:bg-secondary/90 text-white gap-2 py-6 px-6 rounded-xl font-bold text-[10px] shadow-lg shadow-secondary/10 transition-all">
+          <Button disabled={saving} onClick={reset} className="bg-secondary hover:bg-secondary/90 text-white gap-2 py-6 px-6 rounded-xl font-bold text-[10px] shadow-lg shadow-secondary/10 transition-all">
             <FaPlus /> Add Room
           </Button>
         }
@@ -88,6 +60,9 @@ export default function ClassRoomPage() {
         {/* Creation Form */}
         <div className="lg:col-span-4 h-full sticky top-8">
           <ClassRoomForm
+            disabled={saving || isLoading}
+            editing={!!editingId}
+            onCancel={reset}
             roomNumber={roomNumber}
             setRoomNumber={setRoomNumber}
             capacity={capacity}

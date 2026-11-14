@@ -1,78 +1,18 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { PageHeader } from "@/components/common/PageHeader";
 import { RoutineForm } from "@/components/modules/academics/RoutineForm";
 import { Button } from "@/components/ui/button";
 import { FaPlus, FaClock, FaMapMarkerAlt } from "react-icons/fa";
 import { DataTable } from "@/components/common/DataTable";
-import { apiService } from "@/lib/api-service";
+import { type ClassRoutine as Routine } from "@/lib/api-service";
+import { useClassRoutines } from "@/lib/use-class-routines";
 import { ListActionButtons } from "@/components/common/ListActionButtons";
 
-interface Routine {
-  id: number;
-  class: string;
-  section: string;
-  day: string;
-  startTime: string;
-  endTime: string;
-  subject: string;
-  teacher: string;
-  room: string;
-}
-
 export default function ClassRoutinePage() {
-  const [routines, setRoutines] = useState<Routine[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [formData, setFormData] = useState({
-    class: "",
-    section: "",
-    day: "",
-    startTime: "",
-    endTime: "",
-    subject: "",
-    teacher: "",
-    room: "",
-  });
-
-  useEffect(() => {
-    const fetchRoutines = async () => {
-      try {
-        const data = (await apiService.academics.getRoutines()) as Routine[];
-        setRoutines(data);
-      } catch (error) {
-        console.error("Error fetching routines:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchRoutines();
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.class || !formData.day || !formData.subject) return;
-
-    setRoutines([
-      ...routines,
-      {
-        id: Math.random(),
-        ...formData,
-      },
-    ]);
-
-    // Reset minimal
-    setFormData({
-      class: "",
-      section: "",
-      day: "",
-      startTime: "",
-      endTime: "",
-      subject: "",
-      teacher: "",
-      room: "",
-    });
-  };
+  const { routines, isLoading, saving, error, options, formData, change, handleSubmit,
+    editingId, edit, remove, reset, reload, classes, sections, subjects, selectedAllocation } = useClassRoutines();
 
   const columns = [
     {
@@ -123,8 +63,8 @@ export default function ClassRoutinePage() {
       header: "Action",
       accessor: (item: Routine) => (
         <ListActionButtons
-          onEdit={() => console.log("Edit", item.id)}
-          onDelete={() => setRoutines(routines.filter((r) => r.id !== item.id))}
+          onEdit={() => edit(item)}
+          onDelete={() => void remove(item.id)}
         />
       ),
       className: "text-right",
@@ -134,23 +74,28 @@ export default function ClassRoutinePage() {
 
   return (
     <div className="container mx-auto space-y-8 pb-10">
+      {error && <p role="alert" className="text-sm text-red-600">{error} <button type="button" disabled={saving || isLoading} onClick={() => void reload()}>Retry</button></p>}
       <PageHeader
         title="Routine Management"
         subtitle="Scheduling"
         action={
-          <Button className="bg-secondary hover:bg-secondary/90 text-white gap-2 py-6 px-6 rounded-xl font-bold text-[10px] shadow-lg shadow-secondary/10 transition-all">
+          <Button disabled={saving || isLoading} onClick={reset} className="bg-secondary hover:bg-secondary/90 text-white gap-2 py-6 px-6 rounded-xl font-bold text-[10px] shadow-lg shadow-secondary/10 transition-all">
             <FaPlus /> Add Routine
           </Button>
         }
       />
+      <label className="block text-sm text-gray-500">Academic year <select aria-label="Academic year" value={options.academicYearId ?? ""} disabled={saving || isLoading} onChange={e => void reload(e.target.value)} className="ml-2 rounded-xl border border-gray-200 bg-white px-3 py-2"><option value="" disabled>Select year</option>{options.academicYears.map(year => <option key={year.id} value={year.id}>{year.name}</option>)}</select></label>
+      {!isLoading && !options.allocations.length && <p className="text-sm text-gray-500">Create a subject allocation with an active staff member for this academic year before scheduling a routine.</p>}
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Creation Form */}
         <div className="lg:col-span-4 h-full sticky top-8">
           <RoutineForm
             formData={formData}
-            setFormData={setFormData}
+            change={change}
             handleSubmit={handleSubmit}
+            classes={classes} sections={sections} subjects={subjects} classrooms={options.classrooms} selectedAllocation={selectedAllocation}
+            disabled={saving || isLoading} editing={!!editingId} onCancel={reset}
           />
         </div>
 

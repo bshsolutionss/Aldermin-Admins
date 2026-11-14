@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import { type RoutineAllocation, type Classroom } from "@/lib/api-service";
+import { routineDays, type RoutineFormData } from "@/lib/use-class-routines";
 import { AdminCard } from "@/components/common/AdminCard";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -15,34 +17,38 @@ import { Button } from "@/components/ui/button";
 import {
   FaCheck,
   FaCalendarDay,
-  FaClock,
   FaBookOpen,
   FaUserTie,
   FaDoorClosed,
-  FaUsers,
-  FaLayerGroup,
 } from "react-icons/fa";
 
 interface RoutineFormProps {
-  formData: any;
-  setFormData: (data: any) => void;
+  formData: RoutineFormData;
+  change: (field: keyof RoutineFormData, value: string) => void;
   handleSubmit: (e: React.FormEvent) => void;
+  classes: { id: string; name: string }[];
+  sections: { id: string; name: string }[];
+  subjects: RoutineAllocation[];
+  classrooms: Classroom[];
+  selectedAllocation?: RoutineAllocation;
+  disabled?: boolean;
+  editing?: boolean;
+  onCancel?: () => void;
 }
 
 export function RoutineForm({
   formData,
-  setFormData,
+  change,
   handleSubmit,
+  classes, sections, subjects, classrooms, selectedAllocation, disabled, editing, onCancel,
 }: RoutineFormProps) {
-  const handleChange = (field: string, value: string) => {
-    setFormData({ ...formData, [field]: value });
-  };
+  const handleChange = change;
 
   return (
     <AdminCard className="p-8 h-full bg-gradient-to-br from-white/60 to-sidebar/5">
       <div className="flex items-center justify-between mb-6">
         <h4 className="text-sm font-bold text-gray-500   flex items-center gap-2">
-          Add Routine Entry
+          {editing ? "Edit Routine Entry" : "Add Routine Entry"}
           <div className="h-1 w-12 bg-sidebar/20 rounded-full"></div>
         </h4>
       </div>
@@ -55,6 +61,7 @@ export function RoutineForm({
               Class <span className="text-red-500">*</span>
             </Label>
             <Select
+              disabled={disabled}
               value={formData.class}
               onValueChange={(val) => handleChange("class", val)}
             >
@@ -62,8 +69,7 @@ export function RoutineForm({
                 <SelectValue placeholder="Select" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Class 1">Class 1</SelectItem>
-                <SelectItem value="Class 2">Class 2</SelectItem>
+                {classes.map(c => <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>)}
               </SelectContent>
             </Select>
           </div>
@@ -74,14 +80,14 @@ export function RoutineForm({
             </Label>
             <Select
               value={formData.section}
+              disabled={disabled || !formData.class}
               onValueChange={(val) => handleChange("section", val)}
             >
               <SelectTrigger className="bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium">
                 <SelectValue placeholder="Select" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="A">A</SelectItem>
-                <SelectItem value="B">B</SelectItem>
+                {sections.map(s => <SelectItem key={s.id} value={s.id}>{s.name}</SelectItem>)}
               </SelectContent>
             </Select>
           </div>
@@ -99,17 +105,14 @@ export function RoutineForm({
             />
             <Select
               value={formData.day}
+              disabled={disabled}
               onValueChange={(val) => handleChange("day", val)}
             >
               <SelectTrigger className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium">
                 <SelectValue placeholder="Select Day" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Monday">Monday</SelectItem>
-                <SelectItem value="Tuesday">Tuesday</SelectItem>
-                <SelectItem value="Wednesday">Wednesday</SelectItem>
-                <SelectItem value="Thursday">Thursday</SelectItem>
-                <SelectItem value="Friday">Friday</SelectItem>
+                {routineDays.map((day, index) => <SelectItem key={day} value={String(index + 1)}>{day}</SelectItem>)}
               </SelectContent>
             </Select>
           </div>
@@ -123,6 +126,8 @@ export function RoutineForm({
             </Label>
             <Input
               type="time"
+              required
+              disabled={disabled}
               value={formData.startTime}
               onChange={(e) => handleChange("startTime", e.target.value)}
               className="bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium"
@@ -135,6 +140,8 @@ export function RoutineForm({
             <Input
               type="time"
               value={formData.endTime}
+              required
+              disabled={disabled}
               onChange={(e) => handleChange("endTime", e.target.value)}
               className="bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium"
             />
@@ -153,15 +160,14 @@ export function RoutineForm({
             />
             <Select
               value={formData.subject}
+              disabled={disabled || !formData.section}
               onValueChange={(val) => handleChange("subject", val)}
             >
               <SelectTrigger className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium">
                 <SelectValue placeholder="Select Subject" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Math">Math</SelectItem>
-                <SelectItem value="English">English</SelectItem>
-                <SelectItem value="Science">Science</SelectItem>
+                {subjects.map(s => <SelectItem key={s.id} value={s.id}>{s.subjectName}</SelectItem>)}
               </SelectContent>
             </Select>
           </div>
@@ -179,14 +185,14 @@ export function RoutineForm({
             />
             <Select
               value={formData.teacher}
+              disabled
               onValueChange={(val) => handleChange("teacher", val)}
             >
               <SelectTrigger className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium">
                 <SelectValue placeholder="Select Teacher" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Sir Ahmed">Sir Ahmed</SelectItem>
-                <SelectItem value="Ms. Sara">Ms. Sara</SelectItem>
+                {selectedAllocation && <SelectItem value={selectedAllocation.staffId}>{selectedAllocation.teacherName}</SelectItem>}
               </SelectContent>
             </Select>
           </div>
@@ -202,18 +208,17 @@ export function RoutineForm({
               className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 z-10"
               size={14}
             />
-            <Input
-              placeholder="e.g. 101"
-              value={formData.room}
-              onChange={(e) => handleChange("room", e.target.value)}
-              className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium"
-            />
+            <Select value={formData.room} onValueChange={val => handleChange("room", val)} disabled={disabled}>
+              <SelectTrigger className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium"><SelectValue placeholder="Select Room" /></SelectTrigger>
+              <SelectContent>{classrooms.map(room => <SelectItem key={room.id} value={room.id}>{room.roomNumber}</SelectItem>)}</SelectContent>
+            </Select>
           </div>
         </div>
 
         <div className="pt-2">
           <Button
             type="submit"
+            disabled={disabled}
             className="w-full py-6 text-xs font-semibold  tracking-[0.2em] bg-secondary hover:bg-secondary/90 text-white shadow-lg transition-all active:scale-[0.98]"
           >
             <div className="flex items-center gap-2">
@@ -221,6 +226,7 @@ export function RoutineForm({
               Save Routine
             </div>
           </Button>
+          {editing && <Button type="button" variant="outline" disabled={disabled} onClick={onCancel} className="w-full mt-2">Cancel</Button>}
         </div>
       </form>
     </AdminCard>

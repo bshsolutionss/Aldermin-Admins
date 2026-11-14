@@ -1,0 +1,2159 @@
+{
+  "date": "2026-11-14",
+  "readOnly": true,
+  "repositories": [
+    {
+      "directory": "C:\\Users\\USAID JAVED\\Documents\\GitHub\\Aldermin-Admins",
+      "tracked": 480,
+      "headExists": true,
+      "modified": 76,
+      "untracked": 163,
+      "totalChanged": 239,
+      "deleted": [],
+      "byDirectory": {
+        "app/": 118,
+        "components/": 29,
+        "lib/": 35,
+        "(root)": 4,
+        ".vscode/": 1,
+        "docs/": 30,
+        "scripts/": 2,
+        "tests/": 20
+      },
+      "generatedInChanges": [],
+      "ignoredGeneratedCount": 9296,
+      "ignoredGeneratedByDirectory": {
+        ".next/": 9294,
+        "next-env.d.ts": 1,
+        "tsconfig.tsbuildinfo": 1
+      },
+      "toolGeneratedButReviewable": [
+        {
+          "status": "??",
+          "file": "docs/ADMIN_ROUTE_AUDIT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_ROUTE_AUDIT.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/CLASS_ROUTINES_PREFLIGHT.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/GIT_CHANGE_AUDIT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/GIT_CHANGE_AUDIT.md"
+        },
+        {
+          "status": "??",
+          "file": "pnpm-lock.yaml"
+        }
+      ],
+      "changed": [
+        {
+          "status": " M",
+          "file": "app/admin/academic/assign-subject/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/academic/class-room/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/academic/class-routine/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/academic/subject/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/academics/assign-subject/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/academics/assign-teacher/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/academics/class/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/academics/classroom/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/academics/routine/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/academics/section/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/academics/subjects/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/accounts/communicate/calendar/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/accounts/communicate/event/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/accounts/communicate/noticeboard/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/accounts/inventory/itemcategory/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/accounts/inventory/itemissue/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/accounts/inventory/itemlist/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/accounts/inventory/itemreceive/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/accounts/inventory/itemreceivelist/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/accounts/inventory/itemselllist/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/accounts/inventory/itemstore/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/accounts/inventory/supplier/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/download-center/list/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/download-center/shared/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/download-center/video/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/hr/add-staff/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/hr/attendance/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/hr/department/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/hr/designation/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/hr/staff-list/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/layout.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/library/book/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/library/booklist/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/library/category/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/library/issue-return/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/library/issued/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/library/members/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/library/subject/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/role&permission/loginpermission/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/role&permission/managerole/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/settings/general-settings/academic-year/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/settings/general-settings/general-settings-inner/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/settings/general-settings/holiday/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/settings/general-settings/weekend/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/student-info/add/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/student-info/attendance/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/student-info/category/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/student-info/group/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/student-info/list/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/study-material/assignment/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/study-material/downloads/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/study-material/syllabus/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/study-material/upload/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/user/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/auth/forgot-password/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/auth/login/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/auth/otp/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/auth/reset-password/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/layout/Sidebar.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/layout/TopBar.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/academics/AssignSubjectForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/academics/AssignTeacherForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/academics/ClassForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/academics/ClassRoomForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/academics/RoutineForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/academics/SectionForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/academics/SubjectForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/dashboard/WelcomeCard.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/hr/DepartmentForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/hr/DesignationForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/student-info/StudentOnboarding.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/user/UserForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/user/UserList.tsx"
+        },
+        {
+          "status": " M",
+          "file": "lib/api-service.ts"
+        },
+        {
+          "status": " M",
+          "file": "package.json"
+        },
+        {
+          "status": "??",
+          "file": ".vscode/tasks.json"
+        },
+        {
+          "status": "??",
+          "file": "app/admin/dashboard/page.tsx"
+        },
+        {
+          "status": "??",
+          "file": "app/api/academic-years/[id]/current/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/academic-years/[id]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/academic-years/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/admin-foundations/[...segments]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/admin-roles/[id]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/admin-roles/accounts/[id]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/admin-roles/accounts/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/admin-roles/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/auth/forgot-password/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/auth/login/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/auth/logout/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/auth/me/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/auth/refresh/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/auth/register/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/auth/reset-password/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/class-routines/[id]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/class-routines/options/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/class-routines/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/class-teacher-assignments/[id]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/class-teacher-assignments/options/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/class-teacher-assignments/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/classes/[id]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/classes/[id]/sections/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/classes/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/classrooms/[id]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/classrooms/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/courses/[id]/publish/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/courses/[id]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/courses/[id]/unpublish/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/courses/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/hr/departments/[id]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/hr/departments/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/hr/designations/[id]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/hr/designations/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/hr/staff/[id]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/hr/staff/options/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/hr/staff/roles/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/hr/staff/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/school-attendance/[kind]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/school-content/[...segments]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/school-operations/[...segments]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/school-settings/history/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/school-settings/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/school-subject-assignments/[id]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/school-subject-assignments/options/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/school-subject-assignments/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/school-subjects/[id]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/school-subjects/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/sections/[id]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/sections/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/student-records/[...segments]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/users/[id]/login-permission/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/users/[id]/role/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/users/login-permissions/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/users/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/auth/register/page.tsx"
+        },
+        {
+          "status": "??",
+          "file": "app/auth/session/page.tsx"
+        },
+        {
+          "status": "??",
+          "file": "app/reset-password/page.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/auth/SessionUnavailable.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/operations/OperationChoice.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/operations/OperationsPanel.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/settings/ContentHistory.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/settings/FoundationHistory.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/settings/FoundationRecordsPanel.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/student-info/AttendanceRegister.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/student-info/StudentDirectory.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/student-info/StudentEditorPanel.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/study-material/CalendarPanel.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/study-material/FileAttachmentPanel.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/study-material/FileChooser.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/study-material/FileLibrary.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/study-material/PublicationPanel.tsx"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_PERMISSION_ROLES_MIGRATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_PERMISSION_ROLES_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_ROUTE_AUDIT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_ROUTE_AUDIT.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/CLASSROOMS_MIGRATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/CLASSROOMS_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/CLASS_ROUTINES_MIGRATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/CLASS_ROUTINES_PREFLIGHT.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/CLASS_ROUTINES_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/CLASS_TEACHER_ALLOCATION_PLAN.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/FILES_LEARNING_COMMUNICATION_MIGRATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/FILES_LEARNING_COMMUNICATION_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/GIT_CHANGE_AUDIT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/GIT_CHANGE_AUDIT.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/INTEGRATION_PROGRESS.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/PHASE_1_AUTHENTICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/PHASE_2_SCHOOL_SUBJECTS.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/PHASE_2_SCHOOL_SUBJECTS_PLAN.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/PHASE_3_ACADEMIC_YEAR.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/PHASE_3_SECTIONS.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/SCHOOL_SETTINGS_MIGRATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/SETTINGS_FOUNDATIONS_MIGRATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/SETTINGS_FOUNDATIONS_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/STUDENT_ATTENDANCE_MIGRATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/STUDENT_ATTENDANCE_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/SUBJECT_ALLOCATION_RECONCILIATION_PLAN.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/SUBJECT_ASSIGNMENT_RECONCILIATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/SUBJECT_ASSIGNMENT_RECONCILIATION_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/USER_LOGIN_POLICIES_MIGRATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/USER_LOGIN_POLICIES_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "lib/academic-years-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/admin-foundations-client.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/admin-foundations-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/admin-roles-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/auth-server.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/class-routines-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/class-teacher-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/classes-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/classrooms-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/hr-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/school-content-client.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/school-content-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/school-operations-client.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/school-operations-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/school-records-client.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/school-records-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/school-settings-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/school-subjects-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/sections-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/session-client.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/session-navigation.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-attendance-register.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-class-routines.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-classrooms.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-file-library.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-foundation-records.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-login-permissions.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-publications.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-school-operations.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-school-settings.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-school-subjects.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-student-editor.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-weekends.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/user-access-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "pnpm-lock.yaml"
+        },
+        {
+          "status": "??",
+          "file": "pnpm-workspace.yaml"
+        },
+        {
+          "status": "??",
+          "file": "proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "scripts/audit-admin.cjs"
+        },
+        {
+          "status": "??",
+          "file": "scripts/audit-git-changes.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/academics/class-routines.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/academics/class-teacher.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/academics/classrooms.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/auth/load-ts.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/auth/portal.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/auth/production-smoke.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/auth/session.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/hr/hr.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/settings/admin-foundations.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/students/content.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/students/operations.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/students/records.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/subjects/academic-years.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/subjects/assignments.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/subjects/classes.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/subjects/sections.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/subjects/subjects.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/users/admin-roles.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/users/login-permissions.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/users/school-settings.test.cjs"
+        }
+      ]
+    },
+    {
+      "directory": "C:\\Users\\USAID JAVED\\Documents\\lms\\lms-backend",
+      "tracked": 0,
+      "headExists": false,
+      "modified": 0,
+      "untracked": 253,
+      "totalChanged": 253,
+      "deleted": [],
+      "byDirectory": {
+        "(root)": 16,
+        "docs/": 25,
+        "scripts/": 1,
+        "src/": 154,
+        "test/": 57
+      },
+      "generatedInChanges": [],
+      "ignoredGeneratedCount": 448,
+      "ignoredGeneratedByDirectory": {
+        "dist/": 444,
+        "node_modules/": 3,
+        "tsconfig.build.tsbuildinfo": 1
+      },
+      "toolGeneratedButReviewable": [
+        {
+          "status": "??",
+          "file": "docs/ADMIN_PERMISSION_ROLES_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_PERMISSION_ROLES_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/CLASSROOMS_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/CLASSROOMS_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/CLASS_ROUTINES_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/CLASS_ROUTINES_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/FILES_LEARNING_COMMUNICATION_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/FILES_LEARNING_COMMUNICATION_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/FILES_LEARNING_COMMUNICATION_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/FILES_LEARNING_COMMUNICATION_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/LIBRARY_INVENTORY_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/LIBRARY_INVENTORY_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/LIBRARY_INVENTORY_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/SCHOOL_SETTINGS_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/SCHOOL_SETTINGS_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/SETTINGS_FOUNDATIONS_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/SETTINGS_FOUNDATIONS_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/SETTINGS_FOUNDATIONS_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/STUDENT_ATTENDANCE_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/STUDENT_ATTENDANCE_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/STUDENT_ATTENDANCE_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/SUBJECT_ASSIGNMENT_RECONCILIATION_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/SUBJECT_ASSIGNMENT_RECONCILIATION_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/USER_LOGIN_POLICIES_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/USER_LOGIN_POLICIES_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "pnpm-lock.yaml"
+        }
+      ],
+      "changed": [
+        {
+          "status": "??",
+          "file": ".gitattributes"
+        },
+        {
+          "status": "??",
+          "file": ".gitignore"
+        },
+        {
+          "status": "??",
+          "file": ".oxlintrc.json"
+        },
+        {
+          "status": "??",
+          "file": ".prettierrc"
+        },
+        {
+          "status": "??",
+          "file": "AGENTS.md"
+        },
+        {
+          "status": "??",
+          "file": "API_DOCUMENTATION.md"
+        },
+        {
+          "status": "??",
+          "file": "README.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_PERMISSION_ROLES_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_PERMISSION_ROLES_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/CLASSROOMS_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/CLASSROOMS_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/CLASS_ROUTINES_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/CLASS_ROUTINES_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/FILES_LEARNING_COMMUNICATION_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/FILES_LEARNING_COMMUNICATION_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/FILES_LEARNING_COMMUNICATION_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/FILES_LEARNING_COMMUNICATION_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/LIBRARY_INVENTORY_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/LIBRARY_INVENTORY_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/LIBRARY_INVENTORY_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/SCHOOL_SETTINGS_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/SCHOOL_SETTINGS_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/SETTINGS_FOUNDATIONS_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/SETTINGS_FOUNDATIONS_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/SETTINGS_FOUNDATIONS_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/STUDENT_ATTENDANCE_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/STUDENT_ATTENDANCE_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/STUDENT_ATTENDANCE_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/SUBJECT_ASSIGNMENT_RECONCILIATION_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/SUBJECT_ASSIGNMENT_RECONCILIATION_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/USER_LOGIN_POLICIES_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/USER_LOGIN_POLICIES_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "nest-cli.json"
+        },
+        {
+          "status": "??",
+          "file": "opencode.json"
+        },
+        {
+          "status": "??",
+          "file": "package.json"
+        },
+        {
+          "status": "??",
+          "file": "pnpm-lock.yaml"
+        },
+        {
+          "status": "??",
+          "file": "pnpm-workspace.yaml"
+        },
+        {
+          "status": "??",
+          "file": "scripts/repair-test-registrations.mjs"
+        },
+        {
+          "status": "??",
+          "file": "src/academic-years/academic-year.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/academic-years/academic-year.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/academic-years/academic-years.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/academic-years/academic-years.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/academic-years/academic-years.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-foundations/foundations.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-foundations/foundations.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-foundations/foundations.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-foundations/foundations.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-foundations/foundations.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-permissions/admin-permissions.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-permissions/admin-role.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-permissions/admin-roles.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-permissions/permission-catalog.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/app.controller.spec.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/app.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/app.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/app.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/auth.controller.spec.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/auth.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/auth.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/auth.service.spec.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/auth.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/decorators/roles.decorator.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/dto/forgot-pass.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/dto/login.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/dto/refresh-token.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/dto/register.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/dto/reset-pass.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/entities/pass-reset-token.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/entities/refresh-token.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/guards/jwt-auth.guard.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/guards/optional-jwt-auth.guard.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/guards/roles.guard.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/login-access.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/password-reset-mail.service.spec.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/password-reset-mail.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/auth/role-test.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/class-routines/class-routine.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/class-routines/class-routine.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/class-routines/class-routines.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/class-routines/class-routines.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/class-routines/class-routines.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/class-teacher-assignments/class-teacher-assignment.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/class-teacher-assignments/class-teacher-assignments.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/class-teacher-assignments/class-teacher-assignments.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/class-teacher-assignments/class-teacher-assignments.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/class-teacher-assignments/dto/class-teacher-options-query.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/class-teacher-assignments/dto/create-class-teacher-assignment.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/class-teacher-assignments/dto/update-class-teacher-assignment.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/classes/class-section.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/classes/class.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/classes/class.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/classes/classes.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/classes/classes.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/classes/classes.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/classrooms/classroom.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/classrooms/classroom.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/classrooms/classrooms.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/classrooms/classrooms.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/classrooms/classrooms.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/courses/courses.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/courses/courses.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/courses/courses.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/courses/dto/create-course.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/courses/dto/update-course.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/courses/entities/course.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/data-source.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1793800775686-CreateUsers.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1793802646086-CreateRefreshTokens.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1793805307525-CreatePasswordResetTokens.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1793812516415-CreateRoleChangeLogs.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1793893313389-CreateCourses.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794355200000-CreateSchoolSubjects.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794355300000-CreateSubjectAssignments.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794355400000-CreateAcademicYears.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794355500000-CreateSections.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794355600000-CreateClasses.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794355700000-CreateHrFoundation.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794355800000-CreateClassTeacherAssignments.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794430000000-ReconcileSubjectAssignments.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794430100000-CreateClassrooms.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794430200000-CreateClassRoutines.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794500000000-CreateUserLoginPolicies.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794500100000-CreateAdminPermissionRoles.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794500200000-CreateSchoolSettings.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794670000000-CreateAdminFoundations.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794671000000-CreateStudentRegistry.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794671100000-CreateAttendanceRegisters.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794672000000-CreateSecureSchoolFiles.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794672100000-CreateLearningCommunication.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794673000000-CreateLibraryOperations.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794673100000-CreateInventoryOperations.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/hr/department.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/hr/department.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/hr/departments.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/hr/departments.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/hr/designation.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/hr/designation.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/hr/designations.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/hr/designations.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/hr/hr.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/hr/staff.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/hr/staff.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/hr/staff.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/hr/staff.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/main.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-content/content-access.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-content/content.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-content/content.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-content/content.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-content/learning-content.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-content/school-content.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-content/school-files.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-operations/operations.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-operations/operations.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-operations/operations.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-operations/operations.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-operations/operations.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-settings/school-settings.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-settings/school-settings.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-settings/school-settings.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-settings/school-settings.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-subjects/dto/create-school-subject.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-subjects/dto/create-subject-assignment.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-subjects/dto/update-school-subject.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-subjects/dto/update-subject-assignment.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-subjects/entities/school-subject.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-subjects/entities/subject-assignment.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-subjects/school-subjects.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-subjects/school-subjects.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-subjects/school-subjects.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-subjects/subject-assignments.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-subjects/subject-assignments.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/sections/section.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/sections/section.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/sections/sections.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/sections/sections.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/sections/sections.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/student-records/attendance.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/student-records/records.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/student-records/records.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/student-records/student-records.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/student-records/student-records.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/student-records/student-records.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/users/dto/login-permission.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/users/dto/update-user-role.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/users/entities/role-change-log.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/users/entities/user.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/users/users.controller.spec.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/users/users.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/users/users.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/users/users.service.spec.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/users/users.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "test/academic-years-browser-server.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/academic-years.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/admin-foundations-startup.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/admin-foundations.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/admin-foundations.http.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/admin-foundations.unit.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/admin-permissions-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/admin-permissions.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/admin-permissions.unit.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/app.e2e-spec.ts"
+        },
+        {
+          "status": "??",
+          "file": "test/apply-academic-years-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/apply-class-routines-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/apply-class-teacher-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/apply-classrooms-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/apply-hr-foundation-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/apply-school-subjects-migration.ts"
+        },
+        {
+          "status": "??",
+          "file": "test/apply-sections-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/apply-subject-assignments-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/apply-subject-reconciliation-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/auth-browser-server.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/auth.e2e-spec.ts"
+        },
+        {
+          "status": "??",
+          "file": "test/class-routines.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/class-routines.unit.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/class-teacher-assignments.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/classes.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/classrooms.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/classrooms.unit.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/files-learning-communication-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/hr.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/library-inventory-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/login-permissions.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/login-permissions.unit.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/preflight-class-routines.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-content-migrations.unit.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-content-startup.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-content.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-content.http.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-content.unit.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-operations.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-operations.http.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-operations.unit.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-settings-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-settings.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-settings.unit.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-subjects-browser-server.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-subjects.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/sections-browser-server.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/sections.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/settings-foundations-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/student-attendance-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/student-records-startup.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/student-records.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/student-records.unit.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/subject-assignments.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/subject-assignments.unit.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/user-login-policy-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/verify-class-routines-applied.mjs"
+        },
+        {
+          "status": "??",
+          "file": "tsconfig.build.json"
+        },
+        {
+          "status": "??",
+          "file": "tsconfig.json"
+        },
+        {
+          "status": "??",
+          "file": "vitest.config.e2e.ts"
+        },
+        {
+          "status": "??",
+          "file": "vitest.config.ts"
+        }
+      ]
+    }
+  ]
+}

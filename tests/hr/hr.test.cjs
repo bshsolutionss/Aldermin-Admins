@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-const { test } = require("node:test");
-const assert = require("node:assert/strict");
-const { loadTs } = require("../auth/load-ts.cjs");
+async function register() {
+const { test } = await import("node:test");
+const assert = (await import("node:assert/strict")).default;
+const { loadTs } = await import("../auth/load-ts.mjs");
 
 const id = "11111111-1111-4111-8111-111111111111";
 
@@ -455,3 +455,6 @@ test("Add staff page submits normalized payload and loads edit records", async (
   }
 });
 
+
+}
+void register();

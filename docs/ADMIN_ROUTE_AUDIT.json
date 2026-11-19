@@ -1,10 +1,15 @@
 {
-  "date": "2026-11-14",
+  "date": "2026-11-17",
   "method": "Static import graph plus centralized and foundation-client API contract resolution. Dynamic foundation list/save resource segments require action review. Runtime acceptance is tracked separately. Not directly linked does not prove unused.",
   "controllers": [
+    "src/academic-work/work.controller.ts",
     "src/academic-years/academic-years.controller.ts",
+    "src/admin-configuration/configuration.controller.ts",
+    "src/admin-dashboard/dashboard.controller.ts",
     "src/admin-foundations/foundations.controller.ts",
+    "src/admin-operations/operations.controller.ts",
     "src/admin-permissions/admin-roles.controller.ts",
+    "src/admin-reports/reports.controller.ts",
     "src/app.controller.ts",
     "src/auth/auth.controller.ts",
     "src/auth/role-test.controller.ts",
@@ -13,9 +18,14 @@
     "src/classes/classes.controller.ts",
     "src/classrooms/classrooms.controller.ts",
     "src/courses/courses.controller.ts",
+    "src/document-issuance/document.controller.ts",
+    "src/examinations/examination.controller.ts",
+    "src/finance/finance.controller.ts",
     "src/hr/departments.controller.ts",
     "src/hr/designations.controller.ts",
     "src/hr/staff.controller.ts",
+    "src/online-campus/campus.controller.ts",
+    "src/school-administration/administration.controller.ts",
     "src/school-content/content.controller.ts",
     "src/school-operations/operations.controller.ts",
     "src/school-settings/school-settings.controller.ts",
@@ -30,19 +40,50 @@
       "route": "/admin/academic/assign-class-teacher",
       "file": "app/admin/academic/assign-class-teacher/page.tsx",
       "navigation": "not directly linked",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "handleSubmit",
+        "onEdit",
+        "onDelete",
+        "onClick",
+        "onSubmit",
+        "onChange",
+        "onView"
+      ],
+      "calls": [
+        "classTeacherAssignments.getAll",
+        "classTeacherAssignments.getOptions",
+        "classTeacherAssignments.update",
+        "classTeacherAssignments.create",
+        "classTeacherAssignments.delete"
+      ],
+      "real": [
+        "classTeacherAssignments.getAll",
+        "classTeacherAssignments.getOptions",
+        "classTeacherAssignments.update",
+        "classTeacherAssignments.create",
+        "classTeacherAssignments.delete"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
+      "proxies": [
+        "/api/class-teacher-assignments",
+        "/api/class-teacher-assignments/options",
+        "/api/class-teacher-assignments/"
+      ],
+      "nest": [
+        "/api/v1/class-teacher-assignments",
+        "/api/v1/class-teacher-assignments/options",
+        "/api/v1/class-teacher-assignments"
+      ],
       "models": [
+        "ClassTeacherAssignment / 1794355800000",
         "ClassTeacherAssignment / 1794355800000 already exists; reuse for this legacy UI"
       ],
-      "status": "MISSING: no real domain API in page/import graph",
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic year -> class/section -> staff/subject -> allocation -> room/routine",
-      "tests": []
+      "tests": [
+        "tests/academics/legacy-routes.test.cjs"
+      ]
     },
     {
       "route": "/admin/academic/assign-subject",
@@ -180,22 +221,56 @@
       "navigation": "not directly linked",
       "ui": [
         "handleSubmit",
+        "onEdit",
+        "onDelete",
+        "onClick",
         "onSubmit",
         "onChange",
-        "onClick"
+        "onView"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "classes.getAll",
+        "academicYears.getAll",
+        "sections.getAll",
+        "classes.getSectionIds",
+        "classes.update",
+        "classes.create",
+        "classes.delete"
+      ],
+      "real": [
+        "classes.getAll",
+        "academicYears.getAll",
+        "sections.getAll",
+        "classes.getSectionIds",
+        "classes.update",
+        "classes.create",
+        "classes.delete"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
+      "proxies": [
+        "/api/classes",
+        "/api/academic-years",
+        "/api/sections",
+        "/api/classes/"
+      ],
+      "nest": [
+        "/api/v1/classes",
+        "/api/v1/academic-years",
+        "/api/v1/sections",
+        "/api/v1/classes"
+      ],
       "models": [
+        "Class + ClassSection / 1794355600000",
+        "AcademicYear / 1794355400000",
+        "Section / 1794355500000",
         "Class + ClassSection / 1794355600000 already exists; reuse for this legacy UI"
       ],
-      "status": "MISSING: no real domain API in page/import graph",
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic year -> class/section -> staff/subject -> allocation -> room/routine",
-      "tests": []
+      "tests": [
+        "tests/academics/legacy-routes.test.cjs"
+      ]
     },
     {
       "route": "/admin/academic/section",
@@ -203,21 +278,44 @@
       "navigation": "not directly linked",
       "ui": [
         "handleSubmit",
+        "onEdit",
+        "onDelete",
+        "onClick",
         "onSubmit",
-        "onChange"
+        "onChange",
+        "onView"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "sections.getAll",
+        "sections.update",
+        "sections.create",
+        "sections.delete"
+      ],
+      "real": [
+        "sections.getAll",
+        "sections.update",
+        "sections.create",
+        "sections.delete"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
+      "proxies": [
+        "/api/sections",
+        "/api/sections/"
+      ],
+      "nest": [
+        "/api/v1/sections",
+        "/api/v1/sections"
+      ],
       "models": [
+        "Section / 1794355500000",
         "Section / 1794355500000 already exists; reuse for this legacy UI"
       ],
-      "status": "MISSING: no real domain API in page/import graph",
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic year -> class/section -> staff/subject -> allocation -> room/routine",
-      "tests": []
+      "tests": [
+        "tests/academics/legacy-routes.test.cjs"
+      ]
     },
     {
       "route": "/admin/academic/subject",
@@ -599,14 +697,40 @@
       "route": "/admin/accounts/accounts/bankaccount",
       "file": "app/admin/accounts/accounts/bankaccount/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -615,14 +739,40 @@
       "route": "/admin/accounts/accounts/chartofaccount",
       "file": "app/admin/accounts/accounts/chartofaccount/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -631,14 +781,40 @@
       "route": "/admin/accounts/accounts/expence",
       "file": "app/admin/accounts/accounts/expence/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -647,14 +823,40 @@
       "route": "/admin/accounts/accounts/fundtransfer",
       "file": "app/admin/accounts/accounts/fundtransfer/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -663,14 +865,40 @@
       "route": "/admin/accounts/accounts/income",
       "file": "app/admin/accounts/accounts/income/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -679,14 +907,40 @@
       "route": "/admin/accounts/accounts/profitandlost",
       "file": "app/admin/accounts/accounts/profitandlost/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -724,14 +978,34 @@
       "route": "/admin/accounts/communicate/emailsmsandlog",
       "file": "app/admin/accounts/communicate/emailsmsandlog/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick",
+        "onSubmit"
+      ],
+      "calls": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ],
+      "real": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-operations"
+      ],
+      "nest": [
+        "/api/v1/admin-operations"
+      ],
+      "models": [
+        "inspect endpoint contract"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -816,14 +1090,34 @@
       "route": "/admin/accounts/communicate/sendemailandsms",
       "file": "app/admin/accounts/communicate/sendemailandsms/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick",
+        "onSubmit"
+      ],
+      "calls": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ],
+      "real": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-operations"
+      ],
+      "nest": [
+        "/api/v1/admin-operations"
+      ],
+      "models": [
+        "inspect endpoint contract"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -862,7 +1156,7 @@
         "/api/v1/school-operations"
       ],
       "models": [
-        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review."
+        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review."
       ],
       "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
@@ -903,7 +1197,7 @@
         "/api/v1/school-operations"
       ],
       "models": [
-        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review."
+        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review."
       ],
       "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
@@ -944,7 +1238,7 @@
         "/api/v1/school-operations"
       ],
       "models": [
-        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review."
+        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review."
       ],
       "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
@@ -985,7 +1279,7 @@
         "/api/v1/school-operations"
       ],
       "models": [
-        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review."
+        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review."
       ],
       "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
@@ -1026,7 +1320,7 @@
         "/api/v1/school-operations"
       ],
       "models": [
-        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review."
+        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review."
       ],
       "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
@@ -1067,7 +1361,7 @@
         "/api/v1/school-operations"
       ],
       "models": [
-        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review."
+        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review."
       ],
       "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
@@ -1108,7 +1402,7 @@
         "/api/v1/school-operations"
       ],
       "models": [
-        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review."
+        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review."
       ],
       "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
@@ -1149,7 +1443,7 @@
         "/api/v1/school-operations"
       ],
       "models": [
-        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review."
+        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review."
       ],
       "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
@@ -1160,14 +1454,40 @@
       "route": "/admin/accounts/wallet/approveddeposit",
       "file": "app/admin/accounts/wallet/approveddeposit/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -1176,14 +1496,40 @@
       "route": "/admin/accounts/wallet/pendingdeposit",
       "file": "app/admin/accounts/wallet/pendingdeposit/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -1192,14 +1538,40 @@
       "route": "/admin/accounts/wallet/refundrequest",
       "file": "app/admin/accounts/wallet/refundrequest/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -1208,14 +1580,40 @@
       "route": "/admin/accounts/wallet/rejectdeposit",
       "file": "app/admin/accounts/wallet/rejectdeposit/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -1224,14 +1622,40 @@
       "route": "/admin/accounts/wallet/wallettransaction",
       "file": "app/admin/accounts/wallet/wallettransaction/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -1241,26 +1665,36 @@
       "file": "app/admin/admin-section/admission-query/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "handleSearchSubmit",
-        "handleDelete",
-        "onSubmit",
-        "onDelete",
-        "onChange",
-        "onEdit",
         "onClick",
-        "onView"
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
+      "real": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/admin-section/admission-query/page.tsx",
-        "components/modules/admin-section/QueryList.tsx"
+      "proxies": [
+        "/api/online-campus"
       ],
+      "nest": [
+        "/api/v1/online-campus"
+      ],
+      "models": [
+        "Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -1269,46 +1703,79 @@
       "file": "app/admin/admin-section/certificate/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onEdit",
-        "onDelete",
-        "onChange",
         "onClick",
-        "onView"
+        "onSubmit",
+        "onChange"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "schoolContentApi.upload",
+        "documentsApi.templates",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ],
+      "real": [
+        "schoolContentApi.upload",
+        "documentsApi.templates",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/admin-section/certificate/page.tsx"
+      "proxies": [
+        "/api/school-content",
+        "/api/documents"
       ],
+      "nest": [
+        "/api/v1/school-content",
+        "/api/v1/documents"
+      ],
+      "models": [
+        "Files/attachments + study materials + notices/events / 1794672000000 + 1794672100000 APPLIED; PostgreSQL 7/7 PASS. Proxy maps to school-files/materials/notices/events; generic action review required.",
+        "Certificate/ID / 1794755000000 APPLIED; live PostgreSQL 11/11, full-stack and six-route browser workflow checks PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
-      "tests": []
+      "tests": [
+        "tests/academics/document-routes.test.cjs"
+      ]
     },
     {
       "route": "/admin/admin-section/complaint",
       "file": "app/admin/admin-section/complaint/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onEdit",
-        "onDelete",
-        "onChange",
         "onClick",
-        "onView"
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
+      "real": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/admin-section/complaint/page.tsx"
+      "proxies": [
+        "/api/online-campus"
       ],
+      "nest": [
+        "/api/v1/online-campus"
+      ],
+      "models": [
+        "Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -1317,84 +1784,193 @@
       "file": "app/admin/admin-section/generate-certificate/page.tsx",
       "navigation": "sidebar",
       "ui": [
+        "onSubmit",
         "onChange",
         "onClick"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "documentsApi.templates",
+        "documentsApi.subjects",
+        "documentsApi.issues",
+        "documentsApi.history",
+        "documentsApi.issue",
+        "documentsApi.get",
+        "documentsApi.revoke",
+        "documentsApi.print",
+        "schoolContentApi.upload",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ],
+      "real": [
+        "documentsApi.templates",
+        "documentsApi.subjects",
+        "documentsApi.issues",
+        "documentsApi.history",
+        "documentsApi.issue",
+        "documentsApi.get",
+        "documentsApi.revoke",
+        "documentsApi.print",
+        "schoolContentApi.upload",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/documents",
+        "/api/school-content"
+      ],
+      "nest": [
+        "/api/v1/documents",
+        "/api/v1/school-content"
+      ],
+      "models": [
+        "Certificate/ID / 1794755000000 APPLIED; live PostgreSQL 11/11, full-stack and six-route browser workflow checks PASS.",
+        "Files/attachments + study materials + notices/events / 1794672000000 + 1794672100000 APPLIED; PostgreSQL 7/7 PASS. Proxy maps to school-files/materials/notices/events; generic action review required."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
-      "tests": []
+      "tests": [
+        "tests/academics/document-routes.test.cjs"
+      ]
     },
     {
       "route": "/admin/admin-section/generate-id",
       "file": "app/admin/admin-section/generate-id/page.tsx",
       "navigation": "sidebar",
       "ui": [
+        "onSubmit",
         "onChange",
         "onClick"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "documentsApi.templates",
+        "documentsApi.subjects",
+        "documentsApi.issues",
+        "documentsApi.history",
+        "documentsApi.issue",
+        "documentsApi.get",
+        "documentsApi.revoke",
+        "documentsApi.print",
+        "schoolContentApi.upload",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ],
+      "real": [
+        "documentsApi.templates",
+        "documentsApi.subjects",
+        "documentsApi.issues",
+        "documentsApi.history",
+        "documentsApi.issue",
+        "documentsApi.get",
+        "documentsApi.revoke",
+        "documentsApi.print",
+        "schoolContentApi.upload",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/documents",
+        "/api/school-content"
+      ],
+      "nest": [
+        "/api/v1/documents",
+        "/api/v1/school-content"
+      ],
+      "models": [
+        "Certificate/ID / 1794755000000 APPLIED; live PostgreSQL 11/11, full-stack and six-route browser workflow checks PASS.",
+        "Files/attachments + study materials + notices/events / 1794672000000 + 1794672100000 APPLIED; PostgreSQL 7/7 PASS. Proxy maps to school-files/materials/notices/events; generic action review required."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
-      "tests": []
+      "tests": [
+        "tests/academics/document-routes.test.cjs"
+      ]
     },
     {
       "route": "/admin/admin-section/id-card",
       "file": "app/admin/admin-section/id-card/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onEdit",
-        "onDelete",
-        "onChange",
         "onClick",
-        "onView"
+        "onSubmit",
+        "onChange"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "schoolContentApi.upload",
+        "documentsApi.templates",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ],
+      "real": [
+        "schoolContentApi.upload",
+        "documentsApi.templates",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/admin-section/id-card/page.tsx"
+      "proxies": [
+        "/api/school-content",
+        "/api/documents"
       ],
+      "nest": [
+        "/api/v1/school-content",
+        "/api/v1/documents"
+      ],
+      "models": [
+        "Files/attachments + study materials + notices/events / 1794672000000 + 1794672100000 APPLIED; PostgreSQL 7/7 PASS. Proxy maps to school-files/materials/notices/events; generic action review required.",
+        "Certificate/ID / 1794755000000 APPLIED; live PostgreSQL 11/11, full-stack and six-route browser workflow checks PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
-      "tests": []
+      "tests": [
+        "tests/academics/document-routes.test.cjs"
+      ]
     },
     {
       "route": "/admin/admin-section/phone-log",
       "file": "app/admin/admin-section/phone-log/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onEdit",
-        "onDelete",
-        "onChange",
         "onClick",
-        "onView"
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
+      "real": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/admin-section/phone-log/page.tsx"
+      "proxies": [
+        "/api/online-campus"
       ],
+      "nest": [
+        "/api/v1/online-campus"
+      ],
+      "models": [
+        "Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -1403,22 +1979,36 @@
       "file": "app/admin/admin-section/postal-dispatch/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onEdit",
-        "onDelete",
-        "onChange",
         "onClick",
-        "onView"
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
+      "real": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/admin-section/postal-dispatch/page.tsx"
+      "proxies": [
+        "/api/online-campus"
       ],
+      "nest": [
+        "/api/v1/online-campus"
+      ],
+      "models": [
+        "Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -1427,22 +2017,36 @@
       "file": "app/admin/admin-section/postal-receive/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onEdit",
-        "onDelete",
-        "onChange",
         "onClick",
-        "onView"
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
+      "real": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/admin-section/postal-receive/page.tsx"
+      "proxies": [
+        "/api/online-campus"
       ],
+      "nest": [
+        "/api/v1/online-campus"
+      ],
+      "models": [
+        "Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -1451,22 +2055,36 @@
       "file": "app/admin/admin-section/setup/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onEdit",
-        "onDelete",
-        "onChange",
         "onClick",
-        "onView"
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
+      "real": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/admin-section/setup/page.tsx"
+      "proxies": [
+        "/api/online-campus"
       ],
+      "nest": [
+        "/api/v1/online-campus"
+      ],
+      "models": [
+        "Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -1475,22 +2093,36 @@
       "file": "app/admin/admin-section/visitor-book/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onEdit",
-        "onDelete",
-        "onChange",
         "onClick",
-        "onView"
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
+      "real": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/admin-section/visitor-book/page.tsx"
+      "proxies": [
+        "/api/online-campus"
       ],
+      "nest": [
+        "/api/v1/online-campus"
+      ],
+      "models": [
+        "Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -1499,16 +2131,35 @@
       "file": "app/admin/behaviour/assign/page.tsx",
       "navigation": "sidebar",
       "ui": [
+        "onClick",
         "onChange",
-        "onClick"
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
+      "real": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/school-administration"
+      ],
+      "nest": [
+        "/api/v1/school-administration"
+      ],
+      "models": [
+        "Conduct/leave/evaluation records, policies, quota guards and audit / 1794751000000 APPLIED; PostgreSQL acceptance 10/10 PASS including rollback-only multi-connection serialization."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -1518,22 +2169,36 @@
       "file": "app/admin/behaviour/class-report/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onView",
-        "onChange",
         "onClick",
-        "onEdit",
-        "onDelete"
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
+      "real": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "components/modules/behaviour/ClassReportTable.tsx"
+      "proxies": [
+        "/api/school-administration"
       ],
+      "nest": [
+        "/api/v1/school-administration"
+      ],
+      "models": [
+        "Conduct/leave/evaluation records, policies, quota guards and audit / 1794751000000 APPLIED; PostgreSQL acceptance 10/10 PASS including rollback-only multi-connection serialization."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -1542,16 +2207,35 @@
       "file": "app/admin/behaviour/incident-wise/page.tsx",
       "navigation": "sidebar",
       "ui": [
+        "onClick",
         "onChange",
-        "onClick"
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
+      "real": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/school-administration"
+      ],
+      "nest": [
+        "/api/v1/school-administration"
+      ],
+      "models": [
+        "Conduct/leave/evaluation records, policies, quota guards and audit / 1794751000000 APPLIED; PostgreSQL acceptance 10/10 PASS including rollback-only multi-connection serialization."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -1561,22 +2245,36 @@
       "file": "app/admin/behaviour/incidents/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onEdit",
-        "onDelete",
-        "onChange",
         "onClick",
-        "onView"
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
+      "real": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "components/modules/behaviour/IncidentListTable.tsx"
+      "proxies": [
+        "/api/school-administration"
       ],
+      "nest": [
+        "/api/v1/school-administration"
+      ],
+      "models": [
+        "Conduct/leave/evaluation records, policies, quota guards and audit / 1794751000000 APPLIED; PostgreSQL acceptance 10/10 PASS including rollback-only multi-connection serialization."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -1585,16 +2283,35 @@
       "file": "app/admin/behaviour/report/page.tsx",
       "navigation": "sidebar",
       "ui": [
+        "onClick",
         "onChange",
-        "onClick"
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
+      "real": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/school-administration"
+      ],
+      "nest": [
+        "/api/v1/school-administration"
+      ],
+      "models": [
+        "Conduct/leave/evaluation records, policies, quota guards and audit / 1794751000000 APPLIED; PostgreSQL acceptance 10/10 PASS including rollback-only multi-connection serialization."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -1604,22 +2321,36 @@
       "file": "app/admin/behaviour/student-report/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onView",
-        "onEdit",
-        "onDelete",
+        "onClick",
         "onChange",
-        "onClick"
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
+      "real": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "components/modules/behaviour/StudentReportTable.tsx"
+      "proxies": [
+        "/api/school-administration"
       ],
+      "nest": [
+        "/api/v1/school-administration"
+      ],
+      "models": [
+        "Conduct/leave/evaluation records, policies, quota guards and audit / 1794751000000 APPLIED; PostgreSQL acceptance 10/10 PASS including rollback-only multi-connection serialization."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -1627,30 +2358,84 @@
       "route": "/admin/bulk-print/certificate",
       "file": "app/admin/bulk-print/certificate/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onSubmit",
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "documentsApi.templates",
+        "documentsApi.subjects",
+        "documentsApi.issues",
+        "documentsApi.history",
+        "documentsApi.issue",
+        "documentsApi.get",
+        "documentsApi.revoke",
+        "documentsApi.print",
+        "schoolContentApi.upload",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ],
+      "real": [
+        "documentsApi.templates",
+        "documentsApi.subjects",
+        "documentsApi.issues",
+        "documentsApi.history",
+        "documentsApi.issue",
+        "documentsApi.get",
+        "documentsApi.revoke",
+        "documentsApi.print",
+        "schoolContentApi.upload",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/documents",
+        "/api/school-content"
+      ],
+      "nest": [
+        "/api/v1/documents",
+        "/api/v1/school-content"
+      ],
+      "models": [
+        "Certificate/ID / 1794755000000 APPLIED; live PostgreSQL 11/11, full-stack and six-route browser workflow checks PASS.",
+        "Files/attachments + study materials + notices/events / 1794672000000 + 1794672100000 APPLIED; PostgreSQL 7/7 PASS. Proxy maps to school-files/materials/notices/events; generic action review required."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
-      "tests": []
+      "tests": [
+        "tests/academics/document-routes.test.cjs"
+      ]
     },
     {
       "route": "/admin/bulk-print/fees",
       "file": "app/admin/bulk-print/fees/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "financeApi.report"
+      ],
+      "real": [
+        "financeApi.report"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -1660,32 +2445,83 @@
       "file": "app/admin/bulk-print/id/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onClick",
-        "onChange"
+        "onSubmit",
+        "onChange",
+        "onClick"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "documentsApi.templates",
+        "documentsApi.subjects",
+        "documentsApi.issues",
+        "documentsApi.history",
+        "documentsApi.issue",
+        "documentsApi.get",
+        "documentsApi.revoke",
+        "documentsApi.print",
+        "schoolContentApi.upload",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ],
+      "real": [
+        "documentsApi.templates",
+        "documentsApi.subjects",
+        "documentsApi.issues",
+        "documentsApi.history",
+        "documentsApi.issue",
+        "documentsApi.get",
+        "documentsApi.revoke",
+        "documentsApi.print",
+        "schoolContentApi.upload",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/documents",
+        "/api/school-content"
+      ],
+      "nest": [
+        "/api/v1/documents",
+        "/api/v1/school-content"
+      ],
+      "models": [
+        "Certificate/ID / 1794755000000 APPLIED; live PostgreSQL 11/11, full-stack and six-route browser workflow checks PASS.",
+        "Files/attachments + study materials + notices/events / 1794672000000 + 1794672100000 APPLIED; PostgreSQL 7/7 PASS. Proxy maps to school-files/materials/notices/events; generic action review required."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
-      "tests": []
+      "tests": [
+        "tests/academics/document-routes.test.cjs"
+      ]
     },
     {
       "route": "/admin/bulk-print/payroll",
       "file": "app/admin/bulk-print/payroll/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "financeApi.report"
+      ],
+      "real": [
+        "financeApi.report"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -1695,18 +2531,29 @@
       "file": "app/admin/dashboard/page.tsx",
       "navigation": "not directly linked",
       "ui": [
+        "onClick",
         "handlePrevMonth",
         "handleNextMonth",
-        "onClick",
-        "handles"
+        "handles",
+        "onChange"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "dashboardApi.summary"
+      ],
+      "real": [
+        "dashboardApi.summary"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-dashboard"
+      ],
+      "nest": [
+        "/api/v1/admin-dashboard"
+      ],
+      "models": [
+        "Read-only summary over existing student/staff, posted finance, notices and events; no new schema."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -1715,14 +2562,36 @@
       "route": "/admin/dormitory/dormitory",
       "file": "app/admin/dormitory/dormitory/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
+      "real": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/online-campus"
+      ],
+      "nest": [
+        "/api/v1/online-campus"
+      ],
+      "models": [
+        "Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -1731,14 +2600,36 @@
       "route": "/admin/dormitory/dormitoryrooms",
       "file": "app/admin/dormitory/dormitoryrooms/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
+      "real": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/online-campus"
+      ],
+      "nest": [
+        "/api/v1/online-campus"
+      ],
+      "models": [
+        "Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -1747,14 +2638,36 @@
       "route": "/admin/dormitory/roomtype",
       "file": "app/admin/dormitory/roomtype/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
+      "real": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/online-campus"
+      ],
+      "nest": [
+        "/api/v1/online-campus"
+      ],
+      "models": [
+        "Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -1840,22 +2753,34 @@
       "file": "app/admin/download-center/type/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onEdit",
-        "onDelete",
         "onChange",
         "onClick",
-        "onView"
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ],
+      "real": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/download-center/type/page.tsx"
+      "proxies": [
+        "/api/admin-operations"
       ],
+      "nest": [
+        "/api/v1/admin-operations"
+      ],
+      "models": [
+        "inspect endpoint contract"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -1902,16 +2827,30 @@
       "file": "app/admin/exam-plan/admit-card/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "handleSelectOne",
-        "handleSelectAll"
+        "onChange",
+        "onClick"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.roster",
+        "examinationsApi.schedule"
+      ],
+      "real": [
+        "examinationsApi.options",
+        "examinationsApi.roster",
+        "examinationsApi.schedule"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/examinations"
+      ],
+      "nest": [
+        "/api/v1/examinations"
+      ],
+      "models": [
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -1921,16 +2860,33 @@
       "file": "app/admin/exam-plan/seat-plan/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "handleSelectOne",
-        "handleSelectAll"
+        "onChange",
+        "onClick",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ],
+      "real": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-operations"
+      ],
+      "nest": [
+        "/api/v1/admin-operations"
+      ],
+      "models": [
+        "inspect endpoint contract"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -1940,15 +2896,37 @@
       "file": "app/admin/examination/attendance/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onClick"
+        "onClick",
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ],
+      "real": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/examinations"
+      ],
+      "nest": [
+        "/api/v1/examinations"
+      ],
+      "models": [
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -1958,15 +2936,37 @@
       "file": "app/admin/examination/marks-grade/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onClick"
+        "onClick",
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ],
+      "real": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/examinations"
+      ],
+      "nest": [
+        "/api/v1/examinations"
+      ],
+      "models": [
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -1976,19 +2976,37 @@
       "file": "app/admin/examination/marks-register/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onClick"
+        "onClick",
+        "onChange",
+        "onSubmit"
       ],
       "calls": [
-        "examination.getMarksRegister"
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
       ],
-      "real": [],
-      "fake": [
-        "examination.getMarksRegister"
+      "real": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
       ],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "fake": [],
+      "proxies": [
+        "/api/examinations"
+      ],
+      "nest": [
+        "/api/v1/examinations"
+      ],
+      "models": [
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -1998,22 +3016,38 @@
       "file": "app/admin/examination/marksheet/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "handleInputChange",
-        "handleSearch",
-        "handlers",
+        "onClick",
+        "onChange",
         "onSubmit"
       ],
-      "calls": [],
-      "real": [],
-      "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/examination/marksheet/page.tsx",
-        "components/modules/examination/MarksheetFilter.tsx"
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
       ],
+      "real": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ],
+      "fake": [],
+      "proxies": [
+        "/api/examinations"
+      ],
+      "nest": [
+        "/api/v1/examinations"
+      ],
+      "models": [
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -2022,15 +3056,37 @@
       "file": "app/admin/examination/schedule/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onClick"
+        "onClick",
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ],
+      "real": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/examinations"
+      ],
+      "nest": [
+        "/api/v1/examinations"
+      ],
+      "models": [
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -2040,15 +3096,37 @@
       "file": "app/admin/examination/setup/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onClick"
+        "onClick",
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ],
+      "real": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/examinations"
+      ],
+      "nest": [
+        "/api/v1/examinations"
+      ],
+      "models": [
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -2058,21 +3136,38 @@
       "file": "app/admin/examination/type/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "handleSubmit",
-        "onSubmit",
+        "onClick",
         "onChange",
-        "onClick"
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ],
+      "real": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "components/modules/examination/ExamTypeForm.tsx"
+      "proxies": [
+        "/api/examinations"
       ],
+      "nest": [
+        "/api/v1/examinations"
+      ],
+      "models": [
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -2080,14 +3175,34 @@
       "route": "/admin/fee/carry-forward",
       "file": "app/admin/fee/carry-forward/page.tsx",
       "navigation": "not directly linked",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick",
+        "onSubmit"
+      ],
+      "calls": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ],
+      "real": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-operations"
+      ],
+      "nest": [
+        "/api/v1/admin-operations"
+      ],
+      "models": [
+        "inspect endpoint contract"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -2097,17 +3212,39 @@
       "file": "app/admin/fee/group/page.tsx",
       "navigation": "not directly linked",
       "ui": [
-        "handleSubmit",
-        "onSubmit",
-        "onChange"
+        "onClick",
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -2116,14 +3253,40 @@
       "route": "/admin/fee/invoice-report",
       "file": "app/admin/fee/invoice-report/page.tsx",
       "navigation": "not directly linked",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -2133,17 +3296,39 @@
       "file": "app/admin/fee/type/page.tsx",
       "navigation": "not directly linked",
       "ui": [
-        "handleSubmit",
-        "onSubmit",
-        "onChange"
+        "onClick",
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -2153,25 +3338,34 @@
       "file": "app/admin/fees/carry-forward/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "handleSearch",
-        "onSubmit",
         "onChange",
-        "onClick"
+        "onClick",
+        "onSubmit"
       ],
       "calls": [
-        "fees.getFeeCarryForward"
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
       ],
-      "real": [],
-      "fake": [
-        "fees.getFeeCarryForward"
+      "real": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
       ],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/fees/carry-forward/page.tsx"
+      "fake": [],
+      "proxies": [
+        "/api/admin-operations"
       ],
+      "nest": [
+        "/api/v1/admin-operations"
+      ],
+      "models": [
+        "inspect endpoint contract"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
     },
@@ -2180,28 +3374,40 @@
       "file": "app/admin/fees/group/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "handleSubmit",
-        "onEdit",
-        "onDelete",
-        "onSubmit",
-        "onChange",
         "onClick",
-        "onView"
+        "onChange",
+        "onSubmit"
       ],
       "calls": [
-        "fees.getFeeGroups"
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
       ],
-      "real": [],
-      "fake": [
-        "fees.getFeeGroups"
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
       ],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/fees/group/page.tsx"
+      "fake": [],
+      "proxies": [
+        "/api/finance"
       ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
     },
@@ -2210,26 +3416,40 @@
       "file": "app/admin/fees/invoice/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onView",
-        "onEdit",
-        "onDelete",
+        "onClick",
         "onChange",
-        "onClick"
+        "onSubmit"
       ],
       "calls": [
-        "fees.getCollection"
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
       ],
-      "real": [],
-      "fake": [
-        "fees.getCollection"
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
       ],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/fees/invoice/page.tsx"
+      "fake": [],
+      "proxies": [
+        "/api/finance"
       ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
     },
@@ -2238,28 +3458,40 @@
       "file": "app/admin/fees/type/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "handleSubmit",
-        "onView",
-        "onEdit",
-        "onDelete",
-        "onSubmit",
+        "onClick",
         "onChange",
-        "onClick"
+        "onSubmit"
       ],
       "calls": [
-        "fees.getTypes"
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
       ],
-      "real": [],
-      "fake": [
-        "fees.getTypes"
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
       ],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/fees/type/page.tsx"
+      "fake": [],
+      "proxies": [
+        "/api/finance"
       ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
     },
@@ -2267,14 +3499,38 @@
       "route": "/admin/homework/add",
       "file": "app/admin/homework/add/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
+      "real": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/academic-work"
+      ],
+      "nest": [
+        "/api/v1/academic-work"
+      ],
+      "models": [
+        "Homework/evaluations + lessons/topics/plans + audit / 1794750000000 APPLIED; PostgreSQL 7/7 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -2284,22 +3540,38 @@
       "file": "app/admin/homework/list/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onEdit",
-        "onDelete",
-        "onChange",
         "onClick",
-        "onView"
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
+      "real": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "components/modules/homework/HomeworkListTable.tsx"
+      "proxies": [
+        "/api/academic-work"
       ],
+      "nest": [
+        "/api/v1/academic-work"
+      ],
+      "models": [
+        "Homework/evaluations + lessons/topics/plans + audit / 1794750000000 APPLIED; PostgreSQL 7/7 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -2308,16 +3580,37 @@
       "file": "app/admin/homework/report/page.tsx",
       "navigation": "sidebar",
       "ui": [
+        "onClick",
         "onChange",
-        "onClick"
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
+      "real": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/academic-work"
+      ],
+      "nest": [
+        "/api/v1/academic-work"
+      ],
+      "models": [
+        "Homework/evaluations + lessons/topics/plans + audit / 1794750000000 APPLIED; PostgreSQL 7/7 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -2517,23 +3810,39 @@
       "file": "app/admin/hr/payroll/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onChange",
         "onClick",
-        "onEdit",
-        "onDelete",
-        "onView"
+        "onChange",
+        "onSubmit"
       ],
       "calls": [
-        "hr.getPayroll"
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
       ],
-      "real": [],
-      "fake": [
-        "hr.getPayroll"
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
       ],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "fake": [],
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -2580,50 +3889,130 @@
       "route": "/admin/human-resource/department",
       "file": "app/admin/human-resource/department/page.tsx",
       "navigation": "not directly linked",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "handleSubmit",
+        "onEdit",
+        "onDelete",
+        "onClick",
+        "onSubmit",
+        "onChange",
+        "onView"
+      ],
+      "calls": [
+        "hr.getDepartments",
+        "hr.updateDepartment",
+        "hr.createDepartment",
+        "hr.deleteDepartment"
+      ],
+      "real": [
+        "hr.getDepartments",
+        "hr.updateDepartment",
+        "hr.createDepartment",
+        "hr.deleteDepartment"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
+      "proxies": [
+        "/api/hr/departments",
+        "/api/hr/departments/"
+      ],
+      "nest": [
+        "/api/v1/departments",
+        "/api/v1/departments"
+      ],
       "models": [
+        "Department / 1794355700000",
         "Department / 1794355700000 already exists; reuse for this legacy UI"
       ],
-      "status": "MISSING: no real domain API in page/import graph",
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
-      "tests": []
+      "tests": [
+        "tests/academics/legacy-routes.test.cjs"
+      ]
     },
     {
       "route": "/admin/human-resource/designation",
       "file": "app/admin/human-resource/designation/page.tsx",
       "navigation": "not directly linked",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "handleSubmit",
+        "onEdit",
+        "onDelete",
+        "onClick",
+        "onSubmit",
+        "onChange",
+        "onView"
+      ],
+      "calls": [
+        "hr.getDesignations",
+        "hr.updateDesignation",
+        "hr.createDesignation",
+        "hr.deleteDesignation"
+      ],
+      "real": [
+        "hr.getDesignations",
+        "hr.updateDesignation",
+        "hr.createDesignation",
+        "hr.deleteDesignation"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
+      "proxies": [
+        "/api/hr/designations",
+        "/api/hr/designations/"
+      ],
+      "nest": [
+        "/api/v1/designations",
+        "/api/v1/designations"
+      ],
       "models": [
+        "Designation / 1794355700000",
         "Designation / 1794355700000 already exists; reuse for this legacy UI"
       ],
-      "status": "MISSING: no real domain API in page/import graph",
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
-      "tests": []
+      "tests": [
+        "tests/academics/legacy-routes.test.cjs"
+      ]
     },
     {
       "route": "/admin/human-resource/payroll",
       "file": "app/admin/human-resource/payroll/page.tsx",
       "navigation": "not directly linked",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -2632,68 +4021,180 @@
       "route": "/admin/human-resource/staff-attendance",
       "file": "app/admin/human-resource/staff-attendance/page.tsx",
       "navigation": "not directly linked",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.attendance",
+        "schoolRecordsApi.saveAttendance"
+      ],
+      "real": [
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.attendance",
+        "schoolRecordsApi.saveAttendance"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records",
+        "/api/school-attendance"
+      ],
+      "nest": [
+        "/api/v1/student-records",
+        "/api/v1/school-attendance"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS",
+        "Student/staff attendance + audit / 1794671100000 APPLIED; PostgreSQL acceptance PASS"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
-      "tests": []
+      "tests": [
+        "tests/academics/legacy-routes.test.cjs"
+      ]
     },
     {
       "route": "/admin/human-resource/staff/add",
       "file": "app/admin/human-resource/staff/add/page.tsx",
       "navigation": "not directly linked",
       "ui": [
-        "onClick"
+        "handleInputChange",
+        "onChange",
+        "handleSubmit",
+        "onClick",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "hr.getRoles",
+        "hr.getDepartments",
+        "hr.getDesignations",
+        "hr.getStaffById",
+        "hr.updateStaff",
+        "hr.createStaff",
+        "schoolContentApi.links",
+        "schoolContentApi.link",
+        "schoolContentApi.upload",
+        "schoolContentApi.files"
+      ],
+      "real": [
+        "hr.getRoles",
+        "hr.getDepartments",
+        "hr.getDesignations",
+        "hr.getStaffById",
+        "hr.updateStaff",
+        "hr.createStaff",
+        "schoolContentApi.links",
+        "schoolContentApi.link",
+        "schoolContentApi.upload",
+        "schoolContentApi.files"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
+      "proxies": [
+        "/api/hr/staff/roles",
+        "/api/hr/departments",
+        "/api/hr/designations",
+        "/api/hr/staff/",
+        "/api/hr/staff",
+        "/api/school-content"
+      ],
+      "nest": [
+        "/api/v1/staff/roles",
+        "/api/v1/departments",
+        "/api/v1/designations",
+        "/api/v1/staff",
+        "/api/v1/staff",
+        "/api/v1/school-content"
+      ],
       "models": [
+        "inspect endpoint contract",
+        "Department / 1794355700000",
+        "Designation / 1794355700000",
+        "Staff / 1794355700000",
+        "Files/attachments + study materials + notices/events / 1794672000000 + 1794672100000 APPLIED; PostgreSQL 7/7 PASS. Proxy maps to school-files/materials/notices/events; generic action review required.",
         "Staff / 1794355700000 already exists; reuse for this legacy UI"
       ],
-      "status": "MISSING: no real domain API in page/import graph",
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
-      "tests": []
+      "tests": [
+        "tests/academics/legacy-routes.test.cjs"
+      ]
     },
     {
       "route": "/admin/human-resource/staff",
       "file": "app/admin/human-resource/staff/page.tsx",
       "navigation": "not directly linked",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onEdit",
+        "onDelete",
+        "onClick",
+        "onChange",
+        "onView"
+      ],
+      "calls": [
+        "hr.getStaff",
+        "hr.deleteStaff"
+      ],
+      "real": [
+        "hr.getStaff",
+        "hr.deleteStaff"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
+      "proxies": [
+        "/api/hr/staff",
+        "/api/hr/staff/"
+      ],
+      "nest": [
+        "/api/v1/staff",
+        "/api/v1/staff"
+      ],
       "models": [
+        "Staff / 1794355700000",
         "Staff / 1794355700000 already exists; reuse for this legacy UI"
       ],
-      "status": "MISSING: no real domain API in page/import graph",
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
-      "tests": []
+      "tests": [
+        "tests/academics/legacy-routes.test.cjs"
+      ]
     },
     {
       "route": "/admin/leave/apply",
       "file": "app/admin/leave/apply/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
+      "real": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/school-administration"
+      ],
+      "nest": [
+        "/api/v1/school-administration"
+      ],
+      "models": [
+        "Conduct/leave/evaluation records, policies, quota guards and audit / 1794751000000 APPLIED; PostgreSQL acceptance 10/10 PASS including rollback-only multi-connection serialization."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -2702,14 +4203,36 @@
       "route": "/admin/leave/approveleaverequest",
       "file": "app/admin/leave/approveleaverequest/page.tsx",
       "navigation": "not directly linked",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
+      "real": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/school-administration"
+      ],
+      "nest": [
+        "/api/v1/school-administration"
+      ],
+      "models": [
+        "Conduct/leave/evaluation records, policies, quota guards and audit / 1794751000000 APPLIED; PostgreSQL acceptance 10/10 PASS including rollback-only multi-connection serialization."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -2718,14 +4241,36 @@
       "route": "/admin/leave/define",
       "file": "app/admin/leave/define/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
+      "real": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/school-administration"
+      ],
+      "nest": [
+        "/api/v1/school-administration"
+      ],
+      "models": [
+        "Conduct/leave/evaluation records, policies, quota guards and audit / 1794751000000 APPLIED; PostgreSQL acceptance 10/10 PASS including rollback-only multi-connection serialization."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -2734,14 +4279,36 @@
       "route": "/admin/leave/type",
       "file": "app/admin/leave/type/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
+      "real": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/school-administration"
+      ],
+      "nest": [
+        "/api/v1/school-administration"
+      ],
+      "models": [
+        "Conduct/leave/evaluation records, policies, quota guards and audit / 1794751000000 APPLIED; PostgreSQL acceptance 10/10 PASS including rollback-only multi-connection serialization."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -2751,15 +4318,37 @@
       "file": "app/admin/lesson-plan/lesson-overview/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "handleInputChange"
+        "onClick",
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
+      "real": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/academic-work"
+      ],
+      "nest": [
+        "/api/v1/academic-work"
+      ],
+      "models": [
+        "Homework/evaluations + lessons/topics/plans + audit / 1794750000000 APPLIED; PostgreSQL 7/7 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -2769,20 +4358,37 @@
       "file": "app/admin/lesson-plan/lesson/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "handleInputChange",
-        "handleSubmit",
-        "handleDelete",
-        "onSubmit",
+        "onClick",
         "onChange",
-        "onClick"
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
+      "real": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/academic-work"
+      ],
+      "nest": [
+        "/api/v1/academic-work"
+      ],
+      "models": [
+        "Homework/evaluations + lessons/topics/plans + audit / 1794750000000 APPLIED; PostgreSQL 7/7 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -2791,14 +4397,38 @@
       "route": "/admin/lesson-plan/plan",
       "file": "app/admin/lesson-plan/plan/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
+      "real": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/academic-work"
+      ],
+      "nest": [
+        "/api/v1/academic-work"
+      ],
+      "models": [
+        "Homework/evaluations + lessons/topics/plans + audit / 1794750000000 APPLIED; PostgreSQL 7/7 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -2808,20 +4438,38 @@
       "file": "app/admin/lesson-plan/topic-overview/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "handleInputChange",
-        "handleSearch",
+        "onClick",
+        "onChange",
         "onSubmit"
       ],
-      "calls": [],
-      "real": [],
-      "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/lesson-plan/topic-overview/page.tsx"
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
       ],
+      "real": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
+      "fake": [],
+      "proxies": [
+        "/api/academic-work"
+      ],
+      "nest": [
+        "/api/v1/academic-work"
+      ],
+      "models": [
+        "Homework/evaluations + lessons/topics/plans + audit / 1794750000000 APPLIED; PostgreSQL 7/7 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -2830,20 +4478,37 @@
       "file": "app/admin/lesson-plan/topic/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "handleInputChange",
-        "handleSubmit",
-        "handleDelete",
-        "onSubmit",
+        "onClick",
         "onChange",
-        "onClick"
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
+      "real": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/academic-work"
+      ],
+      "nest": [
+        "/api/v1/academic-work"
+      ],
+      "models": [
+        "Homework/evaluations + lessons/topics/plans + audit / 1794750000000 APPLIED; PostgreSQL 7/7 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -2882,7 +4547,7 @@
         "/api/v1/school-operations"
       ],
       "models": [
-        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review."
+        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review."
       ],
       "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
@@ -2923,7 +4588,7 @@
         "/api/v1/school-operations"
       ],
       "models": [
-        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review."
+        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review."
       ],
       "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
@@ -2964,7 +4629,7 @@
         "/api/v1/school-operations"
       ],
       "models": [
-        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review."
+        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review."
       ],
       "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
@@ -3005,7 +4670,7 @@
         "/api/v1/school-operations"
       ],
       "models": [
-        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review."
+        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review."
       ],
       "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
@@ -3046,7 +4711,7 @@
         "/api/v1/school-operations"
       ],
       "models": [
-        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review."
+        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review."
       ],
       "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
@@ -3087,7 +4752,7 @@
         "/api/v1/school-operations"
       ],
       "models": [
-        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review."
+        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review."
       ],
       "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
@@ -3128,7 +4793,7 @@
         "/api/v1/school-operations"
       ],
       "models": [
-        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review."
+        "Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review."
       ],
       "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
@@ -3140,18 +4805,35 @@
       "file": "app/admin/online-exam/exam/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onSubmit",
-        "handleChange",
+        "onClick",
         "onChange",
-        "onClick"
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
+      "real": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/online-campus"
+      ],
+      "nest": [
+        "/api/v1/online-campus"
+      ],
+      "models": [
+        "Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -3161,18 +4843,35 @@
       "file": "app/admin/online-exam/question-bank/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onSubmit",
-        "handleChange",
+        "onClick",
         "onChange",
-        "onClick"
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
+      "real": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/online-campus"
+      ],
+      "nest": [
+        "/api/v1/online-campus"
+      ],
+      "models": [
+        "Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -3182,17 +4881,35 @@
       "file": "app/admin/online-exam/question-group/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "onSubmit",
+        "onClick",
         "onChange",
-        "onClick"
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
+      "real": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/online-campus"
+      ],
+      "nest": [
+        "/api/v1/online-campus"
+      ],
+      "models": [
+        "Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -3202,18 +4919,29 @@
       "file": "app/admin/page.tsx",
       "navigation": "sidebar",
       "ui": [
+        "onClick",
         "handlePrevMonth",
         "handleNextMonth",
-        "onClick",
-        "handles"
+        "handles",
+        "onChange"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "dashboardApi.summary"
+      ],
+      "real": [
+        "dashboardApi.summary"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-dashboard"
+      ],
+      "nest": [
+        "/api/v1/admin-dashboard"
+      ],
+      "models": [
+        "Read-only summary over existing student/staff, posted finance, notices and events; no new schema."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -3222,14 +4950,40 @@
       "route": "/admin/reports/accountsreports/payroll-report",
       "file": "app/admin/reports/accountsreports/payroll-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3238,14 +4992,40 @@
       "route": "/admin/reports/accountsreports/transaction",
       "file": "app/admin/reports/accountsreports/transaction/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3254,14 +5034,40 @@
       "route": "/admin/reports/accountsreports/wallet-report",
       "file": "app/admin/reports/accountsreports/wallet-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3270,14 +5076,26 @@
       "route": "/admin/reports/examreports/exam-routine",
       "file": "app/admin/reports/examreports/exam-routine/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick"
+      ],
+      "calls": [
+        "examinationsApi.list"
+      ],
+      "real": [
+        "examinationsApi.list"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/examinations"
+      ],
+      "nest": [
+        "/api/v1/examinations"
+      ],
+      "models": [
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3286,14 +5104,38 @@
       "route": "/admin/reports/examreports/mark-sheet-report",
       "file": "app/admin/reports/examreports/mark-sheet-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ],
+      "real": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/examinations"
+      ],
+      "nest": [
+        "/api/v1/examinations"
+      ],
+      "models": [
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3302,14 +5144,37 @@
       "route": "/admin/reports/examreports/merit-list-report",
       "file": "app/admin/reports/examreports/merit-list-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
+      "real": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records",
+        "/api/examinations",
+        "/api/admin-reports"
+      ],
+      "nest": [
+        "/api/v1/student-records",
+        "/api/v1/examinations",
+        "/api/v1/admin-reports"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS",
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS.",
+        "Read-only classes, enrollment/access history and exam aggregates over existing tables; PostgreSQL root/fixture acceptance PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3318,14 +5183,36 @@
       "route": "/admin/reports/examreports/online-exam-report",
       "file": "app/admin/reports/examreports/online-exam-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
+      "real": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/online-campus"
+      ],
+      "nest": [
+        "/api/v1/online-campus"
+      ],
+      "models": [
+        "Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3334,14 +5221,37 @@
       "route": "/admin/reports/examreports/previous-result",
       "file": "app/admin/reports/examreports/previous-result/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
+      "real": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records",
+        "/api/examinations",
+        "/api/admin-reports"
+      ],
+      "nest": [
+        "/api/v1/student-records",
+        "/api/v1/examinations",
+        "/api/v1/admin-reports"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS",
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS.",
+        "Read-only classes, enrollment/access history and exam aggregates over existing tables; PostgreSQL root/fixture acceptance PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3350,14 +5260,37 @@
       "route": "/admin/reports/examreports/progress-card-report-100",
       "file": "app/admin/reports/examreports/progress-card-report-100/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
+      "real": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records",
+        "/api/examinations",
+        "/api/admin-reports"
+      ],
+      "nest": [
+        "/api/v1/student-records",
+        "/api/v1/examinations",
+        "/api/v1/admin-reports"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS",
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS.",
+        "Read-only classes, enrollment/access history and exam aggregates over existing tables; PostgreSQL root/fixture acceptance PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3366,14 +5299,37 @@
       "route": "/admin/reports/examreports/progress-card-report",
       "file": "app/admin/reports/examreports/progress-card-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
+      "real": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records",
+        "/api/examinations",
+        "/api/admin-reports"
+      ],
+      "nest": [
+        "/api/v1/student-records",
+        "/api/v1/examinations",
+        "/api/v1/admin-reports"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS",
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS.",
+        "Read-only classes, enrollment/access history and exam aggregates over existing tables; PostgreSQL root/fixture acceptance PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3382,14 +5338,37 @@
       "route": "/admin/reports/examreports/tabulation-sheet-report",
       "file": "app/admin/reports/examreports/tabulation-sheet-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
+      "real": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records",
+        "/api/examinations",
+        "/api/admin-reports"
+      ],
+      "nest": [
+        "/api/v1/student-records",
+        "/api/v1/examinations",
+        "/api/v1/admin-reports"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS",
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS.",
+        "Read-only classes, enrollment/access history and exam aggregates over existing tables; PostgreSQL root/fixture acceptance PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3398,14 +5377,40 @@
       "route": "/admin/reports/feesreports/balance-report",
       "file": "app/admin/reports/feesreports/balance-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3414,14 +5419,40 @@
       "route": "/admin/reports/feesreports/fees-due-report",
       "file": "app/admin/reports/feesreports/fees-due-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3430,14 +5461,40 @@
       "route": "/admin/reports/feesreports/fine-report",
       "file": "app/admin/reports/feesreports/fine-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3446,14 +5503,40 @@
       "route": "/admin/reports/feesreports/payment-report",
       "file": "app/admin/reports/feesreports/payment-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3462,14 +5545,40 @@
       "route": "/admin/reports/feesreports/waiver-report",
       "file": "app/admin/reports/feesreports/waiver-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3478,14 +5587,40 @@
       "route": "/admin/reports/staffreports/payroll-report",
       "file": "app/admin/reports/staffreports/payroll-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3494,14 +5629,32 @@
       "route": "/admin/reports/staffreports/staff-attendance-report",
       "file": "app/admin/reports/staffreports/staff-attendance-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.attendance"
+      ],
+      "real": [
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.attendance"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records",
+        "/api/school-attendance"
+      ],
+      "nest": [
+        "/api/v1/student-records",
+        "/api/v1/school-attendance"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS",
+        "Student/staff attendance + audit / 1794671100000 APPLIED; PostgreSQL acceptance PASS"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3510,14 +5663,37 @@
       "route": "/admin/reports/studentreports/class-report",
       "file": "app/admin/reports/studentreports/class-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
+      "real": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records",
+        "/api/examinations",
+        "/api/admin-reports"
+      ],
+      "nest": [
+        "/api/v1/student-records",
+        "/api/v1/examinations",
+        "/api/v1/admin-reports"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS",
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS.",
+        "Read-only classes, enrollment/access history and exam aggregates over existing tables; PostgreSQL root/fixture acceptance PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3526,14 +5702,39 @@
       "route": "/admin/reports/studentreports/class-routine",
       "file": "app/admin/reports/studentreports/class-routine/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "handleSubmit"
+      ],
+      "calls": [
+        "classRoutines.getOptions",
+        "classRoutines.getAll",
+        "classRoutines.update",
+        "classRoutines.create",
+        "classRoutines.delete"
+      ],
+      "real": [
+        "classRoutines.getOptions",
+        "classRoutines.getAll",
+        "classRoutines.update",
+        "classRoutines.create",
+        "classRoutines.delete"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/class-routines/options",
+        "/api/class-routines",
+        "/api/class-routines/"
+      ],
+      "nest": [
+        "/api/v1/class-routines/options",
+        "/api/v1/class-routines",
+        "/api/v1/class-routines"
+      ],
+      "models": [
+        "ClassRoutine / 1794430200000 APPLIED and PostgreSQL verified"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3542,14 +5743,29 @@
       "route": "/admin/reports/studentreports/guardian-report",
       "file": "app/admin/reports/studentreports/guardian-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.students",
+        "schoolRecordsApi.student"
+      ],
+      "real": [
+        "schoolRecordsApi.students",
+        "schoolRecordsApi.student"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records"
+      ],
+      "nest": [
+        "/api/v1/student-records"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3558,14 +5774,38 @@
       "route": "/admin/reports/studentreports/home-work-evaluation-report",
       "file": "app/admin/reports/studentreports/home-work-evaluation-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
+      "real": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/academic-work"
+      ],
+      "nest": [
+        "/api/v1/academic-work"
+      ],
+      "models": [
+        "Homework/evaluations + lessons/topics/plans + audit / 1794750000000 APPLIED; PostgreSQL 7/7 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3574,14 +5814,37 @@
       "route": "/admin/reports/studentreports/previous-record",
       "file": "app/admin/reports/studentreports/previous-record/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
+      "real": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records",
+        "/api/examinations",
+        "/api/admin-reports"
+      ],
+      "nest": [
+        "/api/v1/student-records",
+        "/api/v1/examinations",
+        "/api/v1/admin-reports"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS",
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS.",
+        "Read-only classes, enrollment/access history and exam aggregates over existing tables; PostgreSQL root/fixture acceptance PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3590,14 +5853,32 @@
       "route": "/admin/reports/studentreports/student-attendance-report",
       "file": "app/admin/reports/studentreports/student-attendance-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.attendance"
+      ],
+      "real": [
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.attendance"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records",
+        "/api/school-attendance"
+      ],
+      "nest": [
+        "/api/v1/student-records",
+        "/api/v1/school-attendance"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS",
+        "Student/staff attendance + audit / 1794671100000 APPLIED; PostgreSQL acceptance PASS"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3606,14 +5887,36 @@
       "route": "/admin/reports/studentreports/student-dormitory-report",
       "file": "app/admin/reports/studentreports/student-dormitory-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
+      "real": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/online-campus"
+      ],
+      "nest": [
+        "/api/v1/online-campus"
+      ],
+      "models": [
+        "Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3622,14 +5925,26 @@
       "route": "/admin/reports/studentreports/student-history",
       "file": "app/admin/reports/studentreports/student-history/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.history"
+      ],
+      "real": [
+        "schoolRecordsApi.history"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records"
+      ],
+      "nest": [
+        "/api/v1/student-records"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3638,14 +5953,37 @@
       "route": "/admin/reports/studentreports/student-login-report",
       "file": "app/admin/reports/studentreports/student-login-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
+      "real": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records",
+        "/api/examinations",
+        "/api/admin-reports"
+      ],
+      "nest": [
+        "/api/v1/student-records",
+        "/api/v1/examinations",
+        "/api/v1/admin-reports"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS",
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS.",
+        "Read-only classes, enrollment/access history and exam aggregates over existing tables; PostgreSQL root/fixture acceptance PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3654,14 +5992,29 @@
       "route": "/admin/reports/studentreports/student-report",
       "file": "app/admin/reports/studentreports/student-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.students",
+        "schoolRecordsApi.student"
+      ],
+      "real": [
+        "schoolRecordsApi.students",
+        "schoolRecordsApi.student"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records"
+      ],
+      "nest": [
+        "/api/v1/student-records"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3670,14 +6023,34 @@
       "route": "/admin/reports/studentreports/student-transport-report",
       "file": "app/admin/reports/studentreports/student-transport-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick",
+        "onSubmit"
+      ],
+      "calls": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ],
+      "real": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-operations"
+      ],
+      "nest": [
+        "/api/v1/admin-operations"
+      ],
+      "models": [
+        "inspect endpoint contract"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3686,14 +6059,34 @@
       "route": "/admin/reports/studentreports/subject-attendance-report",
       "file": "app/admin/reports/studentreports/subject-attendance-report/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick",
+        "onSubmit"
+      ],
+      "calls": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ],
+      "real": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-operations"
+      ],
+      "nest": [
+        "/api/v1/admin-operations"
+      ],
+      "models": [
+        "inspect endpoint contract"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3702,14 +6095,37 @@
       "route": "/admin/reports/studentreports/user-log",
       "file": "app/admin/reports/studentreports/user-log/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
+      "real": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records",
+        "/api/examinations",
+        "/api/admin-reports"
+      ],
+      "nest": [
+        "/api/v1/student-records",
+        "/api/v1/examinations",
+        "/api/v1/admin-reports"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS",
+        "Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS.",
+        "Read-only classes, enrollment/access history and exam aggregates over existing tables; PostgreSQL root/fixture acceptance PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "persisted source modules first",
       "tests": []
@@ -3797,14 +6213,40 @@
       "route": "/admin/settings/fees-settings/fees-invoice-settings",
       "file": "app/admin/settings/fees-settings/fees-invoice-settings/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
+      "real": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/finance"
+      ],
+      "nest": [
+        "/api/v1/finance"
+      ],
+      "models": [
+        "Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "students/staff -> transactional financial and leave foundations",
       "tests": []
@@ -3855,14 +6297,30 @@
       "route": "/admin/settings/general-settings/base-setup",
       "file": "app/admin/settings/general-settings/base-setup/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onSubmit",
+        "onChange"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
+      "real": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-configuration"
+      ],
+      "nest": [
+        "/api/v1/admin-configuration"
+      ],
+      "models": [
+        "Two-table configuration draft / 1794756000000 NOT APPLIED; nine profile forms and API are gated pending separate approval; provider delivery/policy integration remains outside this profile store."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -3871,14 +6329,30 @@
       "route": "/admin/settings/general-settings/email-setting",
       "file": "app/admin/settings/general-settings/email-setting/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onSubmit",
+        "onChange"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
+      "real": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-configuration"
+      ],
+      "nest": [
+        "/api/v1/admin-configuration"
+      ],
+      "models": [
+        "Two-table configuration draft / 1794756000000 NOT APPLIED; nine profile forms and API are gated pending separate approval; provider delivery/policy integration remains outside this profile store."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -3960,14 +6434,30 @@
       "route": "/admin/settings/general-settings/language-settings",
       "file": "app/admin/settings/general-settings/language-settings/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onSubmit",
+        "onChange"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
+      "real": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-configuration"
+      ],
+      "nest": [
+        "/api/v1/admin-configuration"
+      ],
+      "models": [
+        "Two-table configuration draft / 1794756000000 NOT APPLIED; nine profile forms and API are gated pending separate approval; provider delivery/policy integration remains outside this profile store."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -3976,14 +6466,30 @@
       "route": "/admin/settings/general-settings/lesson-plan-setting",
       "file": "app/admin/settings/general-settings/lesson-plan-setting/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onSubmit",
+        "onChange"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
+      "real": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-configuration"
+      ],
+      "nest": [
+        "/api/v1/admin-configuration"
+      ],
+      "models": [
+        "Two-table configuration draft / 1794756000000 NOT APPLIED; nine profile forms and API are gated pending separate approval; provider delivery/policy integration remains outside this profile store."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -3992,14 +6498,30 @@
       "route": "/admin/settings/general-settings/notification-setting",
       "file": "app/admin/settings/general-settings/notification-setting/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onSubmit",
+        "onChange"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
+      "real": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-configuration"
+      ],
+      "nest": [
+        "/api/v1/admin-configuration"
+      ],
+      "models": [
+        "Two-table configuration draft / 1794756000000 NOT APPLIED; nine profile forms and API are gated pending separate approval; provider delivery/policy integration remains outside this profile store."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -4008,14 +6530,30 @@
       "route": "/admin/settings/general-settings/payment-settings",
       "file": "app/admin/settings/general-settings/payment-settings/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onSubmit",
+        "onChange"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
+      "real": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-configuration"
+      ],
+      "nest": [
+        "/api/v1/admin-configuration"
+      ],
+      "models": [
+        "Two-table configuration draft / 1794756000000 NOT APPLIED; nine profile forms and API are gated pending separate approval; provider delivery/policy integration remains outside this profile store."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -4024,14 +6562,30 @@
       "route": "/admin/settings/general-settings/sms-settings",
       "file": "app/admin/settings/general-settings/sms-settings/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onSubmit",
+        "onChange"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
+      "real": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-configuration"
+      ],
+      "nest": [
+        "/api/v1/admin-configuration"
+      ],
+      "models": [
+        "Two-table configuration draft / 1794756000000 NOT APPLIED; nine profile forms and API are gated pending separate approval; provider delivery/policy integration remains outside this profile store."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -4040,14 +6594,30 @@
       "route": "/admin/settings/general-settings/staff-settings",
       "file": "app/admin/settings/general-settings/staff-settings/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onSubmit",
+        "onChange"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
+      "real": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-configuration"
+      ],
+      "nest": [
+        "/api/v1/admin-configuration"
+      ],
+      "models": [
+        "Two-table configuration draft / 1794756000000 NOT APPLIED; nine profile forms and API are gated pending separate approval; provider delivery/policy integration remains outside this profile store."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -4056,14 +6626,30 @@
       "route": "/admin/settings/general-settings/student-settings",
       "file": "app/admin/settings/general-settings/student-settings/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onSubmit",
+        "onChange"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
+      "real": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/admin-configuration"
+      ],
+      "nest": [
+        "/api/v1/admin-configuration"
+      ],
+      "models": [
+        "Two-table configuration draft / 1794756000000 NOT APPLIED; nine profile forms and API are gated pending separate approval; provider delivery/policy integration remains outside this profile store."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -4303,15 +6889,51 @@
       "navigation": "sidebar",
       "ui": [
         "onChange",
-        "onClick"
+        "onClick",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "schoolRecordsApi.students",
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.student",
+        "schoolRecordsApi.updateStudent",
+        "schoolRecordsApi.createStudent",
+        "schoolRecordsApi.guardian",
+        "schoolRecordsApi.enroll",
+        "schoolRecordsApi.endEnrollment",
+        "schoolContentApi.links",
+        "schoolContentApi.link",
+        "schoolContentApi.upload",
+        "schoolContentApi.files"
+      ],
+      "real": [
+        "schoolRecordsApi.students",
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.student",
+        "schoolRecordsApi.updateStudent",
+        "schoolRecordsApi.createStudent",
+        "schoolRecordsApi.guardian",
+        "schoolRecordsApi.enroll",
+        "schoolRecordsApi.endEnrollment",
+        "schoolContentApi.links",
+        "schoolContentApi.link",
+        "schoolContentApi.upload",
+        "schoolContentApi.files"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records",
+        "/api/school-content"
+      ],
+      "nest": [
+        "/api/v1/student-records",
+        "/api/v1/school-content"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS",
+        "Files/attachments + study materials + notices/events / 1794672000000 + 1794672100000 APPLIED; PostgreSQL 7/7 PASS. Proxy maps to school-files/materials/notices/events; generic action review required."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "category/group -> student/guardian -> enrollment -> attendance/promotion",
       "tests": []
@@ -4320,14 +6942,29 @@
       "route": "/admin/student-info/studentexport",
       "file": "app/admin/student-info/studentexport/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onChange",
+        "onClick"
+      ],
+      "calls": [
+        "schoolRecordsApi.students",
+        "schoolRecordsApi.student"
+      ],
+      "real": [
+        "schoolRecordsApi.students",
+        "schoolRecordsApi.student"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records"
+      ],
+      "nest": [
+        "/api/v1/student-records"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "category/group -> student/guardian -> enrollment -> attendance/promotion",
       "tests": []
@@ -4340,13 +6977,28 @@
         "onChange",
         "onClick"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.attendance"
+      ],
+      "real": [
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.attendance"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/student-records",
+        "/api/school-attendance"
+      ],
+      "nest": [
+        "/api/v1/student-records",
+        "/api/v1/school-attendance"
+      ],
+      "models": [
+        "Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS",
+        "Student/staff attendance + audit / 1794671100000 APPLIED; PostgreSQL acceptance PASS"
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "category/group -> student/guardian -> enrollment -> attendance/promotion",
       "tests": []
@@ -4508,23 +7160,36 @@
       "file": "app/admin/teacher-evaluation/approved/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "handleDelete",
-        "handleEdit",
-        "handleView",
-        "onEdit",
-        "onView",
-        "onClick"
+        "onClick",
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
+      "real": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/teacher-evaluation/approved/page.tsx"
+      "proxies": [
+        "/api/school-administration"
       ],
+      "nest": [
+        "/api/v1/school-administration"
+      ],
+      "models": [
+        "Conduct/leave/evaluation records, policies, quota guards and audit / 1794751000000 APPLIED; PostgreSQL acceptance 10/10 PASS including rollback-only multi-connection serialization."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -4533,24 +7198,36 @@
       "file": "app/admin/teacher-evaluation/pending/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "handleDelete",
-        "handleApprove",
-        "handleEdit",
-        "handleView",
-        "onEdit",
-        "onView",
-        "onClick"
+        "onClick",
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
+      "real": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
-      "mockEvidence": [
-        "app/admin/teacher-evaluation/pending/page.tsx"
+      "proxies": [
+        "/api/school-administration"
       ],
+      "nest": [
+        "/api/v1/school-administration"
+      ],
+      "models": [
+        "Conduct/leave/evaluation records, policies, quota guards and audit / 1794751000000 APPLIED; PostgreSQL acceptance 10/10 PASS including rollback-only multi-connection serialization."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
+      "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
     },
@@ -4559,15 +7236,35 @@
       "file": "app/admin/teacher-evaluation/setting/page.tsx",
       "navigation": "sidebar",
       "ui": [
-        "handleToggle"
+        "onClick",
+        "onChange",
+        "onSubmit"
       ],
-      "calls": [],
-      "real": [],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
+      "real": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/school-administration"
+      ],
+      "nest": [
+        "/api/v1/school-administration"
+      ],
+      "models": [
+        "Conduct/leave/evaluation records, policies, quota guards and audit / 1794751000000 APPLIED; PostgreSQL acceptance 10/10 PASS including rollback-only multi-connection serialization."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []
@@ -4576,14 +7273,36 @@
       "route": "/admin/teacher-evaluation/teacher-wise",
       "file": "app/admin/teacher-evaluation/teacher-wise/page.tsx",
       "navigation": "sidebar",
-      "ui": [],
-      "calls": [],
-      "real": [],
+      "ui": [
+        "onClick",
+        "onChange",
+        "onSubmit"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
+      "real": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ],
       "fake": [],
-      "proxies": [],
-      "nest": [],
-      "models": [],
-      "status": "MISSING: no real domain API in page/import graph",
+      "proxies": [
+        "/api/school-administration"
+      ],
+      "nest": [
+        "/api/v1/school-administration"
+      ],
+      "models": [
+        "Conduct/leave/evaluation records, policies, quota guards and audit / 1794751000000 APPLIED; PostgreSQL acceptance 10/10 PASS including rollback-only multi-connection serialization."
+      ],
+      "status": "PARTIAL: real calls; action/coverage review required",
       "mockEvidence": [],
       "dependency": "academic/student/staff foundations; see roadmap phases 3-5",
       "tests": []

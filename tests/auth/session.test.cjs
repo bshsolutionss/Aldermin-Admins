@@ -1,7 +1,8 @@
-const { test, afterEach, mock } = require("node:test");
-const assert = require("node:assert/strict");
-const { NextRequest } = require("next/server");
-const { loadTs } = require("./load-ts.cjs");
+async function register() {
+const { test, afterEach, mock } = await import("node:test");
+const assert = (await import("node:assert/strict")).default;
+const { NextRequest, NextResponse } = await import("next/server.js");
+const { loadTs } = await import("./load-ts.mjs");
 afterEach(() => mock.restoreAll());
 const profile = { id: "user-id", name: "Real Administrator", email: "admin@example.test", role: "admin" };
 const cookieStore = values => ({ get: key => values[key] ? { value: values[key] } : undefined, has: key => !!values[key] });
@@ -187,7 +188,7 @@ test("production cookie attributes include Secure and explicit lifetimes", () =>
   const old = process.env.NODE_ENV;
   process.env.NODE_ENV = "production";
   try {
-    const { NextResponse } = require("next/server");
+
     const response = NextResponse.json({});
     helper().setAuthCookies(response, { accessToken: "a", refreshToken: "r", expiresIn: 900 });
     assert.equal(response.cookies.get("access_token").secure, true);
@@ -214,3 +215,6 @@ test("admin layout preserves session and displays retry UI during backend outage
   const result = await layout.default({ children: null });
   assert.equal(result.type.name, "SessionUnavailable");
 });
+
+}
+void register();

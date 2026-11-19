@@ -20,7 +20,14 @@
     "test:foundations": "node --test tests/settings/admin-foundations.test.cjs",
     "test:student-records": "node --test tests/students/records.test.cjs",
     "test:school-content": "node --test tests/students/content.test.cjs",
-    "test:school-operations": "node --test tests/students/operations.test.cjs"
+    "test:school-operations": "node --test tests/students/operations.test.cjs",
+    "test:academic-work": "node --test tests/academics/work.test.cjs",
+    "test:school-administration": "node --test tests/students/administration.test.cjs",
+    "test:examinations": "node --test tests/academics/examinations.test.cjs",
+    "test:finance": "node --test tests/academics/finance.test.cjs",
+    "test:online-campus": "node --test tests/academics/online-campus.test.cjs",
+    "test:documents": "node --test tests/academics/documents.test.cjs tests/academics/document-routes.test.cjs",
+    "test:dashboard": "node --test tests/academics/dashboard.test.cjs"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.11",

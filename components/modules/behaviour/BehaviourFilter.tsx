@@ -17,7 +17,7 @@ import { IconType } from "react-icons";
 interface BehaviourFilterProps {
   buttonText?: string;
   buttonIcon?: IconType;
-  onFilter?: (data: any) => void;
+  onFilter?: (data: Record<string, string>) => void;
 }
 
 export function BehaviourFilter({

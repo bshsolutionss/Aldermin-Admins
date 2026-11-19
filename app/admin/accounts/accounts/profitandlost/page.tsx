@@ -1,27 +1,2 @@
-﻿"use client";
-
-import React from "react";
-import { PageHeader } from "@/components/common/PageHeader";
-import { AdminCard } from "@/components/common/AdminCard";
-
-export default function Page() {
-  return (
-    <div className="container mx-auto space-y-8 pb-10">
-      <PageHeader
-        title="Profit and Loss"
-        subtitle="Manage Profit and Loss details and operations"
-      />
-      <AdminCard className="p-6">
-        <div className="flex flex-col items-center justify-center min-h-[400px] text-center space-y-4">
-          <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-            <span className="text-2xl text-primary">💳</span>
-          </div>
-          <h3 className="text-xl font-semibold">Profit and Loss Module</h3>
-          <p className="text-muted-foreground max-w-md">
-            The Profit and Loss management interface is currently under development.
-          </p>
-        </div>
-      </AdminCard>
-    </div>
-  );
-}
+import FinancePanel from "@/components/modules/finance/FinancePanel";
+export default function Page(){return <FinancePanel title="Profit and Loss" report="profit-loss"/>;}

@@ -27,7 +27,7 @@ export interface ReportItem {
 }
 
 interface MarksheetReportProps {
-  searchParams: any;
+  searchParams: { exam: string; className: string; section: string; subject: string };
   reportData: ReportItem[];
 }
 

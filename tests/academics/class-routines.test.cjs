@@ -1,4 +1,5 @@
-const {test}=require('node:test');const assert=require('node:assert/strict');const {loadTs}=require('../auth/load-ts.cjs');
+async function register() {
+const {test}=await import("node:test");const assert=(await import("node:assert/strict")).default;const {loadTs}=await import("../auth/load-ts.mjs");
 const id='11111111-1111-4111-8111-111111111111',assignmentId='22222222-2222-4222-8222-222222222222',classroomId='33333333-3333-4333-8333-333333333333',yearId='44444444-4444-4444-8444-444444444444';
 const allocation={id:assignmentId,classId:id,classSectionId:id,className:'Class 1',sectionName:'A',subjectName:'Math',staffId:id,teacherName:'Teacher',academicYearId:yearId};
 const choices={academicYearId:yearId,academicYears:[{id:yearId,name:'2026'}],allocations:[allocation],classrooms:[{id:classroomId,roomNumber:'101',capacity:40}]};
@@ -62,3 +63,6 @@ test('Both routine routes keep their forms/tables and wire the shared real actio
   assert.deepEqual(calls,['edit','delete','save']);
  }
 });
+
+}
+void register();

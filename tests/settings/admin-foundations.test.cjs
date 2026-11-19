@@ -1,6 +1,7 @@
-const {test}=require('node:test');
-const assert=require('node:assert/strict');
-const {loadTs}=require('../auth/load-ts.cjs');
+async function register() {
+const {test}=await import("node:test");
+const assert=(await import("node:assert/strict")).default;
+const {loadTs}=await import("../auth/load-ts.mjs");
 const id='11111111-1111-4111-8111-111111111111';
 const row={id,name:'Merit',archived:false,version:1,updatedAt:'2026-11-14T00:00:00Z'};
 
@@ -79,3 +80,6 @@ test('duplicate saves are suppressed while the first catalog write is pending',a
   const page=records({list:async()=>({items:[],total:0,page:1,pageSize:20}),save:async()=>{writes++;return new Promise(resolve=>finish=resolve);}});
   await page.start();page.render().setDraft({name:'Merit'});const pending=page.render().save();await page.render().save();assert.equal(writes,1);finish({record:row,changed:true});await pending;
 });
+
+}
+void register();

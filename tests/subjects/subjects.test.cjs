@@ -1,7 +1,8 @@
-const { test } = require('node:test');
-const assert = require('node:assert/strict');
-const { loadTs } = require('../auth/load-ts.cjs');
-const { NextResponse } = require('next/server');
+async function register() {
+const { test } = await import("node:test");
+const assert = (await import("node:assert/strict")).default;
+const { loadTs } = await import("../auth/load-ts.mjs");
+const { NextResponse } = await import("next/server.js");
 
 const id = '11111111-1111-4111-8111-111111111111';
 const record = { id, name:'Mathematics', code:'MATH', type:'Theory', createdAt:'2026-11-10', updatedAt:'2026-11-10' };
@@ -33,12 +34,12 @@ test('API client propagates validation failures and outages without mock fallbac
 
 function proxy(role='admin', response=Response.json(record), authorized=true) {
   const calls = [];
-  const module = loadTs('lib/school-subjects-proxy.ts', { '@/lib/auth-server': {
+  const proxyModule = loadTs('lib/school-subjects-proxy.ts', { '@/lib/auth-server': {
     getVerifiedUser:async()=>({user:authorized ? {id,role}:null,accessToken:'cookie-token'}),
     isSameOrigin:req=> !req.headers.get('origin') || req.headers.get('origin') === 'http://localhost',
     authFetch:async(path,options)=>{calls.push([path,options]); if(response instanceof Error) throw response; return response;},
   }});
-  return {...module,calls};
+  return {...proxyModule,calls};
 }
 const req=(method='GET',body,origin)=>new Request('http://localhost/api/school-subjects',{
   method, headers:origin?{origin}:{}, ...(body===undefined?{}:{body:JSON.stringify(body)}),
@@ -137,3 +138,6 @@ for (const path of ['app/admin/academic/subject/page.tsx','app/admin/academics/s
     assert.equal(edited,record);assert.equal(deleted,id);
   });
 }
+
+}
+void register();

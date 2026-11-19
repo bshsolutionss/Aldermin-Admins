@@ -15,8 +15,8 @@ import {
 import { FaCheckCircle, FaBookOpen } from "react-icons/fa";
 
 interface LessonFormProps {
-  formData: any;
-  handleInputChange: (e: any) => void;
+  formData: { title: string; className: string; section: string; subject: string };
+  handleInputChange: (e: { target: { name: string; value: string } }) => void;
   handleSubmit: (e: React.FormEvent) => void;
 }
 

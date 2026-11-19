@@ -56,7 +56,7 @@ export function useSchoolSettings() {
     catch (err) { if (token === historySequence.current) setError(err instanceof Error ? err.message : "Unable to load history"); }
   }
   async function save() {
-    if (busy.current || !ready) return;
+    if (busy.current || !ready) return false;
     busy.current = true; ++sequence.current;
     const token = ++historySequence.current;
     setSaving(true); setError(""); setNotice("");
@@ -66,7 +66,8 @@ export function useSchoolSettings() {
       setNotice(result.changed ? "General Settings saved." : "General Settings are already up to date.");
       try { const events = await apiService.schoolSettings.history(); if (token === historySequence.current) setHistory(events); }
       catch { setError("Settings are saved. Audit history could not load; reload to retry."); }
-    } catch (err) { setError(err instanceof Error ? err.message : "Unable to save settings"); }
+      return true;
+    } catch (err) { setError(err instanceof Error ? err.message : "Unable to save settings"); return false; }
     finally { busy.current = false; setSaving(false); }
   }
   return { settings, draft, setDraft, history, loading, ready, saving, error, notice, reload, loadHistory, save };

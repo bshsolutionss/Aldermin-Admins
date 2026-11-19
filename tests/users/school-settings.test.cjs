@@ -1,4 +1,5 @@
-const {test}=require('node:test');const assert=require('node:assert/strict');const {loadTs}=require('../auth/load-ts.cjs');
+async function register() {
+const {test}=await import("node:test");const assert=(await import("node:assert/strict")).default;const {loadTs}=await import("../auth/load-ts.mjs");
 const saved={schoolName:'School',schoolCode:null,contactEmail:null,contactPhone:null,address:null,timezone:'Asia/Karachi',version:1,updatedAt:'2026-11-13T00:00:00Z'};
 const history={items:[],total:0,page:1,pageSize:10};
 function mount(api){
@@ -42,3 +43,6 @@ test('an audit read failure after a successful save does not misreport the persi
  let failHistory=false;const hook=mount({get:async()=>({settings:saved}),history:async()=>{if(failHistory)throw Error('Outage');return history;},save:async()=>({settings:{...saved,schoolName:'Persisted',version:2},changed:true})});
  await hook.start();failHistory=true;await hook.render().save();assert.equal(hook.render().settings.schoolName,'Persisted');assert.match(hook.render().error,/Settings are saved/);
 });
+
+}
+void register();

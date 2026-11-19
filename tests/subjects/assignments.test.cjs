@@ -1,7 +1,8 @@
-const {test}=require('node:test');
-const assert=require('node:assert/strict');
-const {loadTs}=require('../auth/load-ts.cjs');
-const {NextResponse}=require('next/server');
+async function register() {
+const {test}=await import("node:test");
+const assert=(await import("node:assert/strict")).default;
+const {loadTs}=await import("../auth/load-ts.mjs");
+const {NextResponse}=await import("next/server.js");
 const subjectId='11111111-1111-4111-8111-111111111111',teacherId='22222222-2222-4222-8222-222222222222';
 const classSectionId='44444444-4444-4444-8444-444444444444';
 const choices={subjects:[{id:subjectId,name:'Math'}],classSections:[{id:classSectionId,className:'Class 1',sectionName:'A',academicYearName:'2026'}],teachers:[{id:teacherId,name:'Real teacher',staffNo:'T-1'}]};
@@ -122,3 +123,6 @@ test('legacy route retains failed input and reports API errors',async()=>{
   assert.equal(page.nodes().filter(n=>n.props?.role==='alert').length,1);
   assert.equal(page.nodes().filter(n=>n.type==='tr').length,1);
 });
+
+}
+void register();

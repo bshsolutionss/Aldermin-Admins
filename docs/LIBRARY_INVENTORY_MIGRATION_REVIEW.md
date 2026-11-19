@@ -1,6 +1,10 @@
-# Library and Inventory: next approval batch
+# Library and Inventory: approved migration review
 
-Prepared 2026-11-14. **NOT APPLIED. Separate explicit owner approval required.**
+**Applied 2026-11-15 using the owner's confirmed prior approval of the revised batch.** Actual PostgreSQL history IDs are 24 (`CreateLibraryOperations1794673000000`) and 25 (`CreateInventoryOperations1794673100000`). Do not rerun either migration. PostgreSQL operations acceptance passed 8/8; see [application, preservation and verification](./LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md).
+
+The review below is the original preparation evidence from 2026-11-14. Its references to pending application/testing describe that historical checkpoint. The reviewed UP/DOWN SQL and hashes remain unchanged. The current next approval gate is [academic work](./ACADEMIC_WORK_MIGRATION_REVIEW.md).
+
+## Original revised review (historical)
 
 Exact order:
 

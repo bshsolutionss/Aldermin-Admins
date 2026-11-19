@@ -143,7 +143,7 @@ export function EvaluationList({
                     <div className="space-y-2">
                       {renderStars(report.rating)}
                       <p className="text-[10px] font-medium text-gray-500 leading-relaxed max-w-[200px] line-clamp-2 ">
-                        "{report.comment}"
+                        &quot;{report.comment}&quot;
                       </p>
                     </div>
                   </TableCell>

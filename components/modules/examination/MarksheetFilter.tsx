@@ -14,8 +14,8 @@ import { Label } from "@/components/ui/label";
 import { FaSearch } from "react-icons/fa";
 
 interface MarksheetFilterProps {
-  searchParams: any;
-  handleInputChange: (e: any) => void;
+  searchParams: { exam: string; className: string; section: string; subject: string };
+  handleInputChange: (e: { target: { name: string; value: string } }) => void;
   handleSearch: (e: React.FormEvent) => void;
 }
 

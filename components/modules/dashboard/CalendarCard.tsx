@@ -113,10 +113,11 @@ export function CalendarCard() {
         </div>
       </div>
       <Button
+        asChild
         variant="secondary"
         className="mt-4 w-3/4 rounded-xl text-xs font-semibold"
       >
-        Manage Calendar
+        <a href="/admin/accounts/communicate/calendar">Manage Calendar</a>
       </Button>
     </AdminCard>
   );

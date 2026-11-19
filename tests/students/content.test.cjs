@@ -1,4 +1,5 @@
-const {test}=require('node:test');const assert=require('node:assert/strict');const {loadTs}=require('../auth/load-ts.cjs');
+async function register() {
+const {test}=await import("node:test");const assert=(await import("node:assert/strict")).default;const {loadTs}=await import("../auth/load-ts.mjs");
 const id='11111111-1111-4111-8111-111111111111';
 test('content proxy requires admin and same origin, allowlists routes and preserves service failures',async()=>{
  let user={role:'admin'},origin=true,calls=[];const {proxySchoolContent:proxy}=loadTs('lib/school-content-proxy.ts',{'./auth-server':{getVerifiedUser:async()=>({user,accessToken:'cookie'}),isSameOrigin:()=>origin,authFetch:async(path,init)=>{calls.push([path,init]);return Response.json({message:'Pending migration'},{status:503});}}});
@@ -29,3 +30,6 @@ test('file library retains failed upload selections and clears only successful u
 test('pending schema disables file and publication writes without creating demo rows',async()=>{
  const api={files:async()=>{throw Error('Migration required');},list:async()=>{throw Error('Migration required');},options:async()=>options};const files=mount('useFileLibrary',api),publications=mount('usePublications',api,'events');await files.flush();await publications.flush();assert.equal(files.render().ready,false);assert.equal(publications.render().ready,false);assert.deepEqual(files.render().items,[]);assert.equal(await publications.render().save(),false);assert.equal(await files.render().upload(),false);
 });
+
+}
+void register();

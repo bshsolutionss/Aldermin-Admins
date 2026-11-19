@@ -1,7 +1,8 @@
-const {test,afterEach,mock}=require('node:test');
-const assert=require('node:assert/strict');
-const {NextRequest}=require('next/server');
-const {loadTs}=require('./load-ts.cjs');
+async function register() {
+const {test,afterEach,mock}=await import("node:test");
+const assert=(await import("node:assert/strict")).default;
+const {NextRequest}=await import("next/server.js");
+const {loadTs}=await import("./load-ts.mjs");
 afterEach(()=>mock.restoreAll());
 const student={id:'student-id',name:'Real Student',email:'student@example.test',role:'student'};
 const helper=()=>loadTs('lib/auth-server.ts',{'next/headers':{cookies:async()=>({get:()=>undefined})}});
@@ -43,3 +44,6 @@ test('registration proxy propagates duplicate/validation failures and rejects fa
     const res=await loadTs('app/api/auth/register/route.ts',{'@/lib/auth-server':helper()}).POST(req({name:'Student',email:student.email,password:'password123'}));assert.equal(res.status,status===200?503:status);mock.restoreAll();
   }
 });
+
+}
+void register();

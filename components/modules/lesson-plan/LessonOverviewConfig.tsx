@@ -14,8 +14,8 @@ import {
 import { FaGraduationCap } from "react-icons/fa";
 
 interface LessonOverviewConfigProps {
-  formData: any;
-  handleInputChange: (e: any) => void;
+  formData: { teacher: string; className: string; section: string; subject: string };
+  handleInputChange: (e: { target: { name: string; value: string } }) => void;
 }
 
 export function LessonOverviewConfig({

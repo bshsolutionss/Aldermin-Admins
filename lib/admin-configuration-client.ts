@@ -1,0 +1,6 @@
+import { sessionFetch } from './session-client';
+export type ConfigurationScope='base'|'student'|'staff'|'lesson-plan'|'language'|'notification'|'email'|'sms'|'payment';
+export type ConfigurationValues=Record<string,string|number|boolean>;
+export type ConfigurationProfile={installed:boolean;fields:{key:string;label:string;type:'text'|'email'|'number'|'boolean'|'select';maxLength?:number;min?:number;max?:number;values?:string[]}[];record:{scope:string;settings:ConfigurationValues;version:number;updated_at:string}|null;history:{id:string;version:number;actor_name:string;created_at:string}[];note:string};
+async function call<T>(scope:ConfigurationScope,method='GET',body?:unknown):Promise<T>{const r=await sessionFetch('/api/admin-configuration/'+scope,{method,cache:'no-store',...(body?{headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{})});const data=await r.json();if(!r.ok)throw new Error(Array.isArray(data.message)?data.message.join('; '):data.message||'Unable to load configuration');return data;}
+export const adminConfigurationApi={read:(scope:ConfigurationScope)=>call<ConfigurationProfile>(scope),save:(scope:ConfigurationScope,settings:ConfigurationValues,version:number)=>call<{record:NonNullable<ConfigurationProfile['record']>}>(scope,'PUT',{settings,version})};

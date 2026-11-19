@@ -1,0 +1,3661 @@
+{
+  "date": "2026-11-17",
+  "productionReadiness": "VERIFIED CONTRACTS / REAL POSTGRESQL PERSISTENCE",
+  "method": "Evidence ledger based on route-specific frontend interaction tests, backend unit/e2e tests, live PostgreSQL lifecycle/authorization/preservation tests, and production full-stack acceptance.",
+  "totals": {
+    "total": 183,
+    "fullyFunctionalVerified": 183,
+    "partiallyFunctionalOrVerificationPending": 0,
+    "incomplete": 0,
+    "migrationGatedWithinPartial": 0
+  },
+  "routes": [
+    {
+      "route": "/admin/academic/assign-class-teacher",
+      "file": "app/admin/academic/assign-class-teacher/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/class-teacher.test.cjs",
+        "docs/CLASS_TEACHER_ALLOCATION_PLAN.md",
+        "../../lms/lms-backend/test/class-teacher-assignments.e2e.mjs"
+      ],
+      "calls": [
+        "classTeacherAssignments.getAll",
+        "classTeacherAssignments.getOptions",
+        "classTeacherAssignments.update",
+        "classTeacherAssignments.create",
+        "classTeacherAssignments.delete"
+      ]
+    },
+    {
+      "route": "/admin/academic/assign-subject",
+      "file": "app/admin/academic/assign-subject/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/subjects/assignments.test.cjs",
+        "docs/SUBJECT_ASSIGNMENT_RECONCILIATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/subject-assignments.e2e.mjs"
+      ],
+      "calls": [
+        "subjectAssignments.getAll",
+        "subjectAssignments.getOptions",
+        "subjectAssignments.update",
+        "subjectAssignments.create",
+        "subjectAssignments.delete"
+      ]
+    },
+    {
+      "route": "/admin/academic/class-room",
+      "file": "app/admin/academic/class-room/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/classrooms.test.cjs",
+        "docs/CLASSROOMS_VERIFICATION.md",
+        "../../lms/lms-backend/test/classrooms.e2e.mjs"
+      ],
+      "calls": [
+        "classrooms.getAll",
+        "classrooms.update",
+        "classrooms.create",
+        "classrooms.delete"
+      ]
+    },
+    {
+      "route": "/admin/academic/class-routine",
+      "file": "app/admin/academic/class-routine/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/class-routines.test.cjs",
+        "docs/CLASS_ROUTINES_VERIFICATION.md",
+        "../../lms/lms-backend/test/class-routines.e2e.mjs"
+      ],
+      "calls": [
+        "classRoutines.getOptions",
+        "classRoutines.getAll",
+        "classRoutines.update",
+        "classRoutines.create",
+        "classRoutines.delete"
+      ]
+    },
+    {
+      "route": "/admin/academic/class",
+      "file": "app/admin/academic/class/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/subjects/classes.test.cjs",
+        "docs/PHASE_3_ACADEMIC_YEAR.md",
+        "../../lms/lms-backend/test/classes.e2e.mjs"
+      ],
+      "calls": [
+        "classes.getAll",
+        "academicYears.getAll",
+        "sections.getAll",
+        "classes.getSectionIds",
+        "classes.update",
+        "classes.create",
+        "classes.delete"
+      ]
+    },
+    {
+      "route": "/admin/academic/section",
+      "file": "app/admin/academic/section/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/subjects/sections.test.cjs",
+        "docs/PHASE_3_SECTIONS.md",
+        "../../lms/lms-backend/test/sections.e2e.mjs"
+      ],
+      "calls": [
+        "sections.getAll",
+        "sections.update",
+        "sections.create",
+        "sections.delete"
+      ]
+    },
+    {
+      "route": "/admin/academic/subject",
+      "file": "app/admin/academic/subject/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/subjects/subjects.test.cjs",
+        "docs/PHASE_2_SCHOOL_SUBJECTS.md",
+        "../../lms/lms-backend/test/school-subjects.e2e.mjs"
+      ],
+      "calls": [
+        "schoolSubjects.getAll",
+        "schoolSubjects.update",
+        "schoolSubjects.create",
+        "schoolSubjects.delete"
+      ]
+    },
+    {
+      "route": "/admin/academics/assign-subject",
+      "file": "app/admin/academics/assign-subject/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/subjects/assignments.test.cjs",
+        "docs/SUBJECT_ASSIGNMENT_RECONCILIATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/subject-assignments.e2e.mjs"
+      ],
+      "calls": [
+        "academics.getSubjectAssignments",
+        "subjectAssignments.getOptions",
+        "subjectAssignments.update",
+        "subjectAssignments.create",
+        "subjectAssignments.getAll",
+        "subjectAssignments.delete"
+      ]
+    },
+    {
+      "route": "/admin/academics/assign-teacher",
+      "file": "app/admin/academics/assign-teacher/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/class-teacher.test.cjs",
+        "docs/CLASS_TEACHER_ALLOCATION_PLAN.md",
+        "../../lms/lms-backend/test/class-teacher-assignments.e2e.mjs"
+      ],
+      "calls": [
+        "classTeacherAssignments.getAll",
+        "classTeacherAssignments.getOptions",
+        "classTeacherAssignments.update",
+        "classTeacherAssignments.create",
+        "classTeacherAssignments.delete"
+      ]
+    },
+    {
+      "route": "/admin/academics/class",
+      "file": "app/admin/academics/class/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/subjects/classes.test.cjs",
+        "docs/PHASE_3_ACADEMIC_YEAR.md",
+        "../../lms/lms-backend/test/classes.e2e.mjs"
+      ],
+      "calls": [
+        "classes.getAll",
+        "academicYears.getAll",
+        "sections.getAll",
+        "classes.getSectionIds",
+        "classes.update",
+        "classes.create",
+        "classes.delete"
+      ]
+    },
+    {
+      "route": "/admin/academics/classroom",
+      "file": "app/admin/academics/classroom/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/classrooms.test.cjs",
+        "docs/CLASSROOMS_VERIFICATION.md",
+        "../../lms/lms-backend/test/classrooms.e2e.mjs"
+      ],
+      "calls": [
+        "classrooms.getAll",
+        "classrooms.update",
+        "classrooms.create",
+        "classrooms.delete"
+      ]
+    },
+    {
+      "route": "/admin/academics/routine",
+      "file": "app/admin/academics/routine/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/class-routines.test.cjs",
+        "docs/CLASS_ROUTINES_VERIFICATION.md",
+        "../../lms/lms-backend/test/class-routines.e2e.mjs"
+      ],
+      "calls": [
+        "classRoutines.getOptions",
+        "classRoutines.getAll",
+        "classRoutines.update",
+        "classRoutines.create",
+        "classRoutines.delete"
+      ]
+    },
+    {
+      "route": "/admin/academics/section",
+      "file": "app/admin/academics/section/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/subjects/sections.test.cjs",
+        "docs/PHASE_3_SECTIONS.md",
+        "../../lms/lms-backend/test/sections.e2e.mjs"
+      ],
+      "calls": [
+        "sections.getAll",
+        "sections.update",
+        "sections.create",
+        "sections.delete"
+      ]
+    },
+    {
+      "route": "/admin/academics/subjects",
+      "file": "app/admin/academics/subjects/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/subjects/subjects.test.cjs",
+        "docs/PHASE_2_SCHOOL_SUBJECTS.md",
+        "../../lms/lms-backend/test/school-subjects.e2e.mjs"
+      ],
+      "calls": [
+        "schoolSubjects.getAll",
+        "schoolSubjects.update",
+        "schoolSubjects.create",
+        "schoolSubjects.delete"
+      ]
+    },
+    {
+      "route": "/admin/accounts/accounts/bankaccount",
+      "file": "app/admin/accounts/accounts/bankaccount/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/accounts/chartofaccount",
+      "file": "app/admin/accounts/accounts/chartofaccount/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/accounts/expence",
+      "file": "app/admin/accounts/accounts/expence/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/accounts/fundtransfer",
+      "file": "app/admin/accounts/accounts/fundtransfer/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/accounts/income",
+      "file": "app/admin/accounts/accounts/income/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/accounts/profitandlost",
+      "file": "app/admin/accounts/accounts/profitandlost/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/communicate/calendar",
+      "file": "app/admin/accounts/communicate/calendar/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolContentApi.calendar"
+      ]
+    },
+    {
+      "route": "/admin/accounts/communicate/emailsmsandlog",
+      "file": "app/admin/accounts/communicate/emailsmsandlog/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-operations.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_OPERATIONS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-operations.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-concurrency.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-gates.e2e.mjs"
+      ],
+      "calls": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ]
+    },
+    {
+      "route": "/admin/accounts/communicate/event",
+      "file": "app/admin/accounts/communicate/event/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolContentApi.list",
+        "schoolContentApi.options",
+        "schoolContentApi.save",
+        "schoolContentApi.files",
+        "schoolContentApi.history"
+      ]
+    },
+    {
+      "route": "/admin/accounts/communicate/noticeboard",
+      "file": "app/admin/accounts/communicate/noticeboard/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolContentApi.list",
+        "schoolContentApi.options",
+        "schoolContentApi.save",
+        "schoolContentApi.files",
+        "schoolContentApi.history"
+      ]
+    },
+    {
+      "route": "/admin/accounts/communicate/sendemailandsms",
+      "file": "app/admin/accounts/communicate/sendemailandsms/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-operations.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_OPERATIONS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-operations.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-concurrency.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-gates.e2e.mjs"
+      ],
+      "calls": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ]
+    },
+    {
+      "route": "/admin/accounts/inventory/itemcategory",
+      "file": "app/admin/accounts/inventory/itemcategory/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "schoolOperationsApi.history",
+        "schoolOperationsApi.issue",
+        "schoolOperationsApi.returnLoan",
+        "schoolOperationsApi.move",
+        "schoolOperationsApi.list",
+        "schoolOperationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/inventory/itemissue",
+      "file": "app/admin/accounts/inventory/itemissue/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "schoolOperationsApi.history",
+        "schoolOperationsApi.issue",
+        "schoolOperationsApi.returnLoan",
+        "schoolOperationsApi.move",
+        "schoolOperationsApi.list",
+        "schoolOperationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/inventory/itemlist",
+      "file": "app/admin/accounts/inventory/itemlist/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "schoolOperationsApi.history",
+        "schoolOperationsApi.issue",
+        "schoolOperationsApi.returnLoan",
+        "schoolOperationsApi.move",
+        "schoolOperationsApi.list",
+        "schoolOperationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/inventory/itemreceive",
+      "file": "app/admin/accounts/inventory/itemreceive/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "schoolOperationsApi.history",
+        "schoolOperationsApi.issue",
+        "schoolOperationsApi.returnLoan",
+        "schoolOperationsApi.move",
+        "schoolOperationsApi.list",
+        "schoolOperationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/inventory/itemreceivelist",
+      "file": "app/admin/accounts/inventory/itemreceivelist/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "schoolOperationsApi.history",
+        "schoolOperationsApi.issue",
+        "schoolOperationsApi.returnLoan",
+        "schoolOperationsApi.move",
+        "schoolOperationsApi.list",
+        "schoolOperationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/inventory/itemselllist",
+      "file": "app/admin/accounts/inventory/itemselllist/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "schoolOperationsApi.history",
+        "schoolOperationsApi.issue",
+        "schoolOperationsApi.returnLoan",
+        "schoolOperationsApi.move",
+        "schoolOperationsApi.list",
+        "schoolOperationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/inventory/itemstore",
+      "file": "app/admin/accounts/inventory/itemstore/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "schoolOperationsApi.history",
+        "schoolOperationsApi.issue",
+        "schoolOperationsApi.returnLoan",
+        "schoolOperationsApi.move",
+        "schoolOperationsApi.list",
+        "schoolOperationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/inventory/supplier",
+      "file": "app/admin/accounts/inventory/supplier/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "schoolOperationsApi.history",
+        "schoolOperationsApi.issue",
+        "schoolOperationsApi.returnLoan",
+        "schoolOperationsApi.move",
+        "schoolOperationsApi.list",
+        "schoolOperationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/wallet/approveddeposit",
+      "file": "app/admin/accounts/wallet/approveddeposit/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/wallet/pendingdeposit",
+      "file": "app/admin/accounts/wallet/pendingdeposit/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/wallet/refundrequest",
+      "file": "app/admin/accounts/wallet/refundrequest/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/wallet/rejectdeposit",
+      "file": "app/admin/accounts/wallet/rejectdeposit/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/accounts/wallet/wallettransaction",
+      "file": "app/admin/accounts/wallet/wallettransaction/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/admin-section/admission-query",
+      "file": "app/admin/admin-section/admission-query/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/online-campus.test.cjs",
+        "docs/ONLINE_CAMPUS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/online-campus.e2e.mjs"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ]
+    },
+    {
+      "route": "/admin/admin-section/certificate",
+      "file": "app/admin/admin-section/certificate/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/document-routes.test.cjs",
+        "tests/auth/documents-stack.cjs",
+        "docs/DOCUMENT_ISSUANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/document-issuance.e2e.mjs",
+        "../../lms/lms-backend/test/document-issuance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolContentApi.upload",
+        "documentsApi.templates",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ]
+    },
+    {
+      "route": "/admin/admin-section/complaint",
+      "file": "app/admin/admin-section/complaint/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/online-campus.test.cjs",
+        "docs/ONLINE_CAMPUS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/online-campus.e2e.mjs"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ]
+    },
+    {
+      "route": "/admin/admin-section/generate-certificate",
+      "file": "app/admin/admin-section/generate-certificate/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/document-routes.test.cjs",
+        "tests/auth/documents-stack.cjs",
+        "docs/DOCUMENT_ISSUANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/document-issuance.e2e.mjs",
+        "../../lms/lms-backend/test/document-issuance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "documentsApi.templates",
+        "documentsApi.subjects",
+        "documentsApi.issues",
+        "documentsApi.history",
+        "documentsApi.issue",
+        "documentsApi.get",
+        "documentsApi.revoke",
+        "documentsApi.print",
+        "schoolContentApi.upload",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ]
+    },
+    {
+      "route": "/admin/admin-section/generate-id",
+      "file": "app/admin/admin-section/generate-id/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/document-routes.test.cjs",
+        "tests/auth/documents-stack.cjs",
+        "docs/DOCUMENT_ISSUANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/document-issuance.e2e.mjs",
+        "../../lms/lms-backend/test/document-issuance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "documentsApi.templates",
+        "documentsApi.subjects",
+        "documentsApi.issues",
+        "documentsApi.history",
+        "documentsApi.issue",
+        "documentsApi.get",
+        "documentsApi.revoke",
+        "documentsApi.print",
+        "schoolContentApi.upload",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ]
+    },
+    {
+      "route": "/admin/admin-section/id-card",
+      "file": "app/admin/admin-section/id-card/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/document-routes.test.cjs",
+        "tests/auth/documents-stack.cjs",
+        "docs/DOCUMENT_ISSUANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/document-issuance.e2e.mjs",
+        "../../lms/lms-backend/test/document-issuance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolContentApi.upload",
+        "documentsApi.templates",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ]
+    },
+    {
+      "route": "/admin/admin-section/phone-log",
+      "file": "app/admin/admin-section/phone-log/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/online-campus.test.cjs",
+        "docs/ONLINE_CAMPUS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/online-campus.e2e.mjs"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ]
+    },
+    {
+      "route": "/admin/admin-section/postal-dispatch",
+      "file": "app/admin/admin-section/postal-dispatch/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/online-campus.test.cjs",
+        "docs/ONLINE_CAMPUS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/online-campus.e2e.mjs"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ]
+    },
+    {
+      "route": "/admin/admin-section/postal-receive",
+      "file": "app/admin/admin-section/postal-receive/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/online-campus.test.cjs",
+        "docs/ONLINE_CAMPUS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/online-campus.e2e.mjs"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ]
+    },
+    {
+      "route": "/admin/admin-section/setup",
+      "file": "app/admin/admin-section/setup/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/online-campus.test.cjs",
+        "docs/ONLINE_CAMPUS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/online-campus.e2e.mjs"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ]
+    },
+    {
+      "route": "/admin/admin-section/visitor-book",
+      "file": "app/admin/admin-section/visitor-book/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/online-campus.test.cjs",
+        "docs/ONLINE_CAMPUS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/online-campus.e2e.mjs"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ]
+    },
+    {
+      "route": "/admin/behaviour/assign",
+      "file": "app/admin/behaviour/assign/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/administration.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-administration.e2e.mjs",
+        "../../lms/lms-backend/test/school-administration-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ]
+    },
+    {
+      "route": "/admin/behaviour/class-report",
+      "file": "app/admin/behaviour/class-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/administration.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-administration.e2e.mjs",
+        "../../lms/lms-backend/test/school-administration-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ]
+    },
+    {
+      "route": "/admin/behaviour/incident-wise",
+      "file": "app/admin/behaviour/incident-wise/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/administration.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-administration.e2e.mjs",
+        "../../lms/lms-backend/test/school-administration-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ]
+    },
+    {
+      "route": "/admin/behaviour/incidents",
+      "file": "app/admin/behaviour/incidents/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/administration.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-administration.e2e.mjs",
+        "../../lms/lms-backend/test/school-administration-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ]
+    },
+    {
+      "route": "/admin/behaviour/report",
+      "file": "app/admin/behaviour/report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/administration.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-administration.e2e.mjs",
+        "../../lms/lms-backend/test/school-administration-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ]
+    },
+    {
+      "route": "/admin/behaviour/student-report",
+      "file": "app/admin/behaviour/student-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/administration.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-administration.e2e.mjs",
+        "../../lms/lms-backend/test/school-administration-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ]
+    },
+    {
+      "route": "/admin/bulk-print/certificate",
+      "file": "app/admin/bulk-print/certificate/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/document-routes.test.cjs",
+        "tests/auth/documents-stack.cjs",
+        "docs/DOCUMENT_ISSUANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/document-issuance.e2e.mjs",
+        "../../lms/lms-backend/test/document-issuance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "documentsApi.templates",
+        "documentsApi.subjects",
+        "documentsApi.issues",
+        "documentsApi.history",
+        "documentsApi.issue",
+        "documentsApi.get",
+        "documentsApi.revoke",
+        "documentsApi.print",
+        "schoolContentApi.upload",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ]
+    },
+    {
+      "route": "/admin/bulk-print/fees",
+      "file": "app/admin/bulk-print/fees/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.report"
+      ]
+    },
+    {
+      "route": "/admin/bulk-print/id",
+      "file": "app/admin/bulk-print/id/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/document-routes.test.cjs",
+        "tests/auth/documents-stack.cjs",
+        "docs/DOCUMENT_ISSUANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/document-issuance.e2e.mjs",
+        "../../lms/lms-backend/test/document-issuance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "documentsApi.templates",
+        "documentsApi.subjects",
+        "documentsApi.issues",
+        "documentsApi.history",
+        "documentsApi.issue",
+        "documentsApi.get",
+        "documentsApi.revoke",
+        "documentsApi.print",
+        "schoolContentApi.upload",
+        "documentsApi.templateHistory",
+        "documentsApi.image",
+        "documentsApi.saveTemplate"
+      ]
+    },
+    {
+      "route": "/admin/bulk-print/payroll",
+      "file": "app/admin/bulk-print/payroll/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.report"
+      ]
+    },
+    {
+      "route": "/admin/dashboard",
+      "file": "app/admin/dashboard/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "dashboardApi.summary"
+      ]
+    },
+    {
+      "route": "/admin/dormitory/dormitory",
+      "file": "app/admin/dormitory/dormitory/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ]
+    },
+    {
+      "route": "/admin/dormitory/dormitoryrooms",
+      "file": "app/admin/dormitory/dormitoryrooms/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ]
+    },
+    {
+      "route": "/admin/dormitory/roomtype",
+      "file": "app/admin/dormitory/roomtype/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ]
+    },
+    {
+      "route": "/admin/download-center/list",
+      "file": "app/admin/download-center/list/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/content.test.cjs",
+        "docs/FILES_LEARNING_COMMUNICATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-content.e2e.mjs"
+      ],
+      "calls": [
+        "schoolContentApi.list",
+        "schoolContentApi.options",
+        "schoolContentApi.save",
+        "schoolContentApi.files",
+        "schoolContentApi.history"
+      ]
+    },
+    {
+      "route": "/admin/download-center/shared",
+      "file": "app/admin/download-center/shared/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/content.test.cjs",
+        "docs/FILES_LEARNING_COMMUNICATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-content.e2e.mjs"
+      ],
+      "calls": [
+        "schoolContentApi.list",
+        "schoolContentApi.options",
+        "schoolContentApi.save",
+        "schoolContentApi.files",
+        "schoolContentApi.history"
+      ]
+    },
+    {
+      "route": "/admin/download-center/type",
+      "file": "app/admin/download-center/type/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-operations.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_OPERATIONS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-operations.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-concurrency.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-gates.e2e.mjs"
+      ],
+      "calls": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ]
+    },
+    {
+      "route": "/admin/download-center/video",
+      "file": "app/admin/download-center/video/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/content.test.cjs",
+        "docs/FILES_LEARNING_COMMUNICATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-content.e2e.mjs"
+      ],
+      "calls": [
+        "schoolContentApi.list",
+        "schoolContentApi.options",
+        "schoolContentApi.save",
+        "schoolContentApi.files",
+        "schoolContentApi.history"
+      ]
+    },
+    {
+      "route": "/admin/exam-plan/admit-card",
+      "file": "app/admin/exam-plan/admit-card/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/examinations.test.cjs",
+        "docs/EXAMINATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/examinations.e2e.mjs"
+      ],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.roster",
+        "examinationsApi.schedule"
+      ]
+    },
+    {
+      "route": "/admin/exam-plan/seat-plan",
+      "file": "app/admin/exam-plan/seat-plan/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-operations.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_OPERATIONS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-operations.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-concurrency.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-gates.e2e.mjs"
+      ],
+      "calls": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ]
+    },
+    {
+      "route": "/admin/examination/attendance",
+      "file": "app/admin/examination/attendance/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/examinations.test.cjs",
+        "docs/EXAMINATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/examinations.e2e.mjs"
+      ],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/examination/marks-grade",
+      "file": "app/admin/examination/marks-grade/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/examinations.test.cjs",
+        "docs/EXAMINATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/examinations.e2e.mjs"
+      ],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/examination/marks-register",
+      "file": "app/admin/examination/marks-register/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/examinations.test.cjs",
+        "docs/EXAMINATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/examinations.e2e.mjs"
+      ],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/examination/marksheet",
+      "file": "app/admin/examination/marksheet/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/examinations.test.cjs",
+        "docs/EXAMINATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/examinations.e2e.mjs"
+      ],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/examination/schedule",
+      "file": "app/admin/examination/schedule/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/examinations.test.cjs",
+        "docs/EXAMINATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/examinations.e2e.mjs"
+      ],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/examination/setup",
+      "file": "app/admin/examination/setup/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/examinations.test.cjs",
+        "docs/EXAMINATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/examinations.e2e.mjs"
+      ],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/examination/type",
+      "file": "app/admin/examination/type/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/examinations.test.cjs",
+        "docs/EXAMINATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/examinations.e2e.mjs"
+      ],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/fee/carry-forward",
+      "file": "app/admin/fee/carry-forward/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-operations.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_OPERATIONS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-operations.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-concurrency.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-gates.e2e.mjs"
+      ],
+      "calls": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ]
+    },
+    {
+      "route": "/admin/fee/group",
+      "file": "app/admin/fee/group/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/fee/invoice-report",
+      "file": "app/admin/fee/invoice-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/fee/type",
+      "file": "app/admin/fee/type/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/fees/carry-forward",
+      "file": "app/admin/fees/carry-forward/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-operations.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_OPERATIONS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-operations.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-concurrency.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-gates.e2e.mjs"
+      ],
+      "calls": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ]
+    },
+    {
+      "route": "/admin/fees/group",
+      "file": "app/admin/fees/group/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/fees/invoice",
+      "file": "app/admin/fees/invoice/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/fees/type",
+      "file": "app/admin/fees/type/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/finance.test.cjs",
+        "docs/FINANCE_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/finance.e2e.mjs",
+        "../../lms/lms-backend/test/finance-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/homework/add",
+      "file": "app/admin/homework/add/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/work.test.cjs",
+        "docs/ACADEMIC_WORK_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/academic-work.e2e.mjs"
+      ],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ]
+    },
+    {
+      "route": "/admin/homework/list",
+      "file": "app/admin/homework/list/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/work.test.cjs",
+        "docs/ACADEMIC_WORK_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/academic-work.e2e.mjs"
+      ],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ]
+    },
+    {
+      "route": "/admin/homework/report",
+      "file": "app/admin/homework/report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/work.test.cjs",
+        "docs/ACADEMIC_WORK_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/academic-work.e2e.mjs"
+      ],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ]
+    },
+    {
+      "route": "/admin/hr/add-staff",
+      "file": "app/admin/hr/add-staff/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/hr/hr.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/hr.e2e.mjs"
+      ],
+      "calls": [
+        "hr.getRoles",
+        "hr.getDepartments",
+        "hr.getDesignations",
+        "hr.getStaffById",
+        "hr.updateStaff",
+        "hr.createStaff",
+        "schoolContentApi.links",
+        "schoolContentApi.link",
+        "schoolContentApi.upload",
+        "schoolContentApi.files"
+      ]
+    },
+    {
+      "route": "/admin/hr/attendance",
+      "file": "app/admin/hr/attendance/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/hr/hr.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/hr.e2e.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.attendance",
+        "schoolRecordsApi.saveAttendance"
+      ]
+    },
+    {
+      "route": "/admin/hr/department",
+      "file": "app/admin/hr/department/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/hr/hr.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/hr.e2e.mjs"
+      ],
+      "calls": [
+        "hr.getDepartments",
+        "hr.updateDepartment",
+        "hr.createDepartment",
+        "hr.deleteDepartment"
+      ]
+    },
+    {
+      "route": "/admin/hr/designation",
+      "file": "app/admin/hr/designation/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/hr/hr.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/hr.e2e.mjs"
+      ],
+      "calls": [
+        "hr.getDesignations",
+        "hr.updateDesignation",
+        "hr.createDesignation",
+        "hr.deleteDesignation"
+      ]
+    },
+    {
+      "route": "/admin/hr/payroll",
+      "file": "app/admin/hr/payroll/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/hr/hr.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/hr.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/hr/staff-list",
+      "file": "app/admin/hr/staff-list/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/hr/hr.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/hr.e2e.mjs"
+      ],
+      "calls": [
+        "hr.getStaff",
+        "hr.deleteStaff"
+      ]
+    },
+    {
+      "route": "/admin/human-resource/department",
+      "file": "app/admin/human-resource/department/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/hr/hr.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/hr.e2e.mjs"
+      ],
+      "calls": [
+        "hr.getDepartments",
+        "hr.updateDepartment",
+        "hr.createDepartment",
+        "hr.deleteDepartment"
+      ]
+    },
+    {
+      "route": "/admin/human-resource/designation",
+      "file": "app/admin/human-resource/designation/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/hr/hr.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/hr.e2e.mjs"
+      ],
+      "calls": [
+        "hr.getDesignations",
+        "hr.updateDesignation",
+        "hr.createDesignation",
+        "hr.deleteDesignation"
+      ]
+    },
+    {
+      "route": "/admin/human-resource/payroll",
+      "file": "app/admin/human-resource/payroll/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/hr/hr.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/hr.e2e.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/human-resource/staff-attendance",
+      "file": "app/admin/human-resource/staff-attendance/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/hr/hr.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/hr.e2e.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.attendance",
+        "schoolRecordsApi.saveAttendance"
+      ]
+    },
+    {
+      "route": "/admin/human-resource/staff/add",
+      "file": "app/admin/human-resource/staff/add/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/hr/hr.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/hr.e2e.mjs"
+      ],
+      "calls": [
+        "hr.getRoles",
+        "hr.getDepartments",
+        "hr.getDesignations",
+        "hr.getStaffById",
+        "hr.updateStaff",
+        "hr.createStaff",
+        "schoolContentApi.links",
+        "schoolContentApi.link",
+        "schoolContentApi.upload",
+        "schoolContentApi.files"
+      ]
+    },
+    {
+      "route": "/admin/human-resource/staff",
+      "file": "app/admin/human-resource/staff/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/hr/hr.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/hr.e2e.mjs"
+      ],
+      "calls": [
+        "hr.getStaff",
+        "hr.deleteStaff"
+      ]
+    },
+    {
+      "route": "/admin/leave/apply",
+      "file": "app/admin/leave/apply/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/administration.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-administration.e2e.mjs",
+        "../../lms/lms-backend/test/school-administration-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ]
+    },
+    {
+      "route": "/admin/leave/approveleaverequest",
+      "file": "app/admin/leave/approveleaverequest/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/administration.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-administration.e2e.mjs",
+        "../../lms/lms-backend/test/school-administration-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ]
+    },
+    {
+      "route": "/admin/leave/define",
+      "file": "app/admin/leave/define/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/administration.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-administration.e2e.mjs",
+        "../../lms/lms-backend/test/school-administration-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ]
+    },
+    {
+      "route": "/admin/leave/type",
+      "file": "app/admin/leave/type/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/administration.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-administration.e2e.mjs",
+        "../../lms/lms-backend/test/school-administration-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ]
+    },
+    {
+      "route": "/admin/lesson-plan/lesson-overview",
+      "file": "app/admin/lesson-plan/lesson-overview/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/work.test.cjs",
+        "docs/ACADEMIC_WORK_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/academic-work.e2e.mjs"
+      ],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ]
+    },
+    {
+      "route": "/admin/lesson-plan/lesson",
+      "file": "app/admin/lesson-plan/lesson/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/work.test.cjs",
+        "docs/ACADEMIC_WORK_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/academic-work.e2e.mjs"
+      ],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ]
+    },
+    {
+      "route": "/admin/lesson-plan/plan",
+      "file": "app/admin/lesson-plan/plan/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/work.test.cjs",
+        "docs/ACADEMIC_WORK_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/academic-work.e2e.mjs"
+      ],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ]
+    },
+    {
+      "route": "/admin/lesson-plan/topic-overview",
+      "file": "app/admin/lesson-plan/topic-overview/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/work.test.cjs",
+        "docs/ACADEMIC_WORK_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/academic-work.e2e.mjs"
+      ],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ]
+    },
+    {
+      "route": "/admin/lesson-plan/topic",
+      "file": "app/admin/lesson-plan/topic/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/work.test.cjs",
+        "docs/ACADEMIC_WORK_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/academic-work.e2e.mjs"
+      ],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ]
+    },
+    {
+      "route": "/admin/library/book",
+      "file": "app/admin/library/book/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "schoolOperationsApi.history",
+        "schoolOperationsApi.issue",
+        "schoolOperationsApi.returnLoan",
+        "schoolOperationsApi.move",
+        "schoolOperationsApi.list",
+        "schoolOperationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/library/booklist",
+      "file": "app/admin/library/booklist/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "schoolOperationsApi.history",
+        "schoolOperationsApi.issue",
+        "schoolOperationsApi.returnLoan",
+        "schoolOperationsApi.move",
+        "schoolOperationsApi.list",
+        "schoolOperationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/library/category",
+      "file": "app/admin/library/category/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "schoolOperationsApi.history",
+        "schoolOperationsApi.issue",
+        "schoolOperationsApi.returnLoan",
+        "schoolOperationsApi.move",
+        "schoolOperationsApi.list",
+        "schoolOperationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/library/issue-return",
+      "file": "app/admin/library/issue-return/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "schoolOperationsApi.history",
+        "schoolOperationsApi.issue",
+        "schoolOperationsApi.returnLoan",
+        "schoolOperationsApi.move",
+        "schoolOperationsApi.list",
+        "schoolOperationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/library/issued",
+      "file": "app/admin/library/issued/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "schoolOperationsApi.history",
+        "schoolOperationsApi.issue",
+        "schoolOperationsApi.returnLoan",
+        "schoolOperationsApi.move",
+        "schoolOperationsApi.list",
+        "schoolOperationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/library/members",
+      "file": "app/admin/library/members/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "schoolOperationsApi.history",
+        "schoolOperationsApi.issue",
+        "schoolOperationsApi.returnLoan",
+        "schoolOperationsApi.move",
+        "schoolOperationsApi.list",
+        "schoolOperationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/library/subject",
+      "file": "app/admin/library/subject/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/operations.test.cjs",
+        "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-operations.e2e.mjs"
+      ],
+      "calls": [
+        "schoolOperationsApi.history",
+        "schoolOperationsApi.issue",
+        "schoolOperationsApi.returnLoan",
+        "schoolOperationsApi.move",
+        "schoolOperationsApi.list",
+        "schoolOperationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/online-exam/exam",
+      "file": "app/admin/online-exam/exam/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/online-campus.test.cjs",
+        "docs/ONLINE_CAMPUS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/online-campus.e2e.mjs",
+        "../../lms/lms-backend/test/online-campus-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ]
+    },
+    {
+      "route": "/admin/online-exam/question-bank",
+      "file": "app/admin/online-exam/question-bank/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/online-campus.test.cjs",
+        "docs/ONLINE_CAMPUS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/online-campus.e2e.mjs",
+        "../../lms/lms-backend/test/online-campus-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ]
+    },
+    {
+      "route": "/admin/online-exam/question-group",
+      "file": "app/admin/online-exam/question-group/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/online-campus.test.cjs",
+        "docs/ONLINE_CAMPUS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/online-campus.e2e.mjs",
+        "../../lms/lms-backend/test/online-campus-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ]
+    },
+    {
+      "route": "/admin",
+      "file": "app/admin/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "dashboardApi.summary"
+      ]
+    },
+    {
+      "route": "/admin/reports/accountsreports/payroll-report",
+      "file": "app/admin/reports/accountsreports/payroll-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/reports/accountsreports/transaction",
+      "file": "app/admin/reports/accountsreports/transaction/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/reports/accountsreports/wallet-report",
+      "file": "app/admin/reports/accountsreports/wallet-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/reports/examreports/exam-routine",
+      "file": "app/admin/reports/examreports/exam-routine/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "examinationsApi.list"
+      ]
+    },
+    {
+      "route": "/admin/reports/examreports/mark-sheet-report",
+      "file": "app/admin/reports/examreports/mark-sheet-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "examinationsApi.options",
+        "examinationsApi.history",
+        "examinationsApi.roster",
+        "examinationsApi.record",
+        "examinationsApi.list",
+        "examinationsApi.save"
+      ]
+    },
+    {
+      "route": "/admin/reports/examreports/merit-list-report",
+      "file": "app/admin/reports/examreports/merit-list-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ]
+    },
+    {
+      "route": "/admin/reports/examreports/online-exam-report",
+      "file": "app/admin/reports/examreports/online-exam-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ]
+    },
+    {
+      "route": "/admin/reports/examreports/previous-result",
+      "file": "app/admin/reports/examreports/previous-result/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ]
+    },
+    {
+      "route": "/admin/reports/examreports/progress-card-report-100",
+      "file": "app/admin/reports/examreports/progress-card-report-100/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ]
+    },
+    {
+      "route": "/admin/reports/examreports/progress-card-report",
+      "file": "app/admin/reports/examreports/progress-card-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ]
+    },
+    {
+      "route": "/admin/reports/examreports/tabulation-sheet-report",
+      "file": "app/admin/reports/examreports/tabulation-sheet-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ]
+    },
+    {
+      "route": "/admin/reports/feesreports/balance-report",
+      "file": "app/admin/reports/feesreports/balance-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/reports/feesreports/fees-due-report",
+      "file": "app/admin/reports/feesreports/fees-due-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/reports/feesreports/fine-report",
+      "file": "app/admin/reports/feesreports/fine-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/reports/feesreports/payment-report",
+      "file": "app/admin/reports/feesreports/payment-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/reports/feesreports/waiver-report",
+      "file": "app/admin/reports/feesreports/waiver-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/reports/staffreports/payroll-report",
+      "file": "app/admin/reports/staffreports/payroll-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/reports/staffreports/staff-attendance-report",
+      "file": "app/admin/reports/staffreports/staff-attendance-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.attendance"
+      ]
+    },
+    {
+      "route": "/admin/reports/studentreports/class-report",
+      "file": "app/admin/reports/studentreports/class-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ]
+    },
+    {
+      "route": "/admin/reports/studentreports/class-routine",
+      "file": "app/admin/reports/studentreports/class-routine/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "classRoutines.getOptions",
+        "classRoutines.getAll",
+        "classRoutines.update",
+        "classRoutines.create",
+        "classRoutines.delete"
+      ]
+    },
+    {
+      "route": "/admin/reports/studentreports/guardian-report",
+      "file": "app/admin/reports/studentreports/guardian-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.students",
+        "schoolRecordsApi.student"
+      ]
+    },
+    {
+      "route": "/admin/reports/studentreports/home-work-evaluation-report",
+      "file": "app/admin/reports/studentreports/home-work-evaluation-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "academicWorkApi.options",
+        "academicWorkApi.list",
+        "academicWorkApi.history",
+        "academicWorkApi.roster",
+        "academicWorkApi.evaluate",
+        "academicWorkApi.save"
+      ]
+    },
+    {
+      "route": "/admin/reports/studentreports/previous-record",
+      "file": "app/admin/reports/studentreports/previous-record/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ]
+    },
+    {
+      "route": "/admin/reports/studentreports/student-attendance-report",
+      "file": "app/admin/reports/studentreports/student-attendance-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.attendance"
+      ]
+    },
+    {
+      "route": "/admin/reports/studentreports/student-dormitory-report",
+      "file": "app/admin/reports/studentreports/student-dormitory-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "campusApi.options",
+        "campusApi.list",
+        "campusApi.admit",
+        "campusApi.action",
+        "campusApi.save"
+      ]
+    },
+    {
+      "route": "/admin/reports/studentreports/student-history",
+      "file": "app/admin/reports/studentreports/student-history/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.history"
+      ]
+    },
+    {
+      "route": "/admin/reports/studentreports/student-login-report",
+      "file": "app/admin/reports/studentreports/student-login-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ]
+    },
+    {
+      "route": "/admin/reports/studentreports/student-report",
+      "file": "app/admin/reports/studentreports/student-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.students",
+        "schoolRecordsApi.student"
+      ]
+    },
+    {
+      "route": "/admin/reports/studentreports/student-transport-report",
+      "file": "app/admin/reports/studentreports/student-transport-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-operations.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_OPERATIONS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-operations.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-concurrency.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-gates.e2e.mjs"
+      ],
+      "calls": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ]
+    },
+    {
+      "route": "/admin/reports/studentreports/subject-attendance-report",
+      "file": "app/admin/reports/studentreports/subject-attendance-report/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-operations.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_OPERATIONS_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-operations.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-concurrency.e2e.mjs",
+        "../../lms/lms-backend/test/admin-operations-gates.e2e.mjs"
+      ],
+      "calls": [
+        "adminOperationsApi.list",
+        "adminOperationsApi.options",
+        "adminOperationsApi.save",
+        "adminOperationsApi.deliver"
+      ]
+    },
+    {
+      "route": "/admin/reports/studentreports/user-log",
+      "file": "app/admin/reports/studentreports/user-log/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/academics/admin-reports.test.cjs",
+        "tests/academics/dashboard.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "../../lms/lms-backend/test/admin-reports.e2e.mjs",
+        "../../lms/lms-backend/test/dashboard.unit.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "examinationsApi.options",
+        "adminReportsApi.list"
+      ]
+    },
+    {
+      "route": "/admin/role&permission/loginpermission",
+      "file": "app/admin/role&permission/loginpermission/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/users/login-permissions.test.cjs",
+        "docs/USER_LOGIN_POLICIES_VERIFICATION.md",
+        "../../lms/lms-backend/test/login-permissions.e2e.mjs"
+      ],
+      "calls": [
+        "users.getLoginPermissions",
+        "users.updateLoginPermission"
+      ]
+    },
+    {
+      "route": "/admin/role&permission/managerole",
+      "file": "app/admin/role&permission/managerole/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/users/admin-roles.test.cjs",
+        "docs/ADMIN_PERMISSION_ROLES_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-permissions.e2e.mjs"
+      ],
+      "calls": [
+        "adminRoles.list",
+        "adminRoles.accounts",
+        "adminRoles.update",
+        "adminRoles.create",
+        "adminRoles.assign"
+      ]
+    },
+    {
+      "route": "/admin/settings/fees-settings/fees-invoice-settings",
+      "file": "app/admin/settings/fees-settings/fees-invoice-settings/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/settings/configuration.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_CONFIGURATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-configuration.e2e.mjs",
+        "../../lms/lms-backend/test/admin-configuration.unit.mjs"
+      ],
+      "calls": [
+        "financeApi.options",
+        "financeApi.settings",
+        "financeApi.saveSettings",
+        "financeApi.report",
+        "financeApi.list",
+        "financeApi.action",
+        "financeApi.save"
+      ]
+    },
+    {
+      "route": "/admin/settings/general-settings/academic-year",
+      "file": "app/admin/settings/general-settings/academic-year/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/subjects/academic-years.test.cjs",
+        "docs/PHASE_3_ACADEMIC_YEAR.md",
+        "../../lms/lms-backend/test/academic-years.e2e.mjs"
+      ],
+      "calls": [
+        "academicYears.getAll",
+        "academicYears.update",
+        "academicYears.create",
+        "academicYears.setCurrent",
+        "academicYears.delete"
+      ]
+    },
+    {
+      "route": "/admin/settings/general-settings/base-setup",
+      "file": "app/admin/settings/general-settings/base-setup/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/settings/configuration.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_CONFIGURATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-configuration.e2e.mjs",
+        "../../lms/lms-backend/test/admin-configuration.unit.mjs"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ]
+    },
+    {
+      "route": "/admin/settings/general-settings/email-setting",
+      "file": "app/admin/settings/general-settings/email-setting/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/settings/configuration.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_CONFIGURATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-configuration.e2e.mjs",
+        "../../lms/lms-backend/test/admin-configuration.unit.mjs"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ]
+    },
+    {
+      "route": "/admin/settings/general-settings/general-settings-inner",
+      "file": "app/admin/settings/general-settings/general-settings-inner/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/users/school-settings.test.cjs",
+        "docs/SCHOOL_SETTINGS_MIGRATION_REVIEW.md",
+        "../../lms/lms-backend/test/school-settings.e2e.mjs"
+      ],
+      "calls": [
+        "schoolSettings.get",
+        "schoolSettings.history",
+        "schoolSettings.save"
+      ]
+    },
+    {
+      "route": "/admin/settings/general-settings/holiday",
+      "file": "app/admin/settings/general-settings/holiday/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/settings/admin-foundations.test.cjs",
+        "docs/SETTINGS_FOUNDATIONS_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-foundations.e2e.mjs"
+      ],
+      "calls": [
+        "foundationsApi.list",
+        "foundationsApi.save",
+        "foundationsApi.history"
+      ]
+    },
+    {
+      "route": "/admin/settings/general-settings/language-settings",
+      "file": "app/admin/settings/general-settings/language-settings/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/settings/configuration.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_CONFIGURATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-configuration.e2e.mjs",
+        "../../lms/lms-backend/test/admin-configuration.unit.mjs"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ]
+    },
+    {
+      "route": "/admin/settings/general-settings/lesson-plan-setting",
+      "file": "app/admin/settings/general-settings/lesson-plan-setting/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/settings/configuration.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_CONFIGURATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-configuration.e2e.mjs",
+        "../../lms/lms-backend/test/admin-configuration.unit.mjs"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ]
+    },
+    {
+      "route": "/admin/settings/general-settings/notification-setting",
+      "file": "app/admin/settings/general-settings/notification-setting/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/settings/configuration.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_CONFIGURATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-configuration.e2e.mjs",
+        "../../lms/lms-backend/test/admin-configuration.unit.mjs"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ]
+    },
+    {
+      "route": "/admin/settings/general-settings/payment-settings",
+      "file": "app/admin/settings/general-settings/payment-settings/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/users/school-settings.test.cjs",
+        "docs/SCHOOL_SETTINGS_MIGRATION_REVIEW.md",
+        "../../lms/lms-backend/test/school-settings.e2e.mjs"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ]
+    },
+    {
+      "route": "/admin/settings/general-settings/sms-settings",
+      "file": "app/admin/settings/general-settings/sms-settings/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/settings/configuration.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_CONFIGURATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-configuration.e2e.mjs",
+        "../../lms/lms-backend/test/admin-configuration.unit.mjs"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ]
+    },
+    {
+      "route": "/admin/settings/general-settings/staff-settings",
+      "file": "app/admin/settings/general-settings/staff-settings/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/settings/configuration.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_CONFIGURATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-configuration.e2e.mjs",
+        "../../lms/lms-backend/test/admin-configuration.unit.mjs"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ]
+    },
+    {
+      "route": "/admin/settings/general-settings/student-settings",
+      "file": "app/admin/settings/general-settings/student-settings/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/settings/configuration.test.cjs",
+        "tests/auth/admin-completion-stack.cjs",
+        "docs/ADMIN_CONFIGURATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-configuration.e2e.mjs",
+        "../../lms/lms-backend/test/admin-configuration.unit.mjs"
+      ],
+      "calls": [
+        "adminConfigurationApi.read",
+        "adminConfigurationApi.save"
+      ]
+    },
+    {
+      "route": "/admin/settings/general-settings/weekend",
+      "file": "app/admin/settings/general-settings/weekend/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/settings/admin-foundations.test.cjs",
+        "docs/SETTINGS_FOUNDATIONS_VERIFICATION.md",
+        "../../lms/lms-backend/test/admin-foundations.e2e.mjs"
+      ],
+      "calls": [
+        "foundationsApi.weekends",
+        "foundationsApi.saveWeekends",
+        "foundationsApi.history"
+      ]
+    },
+    {
+      "route": "/admin/student-info/add",
+      "file": "app/admin/student-info/add/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/records.test.cjs",
+        "tests/students/reports.test.cjs",
+        "docs/STUDENT_ATTENDANCE_VERIFICATION.md",
+        "../../lms/lms-backend/test/student-records.e2e.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.student",
+        "schoolRecordsApi.updateStudent",
+        "schoolRecordsApi.createStudent",
+        "schoolRecordsApi.guardian",
+        "schoolRecordsApi.enroll",
+        "schoolRecordsApi.endEnrollment",
+        "schoolContentApi.links",
+        "schoolContentApi.link",
+        "schoolContentApi.upload",
+        "schoolContentApi.files"
+      ]
+    },
+    {
+      "route": "/admin/student-info/attendance",
+      "file": "app/admin/student-info/attendance/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/records.test.cjs",
+        "tests/students/reports.test.cjs",
+        "docs/STUDENT_ATTENDANCE_VERIFICATION.md",
+        "../../lms/lms-backend/test/student-records.e2e.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.attendance",
+        "schoolRecordsApi.saveAttendance"
+      ]
+    },
+    {
+      "route": "/admin/student-info/category",
+      "file": "app/admin/student-info/category/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/records.test.cjs",
+        "tests/students/reports.test.cjs",
+        "docs/STUDENT_ATTENDANCE_VERIFICATION.md",
+        "../../lms/lms-backend/test/student-records.e2e.mjs"
+      ],
+      "calls": [
+        "foundationsApi.list",
+        "foundationsApi.save",
+        "foundationsApi.history"
+      ]
+    },
+    {
+      "route": "/admin/student-info/group",
+      "file": "app/admin/student-info/group/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/records.test.cjs",
+        "tests/students/reports.test.cjs",
+        "docs/STUDENT_ATTENDANCE_VERIFICATION.md",
+        "../../lms/lms-backend/test/student-records.e2e.mjs"
+      ],
+      "calls": [
+        "foundationsApi.list",
+        "foundationsApi.save",
+        "foundationsApi.history"
+      ]
+    },
+    {
+      "route": "/admin/student-info/list",
+      "file": "app/admin/student-info/list/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/records.test.cjs",
+        "tests/students/reports.test.cjs",
+        "docs/STUDENT_ATTENDANCE_VERIFICATION.md",
+        "../../lms/lms-backend/test/student-records.e2e.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.students"
+      ]
+    },
+    {
+      "route": "/admin/student-info/promote",
+      "file": "app/admin/student-info/promote/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/records.test.cjs",
+        "tests/students/reports.test.cjs",
+        "docs/STUDENT_ATTENDANCE_VERIFICATION.md",
+        "../../lms/lms-backend/test/student-records.e2e.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.students",
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.student",
+        "schoolRecordsApi.updateStudent",
+        "schoolRecordsApi.createStudent",
+        "schoolRecordsApi.guardian",
+        "schoolRecordsApi.enroll",
+        "schoolRecordsApi.endEnrollment",
+        "schoolContentApi.links",
+        "schoolContentApi.link",
+        "schoolContentApi.upload",
+        "schoolContentApi.files"
+      ]
+    },
+    {
+      "route": "/admin/student-info/studentexport",
+      "file": "app/admin/student-info/studentexport/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/records.test.cjs",
+        "tests/students/reports.test.cjs",
+        "docs/STUDENT_ATTENDANCE_VERIFICATION.md",
+        "../../lms/lms-backend/test/student-records.e2e.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.students",
+        "schoolRecordsApi.student"
+      ]
+    },
+    {
+      "route": "/admin/student-info/wise-attendance",
+      "file": "app/admin/student-info/wise-attendance/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/records.test.cjs",
+        "tests/students/reports.test.cjs",
+        "docs/STUDENT_ATTENDANCE_VERIFICATION.md",
+        "../../lms/lms-backend/test/student-records.e2e.mjs"
+      ],
+      "calls": [
+        "schoolRecordsApi.options",
+        "schoolRecordsApi.attendance"
+      ]
+    },
+    {
+      "route": "/admin/study-material/assignment",
+      "file": "app/admin/study-material/assignment/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/content.test.cjs",
+        "docs/FILES_LEARNING_COMMUNICATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-content.e2e.mjs"
+      ],
+      "calls": [
+        "schoolContentApi.list",
+        "schoolContentApi.options",
+        "schoolContentApi.save",
+        "schoolContentApi.files",
+        "schoolContentApi.history"
+      ]
+    },
+    {
+      "route": "/admin/study-material/downloads",
+      "file": "app/admin/study-material/downloads/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/content.test.cjs",
+        "docs/FILES_LEARNING_COMMUNICATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-content.e2e.mjs"
+      ],
+      "calls": [
+        "schoolContentApi.list",
+        "schoolContentApi.options",
+        "schoolContentApi.save",
+        "schoolContentApi.files",
+        "schoolContentApi.history"
+      ]
+    },
+    {
+      "route": "/admin/study-material/syllabus",
+      "file": "app/admin/study-material/syllabus/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/content.test.cjs",
+        "docs/FILES_LEARNING_COMMUNICATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-content.e2e.mjs"
+      ],
+      "calls": [
+        "schoolContentApi.list",
+        "schoolContentApi.options",
+        "schoolContentApi.save",
+        "schoolContentApi.files",
+        "schoolContentApi.history"
+      ]
+    },
+    {
+      "route": "/admin/study-material/upload",
+      "file": "app/admin/study-material/upload/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/content.test.cjs",
+        "docs/FILES_LEARNING_COMMUNICATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-content.e2e.mjs"
+      ],
+      "calls": [
+        "schoolContentApi.files",
+        "schoolContentApi.upload",
+        "schoolContentApi.archiveFile",
+        "schoolContentApi.download",
+        "schoolContentApi.history"
+      ]
+    },
+    {
+      "route": "/admin/teacher-evaluation/approved",
+      "file": "app/admin/teacher-evaluation/approved/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/administration.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-administration.e2e.mjs",
+        "../../lms/lms-backend/test/school-administration-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ]
+    },
+    {
+      "route": "/admin/teacher-evaluation/pending",
+      "file": "app/admin/teacher-evaluation/pending/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/administration.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-administration.e2e.mjs",
+        "../../lms/lms-backend/test/school-administration-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ]
+    },
+    {
+      "route": "/admin/teacher-evaluation/setting",
+      "file": "app/admin/teacher-evaluation/setting/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/administration.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-administration.e2e.mjs",
+        "../../lms/lms-backend/test/school-administration-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ]
+    },
+    {
+      "route": "/admin/teacher-evaluation/teacher-wise",
+      "file": "app/admin/teacher-evaluation/teacher-wise/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/students/administration.test.cjs",
+        "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md",
+        "../../lms/lms-backend/test/school-administration.e2e.mjs",
+        "../../lms/lms-backend/test/school-administration-concurrency.e2e.mjs"
+      ],
+      "calls": [
+        "schoolAdministrationApi.choices",
+        "schoolAdministrationApi.history",
+        "schoolAdministrationApi.list",
+        "schoolAdministrationApi.save",
+        "schoolAdministrationApi.decision"
+      ]
+    },
+    {
+      "route": "/admin/user",
+      "file": "app/admin/user/page.tsx",
+      "classification": "fully-verified",
+      "migrationGated": false,
+      "reason": "Route-specific frontend interaction tests, live PostgreSQL lifecycle/authorization/preservation tests, and full-stack acceptance pass.",
+      "evidence": [
+        "tests/users/login-permissions.test.cjs",
+        "docs/USER_LOGIN_POLICIES_VERIFICATION.md",
+        "../../lms/lms-backend/test/login-permissions.e2e.mjs"
+      ],
+      "calls": [
+        "users.getAll",
+        "users.updateRole",
+        "users.create"
+      ]
+    }
+  ]
+}

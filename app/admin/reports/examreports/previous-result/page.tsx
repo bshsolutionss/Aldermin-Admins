@@ -1,21 +1,2 @@
-"use client";
-
-import React from "react";
-import { PageHeader } from "@/components/common/PageHeader";
-import { AdminCard } from "@/components/common/AdminCard";
-
-export default function PreviousResultPage() {
-  return (
-    <div className="space-y-6">
-      <PageHeader 
-        title="Previous Result" 
-        subtitle="View and manage previous result"
-      />
-      <AdminCard>
-        <div className="p-6">
-          <p className="text-gray-500">Previous Result details and data will be displayed here.</p>
-        </div>
-      </AdminCard>
-    </div>
-  );
-}
+import { AdminReportPanel } from '@/components/modules/reports/AdminReportPanel';
+export default function Page(){return <AdminReportPanel kind="exam-summary" title="Previous Examination Results"/>;}

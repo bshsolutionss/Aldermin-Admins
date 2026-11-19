@@ -55,10 +55,11 @@ export function DataTable<T extends { id: string | number }>({
   }, [data, searchTerm, searchKey]);
 
   const totalPages = Math.ceil(filteredData.length / pageSize);
+  const visiblePage = Math.min(currentPage, Math.max(1, totalPages));
   const paginatedData = useMemo(() => {
-    const start = (currentPage - 1) * pageSize;
+    const start = (visiblePage - 1) * pageSize;
     return filteredData.slice(start, start + pageSize);
-  }, [filteredData, currentPage, pageSize]);
+  }, [filteredData, visiblePage, pageSize]);
 
   return (
     <div className="space-y-6 flex flex-col h-full">
@@ -143,7 +144,7 @@ export function DataTable<T extends { id: string | number }>({
         {!isLoading && filteredData.length > pageSize && (
           <div className="p-8 pt-0 relative z-10">
             <ListPagination
-              currentPage={currentPage}
+              currentPage={visiblePage}
               totalPages={totalPages}
               onPageChange={setCurrentPage}
               totalRecords={filteredData.length}

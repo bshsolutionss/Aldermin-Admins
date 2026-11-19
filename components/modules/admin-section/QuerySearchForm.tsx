@@ -15,8 +15,8 @@ import {
 import { FaSearch, FaCalendarAlt, FaGlobe } from "react-icons/fa";
 
 interface QuerySearchFormProps {
-  searchParams: any;
-  setSearchParams: (params: any) => void;
+  searchParams: { dateFrom: string; dateTo: string; source: string; status: string };
+  setSearchParams: (params: { dateFrom: string; dateTo: string; source: string; status: string }) => void;
   onSubmit: (e: React.FormEvent) => void;
 }
 

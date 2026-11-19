@@ -13,7 +13,7 @@ interface FeeGroupFormProps {
     groupName: string;
     description: string;
   };
-  setFormData: (data: any) => void;
+  setFormData: (data: FeeGroupFormProps["formData"]) => void;
   onSubmit: (e: React.FormEvent) => void;
 }
 

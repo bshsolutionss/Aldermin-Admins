@@ -1,22 +1,22 @@
 # Git change-count audit
 
-Read-only Git inventory; no files deleted, reverted, staged, moved or committed. Counts describe the instant of inspection and include existing uncommitted work.
+This read-only inventory command does not delete, revert, stage, move or commit source files. Counts describe the instant of inspection and include existing uncommitted work.
 
 ## C:/Users/USAID JAVED/Documents/GitHub/Aldermin-Admins
 
-Tracked files: **480**. Existing HEAD commit: **true**. Modified/staged entries: **76**; untracked files: **163**; total expanded changed files: **239**. Deleted entries: **0**.
+Tracked files: **645**. Existing HEAD commit: **true**. Modified/staged entries: **177**; untracked files: **88**; total expanded changed files: **265**. Deleted entries: **1**.
 
-Directory counts: app/: 118; components/: 29; lib/: 35; (root): 4; .vscode/: 1; docs/: 30; scripts/: 2; tests/: 20.
+Directory counts: app/: 135; components/: 44; docs/: 25; (root): 1; scripts/: 3; tests/: 36; lib/: 21.
 
-Ignored build/cache artifacts: **9296**, grouped as {".next/":9294,"next-env.d.ts":1,"tsconfig.tsbuildinfo":1}. Generated build/cache candidates in changed files: **0**.
+Ignored build/cache artifacts: **10787**, grouped as {".next/":10785,"next-env.d.ts":1,"tsconfig.tsbuildinfo":1}. Generated build/cache candidates in changed files: **0**.
 
 ## C:/Users/USAID JAVED/Documents/lms/lms-backend
 
-Tracked files: **0**. Existing HEAD commit: **false**. Modified/staged entries: **0**; untracked files: **253**; total expanded changed files: **253**. Deleted entries: **0**.
+Tracked files: **0**. Existing HEAD commit: **false**. Modified/staged entries: **0**; untracked files: **384**; total expanded changed files: **384**. Deleted entries: **0**.
 
-Directory counts: (root): 16; docs/: 25; scripts/: 1; src/: 154; test/: 57.
+Directory counts: (root): 16; docs/: 65; scripts/: 1; src/: 200; test/: 102.
 
-Ignored build/cache artifacts: **448**, grouped as {"dist/":444,"node_modules/":3,"tsconfig.build.tsbuildinfo":1}. Generated build/cache candidates in changed files: **0**.
+Ignored build/cache artifacts: **586**, grouped as {"dist/":582,"node_modules/":3,"tsconfig.build.tsbuildinfo":1}. Generated build/cache candidates in changed files: **0**.
 
 The backend has no HEAD commit and no tracked files, so Git reports the entire existing backend source/configuration/test tree as new. This is the main reason its change count looks unusually large; it is not a diff against an established backend baseline. The frontend has an existing committed baseline plus accumulated uncommitted integrations. Git cannot assign authorship of uncommitted files.
 

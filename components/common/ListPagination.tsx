@@ -19,7 +19,7 @@ export function ListPagination({
   totalRecords,
   pageSize,
 }: ListPaginationProps) {
-  const start = (currentPage - 1) * pageSize + 1;
+  const start = totalRecords === 0 ? 0 : (currentPage - 1) * pageSize + 1;
   const end = Math.min(currentPage * pageSize, totalRecords);
 
   return (
@@ -35,7 +35,7 @@ export function ListPagination({
         <Button
           variant="outline"
           size="sm"
-          disabled={currentPage === 1}
+          disabled={currentPage <= 1}
           onClick={() => onPageChange(currentPage - 1)}
           className="h-8 w-8 p-0"
         >
@@ -63,7 +63,7 @@ export function ListPagination({
         <Button
           variant="outline"
           size="sm"
-          disabled={currentPage === totalPages}
+          disabled={currentPage >= totalPages}
           onClick={() => onPageChange(currentPage + 1)}
           className="h-8 w-8 p-0"
         >

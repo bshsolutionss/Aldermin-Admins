@@ -18,7 +18,7 @@ interface CarryForwardFilterProps {
     className: string;
     section: string;
   };
-  setSearchParams: (data: any) => void;
+  setSearchParams: (data: CarryForwardFilterProps["searchParams"]) => void;
   onSearch: (e: React.FormEvent) => void;
 }
 

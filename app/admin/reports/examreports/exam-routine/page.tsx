@@ -1,21 +1,2 @@
-"use client";
-
-import React from "react";
-import { PageHeader } from "@/components/common/PageHeader";
-import { AdminCard } from "@/components/common/AdminCard";
-
-export default function ExamRoutinePage() {
-  return (
-    <div className="space-y-6">
-      <PageHeader 
-        title="Exam Routine" 
-        subtitle="View and manage exam routine"
-      />
-      <AdminCard>
-        <div className="p-6">
-          <p className="text-gray-500">Exam Routine details and data will be displayed here.</p>
-        </div>
-      </AdminCard>
-    </div>
-  );
-}
+import { ExamRoutineReport } from "@/components/modules/reports/ExamRoutineReport";
+export default function ExamRoutinePage() { return <ExamRoutineReport />; }

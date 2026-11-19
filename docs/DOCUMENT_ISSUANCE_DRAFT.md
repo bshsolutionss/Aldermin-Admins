@@ -1,0 +1,13 @@
+# Document issuance migration draft
+
+**Superseded preparation notes.** The current six-table implementation and exact hashes are reviewed in [Certificate/ID migration safety review](./DOCUMENT_ISSUANCE_MIGRATION_REVIEW.md). The six routes are now connected and tested at the frontend/contract level, but the migration remains unapplied and live persistence/print acceptance is pending explicit approval. The following three-table description is historical and must not be used as the current SQL review.
+
+**DRAFT: NOT APPLIED. Not yet ready for approval.** Certificate/ID screens and print layouts remain unconnected, and live PostgreSQL acceptance cannot run until a specifically approved migration is applied. Do not run a general migration runner.
+
+Proposed migration: CreateDocumentIssuance1794755000000. Exact [UP SQL](../../../lms/lms-backend/docs/DOCUMENT_ISSUANCE_UP.sql), SHA-256 ec7b3df2e8310c993a2436b521c058d8712d3963951a985afb61df6049485771; exact [DOWN SQL](../../../lms/lms-backend/docs/DOCUMENT_ISSUANCE_DOWN.sql), SHA-256 fe58a68a442f744ebf9272cfa3e16b8eef46e0123a4c05397cefa38cfa0ca7ec. [Read-only preflight](../../../lms/lms-backend/docs/DOCUMENT_ISSUANCE_PREFLIGHT.json) passed at 30 migrations and 99 application tables. This evidence is time-specific and must be repeated immediately before any later application.
+
+The migration creates three new tables, one trigger function, an index and a trigger. It does not alter existing tables or seed rows. DOWN locks all three tables and refuses to proceed if any has data; it uses no CASCADE. Trigger execution, live persistence, authorization, atomic batches, rollback protection and concurrency have not yet been verified against PostgreSQL. The [prepared acceptance suite](../../../lms/lms-backend/test/document-issuance.e2e.mjs) has not been run.
+
+Current implementation supports plain-text templates and active student certificates or IDs. It does not implement artwork, layout/font controls, expiry, revocation, staff IDs, external verification, document numbers beyond issue UUIDs, or print audit. Existing designer screens include fields for artwork and layout and are not connected. Bulk printing UI and browser print verification remain outstanding. Do not consider these routes functional or production-ready.
+
+Before approval is requested: finish the frontend workflows without losing existing design, add necessary implementation and route tests, review whether the limitations are acceptable, verify complete SQL safety and prerequisites, and produce a precise application/preservation procedure. Any changed SQL requires new hashes and renewed review. Separate owner approval is mandatory before any migration execution.

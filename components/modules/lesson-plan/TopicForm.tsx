@@ -15,8 +15,8 @@ import {
 import { FaCheckDouble, FaBookmark } from "react-icons/fa";
 
 interface TopicFormProps {
-  formData: any;
-  handleInputChange: (e: any) => void;
+  formData: { title: string; className: string; section: string; subject: string; lesson: string };
+  handleInputChange: (e: { target: { name: string; value: string } }) => void;
   handleSubmit: (e: React.FormEvent) => void;
 }
 

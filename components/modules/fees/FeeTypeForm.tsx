@@ -21,7 +21,7 @@ interface FeeTypeFormProps {
     feeGroup: string;
     description: string;
   };
-  setFormData: (data: any) => void;
+  setFormData: (data: FeeTypeFormProps["formData"]) => void;
   onSubmit: (e: React.FormEvent) => void;
 }
 

@@ -41,18 +41,102 @@ export function useStudentEditor(studentId?: string) {
   }, [studentId]);
   const invalidate = useCallback(() => { ++sequence.current; }, []);
   useEffect(() => { let active = true; void Promise.resolve().then(() => { if (active) return load(); }); return () => { active = false; invalidate(); }; }, [load, invalidate]);
-  async function action(task: () => Promise<void>) {
+  async function action(task: () => Promise<void>, onTabRedirect?: (tab: string) => void) {
     if (busy.current || !ready) return false;
     busy.current = true; setSaving(true); setError(""); setNotice("");
     try { await task(); return true; }
-    catch (err) { setError(err instanceof Error ? err.message : "Unable to save records"); return false; }
+    catch (err) {
+      const message = err instanceof Error ? err.message : "Unable to save records";
+      setError(message);
+      if (onTabRedirect) {
+        const lower = message.toLowerCase();
+        if (lower.includes("personal") || lower.includes("first name") || lower.includes("last name") || lower.includes("birth date") || lower.includes("gender")) {
+          onTabRedirect("personal");
+        } else if (lower.includes("placement") || lower.includes("academic") || lower.includes("admission") || lower.includes("roll") || lower.includes("enrollment")) {
+          onTabRedirect("academic");
+        } else if (lower.includes("guardian")) {
+          onTabRedirect("guardian");
+        }
+      }
+      return false;
+    }
     finally { busy.current = false; setSaving(false); }
   }
-  function saveProfile() {
+  function saveProfile(onTabRedirect?: (tab: string) => void) {
     return action(async () => {
-      if (student) { const result = await schoolRecordsApi.updateStudent(student.id, { ...input, active, version: student.version }); setStudent(result.student); setActive(result.student.active); }
-      else {
-        if (!enrollment.classSectionId || !enrollment.rollNo || !enrollment.startDate || !enrollment.endDate) throw new Error("Choose a placement, explicit roll number and enrollment dates in Academic.");
+      if (student) {
+        if (!input.firstName?.trim()) {
+          onTabRedirect?.("personal");
+          throw new Error("Legal First Name is required (Personal Details tab).");
+        }
+        if (!input.lastName?.trim()) {
+          onTabRedirect?.("personal");
+          throw new Error("Legal Last Name is required (Personal Details tab).");
+        }
+        if (!input.birthDate) {
+          onTabRedirect?.("personal");
+          throw new Error("Birth Date is required (Personal Details tab).");
+        }
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(input.birthDate)) {
+          onTabRedirect?.("personal");
+          throw new Error("Birth Date must be in YYYY-MM-DD format (Personal Details tab).");
+        }
+        if (input.birthDate > new Date().toISOString().slice(0, 10)) {
+          onTabRedirect?.("personal");
+          throw new Error("Birth Date cannot be in the future (Personal Details tab).");
+        }
+        if (!input.gender || !["male", "female", "other"].includes(input.gender)) {
+          onTabRedirect?.("personal");
+          throw new Error("Please select gender: male, female, or other (Personal Details tab).");
+        }
+        const result = await schoolRecordsApi.updateStudent(student.id, { ...input, active, version: student.version });
+        setStudent(result.student);
+        setActive(result.student.active);
+      } else {
+        if (!enrollment.classSectionId || !enrollment.rollNo?.trim() || !enrollment.startDate || !enrollment.endDate) {
+          onTabRedirect?.("academic");
+          throw new Error("Choose a placement, explicit roll number and enrollment dates in Academic.");
+        }
+        if (!input.admissionNo?.trim()) {
+          onTabRedirect?.("academic");
+          throw new Error("Admission Number is required in Institutional Placement.");
+        }
+        if (enrollment.endDate < enrollment.startDate) {
+          onTabRedirect?.("academic");
+          throw new Error("Enrollment End Date cannot be earlier than Start Date.");
+        }
+        if (!input.firstName?.trim()) {
+          onTabRedirect?.("personal");
+          throw new Error("Legal First Name is required (Personal Details tab).");
+        }
+        if (!input.lastName?.trim()) {
+          onTabRedirect?.("personal");
+          throw new Error("Legal Last Name is required (Personal Details tab).");
+        }
+        if (!input.birthDate) {
+          onTabRedirect?.("personal");
+          throw new Error("Birth Date is required (Personal Details tab).");
+        }
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(input.birthDate)) {
+          onTabRedirect?.("personal");
+          throw new Error("Birth Date must be in YYYY-MM-DD format (Personal Details tab).");
+        }
+        if (input.birthDate > new Date().toISOString().slice(0, 10)) {
+          onTabRedirect?.("personal");
+          throw new Error("Birth Date cannot be in the future (Personal Details tab).");
+        }
+        if (enrollment.startDate < input.birthDate) {
+          onTabRedirect?.("academic");
+          throw new Error("Enrollment start date cannot precede student birth date.");
+        }
+        if (!input.gender || !["male", "female", "other"].includes(input.gender)) {
+          onTabRedirect?.("personal");
+          throw new Error("Please select gender: male, female, or other (Personal Details tab).");
+        }
+        if (guardian.name?.trim() && !guardian.relationship?.trim()) {
+          onTabRedirect?.("guardian");
+          throw new Error("Guardian Relationship is required when Guardian Name is provided.");
+        }
         const result = await schoolRecordsApi.createStudent({ ...input, enrollment, ...(guardian.name.trim() ? { guardian } : {}) });
         setStudent(result.student);
         if (result.guardian) { setGuardians([result.guardian]); setGuardianRecord(result.guardian); }
@@ -60,7 +144,7 @@ export function useStudentEditor(studentId?: string) {
         setEnrollment({ ...blankEnrollment });
       }
       setNotice("Student profile saved.");
-    });
+    }, onTabRedirect);
   }
   function selectGuardian(record: GuardianRecord | null) {
     setGuardianRecord(record);

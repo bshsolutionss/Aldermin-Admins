@@ -1,6 +1,7 @@
-const {test}=require('node:test');
-const assert=require('node:assert/strict');
-const {loadTs}=require('../auth/load-ts.cjs');
+async function register() {
+const {test}=await import("node:test");
+const assert=(await import("node:assert/strict")).default;
+const {loadTs}=await import("../auth/load-ts.mjs");
 const id='11111111-1111-4111-8111-111111111111';
 const placement='22222222-2222-4222-8222-222222222222';
 const profile={admissionNo:'ADM-1',firstName:'Ada',lastName:'Student',birthDate:'2010-01-01',gender:'female',email:null,phone:null,address:null,medicalNotes:null,categoryId:null,groupId:null};
@@ -65,3 +66,6 @@ test('editing a note without choosing attendance status never sends a batch',asy
 test('unapplied registry errors disable profile submission and retain an empty real-data state',async()=>{
  const page=editor({options:async()=>{throw Error('Migration required');}});await page.start();assert.equal(page.render().ready,false);assert.equal(page.render().student,null);assert.deepEqual(page.render().options.placements,[]);assert.equal(await page.render().saveProfile(),false);assert.match(page.render().error,/Migration/);
 });
+
+}
+void register();

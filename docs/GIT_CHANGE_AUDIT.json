@@ -1,270 +1,566 @@
 {
-  "date": "2026-11-14",
+  "date": "2026-11-17",
   "readOnly": true,
   "repositories": [
     {
       "directory": "C:\\Users\\USAID JAVED\\Documents\\GitHub\\Aldermin-Admins",
-      "tracked": 480,
+      "tracked": 645,
       "headExists": true,
-      "modified": 76,
-      "untracked": 163,
-      "totalChanged": 239,
-      "deleted": [],
+      "modified": 177,
+      "untracked": 88,
+      "totalChanged": 265,
+      "deleted": [
+        {
+          "status": " D",
+          "file": "tests/auth/load-ts.cjs"
+        }
+      ],
       "byDirectory": {
-        "app/": 118,
-        "components/": 29,
-        "lib/": 35,
-        "(root)": 4,
-        ".vscode/": 1,
-        "docs/": 30,
-        "scripts/": 2,
-        "tests/": 20
+        "app/": 135,
+        "components/": 44,
+        "docs/": 25,
+        "(root)": 1,
+        "scripts/": 3,
+        "tests/": 36,
+        "lib/": 21
       },
       "generatedInChanges": [],
-      "ignoredGeneratedCount": 9296,
+      "ignoredGeneratedCount": 10787,
       "ignoredGeneratedByDirectory": {
-        ".next/": 9294,
+        ".next/": 10785,
         "next-env.d.ts": 1,
         "tsconfig.tsbuildinfo": 1
       },
       "toolGeneratedButReviewable": [
         {
-          "status": "??",
+          "status": " M",
           "file": "docs/ADMIN_ROUTE_AUDIT.json"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "docs/ADMIN_ROUTE_AUDIT.md"
         },
         {
           "status": "??",
-          "file": "docs/CLASS_ROUTINES_PREFLIGHT.md"
+          "file": "docs/ACADEMIC_WORK_APPLICATION_VERIFICATION.md"
         },
         {
           "status": "??",
-          "file": "docs/GIT_CHANGE_AUDIT.json"
+          "file": "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md"
         },
         {
           "status": "??",
-          "file": "docs/GIT_CHANGE_AUDIT.md"
+          "file": "docs/DOCUMENT_ISSUANCE_APPLICATION_VERIFICATION.md"
         },
         {
           "status": "??",
-          "file": "pnpm-lock.yaml"
+          "file": "docs/EXAMINATION_APPLICATION_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/FINANCE_APPLICATION_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/ONLINE_CAMPUS_APPLICATION_VERIFICATION.md"
         }
       ],
       "changed": [
         {
           "status": " M",
-          "file": "app/admin/academic/assign-subject/page.tsx"
+          "file": "app/admin/academic/assign-class-teacher/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/academic/class-room/page.tsx"
+          "file": "app/admin/academic/class/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/academic/class-routine/page.tsx"
+          "file": "app/admin/academic/section/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/academic/subject/page.tsx"
+          "file": "app/admin/accounts/accounts/bankaccount/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/academics/assign-subject/page.tsx"
+          "file": "app/admin/accounts/accounts/chartofaccount/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/academics/assign-teacher/page.tsx"
+          "file": "app/admin/accounts/accounts/expence/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/academics/class/page.tsx"
+          "file": "app/admin/accounts/accounts/fundtransfer/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/academics/classroom/page.tsx"
+          "file": "app/admin/accounts/accounts/income/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/academics/routine/page.tsx"
+          "file": "app/admin/accounts/accounts/profitandlost/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/academics/section/page.tsx"
+          "file": "app/admin/accounts/wallet/approveddeposit/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/academics/subjects/page.tsx"
+          "file": "app/admin/accounts/wallet/pendingdeposit/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/accounts/communicate/calendar/page.tsx"
+          "file": "app/admin/accounts/wallet/refundrequest/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/accounts/communicate/event/page.tsx"
+          "file": "app/admin/accounts/wallet/rejectdeposit/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/accounts/communicate/noticeboard/page.tsx"
+          "file": "app/admin/accounts/wallet/wallettransaction/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/accounts/inventory/itemcategory/page.tsx"
+          "file": "app/admin/admin-section/admission-query/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/accounts/inventory/itemissue/page.tsx"
+          "file": "app/admin/admin-section/certificate/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/accounts/inventory/itemlist/page.tsx"
+          "file": "app/admin/admin-section/complaint/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/accounts/inventory/itemreceive/page.tsx"
+          "file": "app/admin/admin-section/generate-certificate/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/accounts/inventory/itemreceivelist/page.tsx"
+          "file": "app/admin/admin-section/generate-id/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/accounts/inventory/itemselllist/page.tsx"
+          "file": "app/admin/admin-section/id-card/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/accounts/inventory/itemstore/page.tsx"
+          "file": "app/admin/admin-section/phone-log/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/accounts/inventory/supplier/page.tsx"
+          "file": "app/admin/admin-section/postal-dispatch/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/download-center/list/page.tsx"
+          "file": "app/admin/admin-section/postal-receive/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/download-center/shared/page.tsx"
+          "file": "app/admin/admin-section/setup/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/download-center/video/page.tsx"
+          "file": "app/admin/admin-section/visitor-book/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/hr/add-staff/page.tsx"
+          "file": "app/admin/behaviour/assign/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/hr/attendance/page.tsx"
+          "file": "app/admin/behaviour/class-report/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/hr/department/page.tsx"
+          "file": "app/admin/behaviour/incident-wise/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/hr/designation/page.tsx"
+          "file": "app/admin/behaviour/incidents/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/hr/staff-list/page.tsx"
+          "file": "app/admin/behaviour/report/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/layout.tsx"
+          "file": "app/admin/behaviour/student-report/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/library/book/page.tsx"
+          "file": "app/admin/bulk-print/certificate/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/library/booklist/page.tsx"
+          "file": "app/admin/bulk-print/fees/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/library/category/page.tsx"
+          "file": "app/admin/bulk-print/id/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/library/issue-return/page.tsx"
+          "file": "app/admin/bulk-print/payroll/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/library/issued/page.tsx"
+          "file": "app/admin/dashboard/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/library/members/page.tsx"
+          "file": "app/admin/dormitory/dormitory/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/library/subject/page.tsx"
+          "file": "app/admin/dormitory/dormitoryrooms/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/role&permission/loginpermission/page.tsx"
+          "file": "app/admin/dormitory/roomtype/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/role&permission/managerole/page.tsx"
+          "file": "app/admin/download-center/type/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/settings/general-settings/academic-year/page.tsx"
+          "file": "app/admin/exam-plan/admit-card/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/settings/general-settings/general-settings-inner/page.tsx"
+          "file": "app/admin/examination/attendance/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/settings/general-settings/holiday/page.tsx"
+          "file": "app/admin/examination/marks-grade/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/settings/general-settings/weekend/page.tsx"
+          "file": "app/admin/examination/marks-register/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/student-info/add/page.tsx"
+          "file": "app/admin/examination/marksheet/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/student-info/attendance/page.tsx"
+          "file": "app/admin/examination/schedule/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/student-info/category/page.tsx"
+          "file": "app/admin/examination/setup/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/student-info/group/page.tsx"
+          "file": "app/admin/examination/type/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/student-info/list/page.tsx"
+          "file": "app/admin/fee/group/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/study-material/assignment/page.tsx"
+          "file": "app/admin/fee/invoice-report/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/study-material/downloads/page.tsx"
+          "file": "app/admin/fee/type/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/study-material/syllabus/page.tsx"
+          "file": "app/admin/fees/group/page.tsx"
         },
         {
           "status": " M",
-          "file": "app/admin/study-material/upload/page.tsx"
+          "file": "app/admin/fees/invoice/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/fees/type/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/homework/add/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/homework/list/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/homework/report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/hr/payroll/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/human-resource/department/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/human-resource/designation/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/human-resource/payroll/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/human-resource/staff-attendance/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/human-resource/staff/add/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/human-resource/staff/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/leave/apply/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/leave/approveleaverequest/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/leave/define/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/leave/type/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/lesson-plan/lesson-overview/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/lesson-plan/lesson/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/lesson-plan/plan/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/lesson-plan/topic-overview/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/lesson-plan/topic/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/online-exam/exam/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/online-exam/question-bank/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/online-exam/question-group/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/accountsreports/payroll-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/accountsreports/transaction/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/accountsreports/wallet-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/examreports/exam-routine/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/examreports/mark-sheet-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/examreports/merit-list-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/examreports/online-exam-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/examreports/previous-result/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/examreports/progress-card-report-100/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/examreports/progress-card-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/examreports/tabulation-sheet-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/feesreports/balance-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/feesreports/fees-due-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/feesreports/fine-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/feesreports/payment-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/feesreports/waiver-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/staffreports/payroll-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/staffreports/staff-attendance-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/studentreports/class-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/studentreports/class-routine/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/studentreports/guardian-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/studentreports/home-work-evaluation-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/studentreports/previous-record/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/studentreports/student-attendance-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/studentreports/student-dormitory-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/studentreports/student-history/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/studentreports/student-login-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/studentreports/student-report/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/reports/studentreports/user-log/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/settings/fees-settings/fees-invoice-settings/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/settings/general-settings/base-setup/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/settings/general-settings/email-setting/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/settings/general-settings/language-settings/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/settings/general-settings/lesson-plan-setting/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/settings/general-settings/notification-setting/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/settings/general-settings/payment-settings/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/settings/general-settings/sms-settings/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/settings/general-settings/staff-settings/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/settings/general-settings/student-settings/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/student-info/promote/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/student-info/studentexport/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/student-info/wise-attendance/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/teacher-evaluation/approved/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/teacher-evaluation/pending/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/teacher-evaluation/setting/page.tsx"
+        },
+        {
+          "status": " M",
+          "file": "app/admin/teacher-evaluation/teacher-wise/page.tsx"
         },
         {
           "status": " M",
@@ -272,59 +568,43 @@
         },
         {
           "status": " M",
-          "file": "app/auth/forgot-password/page.tsx"
+          "file": "components/common/DataTable.tsx"
         },
         {
           "status": " M",
-          "file": "app/auth/login/page.tsx"
+          "file": "components/common/ListPagination.tsx"
         },
         {
           "status": " M",
-          "file": "app/auth/otp/page.tsx"
+          "file": "components/modules/admin-section/QuerySearchForm.tsx"
         },
         {
           "status": " M",
-          "file": "app/auth/reset-password/page.tsx"
+          "file": "components/modules/behaviour/BehaviourFilter.tsx"
         },
         {
           "status": " M",
-          "file": "app/page.tsx"
+          "file": "components/modules/dashboard/CalendarCard.tsx"
         },
         {
           "status": " M",
-          "file": "components/layout/Sidebar.tsx"
+          "file": "components/modules/dashboard/EarningChart.tsx"
         },
         {
           "status": " M",
-          "file": "components/layout/TopBar.tsx"
+          "file": "components/modules/dashboard/FeeStatus.tsx"
         },
         {
           "status": " M",
-          "file": "components/modules/academics/AssignSubjectForm.tsx"
+          "file": "components/modules/dashboard/FinancialOverview.tsx"
         },
         {
           "status": " M",
-          "file": "components/modules/academics/AssignTeacherForm.tsx"
+          "file": "components/modules/dashboard/StatCards.tsx"
         },
         {
           "status": " M",
-          "file": "components/modules/academics/ClassForm.tsx"
-        },
-        {
-          "status": " M",
-          "file": "components/modules/academics/ClassRoomForm.tsx"
-        },
-        {
-          "status": " M",
-          "file": "components/modules/academics/RoutineForm.tsx"
-        },
-        {
-          "status": " M",
-          "file": "components/modules/academics/SectionForm.tsx"
-        },
-        {
-          "status": " M",
-          "file": "components/modules/academics/SubjectForm.tsx"
+          "file": "components/modules/dashboard/StudentChart.tsx"
         },
         {
           "status": " M",
@@ -332,683 +612,523 @@
         },
         {
           "status": " M",
-          "file": "components/modules/hr/DepartmentForm.tsx"
+          "file": "components/modules/exam-plan/AdmitCardList.tsx"
         },
         {
           "status": " M",
-          "file": "components/modules/hr/DesignationForm.tsx"
+          "file": "components/modules/exam-plan/SeatPlanList.tsx"
         },
         {
           "status": " M",
-          "file": "components/modules/student-info/StudentOnboarding.tsx"
+          "file": "components/modules/examination/MarksheetFilter.tsx"
         },
         {
           "status": " M",
-          "file": "components/modules/user/UserForm.tsx"
+          "file": "components/modules/examination/MarksheetReport.tsx"
         },
         {
           "status": " M",
-          "file": "components/modules/user/UserList.tsx"
+          "file": "components/modules/fees/CarryForwardFilter.tsx"
         },
         {
           "status": " M",
-          "file": "lib/api-service.ts"
+          "file": "components/modules/fees/FeeGroupForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/fees/FeeTypeForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/lesson-plan/LessonForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/lesson-plan/LessonOverviewConfig.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/lesson-plan/TopicForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/lesson-plan/TopicOverviewFilter.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/online-exam/OnlineExamForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/online-exam/QuestionBankForm.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/student-info/StudentDirectory.tsx"
+        },
+        {
+          "status": " M",
+          "file": "components/modules/teacher-evaluation/EvaluationList.tsx"
+        },
+        {
+          "status": " M",
+          "file": "docs/ADMIN_ROUTE_AUDIT.json"
+        },
+        {
+          "status": " M",
+          "file": "docs/ADMIN_ROUTE_AUDIT.md"
+        },
+        {
+          "status": " M",
+          "file": "docs/INTEGRATION_PROGRESS.md"
+        },
+        {
+          "status": " M",
+          "file": "docs/LIBRARY_INVENTORY_MIGRATION_REVIEW.md"
         },
         {
           "status": " M",
           "file": "package.json"
         },
         {
-          "status": "??",
-          "file": ".vscode/tasks.json"
-        },
-        {
-          "status": "??",
-          "file": "app/admin/dashboard/page.tsx"
-        },
-        {
-          "status": "??",
-          "file": "app/api/academic-years/[id]/current/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/academic-years/[id]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/academic-years/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/admin-foundations/[...segments]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/admin-roles/[id]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/admin-roles/accounts/[id]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/admin-roles/accounts/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/admin-roles/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/auth/forgot-password/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/auth/login/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/auth/logout/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/auth/me/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/auth/refresh/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/auth/register/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/auth/reset-password/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/class-routines/[id]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/class-routines/options/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/class-routines/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/class-teacher-assignments/[id]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/class-teacher-assignments/options/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/class-teacher-assignments/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/classes/[id]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/classes/[id]/sections/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/classes/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/classrooms/[id]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/classrooms/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/courses/[id]/publish/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/courses/[id]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/courses/[id]/unpublish/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/courses/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/hr/departments/[id]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/hr/departments/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/hr/designations/[id]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/hr/designations/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/hr/staff/[id]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/hr/staff/options/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/hr/staff/roles/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/hr/staff/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/school-attendance/[kind]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/school-content/[...segments]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/school-operations/[...segments]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/school-settings/history/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/school-settings/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/school-subject-assignments/[id]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/school-subject-assignments/options/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/school-subject-assignments/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/school-subjects/[id]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/school-subjects/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/sections/[id]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/sections/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/student-records/[...segments]/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/users/[id]/login-permission/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/users/[id]/role/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/users/login-permissions/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/api/users/route.ts"
-        },
-        {
-          "status": "??",
-          "file": "app/auth/register/page.tsx"
-        },
-        {
-          "status": "??",
-          "file": "app/auth/session/page.tsx"
-        },
-        {
-          "status": "??",
-          "file": "app/reset-password/page.tsx"
-        },
-        {
-          "status": "??",
-          "file": "components/auth/SessionUnavailable.tsx"
-        },
-        {
-          "status": "??",
-          "file": "components/modules/operations/OperationChoice.tsx"
-        },
-        {
-          "status": "??",
-          "file": "components/modules/operations/OperationsPanel.tsx"
-        },
-        {
-          "status": "??",
-          "file": "components/modules/settings/ContentHistory.tsx"
-        },
-        {
-          "status": "??",
-          "file": "components/modules/settings/FoundationHistory.tsx"
-        },
-        {
-          "status": "??",
-          "file": "components/modules/settings/FoundationRecordsPanel.tsx"
-        },
-        {
-          "status": "??",
-          "file": "components/modules/student-info/AttendanceRegister.tsx"
-        },
-        {
-          "status": "??",
-          "file": "components/modules/student-info/StudentDirectory.tsx"
-        },
-        {
-          "status": "??",
-          "file": "components/modules/student-info/StudentEditorPanel.tsx"
-        },
-        {
-          "status": "??",
-          "file": "components/modules/study-material/CalendarPanel.tsx"
-        },
-        {
-          "status": "??",
-          "file": "components/modules/study-material/FileAttachmentPanel.tsx"
-        },
-        {
-          "status": "??",
-          "file": "components/modules/study-material/FileChooser.tsx"
-        },
-        {
-          "status": "??",
-          "file": "components/modules/study-material/FileLibrary.tsx"
-        },
-        {
-          "status": "??",
-          "file": "components/modules/study-material/PublicationPanel.tsx"
-        },
-        {
-          "status": "??",
-          "file": "docs/ADMIN_PERMISSION_ROLES_MIGRATION_REVIEW.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/ADMIN_PERMISSION_ROLES_VERIFICATION.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/ADMIN_ROUTE_AUDIT.json"
-        },
-        {
-          "status": "??",
-          "file": "docs/ADMIN_ROUTE_AUDIT.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/CLASSROOMS_MIGRATION_REVIEW.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/CLASSROOMS_VERIFICATION.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/CLASS_ROUTINES_MIGRATION_REVIEW.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/CLASS_ROUTINES_PREFLIGHT.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/CLASS_ROUTINES_VERIFICATION.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/CLASS_TEACHER_ALLOCATION_PLAN.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/FILES_LEARNING_COMMUNICATION_MIGRATION_REVIEW.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/FILES_LEARNING_COMMUNICATION_VERIFICATION.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/GIT_CHANGE_AUDIT.json"
-        },
-        {
-          "status": "??",
-          "file": "docs/GIT_CHANGE_AUDIT.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/INTEGRATION_PROGRESS.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/PHASE_1_AUTHENTICATION.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/PHASE_2_SCHOOL_SUBJECTS.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/PHASE_2_SCHOOL_SUBJECTS_PLAN.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/PHASE_3_ACADEMIC_YEAR.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/PHASE_3_SECTIONS.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/SCHOOL_SETTINGS_MIGRATION_REVIEW.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/SETTINGS_FOUNDATIONS_MIGRATION_REVIEW.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/SETTINGS_FOUNDATIONS_VERIFICATION.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/STUDENT_ATTENDANCE_MIGRATION_REVIEW.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/STUDENT_ATTENDANCE_VERIFICATION.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/SUBJECT_ALLOCATION_RECONCILIATION_PLAN.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/SUBJECT_ASSIGNMENT_RECONCILIATION_REVIEW.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/SUBJECT_ASSIGNMENT_RECONCILIATION_VERIFICATION.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/USER_LOGIN_POLICIES_MIGRATION_REVIEW.md"
-        },
-        {
-          "status": "??",
-          "file": "docs/USER_LOGIN_POLICIES_VERIFICATION.md"
-        },
-        {
-          "status": "??",
-          "file": "lib/academic-years-proxy.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/admin-foundations-client.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/admin-foundations-proxy.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/admin-roles-proxy.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/auth-server.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/class-routines-proxy.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/class-teacher-proxy.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/classes-proxy.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/classrooms-proxy.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/hr-proxy.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/school-content-client.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/school-content-proxy.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/school-operations-client.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/school-operations-proxy.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/school-records-client.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/school-records-proxy.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/school-settings-proxy.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/school-subjects-proxy.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/sections-proxy.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/session-client.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/session-navigation.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/use-attendance-register.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/use-class-routines.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/use-classrooms.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/use-file-library.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/use-foundation-records.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/use-login-permissions.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/use-publications.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/use-school-operations.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/use-school-settings.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/use-school-subjects.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/use-student-editor.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/use-weekends.ts"
-        },
-        {
-          "status": "??",
-          "file": "lib/user-access-proxy.ts"
-        },
-        {
-          "status": "??",
-          "file": "pnpm-lock.yaml"
-        },
-        {
-          "status": "??",
-          "file": "pnpm-workspace.yaml"
-        },
-        {
-          "status": "??",
-          "file": "proxy.ts"
-        },
-        {
-          "status": "??",
+          "status": " M",
           "file": "scripts/audit-admin.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "scripts/audit-git-changes.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/academics/class-routines.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/academics/class-teacher.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/academics/classrooms.test.cjs"
         },
         {
-          "status": "??",
+          "status": " D",
           "file": "tests/auth/load-ts.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/auth/portal.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/auth/production-smoke.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/auth/session.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/hr/hr.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/settings/admin-foundations.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/students/content.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/students/operations.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/students/records.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/subjects/academic-years.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/subjects/assignments.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/subjects/classes.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/subjects/sections.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/subjects/subjects.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/users/admin-roles.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/users/login-permissions.test.cjs"
         },
         {
-          "status": "??",
+          "status": " M",
           "file": "tests/users/school-settings.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "app/api/academic-work/[...segments]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/admin-configuration/[scope]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/admin-dashboard/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/admin-reports/[kind]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/documents/[...path]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/examinations/[...segments]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/finance/[...path]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/online-campus/[...path]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/online-exam-session/[...path]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/api/school-administration/[...segments]/route.ts"
+        },
+        {
+          "status": "??",
+          "file": "app/verify-document/[token]/page.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/academic-work/WorkPanel.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/administration/AdministrationPanel.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/bulk-print/FinanceBatchPrint.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/dashboard/DashboardStatus.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/dashboard/LiveDashboardCards.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/documents/DocumentDesigner.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/documents/DocumentWorkspace.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/examination/AdmissionPrint.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/examination/ExaminationPanel.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/finance/FinancePanel.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/online-campus/CampusPanel.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/reports/AdminReportPanel.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/reports/AttendanceReport.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/reports/ClassRoutineReport.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/reports/ExamRoutineReport.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/reports/StudentHistoryReport.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/reports/StudentReports.tsx"
+        },
+        {
+          "status": "??",
+          "file": "components/modules/settings/ConfigurationProfile.tsx"
+        },
+        {
+          "status": "??",
+          "file": "docs/ACADEMIC_WORK_APPLICATION_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/ACADEMIC_WORK_MIGRATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_CONFIGURATION_MIGRATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_DEMO_RESUME_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_ROUTE_READINESS.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_ROUTE_READINESS.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/CONDUCT_STAFF_ADMINISTRATION_MIGRATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_ISSUANCE_APPLICATION_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_ISSUANCE_DRAFT.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_ISSUANCE_MIGRATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_STACK_ACCEPTANCE.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/EXAMINATION_APPLICATION_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/EXAMINATION_MIGRATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/FINANCE_APPLICATION_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/FINANCE_MIGRATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/FINANCE_ROUTE_CHECKLIST.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/LIBRARY_INVENTORY_APPLICATION_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/ONLINE_CAMPUS_APPLICATION_VERIFICATION.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/ONLINE_CAMPUS_MIGRATION_REVIEW.md"
+        },
+        {
+          "status": "??",
+          "file": "docs/ONLINE_CAMPUS_ROUTE_CHECKLIST.md"
+        },
+        {
+          "status": "??",
+          "file": "lib/academic-work-client.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/academic-work-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/admin-configuration-client.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/admin-reports-client.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/campus-client.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/campus-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/dashboard-client.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/document-print.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/documents-client.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/documents-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/examinations-client.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/examinations-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/finance-client.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/finance-print.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/finance-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/school-administration-client.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/school-administration-proxy.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-academic-work.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-dashboard.tsx"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-examinations.ts"
+        },
+        {
+          "status": "??",
+          "file": "lib/use-school-administration.ts"
+        },
+        {
+          "status": "??",
+          "file": "scripts/report-admin-readiness.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/academics/admin-reports.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/academics/dashboard.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/academics/document-routes.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/academics/documents.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/academics/examinations.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/academics/finance.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/academics/legacy-routes.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/academics/online-campus.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/academics/report-routines.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/academics/table-pagination.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/academics/work.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/auth/documents-stack.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/auth/load-ts.mjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/settings/configuration.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/students/administration.test.cjs"
+        },
+        {
+          "status": "??",
+          "file": "tests/students/reports.test.cjs"
         }
       ]
     },
@@ -1017,24 +1137,52 @@
       "tracked": 0,
       "headExists": false,
       "modified": 0,
-      "untracked": 253,
-      "totalChanged": 253,
+      "untracked": 384,
+      "totalChanged": 384,
       "deleted": [],
       "byDirectory": {
         "(root)": 16,
-        "docs/": 25,
+        "docs/": 65,
         "scripts/": 1,
-        "src/": 154,
-        "test/": 57
+        "src/": 200,
+        "test/": 102
       },
       "generatedInChanges": [],
-      "ignoredGeneratedCount": 448,
+      "ignoredGeneratedCount": 586,
       "ignoredGeneratedByDirectory": {
-        "dist/": 444,
+        "dist/": 582,
         "node_modules/": 3,
         "tsconfig.build.tsbuildinfo": 1
       },
       "toolGeneratedButReviewable": [
+        {
+          "status": "??",
+          "file": "docs/ACADEMIC_WORK_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ACADEMIC_WORK_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/ACADEMIC_WORK_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ACADEMIC_WORK_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_CONFIGURATION_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_CONFIGURATION_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_CONFIGURATION_UP.sql"
+        },
         {
           "status": "??",
           "file": "docs/ADMIN_PERMISSION_ROLES_DOWN.sql"
@@ -1061,6 +1209,62 @@
         },
         {
           "status": "??",
+          "file": "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/CONDUCT_STAFF_ADMINISTRATION_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/CONDUCT_STAFF_ADMINISTRATION_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/CONDUCT_STAFF_ADMINISTRATION_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_ISSUANCE_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_ISSUANCE_APPLICATION_BASELINE.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_ISSUANCE_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_ISSUANCE_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_ISSUANCE_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/EXAMINATION_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/EXAMINATION_APPLICATION_BASELINE.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/EXAMINATION_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/EXAMINATION_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/EXAMINATION_UP.sql"
+        },
+        {
+          "status": "??",
           "file": "docs/FILES_LEARNING_COMMUNICATION_APPLICATION.json"
         },
         {
@@ -1077,6 +1281,30 @@
         },
         {
           "status": "??",
+          "file": "docs/FINANCE_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/FINANCE_APPLICATION_BASELINE.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/FINANCE_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/FINANCE_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/FINANCE_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/LIBRARY_INVENTORY_APPLICATION.json"
+        },
+        {
+          "status": "??",
           "file": "docs/LIBRARY_INVENTORY_DOWN.sql"
         },
         {
@@ -1086,6 +1314,26 @@
         {
           "status": "??",
           "file": "docs/LIBRARY_INVENTORY_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/ONLINE_CAMPUS_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ONLINE_CAMPUS_APPLICATION_BASELINE.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ONLINE_CAMPUS_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/ONLINE_CAMPUS_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ONLINE_CAMPUS_UP.sql"
         },
         {
           "status": "??",
@@ -1171,6 +1419,42 @@
         },
         {
           "status": "??",
+          "file": "docs/ACADEMIC_WORK_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ACADEMIC_WORK_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/ACADEMIC_WORK_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ACADEMIC_WORK_STARTUP.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ACADEMIC_WORK_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_CONFIGURATION_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_CONFIGURATION_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_CONFIGURATION_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/ADMIN_PANEL_STARTUP.json"
+        },
+        {
+          "status": "??",
           "file": "docs/ADMIN_PERMISSION_ROLES_DOWN.sql"
         },
         {
@@ -1195,6 +1479,78 @@
         },
         {
           "status": "??",
+          "file": "docs/CONDUCT_STAFF_ADMINISTRATION_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/CONDUCT_STAFF_ADMINISTRATION_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/CONDUCT_STAFF_ADMINISTRATION_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/CONDUCT_STAFF_ADMINISTRATION_PRESERVATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/CONDUCT_STAFF_ADMINISTRATION_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_ISSUANCE_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_ISSUANCE_APPLICATION_BASELINE.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_ISSUANCE_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_ISSUANCE_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_ISSUANCE_READINESS.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_ISSUANCE_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/DOCUMENT_STACK_ACCEPTANCE_PRESERVATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/EXAMINATION_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/EXAMINATION_APPLICATION_BASELINE.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/EXAMINATION_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/EXAMINATION_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/EXAMINATION_PRESERVATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/EXAMINATION_UP.sql"
+        },
+        {
+          "status": "??",
           "file": "docs/FILES_LEARNING_COMMUNICATION_APPLICATION.json"
         },
         {
@@ -1211,6 +1567,34 @@
         },
         {
           "status": "??",
+          "file": "docs/FINANCE_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/FINANCE_APPLICATION_BASELINE.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/FINANCE_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/FINANCE_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/FINANCE_PRESERVATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/FINANCE_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/LIBRARY_INVENTORY_APPLICATION.json"
+        },
+        {
+          "status": "??",
           "file": "docs/LIBRARY_INVENTORY_DOWN.sql"
         },
         {
@@ -1220,6 +1604,30 @@
         {
           "status": "??",
           "file": "docs/LIBRARY_INVENTORY_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/ONLINE_CAMPUS_APPLICATION.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ONLINE_CAMPUS_APPLICATION_BASELINE.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ONLINE_CAMPUS_DOWN.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/ONLINE_CAMPUS_PREFLIGHT.json"
+        },
+        {
+          "status": "??",
+          "file": "docs/ONLINE_CAMPUS_UP.sql"
+        },
+        {
+          "status": "??",
+          "file": "docs/OPERATIONS_ACADEMIC_STARTUP.json"
         },
         {
           "status": "??",
@@ -1295,6 +1703,22 @@
         },
         {
           "status": "??",
+          "file": "src/academic-work/work.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/academic-work/work.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/academic-work/work.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/academic-work/work.service.ts"
+        },
+        {
+          "status": "??",
           "file": "src/academic-years/academic-year.dto.ts"
         },
         {
@@ -1312,6 +1736,30 @@
         {
           "status": "??",
           "file": "src/academic-years/academic-years.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-configuration/configuration.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-configuration/configuration.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-configuration/configuration.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-dashboard/dashboard.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-dashboard/dashboard.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-dashboard/dashboard.service.ts"
         },
         {
           "status": "??",
@@ -1348,6 +1796,22 @@
         {
           "status": "??",
           "file": "src/admin-permissions/permission-catalog.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-reports/reports.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-reports/reports.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-reports/reports.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/admin-reports/reports.service.ts"
         },
         {
           "status": "??",
@@ -1667,6 +2131,90 @@
         },
         {
           "status": "??",
+          "file": "src/database/migrations/1794750000000-CreateAcademicWork.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794751000000-CreateConductStaffAdministration.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794752000000-CreateExaminationOperations.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794753000000-CreateFinanceOperations.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794754000000-CreateOnlineCampusOperations.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794755000000-CreateDocumentIssuance.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/database/migrations/1794756000000-CreateAdminConfiguration.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/document-issuance/document.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/document-issuance/document.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/document-issuance/document.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/document-issuance/document.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/document-issuance/document.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/examinations/examination.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/examinations/examination.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/examinations/examination.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/examinations/examination.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/finance/finance.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/finance/finance.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/finance/finance.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/finance/finance.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/finance/finance.service.ts"
+        },
+        {
+          "status": "??",
           "file": "src/hr/department.dto.ts"
         },
         {
@@ -1720,6 +2268,50 @@
         {
           "status": "??",
           "file": "src/main.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/online-campus/campus.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/online-campus/campus.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/online-campus/campus.entity.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/online-campus/campus.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/online-campus/campus.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/online-campus/campus.store.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/online-campus/online.service.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-administration/administration.controller.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-administration/administration.dto.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-administration/administration.module.ts"
+        },
+        {
+          "status": "??",
+          "file": "src/school-administration/administration.service.ts"
         },
         {
           "status": "??",
@@ -1911,11 +2503,35 @@
         },
         {
           "status": "??",
+          "file": "test/academic-work-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/academic-work.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/academic-work.http.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/academic-work.unit.mjs"
+        },
+        {
+          "status": "??",
           "file": "test/academic-years-browser-server.mjs"
         },
         {
           "status": "??",
           "file": "test/academic-years.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/admin-configuration-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/admin-configuration.unit.mjs"
         },
         {
           "status": "??",
@@ -1935,6 +2551,10 @@
         },
         {
           "status": "??",
+          "file": "test/admin-panel-startup.mjs"
+        },
+        {
+          "status": "??",
           "file": "test/admin-permissions-migration.mjs"
         },
         {
@@ -1944,6 +2564,10 @@
         {
           "status": "??",
           "file": "test/admin-permissions.unit.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/admin-reports.e2e.mjs"
         },
         {
           "status": "??",
@@ -1967,7 +2591,23 @@
         },
         {
           "status": "??",
+          "file": "test/apply-document-issuance-approved.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/apply-examination-approved.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/apply-finance-approved.mjs"
+        },
+        {
+          "status": "??",
           "file": "test/apply-hr-foundation-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/apply-online-campus-approved.mjs"
         },
         {
           "status": "??",
@@ -2019,7 +2659,87 @@
         },
         {
           "status": "??",
+          "file": "test/conduct-staff-administration-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/dashboard.http.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/dashboard.unit.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/document-issuance-concurrency.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/document-issuance-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/document-issuance-readiness.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/document-issuance.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/document-issuance.http.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/document-issuance.unit.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/document-stack-preservation.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/document-stack.fixture.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/examination-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/examinations.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/examinations.http.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/examinations.unit.mjs"
+        },
+        {
+          "status": "??",
           "file": "test/files-learning-communication-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/finance-concurrency.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/finance-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/finance.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/finance.http.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/finance.unit.mjs"
         },
         {
           "status": "??",
@@ -2039,7 +2759,47 @@
         },
         {
           "status": "??",
+          "file": "test/online-campus-concurrency.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/online-campus-migration.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/online-campus.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/online-campus.http.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/online-campus.unit.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/operations-academic-startup.mjs"
+        },
+        {
+          "status": "??",
           "file": "test/preflight-class-routines.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-administration-concurrency.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-administration.e2e.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-administration.http.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/school-administration.unit.mjs"
         },
         {
           "status": "??",
@@ -2135,7 +2895,19 @@
         },
         {
           "status": "??",
+          "file": "test/verify-administration-preservation.mjs"
+        },
+        {
+          "status": "??",
           "file": "test/verify-class-routines-applied.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/verify-examination-preservation.mjs"
+        },
+        {
+          "status": "??",
+          "file": "test/verify-finance-preservation.mjs"
         },
         {
           "status": "??",

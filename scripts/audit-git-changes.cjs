@@ -1,20 +1,24 @@
+async function register() {
 // Read-only Git inventory. Does not stage, delete, reset, clean, move or commit files.
-const fs=require('node:fs'),path=require('node:path'),{spawnSync}=require('node:child_process');
+const fs=(await import("node:fs")).default,path=(await import("node:path")).default,{spawnSync}=await import("node:child_process");
 const root=path.resolve(__dirname,'..'),backend=path.resolve(root,'../../lms/lms-backend');
 function inspect(directory){
- const git=args=>{const result=spawnSync('git',args,{cwd:directory,encoding:'utf8',maxBuffer:32*1024*1024});if(result.status!==0)throw Error(result.stderr);return result.stdout;};
+ const git=args=>{const result=spawnSync('git',['-c','safe.directory='+directory,...args],{cwd:directory,encoding:'utf8',maxBuffer:32*1024*1024});if(result.status!==0)throw Error(result.stderr);return result.stdout;};
  const tracked=git(['ls-files','-z']).split('\0').filter(Boolean);
  const changed=git(['status','--porcelain=v1','-z','--untracked-files=all']).split('\0').filter(Boolean).map(item=>({status:item.slice(0,2),file:item.slice(3)}));
  const generated=git(['ls-files','--others','--ignored','--exclude-standard','-z','--','.next','dist','build','out','coverage','*.tsbuildinfo','next-env.d.ts']).split('\0').filter(Boolean);
  const top={};for(const item of changed){const group=item.file.includes('/')?item.file.split('/')[0]+'/':'(root)';top[group]=(top[group]??0)+1;}
  const ignoredCounts={};for(const file of generated){const group=file.includes('/')?file.split('/')[0]+'/':file;ignoredCounts[group]=(ignoredCounts[group]??0)+1;}
  const generatorCandidate=file=>/^(?:\.next|dist|build|out|coverage)\//.test(file)||/\.tsbuildinfo$|(?:^|\/)next-env\.d\.ts$/.test(file);
- return{directory,tracked:tracked.length,headExists:spawnSync('git',['rev-parse','--verify','HEAD'],{cwd:directory,stdio:'ignore'}).status===0,modified:changed.filter(item=>item.status!=='??').length,untracked:changed.filter(item=>item.status==='??').length,totalChanged:changed.length,deleted:changed.filter(item=>item.status.includes('D')),byDirectory:top,generatedInChanges:changed.filter(item=>generatorCandidate(item.file)),ignoredGeneratedCount:generated.length,ignoredGeneratedByDirectory:ignoredCounts,toolGeneratedButReviewable:changed.filter(item=>/lock\.(?:yaml|json)$|docs\/.*(?:AUDIT|PREFLIGHT|APPLICATION|_UP\.sql|_DOWN\.sql)/.test(item.file)),changed};
+ return{directory,tracked:tracked.length,headExists:spawnSync('git',['-c','safe.directory='+directory,'rev-parse','--verify','HEAD'],{cwd:directory,stdio:'ignore'}).status===0,modified:changed.filter(item=>item.status!=='??').length,untracked:changed.filter(item=>item.status==='??').length,totalChanged:changed.length,deleted:changed.filter(item=>item.status.includes('D')),byDirectory:top,generatedInChanges:changed.filter(item=>generatorCandidate(item.file)),ignoredGeneratedCount:generated.length,ignoredGeneratedByDirectory:ignoredCounts,toolGeneratedButReviewable:changed.filter(item=>/lock\.(?:yaml|json)$|docs\/.*(?:AUDIT|PREFLIGHT|APPLICATION|_UP\.sql|_DOWN\.sql)/.test(item.file)),changed};
 }
-const result={date:'2026-11-14',readOnly:true,repositories:[inspect(root),inspect(backend)]};
+const result={date:'2026-11-17',readOnly:true,repositories:[inspect(root),inspect(backend)]};
 fs.writeFileSync(path.join(root,'docs/GIT_CHANGE_AUDIT.json'),JSON.stringify(result,null,2)+'\n');
-let report='# Git change-count audit\n\nRead-only Git inventory; no files deleted, reverted, staged, moved or committed. Counts describe the instant of inspection and include existing uncommitted work.\n\n';
+let report='# Git change-count audit\n\nThis read-only inventory command does not delete, revert, stage, move or commit source files. Counts describe the instant of inspection and include existing uncommitted work.\n\n';
 for(const repo of result.repositories){report+=`## ${repo.directory.replaceAll('\\','/')}\n\nTracked files: **${repo.tracked}**. Existing HEAD commit: **${repo.headExists}**. Modified/staged entries: **${repo.modified}**; untracked files: **${repo.untracked}**; total expanded changed files: **${repo.totalChanged}**. Deleted entries: **${repo.deleted.length}**.\n\nDirectory counts: ${Object.entries(repo.byDirectory).map(([key,value])=>`${key}: ${value}`).join('; ')}.\n\nIgnored build/cache artifacts: **${repo.ignoredGeneratedCount}**, grouped as ${JSON.stringify(repo.ignoredGeneratedByDirectory)}. Generated build/cache candidates in changed files: **${repo.generatedInChanges.length}**.\n\n`;}
 report+='The backend has no HEAD commit and no tracked files, so Git reports the entire existing backend source/configuration/test tree as new. This is the main reason its change count looks unusually large; it is not a diff against an established backend baseline. The frontend has an existing committed baseline plus accumulated uncommitted integrations. Git cannot assign authorship of uncommitted files.\n\nBuild outputs, compiler caches and dependency folders are ignored. Lockfiles are generated dependency manifests; SQL reviews, migration application evidence and route inventories are generated deliverables that remain intentionally visible for review. They are not disposable build output. Nothing was removed or reverted. Exact paths/statuses: [JSON inventory](./GIT_CHANGE_AUDIT.json).\n';
 fs.writeFileSync(path.join(root,'docs/GIT_CHANGE_AUDIT.md'),report);
 console.log(JSON.stringify(result.repositories.map(({directory,tracked,headExists,modified,untracked,totalChanged,generatedInChanges,ignoredGeneratedCount})=>({directory,tracked,headExists,modified,untracked,totalChanged,generatedInChanges,ignoredGeneratedCount}))));
+
+}
+void register();

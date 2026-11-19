@@ -1,6 +1,7 @@
-const {test}=require('node:test');
-const assert=require('node:assert/strict');
-const {loadTs}=require('../auth/load-ts.cjs');
+async function register() {
+const {test}=await import("node:test");
+const assert=(await import("node:assert/strict")).default;
+const {loadTs}=await import("../auth/load-ts.mjs");
 const id='11111111-1111-4111-8111-111111111111';
 const yearId='22222222-2222-4222-8222-222222222222';
 test('Classes client routes every CRUD operation to real API',async()=>{
@@ -77,3 +78,6 @@ test('Classes page reloads persisted rows after writes/remount, supports section
 
   global.window={confirm:()=>true};try{actions().onDelete();await new Promise(setImmediate);assert.deepEqual(returned.table().data,[]);}finally{delete global.window;}
 });
+
+}
+void register();

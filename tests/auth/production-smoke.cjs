@@ -1,4 +1,5 @@
-const assert = require("node:assert/strict");
+async function register() {
+const assert = (await import("node:assert/strict")).default;
 const base = process.env.AUTH_FRONTEND_URL || "http://localhost:3100";
 const backend = process.env.AUTH_BACKEND_URL || "http://127.0.0.1:4001";
 const jar = new Map();
@@ -84,3 +85,6 @@ async function call(path, body, options = {}) {
   });
   console.log("PRODUCTION_AUTH_SMOKE: "+passed+" checks passed");
 })().catch(error=>{console.error(error);process.exitCode=1;});
+
+}
+void register();

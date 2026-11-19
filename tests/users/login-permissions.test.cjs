@@ -1,6 +1,7 @@
-const { test } = require('node:test');
-const assert = require('node:assert/strict');
-const { loadTs } = require('../auth/load-ts.cjs');
+async function register() {
+const { test } = await import("node:test");
+const assert = (await import("node:assert/strict")).default;
+const { loadTs } = await import("../auth/load-ts.mjs");
 const id = '11111111-1111-4111-8111-111111111111';
 const user = { id, name: 'A user', email: 'user@example.invalid', role: 'student', loginEnabled: true, updatedAt: null };
 const page = { items: [user], total: 1, page: 1, pageSize: 25 };
@@ -93,3 +94,6 @@ test('dynamic user route wrappers await params and delegate to the guarded proxy
     assert.deepEqual(args, [request, action, id]);
   }
 });
+
+}
+void register();

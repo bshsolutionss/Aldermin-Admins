@@ -15,8 +15,8 @@ import {
 import { FaLaptopCode, FaPlus } from "react-icons/fa";
 
 interface OnlineExamFormProps {
-  form: any;
-  setForm: (value: any) => void;
+  form: { title: string; className: string; subject: string; date: string; endDate: string; duration: string; percentage: string };
+  setForm: (value: { title: string; className: string; subject: string; date: string; endDate: string; duration: string; percentage: string }) => void;
   onSubmit: (e: React.FormEvent) => void;
 }
 

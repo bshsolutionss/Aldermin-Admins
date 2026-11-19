@@ -14,8 +14,8 @@ import {
 import { FaSearch } from "react-icons/fa";
 
 interface TopicOverviewFilterProps {
-  searchParams: any;
-  handleInputChange: (e: any) => void;
+  searchParams: { className: string; section: string; subject: string };
+  handleInputChange: (e: { target: { name: string; value: string } }) => void;
   handleSearch: (e: React.FormEvent) => void;
 }
 

@@ -56,7 +56,7 @@ export function SeatPlanList({
                 Class
               </TableHead>
               <TableHead className="px-5 py-4 text-left text-[10px]  font-semibold  text-gray-500">
-                Father's Name
+                Father&apos;s Name
               </TableHead>
               <TableHead className="px-5 py-4 text-left text-[10px]  font-semibold  text-gray-500">
                 Category

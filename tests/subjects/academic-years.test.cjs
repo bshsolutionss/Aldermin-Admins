@@ -1,6 +1,7 @@
-const {test}=require('node:test');
-const assert=require('node:assert/strict');
-const {loadTs}=require('../auth/load-ts.cjs');
+async function register() {
+const {test}=await import("node:test");
+const assert=(await import("node:assert/strict")).default;
+const {loadTs}=await import("../auth/load-ts.mjs");
 const id='11111111-1111-4111-8111-111111111111';
 const year={id,name:'2026-2027',startDate:'2026-08-01',endDate:'2027-07-31',isCurrent:false};
 test('Academic Year client uses real CRUD/current endpoints without fallback',async()=>{
@@ -41,3 +42,6 @@ test('page reloads persisted API results on mount and after writes; failed saves
   const currentActions=returned.table().columns.find(c=>c.header==='Actions').accessor(stored[0]);assert.equal(currentActions.props.children[2].props.disabled,true);
   fail=true;page.input('year-name','Unsaved name');page.input('year-start',year.startDate);page.input('year-end',year.endDate);await page.submit();assert.equal(page.render().find(n=>n.props?.id==='year-name').props.value,'Unsaved name');assert.ok(page.render().some(n=>n.props?.role==='alert'));
 });
+
+}
+void register();

@@ -1,6 +1,7 @@
-const { test } = require('node:test');
-const assert = require('node:assert/strict');
-const { loadTs } = require('../auth/load-ts.cjs');
+async function register() {
+const { test } = await import("node:test");
+const assert = (await import("node:assert/strict")).default;
+const { loadTs } = await import("../auth/load-ts.mjs");
 const id='11111111-1111-4111-8111-111111111111';
 
 test('admin role client encodes account filters and sends versions and previous assignment state',async()=>{
@@ -38,3 +39,6 @@ test('dynamic role and assignment routes await params and use the protected prox
     await route.PATCH(request,{params:Promise.resolve({id})});assert.deepEqual(args,[request,action,id]);
   }
 });
+
+}
+void register();

@@ -16,8 +16,8 @@ import {
 import { FaDatabase, FaPlus } from "react-icons/fa";
 
 interface QuestionBankFormProps {
-  form: any;
-  setForm: (value: any) => void;
+  form: { group: string; className: string; section: string; type: string; question: string; marks: string };
+  setForm: (value: { group: string; className: string; section: string; type: string; question: string; marks: string }) => void;
   onSubmit: (e: React.FormEvent) => void;
 }
 

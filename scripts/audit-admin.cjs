@@ -1,7 +1,8 @@
 // Static evidence inventory. This does not execute page actions or assert completion.
-const fs = require('node:fs');
-const path = require('node:path');
-const ts = require('typescript');
+async function audit(){
+const fs = (await import('node:fs')).default;
+const path = (await import('node:path')).default;
+const ts = (await import('typescript')).default;
 const root = path.resolve(__dirname, '..');
 const backend = path.resolve(root, '../../lms/lms-backend');
 const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)]);
@@ -28,6 +29,16 @@ function visit(node) {
 }
 visit(ast);
 function resolveContract(name, visited = new Set()) {
+  if (name.startsWith('adminOperationsApi.')) return {remote:true,proxy:'/api/admin-operations'};
+  if (name.startsWith('adminConfigurationApi.')) return {remote:true,proxy:'/api/admin-configuration'};
+  if (name.startsWith('adminReportsApi.')) return {remote:true,proxy:'/api/admin-reports'};
+  if (name.startsWith('documentsApi.')) return {remote:true,proxy:'/api/documents'};
+  if (name.startsWith('dashboardApi.')) return {remote:true,proxy:'/api/admin-dashboard'};
+  if (name.startsWith('campusApi.')) return {remote:true,proxy:'/api/online-campus'};
+  if (name.startsWith('financeApi.')) return {remote:true,proxy:'/api/finance'};
+  if (name.startsWith('examinationsApi.')) return {remote:true,proxy:'/api/examinations'};
+  if (name.startsWith('schoolAdministrationApi.')) return {remote:true,proxy:'/api/school-administration'};
+  if (name.startsWith('academicWorkApi.')) return {remote:true,proxy:'/api/academic-work'};
   if (name.startsWith('schoolOperationsApi.')) return {remote:true,proxy:'/api/school-operations'};
   if (name.startsWith('schoolContentApi.')) return {remote:true,proxy:'/api/school-content'};
   if (name.startsWith('schoolRecordsApi.')) {
@@ -84,8 +95,19 @@ const models = {
   'student-records': 'Student profiles + guardians + dated enrollments + audit / 1794671000000 APPLIED; PostgreSQL acceptance PASS',
   'school-attendance': 'Student/staff attendance + audit / 1794671100000 APPLIED; PostgreSQL acceptance PASS',
   'school-content': 'Files/attachments + study materials + notices/events / 1794672000000 + 1794672100000 APPLIED; PostgreSQL 7/7 PASS. Proxy maps to school-files/materials/notices/events; generic action review required.',
-  'school-operations': 'Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 PREPARED; NOT applied. Generic list/save requires resource/action review.',
+  'school-operations': 'Library catalogs/books/members/loans + inventory catalogs/items/ledger / 1794673000000 + 1794673100000 APPLIED; PostgreSQL 8/8 PASS. Generic list/save requires resource/action review.',
 };
+models['academic-work']='Homework/evaluations + lessons/topics/plans + audit / 1794750000000 APPLIED; PostgreSQL 7/7 PASS.';
+models['school-administration']='Conduct/leave/evaluation records, policies, quota guards and audit / 1794751000000 APPLIED; PostgreSQL acceptance 10/10 PASS including rollback-only multi-connection serialization.';
+models['examinations']='Exam types/grades/assessments/schedules/attendance/marks/audit / 1794752000000 PREPARED; NOT applied; PostgreSQL acceptance pending separate approval.';
+models['online-campus'] = 'Online/Campus Operations / 1794754000000 PREPARED; NOT applied; PostgreSQL acceptance pending separate approval.';
+models['finance'] = 'Finance Operations / 1794753000000 APPLIED; PostgreSQL acceptance/concurrency 11/11 PASS.';
+models['documents'] = 'Certificate/ID / 1794755000000 APPLIED; live PostgreSQL 11/11, full-stack and six-route browser workflow checks PASS.';
+models['admin-reports']='Read-only classes, enrollment/access history and exam aggregates over existing tables; PostgreSQL root/fixture acceptance PASS.';
+models['admin-configuration']='Two-table configuration draft / 1794756000000 NOT APPLIED; nine profile forms and API are gated pending separate approval; provider delivery/policy integration remains outside this profile store.';
+models['admin-dashboard'] = 'Read-only summary over existing student/staff, posted finance, notices and events; no new schema.';
+models['online-campus'] = 'Online/Campus Operations / 1794754000000 APPLIED; domain PostgreSQL acceptance 11/11 PASS.';
+models['examinations'] = 'Examination Operations / 1794752000000 APPLIED; PostgreSQL acceptance 8/8 PASS.';
 const aliases = {
   '/admin/academic/class': 'classes', '/admin/academic/section': 'sections',
   '/admin/academic/subject': 'school-subjects', '/admin/academic/assign-class-teacher': 'class-teacher-assignments',
@@ -98,11 +120,21 @@ const rows = walk(path.join(root, 'app/admin')).filter(p => p.endsWith(path.sep 
   const route = '/' + relative(file).replace(/^app\//, '').replace(/\/page\.tsx$/, '');
   const files = inspect(file);
   const calls = [...new Set(files.flatMap(f => [
+    ...[...f.source.matchAll(/adminOperationsApi\.(\w+)\s*\(/g)].map(m => 'adminOperationsApi.' + m[1]),
     ...[...f.source.matchAll(/apiService\.([\w]+\.[\w]+)/g)].map(m => m[1]),
     ...[...f.source.matchAll(/foundationsApi\.(\w+)\s*\(/g)].map(m => 'foundationsApi.' + m[1]),
     ...[...f.source.matchAll(/schoolRecordsApi\.(\w+)\s*\(/g)].map(m => 'schoolRecordsApi.' + m[1]),
     ...[...f.source.matchAll(/schoolContentApi\.(\w+)\s*\(/g)].map(m => 'schoolContentApi.' + m[1]),
     ...[...f.source.matchAll(/schoolOperationsApi\.(\w+)\s*\(/g)].map(m => 'schoolOperationsApi.' + m[1]),
+    ...[...f.source.matchAll(/academicWorkApi\.(\w+)\s*\(/g)].map(m => 'academicWorkApi.' + m[1]),
+    ...[...f.source.matchAll(/schoolAdministrationApi\.(\w+)\s*\(/g)].map(m => 'schoolAdministrationApi.' + m[1]),
+    ...[...f.source.matchAll(/campusApi\.(\w+)\s*\(/g)].map(m => 'campusApi.' + m[1]),
+    ...[...f.source.matchAll(/financeApi\.(\w+)\s*\(/g)].map(m => 'financeApi.' + m[1]),
+    ...[...f.source.matchAll(/examinationsApi\.(\w+)\s*\(/g)].map(m => 'examinationsApi.' + m[1]),
+    ...[...f.source.matchAll(/adminConfigurationApi\.(\w+)\s*\(/g)].map(m => 'adminConfigurationApi.' + m[1]),
+    ...[...f.source.matchAll(/adminReportsApi\.(\w+)\s*\(/g)].map(m => 'adminReportsApi.' + m[1]),
+    ...[...f.source.matchAll(/documentsApi\.(\w+)\s*\(/g)].map(m => 'documentsApi.' + m[1]),
+    ...[...f.source.matchAll(/dashboardApi\.(\w+)\s*\(/g)].map(m => 'dashboardApi.' + m[1]),
   ]))];
   const real = calls.filter(c => resolveContract(c).remote);
   const fake = calls.filter(c => !resolveContract(c).remote);
@@ -119,12 +151,15 @@ const rows = walk(path.join(root, 'app/admin')).filter(p => p.endsWith(path.sep 
   };
 });
 const controllers = walk(path.join(backend, 'src')).filter(p => p.endsWith('.controller.ts')).map(p => path.relative(backend, p).replaceAll('\\', '/'));
-fs.writeFileSync(path.join(root, 'docs/ADMIN_ROUTE_AUDIT.json'), JSON.stringify({ date: '2026-11-14', method: 'Static import graph plus centralized and foundation-client API contract resolution. Dynamic foundation list/save resource segments require action review. Runtime acceptance is tracked separately. Not directly linked does not prove unused.', controllers, routes: rows }, null, 2) + '\n');
+fs.writeFileSync(path.join(root, 'docs/ADMIN_ROUTE_AUDIT.json'), JSON.stringify({ date: '2026-11-17', method: 'Static import graph plus centralized and foundation-client API contract resolution. Dynamic foundation list/save resource segments require action review. Runtime acceptance is tracked separately. Not directly linked does not prove unused.', controllers, routes: rows }, null, 2) + '\n');
 const escape = s => String(s).replaceAll('|', '\\|').replaceAll('\n', ' ');
-const heading = '# Admin route audit\n\nDate: 2026-11-14. Primary checklist: owner-supplied Admin Backend Roadmap PDF.\n\nReconciliation, classrooms/routines, login policies, permission roles, General Settings, calendar/catalogs, student/guardian/enrollment/student/staff attendance and files/attachments/study materials/notices/events are applied after explicit approvals and PostgreSQL-tested. Library and Inventory operations are PREPARED; their separate two-migration batch remains unapplied pending approval and persistence acceptance.\n\n' +
+const heading = '# Admin route audit\n\nDate: 2026-11-17. Primary checklist: owner-supplied Admin Backend Roadmap PDF.\n\nReconciliation, classrooms/routines, login policies, permission roles, General Settings, calendar/catalogs, student/guardian/enrollment/student/staff attendance and files/attachments/study materials/notices/events are applied after explicit approvals and PostgreSQL-tested. Library and Inventory migrations were checked against actual PostgreSQL history, applied using the previously approved revised SQL, and PostgreSQL acceptance passed 8/8. Homework/lesson planning is APPLIED and PostgreSQL accepted 7/7. Conduct, staff leave and Admin-recorded teacher evaluations are APPLIED and PostgreSQL accepted 10/10, including multi-connection write serialization and rollback safeguards. Examination operations are APPLIED and PostgreSQL acceptance passed 8/8. Fees/accounts/payroll/wallet/reporting operations are APPLIED; PostgreSQL acceptance/concurrency passed 11/11. Online examinations/front-office/dormitory operations are APPLIED and PostgreSQL-tested. Certificate/ID migration is applied and PostgreSQL/full-stack/browser acceptance passes. Nine configuration profiles now use guarded APIs but remain separately migration-gated. The dashboard reads existing persisted data without schema changes.\n\n' +
   `${rows.length} Admin pages inspected, including local import graphs and centralized API contracts. Sidebar links identify navigation evidence only; unlinked pages remain in scope. No route is considered complete merely because a page or API exists.\n\n` +
-  'Database: 23 migrations and 41 public tables including history. All 34 prior application tables and all 21 prior migration-history rows were preserved at the files/content batch commit, including 84 refresh tokens, 7 users and both original assignments. Subsequent school activity is preserved; the next approved batch always captures a fresh baseline. Library/Inventory migrations remain unapplied.\n\n' +
+  'Database: 31 migrations and 106 public tables including history, verified against actual PostgreSQL. Document Issuance is applied. All 99 original application tables and 30 prior history entries were preserved before and after its commit. Full-stack fixtures rolled back with all 106 table hashes unchanged. Admin Configuration is drafted only; no future migration was applied.\n\n' +
   'API methods below are exact calls found in the page/import graph. UI evidence lists handler names; these are not assertions that every handler works. No direct test match means coverage was not established, rather than that no test exists. Full evidence and controller inventory: [JSON](./ADMIN_ROUTE_AUDIT.json).\n\n' +
   '| Route / navigation | UI actions found | API calls / proxy -> Nest resource | Entity / migration | Status / test evidence | Next dependency |\n|---|---|---|---|---|---|\n';
 fs.writeFileSync(path.join(root, 'docs/ADMIN_ROUTE_AUDIT.md'), heading + rows.map(r => `| [${escape(r.route)}](../${r.file}) (${r.navigation}) | ${escape(r.ui.join(', ') || 'none')} | ${escape(r.calls.join(', ') || 'none')}; ${escape(r.proxies.join(', ') || 'no proxy')} -> ${escape(r.nest.join(', ') || 'no endpoint')} | ${escape(r.models.join('; ') || 'no domain tables/migrations found')} | ${escape(r.status)}; ${escape(r.tests.join(', ') || 'no direct route test match')}${r.fake.length ? '; mock methods: ' + escape(r.fake.join(', ')) : ''} | ${escape(r.dependency)} |`).join('\n') + '\n');
 console.log(JSON.stringify({ pages: rows.length, realApiPages: rows.filter(r => r.real.length).length, pagesWithoutRealApi: rows.filter(r => !r.real.length).length }));
+
+}
+void audit().catch(error=>{console.error(error);process.exitCode=1;});

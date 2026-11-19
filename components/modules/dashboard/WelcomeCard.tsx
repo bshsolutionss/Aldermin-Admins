@@ -22,7 +22,7 @@ export function WelcomeCard() {
 
   const recipient = currentUser?.name
     ? `${currentUser.name}!`
-    : "The Deenway School Team!";
+    : "School Team!";
 
   return (
     <AdminCard className="h-full p-6 sm:p-8 relative overflow-hidden flex flex-col md:flex-row justify-between items-center group min-h-[220px]">

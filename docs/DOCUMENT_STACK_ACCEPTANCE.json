@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-11-16T20:34:49.236Z",
+  "frontend": "production Next.js",
+  "backend": "actual Nest AppModule",
+  "persistence": "live PostgreSQL outer rollback fixture",
+  "routeResponses": 6,
+  "workflows": [
+    {
+      "kind": "certificate",
+      "designer": "PASS",
+      "issuance": "PASS",
+      "immutableSnapshot": "PASS",
+      "printAndExport": "PASS",
+      "history": "PASS",
+      "publicPrivacy": "PASS",
+      "revocation": "PASS"
+    },
+    {
+      "kind": "id-card",
+      "designer": "PASS",
+      "issuance": "PASS",
+      "immutableSnapshot": "PASS",
+      "printAndExport": "PASS",
+      "history": "PASS",
+      "publicPrivacy": "PASS",
+      "revocation": "PASS"
+    }
+  ]
+}

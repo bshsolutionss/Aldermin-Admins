@@ -38,7 +38,9 @@ export default function UserManagementPage() {
   }, []);
 
   useEffect(() => {
-    loadUsers();
+    let active = true;
+    void Promise.resolve().then(() => { if (active) return loadUsers(); });
+    return () => { active = false; };
   }, [loadUsers]);
 
   const handleRoleChange = async (id: string, newRole: string) => {

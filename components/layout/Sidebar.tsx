@@ -611,8 +611,8 @@ export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
 
       <aside
         className={cn(
-          "w-64 bg-sidebar text-sidebar-foreground h-screen overflow-y-auto custom-scrollbar flex-shrink-0 transition-transform duration-300 border-r border-sidebar-border/10",
-          "fixed top-0 left-0 z-50 md:sticky md:top-0 md:transform-none",
+          "w-64 bg-sidebar text-sidebar-foreground h-dvh overflow-y-auto custom-scrollbar flex-shrink-0 transition-transform duration-300 border-r border-sidebar-border/10",
+          "fixed top-0 left-0 z-50 md:relative md:transform-none",
           isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0",
         )}
       >

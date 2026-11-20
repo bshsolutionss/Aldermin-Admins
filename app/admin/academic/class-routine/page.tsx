@@ -1,5 +1,7 @@
 "use client";
 
+import { Input as LmsInput } from "@/components/ui/input";
+
 import React from "react";
 import { useClassRoutines, routineDays } from "@/lib/use-class-routines";
 import {
@@ -33,7 +35,7 @@ export default function ClassRoutinePage() {
       <label className="block text-sm text-gray-500">Academic year <select aria-label="Academic year" value={options.academicYearId ?? ""} disabled={saving || isLoading} onChange={e => void reload(e.target.value)} className="ml-2 rounded-xl border border-gray-200 bg-white px-3 py-2"><option value="" disabled>Select year</option>{options.academicYears.map(year => <option key={year.id} value={year.id}>{year.name}</option>)}</select></label>
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
         {/* Creation Form */}
-        <div className="xl:col-span-4">
+        <div className="xl:col-span-4 self-start">
           <div className="rounded-xl bg-white p-5 sm:p-6 border border-gray-200 flex flex-col h-full bg-gradient-to-br from-white to-indigo-50/5">
             <h4 className="mb-8 text-xs font-semibold text-gray-500   leading-none flex items-center gap-2">
               {editingId ? "Edit Chronology" : "Add To Chronology"}
@@ -82,7 +84,7 @@ export default function ClassRoutinePage() {
                       className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
                       size={12}
                     />
-                    <input aria-label="Commencement"
+                    <LmsInput aria-label="Commencement"
                       type="time"
                       required disabled={saving || isLoading} value={formData.startTime} onChange={e => change("startTime", e.target.value)}
                       placeholder="08:00 AM"
@@ -99,7 +101,7 @@ export default function ClassRoutinePage() {
                       className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
                       size={12}
                     />
-                    <input aria-label="Conclusion"
+                    <LmsInput aria-label="Conclusion"
                       type="time"
                       required disabled={saving || isLoading} value={formData.endTime} onChange={e => change("endTime", e.target.value)}
                       placeholder="08:40 AM"

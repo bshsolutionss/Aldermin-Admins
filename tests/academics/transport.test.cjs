@@ -34,6 +34,7 @@ async function registerTests() {
 
   test("Transport pages render the existing backend-driven workspace at their own URLs", () => {
     const shared = loadTs("components/modules/reports/OperationalPanel.tsx", {
+      "@/components/ui/input": { Input: "input" },
       "@/components/common/PageHeader": { PageHeader: stub },
       "@/components/common/AdminCard": { AdminCard: stub }, '@/components/common/ModuleCard': {ModuleCard: stub }, '@/components/common/ModuleEditor': {ModuleEditor: stub },
       "@/components/ui/button": { Button: stub },

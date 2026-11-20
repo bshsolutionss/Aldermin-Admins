@@ -1,4 +1,6 @@
 "use client";
+
+import { Input as LmsInput } from "@/components/ui/input";
 import { useEffect, useState } from "react";
 import { PageHeader } from "@/components/common/PageHeader";
 import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
@@ -380,7 +382,7 @@ export function AdministrationPanel({
     return (
       <label>
         {field.label}
-        <input
+        <LmsInput
           required
           disabled={identityLocked}
           className={inputClass}
@@ -623,7 +625,7 @@ export function AdministrationPanel({
             <>
               <label>
                 From
-                <input
+                <LmsInput
                   aria-label="From date"
                   type="date"
                   className={inputClass}
@@ -637,7 +639,7 @@ export function AdministrationPanel({
               </label>
               <label>
                 To
-                <input
+                <LmsInput
                   aria-label="To date"
                   type="date"
                   className={inputClass}

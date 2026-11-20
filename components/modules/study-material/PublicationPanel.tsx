@@ -58,7 +58,7 @@ export function PublicationPanel({
         </p>
       )}
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
-        <AdminCard className="xl:col-span-4 p-8 space-y-6">
+        <AdminCard className="xl:col-span-4 p-8 space-y-6 self-start">
           <h2 className="text-xs font-semibold text-gray-500">
             {state.editing ? "Edit Record" : "Create Record"}
           </h2>

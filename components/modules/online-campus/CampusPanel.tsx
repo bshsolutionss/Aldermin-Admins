@@ -1,4 +1,6 @@
 "use client";
+
+import { Input as LmsInput } from "@/components/ui/input";
 import { useEffect, useRef, useState } from "react";
 import { ModuleEditor } from "@/components/common/ModuleEditor";
 import { PageHeader } from "@/components/common/PageHeader";
@@ -912,7 +914,7 @@ export default function CampusPanel({
                         }
                       />
                     ) : (
-                      <input
+                      <LmsInput
                         className={field}
                         required={!s.optional}
                         maxLength={

@@ -23,7 +23,7 @@ import {
 
 export function MemberForm() {
   return (
-    <AdminCard className="p-8 h-fit sticky top-8">
+    <AdminCard className="p-8 h-fit">
       <h4 className="mb-8 text-xs font-semibold text-gray-500   leading-none flex items-center justify-between">
         Induct New Member
         <div className="h-1 w-12 bg-secondary/20 rounded-full"></div>

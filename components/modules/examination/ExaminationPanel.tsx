@@ -1,4 +1,6 @@
 "use client";
+
+import { Input as LmsInput } from "@/components/ui/input";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PageHeader } from "@/components/common/PageHeader";
 import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
@@ -233,7 +235,7 @@ function Registry({ resource }: { resource: ExamResource }) {
   ) => (
     <label className="block space-y-1">
       {label}
-      <input
+      <LmsInput
         className={field}
         type={type}
         required={required}
@@ -326,7 +328,7 @@ function Registry({ resource }: { resource: ExamResource }) {
       {s.notice && <p role="status">{s.notice}</p>}
       <div className="grid xl:grid-cols-12 gap-8">
         <AdminCard
-          className="xl:col-span-4"
+          className="xl:col-span-4 self-start"
           title={
             s.editing ? "Edit saved examination" : "New examination record"
           }

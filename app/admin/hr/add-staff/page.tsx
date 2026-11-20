@@ -1,5 +1,7 @@
 "use client";
 
+import { Input as LmsInput } from "@/components/ui/input";
+
 import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import type { IconType } from "react-icons";
@@ -414,7 +416,7 @@ export default function AddStaffPage() {
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 Date of Birth <span className="text-red-500">*</span>
               </label>
-              <input aria-label="Date of Birth"
+              <LmsInput aria-label="Date of Birth"
                 type="date"
                 {...bind("dob")}
                 disabled={isSubmitting}
@@ -452,7 +454,7 @@ export default function AddStaffPage() {
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 Joining Date <span className="text-red-500">*</span>
               </label>
-              <input aria-label="Joining Date"
+              <LmsInput aria-label="Joining Date"
                 type="date"
                 {...bind("joiningDate")}
                 disabled={isSubmitting}

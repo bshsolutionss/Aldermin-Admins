@@ -18,7 +18,7 @@ export function FoundationRecordsPanel({ resource, title, subtitle }: { resource
     {state.error && <div role="alert" className="rounded-xl border border-red-200 p-4 text-destructive">{state.error} <Button variant="outline" disabled={state.saving} onClick={() => void state.reload()}>Reload records</Button></div>}
     {state.notice && <p role="status" className="text-green-700">{state.notice}</p>}
     <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
-      <div className="xl:col-span-4 h-full"><AdminCard className="p-8 h-full flex flex-col">
+      <div className="xl:col-span-4 self-start"><AdminCard className="p-8 h-full flex flex-col">
         <h2 className="mb-6 text-xs font-semibold text-gray-500">{state.editing ? `Edit ${noun}` : holiday ? "Create Holiday" : resource === "groups" ? "Create New Assembly" : "Define Taxonomy"}</h2>
         <form onSubmit={event => { event.preventDefault(); void state.save(); }} className="space-y-6 flex-1">
           <fieldset disabled={state.saving || !state.ready} className="space-y-6">

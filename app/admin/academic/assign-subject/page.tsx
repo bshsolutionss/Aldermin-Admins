@@ -74,7 +74,7 @@ export default function AssignSubjectPage() {
       {error && <div role="alert" className="text-red-600 text-sm">{error} <button type="button" onClick={() => void reload()}>Retry</button></div>}
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
         {/* Assignment Form */}
-        <div className="xl:col-span-4">
+        <div className="xl:col-span-4 self-start">
           <div className="rounded-xl bg-white p-5 sm:p-6 border border-gray-200 flex flex-col h-full ">
             <h4 className="mb-8 text-xs font-semibold text-gray-500   leading-none flex items-center gap-2">
               {editingId ? "Edit Assignment" : "Create Assignment"}

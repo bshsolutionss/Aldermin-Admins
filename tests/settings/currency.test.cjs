@@ -61,6 +61,7 @@ async function registerTests() {
     const state = { ready: true, draft: {}, settings: {}, history: { items: [], page: 1, total: 0, pageSize: 10 }, save: async () => { calls.push("school-settings"); return generalSucceeds; } };
     const finance = { ready: true, currency: "PKR", setCurrency() {}, save: async () => { calls.push("finance/settings"); return true; } };
     const { default: Page } = loadTs("app/admin/settings/general-settings/general-settings-inner/page.tsx", {
+      "@/components/ui/input": { Input: "input" },
       react: { useRef: value => ({ current: value }) },
       "@/components/common/PageHeader": { PageHeader: "PageHeader" }, "@/components/common/AdminCard": { AdminCard: "AdminCard" },
       "@/components/modules/settings/SchoolCurrencyField": { SchoolCurrencyField: "SchoolCurrencyField" },

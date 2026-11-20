@@ -27,7 +27,9 @@
     "test:finance": "node --test tests/academics/finance.test.cjs",
     "test:online-campus": "node --test tests/academics/online-campus.test.cjs",
     "test:documents": "node --test tests/academics/documents.test.cjs tests/academics/document-routes.test.cjs",
-    "test:dashboard": "node --test tests/academics/dashboard.test.cjs"
+    "test:dashboard": "node --test tests/academics/dashboard.test.cjs",
+    "test:header": "node --test tests/academics/header.test.cjs",
+    "test:controls": "node --test tests/ui/date-controls.test.cjs"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.11",

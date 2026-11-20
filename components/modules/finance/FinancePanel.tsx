@@ -1,4 +1,6 @@
 "use client";
+
+import { Input as LmsInput } from "@/components/ui/input";
 import { useEffect, useRef, useState } from "react";
 import { ModuleEditor } from "@/components/common/ModuleEditor";
 import { PageHeader } from "@/components/common/PageHeader";
@@ -526,7 +528,7 @@ export default function FinancePanel({
           />
           <label>
             From
-            <input
+            <LmsInput
               className={field}
               type="date"
               value={from}
@@ -538,7 +540,7 @@ export default function FinancePanel({
           </label>
           <label>
             To
-            <input
+            <LmsInput
               className={field}
               type="date"
               value={to}
@@ -776,7 +778,7 @@ export default function FinancePanel({
                       }
                     />
                   ) : (
-                    <input
+                    <LmsInput
                       className={field}
                       required={spec.type !== "optional"}
                       type={

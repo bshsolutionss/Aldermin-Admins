@@ -1,4 +1,6 @@
 "use client";
+
+import { Input as LmsInput } from "@/components/ui/input";
 import { useEffect, useRef, useState } from "react";
 import { PageHeader } from "@/components/common/PageHeader";
 import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
@@ -100,14 +102,14 @@ export function DocumentWorkspace({ kind, bulk = false }: { kind: DocumentKind; 
     <PageHeader title={bulk ? (cert ? "Bulk Certificate Printing" : "Bulk ID Card Printing") : cert ? "Issue Certificates" : "Issue ID Cards"} subtitle={bulk ? "Select issued documents and print a batch" : "Choose a template and recipients to issue documents"} />
     {notice && <p role="status">{notice}</p>}
     <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
-      {!bulk && <><div className="xl:col-span-4 h-full"><AdminCard className="p-10 flex flex-col h-full bg-gradient-to-br from-white to-secondary/5"><h2 className="mb-8 text-xs font-semibold text-gray-500">Issuance Configuration</h2>
+      {!bulk && <><div className="xl:col-span-4 self-start"><AdminCard className="p-10 flex flex-col h-full bg-gradient-to-br from-white to-secondary/5"><h2 className="mb-8 text-xs font-semibold text-gray-500">Issuance Configuration</h2>
         {templateError && <p role="alert">{templateError}</p>}
         <form className="space-y-4" onSubmit={issue}><fieldset disabled={freeze || !!templateError} className="space-y-4">
           <label className="block text-xs">Search templates<input className={field} value={templateSearch} onChange={e => { setTemplateSearch(e.target.value); setTemplatePage(1); }} /></label>
           <label className="block text-xs">Document Template<select required className={field} value={template?.id ?? ""} onChange={e => chooseTemplate(templates.items.find(row => row.id === e.target.value) ?? null)}><option value="">Choose a template</option>{template && !templates.items.some(row => row.id === template.id) && <option value={template.id}>{template.name} · v{template.version}</option>}{templates.items.map(row => <option value={row.id} disabled={row.archived} key={row.id}>{row.name} · {row.audience} · v{row.version}{row.archived ? " (archived)" : ""}</option>)}</select></label>
           <DocumentPager page={templatePage} total={templates.total} change={setTemplatePage} disabled={freeze} />
-          <label className="block text-xs">Issued on (UTC date)<input required type="date" className={field} value={issuedOn} onChange={e => setIssuedOn(e.target.value)} /></label>
-          <label className="block text-xs">Expires on (optional, UTC date)<input type="date" min={issuedOn} className={field} value={expiresOn} onChange={e => setExpiresOn(e.target.value)} /></label>
+          <label className="block text-xs">Issued on (UTC date)<LmsInput required type="date" className={field} value={issuedOn} onChange={e => setIssuedOn(e.target.value)} /></label>
+          <label className="block text-xs">Expires on (optional, UTC date)<LmsInput type="date" min={issuedOn} className={field} value={expiresOn} onChange={e => setExpiresOn(e.target.value)} /></label>
           <label className="flex gap-2 text-xs"><input type="checkbox" checked={includeInactive} onChange={e=>{setIncludeInactive(e.target.checked);setSelected({});setSubjectPage(1);}} />Include inactive recipients (explicit historical issuance)</label>
         </fieldset><p>{Object.keys(selected).length} selected · Maximum 50 per issuance</p><Button type="submit" className="w-full h-16 bg-secondary text-white rounded-2xl" disabled={busy || !template || (!pending && (loading || !!error || !!templateError)) || !Object.keys(selected).length}>{busy ? "Processing…" : pending ? "Retry Same Issuance Request" : "Issue Selected Documents"}</Button></form>
         {pending && <div className="text-xs space-y-2"><p>The request identity is retained. Check issued history before discarding an uncertain request.</p><Button variant="outline" disabled={busy} onClick={() => { batch.current = null; setPending(false); setSelected({}); }}>Discard Pending Request</Button></div>}

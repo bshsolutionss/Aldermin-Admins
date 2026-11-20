@@ -1,5 +1,7 @@
 "use client";
 
+import { Input as LmsInput } from "@/components/ui/input";
+
 import { useEffect, useState } from "react";
 import { PageHeader } from "@/components/common/PageHeader";
 import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
@@ -23,7 +25,7 @@ export function AttendanceReport({ kind }: { kind: AttendanceKind }) {
     return () => { active = false; };
   }, [kind, date, placement, page]);
   return <div className="space-y-6"><PageHeader title={kind === "staff" ? "Staff Attendance Report" : "Student Attendance Report"} subtitle="Recorded daily attendance" /><AdminCard><div className="space-y-4 p-6">
-    <label>Date <input className="ml-2 rounded-xl border p-2" type="date" value={date} onChange={event => { setDate(event.target.value); setPage(1); setData(null); setError(""); setLoading(Boolean(event.target.value) && (kind === "staff" || Boolean(placement))); }} /></label>
+    <label>Date <LmsInput className="ml-2 rounded-xl border p-2" type="date" value={date} onChange={event => { setDate(event.target.value); setPage(1); setData(null); setError(""); setLoading(Boolean(event.target.value) && (kind === "staff" || Boolean(placement))); }} /></label>
     {kind === "students" && <label> Class and section <select className="ml-2 rounded-xl border p-2" value={placement} onChange={event => { setPlacement(event.target.value); setPage(1); setData(null); setError(""); setLoading(Boolean(date && event.target.value)); }}><option value="">Choose a class</option>{options?.placements.map(item => <option key={item.id} value={item.id}>{item.yearName} / {item.className} / {item.sectionName}</option>)}</select></label>}
     {optionsError && <p role="alert">{optionsError}</p>}
     {(!date || (kind === "students" && !placement)) && <p>Choose a date{kind === "students" ? " and class" : ""} to view attendance.</p>}{loading && <p>Loading attendance…</p>}{error && <p role="alert">{error}</p>}

@@ -283,7 +283,7 @@ export function RegistryPanel({
       <PageHeader title={title} subtitle="Manage saved school records" />
       <Messages {...state} reload={state.load} disabled={state.saving} />
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
-        <AdminCard className="p-8 xl:col-span-4">
+        <AdminCard className="p-8 xl:col-span-4 self-start">
           <form
             className="space-y-5"
             onSubmit={(event) => {
@@ -468,7 +468,7 @@ export function LoanPanel({
       />
       <Messages {...state} reload={state.load} disabled={state.saving} />
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
-        <AdminCard className="p-8 xl:col-span-4">
+        <AdminCard className="p-8 xl:col-span-4 self-start">
           <form
             className="space-y-5"
             onSubmit={(event) => {
@@ -641,7 +641,7 @@ export function MovementPanel({
       />
       <Messages {...state} reload={state.load} disabled={state.saving} />
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
-        <AdminCard className="p-8 xl:col-span-4">
+        <AdminCard className="p-8 xl:col-span-4 self-start">
           <form
             className="space-y-5"
             onSubmit={(event) => {

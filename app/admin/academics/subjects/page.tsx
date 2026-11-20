@@ -57,7 +57,7 @@ export default function SubjectPage() {
       {error && <div role="alert" className="text-red-600 text-sm">{error} <button type="button" disabled={isSubmitting} onClick={() => void reload()}>Retry</button></div>}
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
         {/* Creation Form */}
-        <div className="xl:col-span-4 h-full lg:sticky lg:top-8">
+        <div className="xl:col-span-4 self-start">
           <SubjectForm
             form={form}
             setForm={setForm}

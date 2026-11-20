@@ -11,8 +11,11 @@ async function registerTests() {
     const audit = JSON.parse(fs.readFileSync('docs/FRONTEND_UI_AUDIT.json', 'utf8'));
     assert.ok(audit.routes.length >= 133);
     for (const { route } of audit.routes) assert.equal(isModuleRoute(route), true, route);
-    for (const route of ['/admin', '/admin/', '/admin/dashboard', '/admin/dashboard/detail', '/auth/login', '/admin/settings/general-settings/holiday']) {
+    for (const route of ['/admin', '/admin/', '/admin/dashboard', '/admin/dashboard/detail', '/auth/login']) {
       assert.equal(isModuleRoute(route), false, route);
+    }
+    for (const route of ['/admin/settings/general-settings/holiday', '/admin/transport/routes', '/admin/reports/studentreports/guardian-report', '/admin/role&permission/managerole', '/admin/user']) {
+      assert.equal(isModuleRoute(route), true, route);
     }
   });
 
@@ -35,6 +38,16 @@ async function registerTests() {
     const tree = ModuleCard({ children, className: 'flex flex-wrap gap-4' });
     assert.equal(tree.props.children[1], children);
     assert.equal(tree.props['data-slot'], 'module-card');
+  });
+
+  test('admin cards preserve direct flex/grid children and only pad a body when a heading is present', () => {
+    const { AdminCard } = loadTs('components/common/AdminCard.tsx', { '@/lib/utils': { cn: (...parts) => parts.filter(Boolean).join(' ') } });
+    const children = ['first control', 'second control'];
+    const card = AdminCard({ children, className: 'flex gap-4' });
+    assert.equal(card.props.children[1], children);
+    const titled = AdminCard({ children, title: 'Settings' });
+    assert.equal(titled.props.children[1].props['data-slot'], 'admin-card-body');
+    assert.equal(titled.props.children[1].props.children, children);
   });
 
   test('toolbar exposes search and only presents a filter action when it can be used', () => {

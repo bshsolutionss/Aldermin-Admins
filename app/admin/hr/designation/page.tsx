@@ -155,7 +155,7 @@ export default function DesignationPage() {
 
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
         {/* Creation Form */}
-        <div className="xl:col-span-4 h-full sticky top-8">
+        <div className="xl:col-span-4 self-start">
           <DesignationForm
             designationTitle={designationTitle}
             setDesignationTitle={setDesignationTitle}

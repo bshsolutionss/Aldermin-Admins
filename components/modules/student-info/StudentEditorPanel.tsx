@@ -86,7 +86,7 @@ export function StudentEditorPanel({ studentId }: { studentId?: string }) {
           </div>
         </>}
       </AdminCard></fieldset>
-      <div className="xl:col-span-4 space-y-8">
+      <div className="xl:col-span-4 space-y-8 self-start">
         <AdminCard className="bg-secondary text-white p-8 border-0 space-y-6">
           <h2 className="text-[10px] font-semibold tracking-[0.4em] opacity-70">Registration Status</h2>
           <p className="text-2xl font-semibold">{state.loading ? "Loading…" : state.student ? "Profile Saved" : "Profile Not Finalized"}</p>

@@ -29,7 +29,7 @@ export default function AcademicClassRoomPage() {
 
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
         {/* Creation Form */}
-        <div className="xl:col-span-4">
+        <div className="xl:col-span-4 self-start">
           <div className="rounded-xl bg-white p-5 sm:p-6 border border-gray-200 flex flex-col h-full ">
             <h4 className="mb-6 text-xs font-semibold text-gray-500   leading-none flex items-center justify-between">
               {editingId ? "Edit classroom" : "Add classroom"}

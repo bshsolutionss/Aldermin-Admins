@@ -169,6 +169,7 @@ function mount(pagePath, apiService, components, extraMocks = {}) {
   };
   const Page = loadTs(pagePath, {
     react,
+    "@/components/ui/input": { Input: "input" },
     "@/lib/api-service": { apiService },
     "@/components/modules/study-material/FileAttachmentPanel": { FileAttachmentPanel: () => null },
     ...extraMocks,

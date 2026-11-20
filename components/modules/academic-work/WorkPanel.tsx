@@ -1,4 +1,6 @@
 "use client";
+
+import { Input as LmsInput } from "@/components/ui/input";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PageHeader } from "@/components/common/PageHeader";
 import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
@@ -344,7 +346,7 @@ export function WorkPanel({
                   />
                   <label>
                     Planned date
-                    <input
+                    <LmsInput
                       required
                       type="date"
                       className={field}
@@ -375,7 +377,7 @@ export function WorkPanel({
                   {d.status === "completed" ? (
                     <label>
                       Completed date
-                      <input
+                      <LmsInput
                         required
                         type="date"
                         min={d.plannedOn}
@@ -393,7 +395,7 @@ export function WorkPanel({
                 <>
                   <label>
                     Homework date
-                    <input
+                    <LmsInput
                       required
                       type="date"
                       className={field}
@@ -403,7 +405,7 @@ export function WorkPanel({
                   </label>
                   <label>
                     Submission deadline
-                    <input
+                    <LmsInput
                       required
                       type="date"
                       min={d.assignedOn}
@@ -778,7 +780,7 @@ export function HomeworkEvaluationPanel() {
               </label>
               <label>
                 Evaluation date
-                <input
+                <LmsInput
                   required
                   type="date"
                   min={data.homework.assignedOn}

@@ -15,7 +15,7 @@ export function ModuleEditor({ children, label }: { children: ReactNode; label: 
     };
   }, []);
   return (
-    <section ref={panel} tabIndex={-1} aria-label={label} className="scroll-mt-6 outline-none">
+    <section ref={panel} tabIndex={-1} aria-label={label} className="min-w-0 scroll-mt-6 outline-none">
       <ModuleCard className="p-5 sm:p-6">{children}</ModuleCard>
     </section>
   );

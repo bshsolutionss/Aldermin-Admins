@@ -1,8 +1,15 @@
+"use client";
+
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
+import { DateInput } from "./date-input";
+import { dateControlTypes, type DateControlType } from "@/lib/date-control";
 
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+  if (type && dateControlTypes.has(type)) {
+    return <DateInput type={type as DateControlType} className={className} {...props} />;
+  }
   return (
     <input
       type={type}

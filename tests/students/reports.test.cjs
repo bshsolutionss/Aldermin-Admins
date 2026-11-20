@@ -3,7 +3,7 @@ const { test } = await import("node:test");
 const assert = (await import("node:assert/strict")).default;
 const { loadTs } = await import("../auth/load-ts.mjs");
 const stub = () => null;
-const common = { '@/components/common/PageHeader': { PageHeader: stub }, '@/components/common/AdminCard': { AdminCard: stub }, '@/components/common/ModuleCard': {ModuleCard: stub }, '@/components/common/ModuleEditor': {ModuleEditor: stub }, '@/components/ui/button': { Button: stub } };
+const common = {'@/components/ui/input':{Input:'input'}, '@/components/common/PageHeader': { PageHeader: stub }, '@/components/common/AdminCard': { AdminCard: stub }, '@/components/common/ModuleCard': {ModuleCard: stub }, '@/components/common/ModuleEditor': {ModuleEditor: stub }, '@/components/ui/button': { Button: stub } };
 const walk = node => !node || typeof node !== 'object' ? [] : [node, ...[node.props?.children].flat(Infinity).flatMap(walk)];
 
 test('student CSV quotes separators and neutralizes spreadsheet formulas', () => {

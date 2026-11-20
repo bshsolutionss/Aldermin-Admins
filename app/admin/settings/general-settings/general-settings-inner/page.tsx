@@ -1,5 +1,7 @@
 "use client";
 
+import { Input as LmsInput } from "@/components/ui/input";
+
 import { PageHeader } from "@/components/common/PageHeader";
 import { AdminCard } from "@/components/common/AdminCard";
 import { useSchoolSettings } from "@/lib/use-school-settings";
@@ -43,7 +45,7 @@ export default function GeneralSettingsInnerPage() {
               const field = key as keyof typeof labels;
               return <label className="block space-y-2" key={field}><span>{label}{field === "schoolName" || field === "timezone" ? " *" : ""}</span>
                 {field === "address" ? <textarea className="block w-full rounded-lg border p-2" maxLength={500} value={state.draft.address ?? ""} onChange={event => state.setDraft(current => ({ ...current, address: event.target.value || null }))} /> :
-                  <input className="block w-full rounded-lg border p-2" type={field === "contactEmail" ? "email" : "text"} required={field === "schoolName" || field === "timezone"} maxLength={{ schoolName: 120, schoolCode: 30, contactEmail: 254, contactPhone: 32, timezone: 64 }[field]} placeholder={field === "timezone" ? "Asia/Karachi" : undefined} value={state.draft[field] ?? ""} onChange={event => state.setDraft(current => ({ ...current, [field]: event.target.value || (field === "schoolName" || field === "timezone" ? "" : null) }))} />}
+                  <LmsInput className="block w-full rounded-lg border p-2" type={field === "contactEmail" ? "email" : "text"} required={field === "schoolName" || field === "timezone"} maxLength={{ schoolName: 120, schoolCode: 30, contactEmail: 254, contactPhone: 32, timezone: 64 }[field]} placeholder={field === "timezone" ? "Asia/Karachi" : undefined} value={state.draft[field] ?? ""} onChange={event => state.setDraft(current => ({ ...current, [field]: event.target.value || (field === "schoolName" || field === "timezone" ? "" : null) }))} />}
                 {field === "timezone" && <span className="block text-sm text-gray-500">Enter a named timezone, such as Asia/Karachi or UTC.</span>}
               </label>;
             })}

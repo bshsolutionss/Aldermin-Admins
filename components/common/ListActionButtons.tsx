@@ -24,6 +24,9 @@ export function ListActionButtons({
     <div className={cn("flex justify-center gap-1", className)}>
       {onView && (
         <Button
+          type="button"
+          aria-label="View record"
+          title="View record"
           variant="ghost"
           size="sm"
           onClick={(e) => {
@@ -38,6 +41,9 @@ export function ListActionButtons({
 
       {onEdit && (
         <Button
+          type="button"
+          aria-label="Edit record"
+          title="Edit record"
           variant="ghost"
           size="sm"
           onClick={(e) => {
@@ -52,6 +58,9 @@ export function ListActionButtons({
 
       {onDelete && (
         <Button
+          type="button"
+          aria-label="Delete record"
+          title="Delete record"
           variant="ghost"
           size="sm"
           onClick={(e) => {

@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PageHeader } from "@/components/common/PageHeader";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Button } from "@/components/ui/button";
 import {
   academicWorkApi,
@@ -38,7 +38,7 @@ function Pager({
   disabled?: boolean;
 }) {
   return (
-    <div className="flex items-center gap-4 py-3">
+    <div className="flex flex-wrap items-center justify-between gap-3 py-3">
       <Button
         type="button"
         variant="outline"
@@ -226,7 +226,7 @@ function History({ resource }: { resource: WorkResource }) {
                 {new Date(row.createdAt).toLocaleString()}
               </summary>
               <p>Record: {row.recordId}</p>
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-1 sm:grid-cols-2 gap-4">
                 {[row.beforeState, row.afterState].map((state, i) => (
                   <div key={i}>
                     <strong>{i ? "After" : "Before"}</strong>
@@ -439,7 +439,7 @@ export function WorkPanel({
                   onChange={(e) => update({ description: e.target.value })}
                 />
               </label>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <Button type="submit" disabled={!d.assignmentId}>
                   {h.saving ? "Saving…" : "Save"}
                 </Button>
@@ -478,7 +478,7 @@ export function WorkPanel({
           </label>
         </div>
         {h.loading ? <p role="status">Loading…</p> : null}
-        <div className="overflow-x-auto">
+        <div role="region" aria-label="Scrollable records" tabIndex={0} className="overflow-x-auto">
           <table className="w-full text-sm my-5">
             <thead>
               <tr className="text-left border-b">
@@ -679,7 +679,7 @@ export function HomeworkEvaluationPanel() {
             }}
           />
           {loading ? <p>Loading…</p> : null}
-          <table className="w-full text-sm">
+          <div className="max-w-full overflow-x-auto" role="region" aria-label="Records table" tabIndex={0}><table className="w-full text-sm">
             <thead>
               <tr className="text-left">
                 <th>Student</th>
@@ -723,7 +723,7 @@ export function HomeworkEvaluationPanel() {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table></div>
           {ready && !data.total ? (
             <p>No students were enrolled for this homework date.</p>
           ) : null}
@@ -740,7 +740,7 @@ export function HomeworkEvaluationPanel() {
           <form onSubmit={submit}>
             <fieldset
               disabled={saving || !ready}
-              className="grid md:grid-cols-2 gap-4"
+              className="grid md:grid-cols-1 sm:grid-cols-2 gap-4"
             >
               <label>
                 Status
@@ -800,7 +800,7 @@ export function HomeworkEvaluationPanel() {
                   }
                 />
               </label>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <Button type="submit">
                   {saving ? "Saving…" : "Save evaluation"}
                 </Button>

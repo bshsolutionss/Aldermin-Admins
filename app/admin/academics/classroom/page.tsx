@@ -56,9 +56,9 @@ export default function ClassRoomPage() {
         }
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
         {/* Creation Form */}
-        <div className="lg:col-span-4 h-full sticky top-8">
+        <div className="xl:col-span-4 h-full sticky top-8">
           <ClassRoomForm
             disabled={saving || isLoading}
             editing={!!editingId}
@@ -72,7 +72,7 @@ export default function ClassRoomPage() {
         </div>
 
         {/* List Index */}
-        <div className="lg:col-span-8 h-full">
+        <div className="xl:col-span-8 h-full">
           <DataTable
             data={rooms}
             columns={columns}

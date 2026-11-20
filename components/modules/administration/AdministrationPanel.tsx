@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { PageHeader } from "@/components/common/PageHeader";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Button } from "@/components/ui/button";
 import {
   schoolAdministrationApi,
@@ -32,7 +32,7 @@ function Pager({
   disabled?: boolean;
 }) {
   return (
-    <div className="flex items-center gap-3 py-4">
+    <div className="flex flex-wrap items-center justify-between gap-3 py-4">
       <Button
         type="button"
         variant="outline"
@@ -562,7 +562,7 @@ export function AdministrationPanel({
         </AdminCard>
       ) : null}
       <AdminCard title="Records">
-        <div className="grid md:grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
           <input
             aria-label="Search records"
             className={inputClass}
@@ -653,7 +653,7 @@ export function AdministrationPanel({
           ) : null}
         </div>
         {h.loading ? <p role="status">Loading…</p> : null}
-        <div className="overflow-x-auto">
+        <div role="region" aria-label="Scrollable records" tabIndex={0} className="overflow-x-auto">
           <table className="w-full text-sm my-5">
             <thead>
               <tr className="text-left border-b">
@@ -758,7 +758,7 @@ export function AdministrationPanel({
                   onChange={(e) => setReason(e.target.value)}
                 />
               </label>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <Button type="submit">Save decision</Button>
                 <Button
                   type="button"

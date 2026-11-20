@@ -3,7 +3,7 @@
 import React from "react";
 import { type RoutineAllocation, type Classroom } from "@/lib/api-service";
 import { routineDays, type RoutineFormData } from "@/lib/use-class-routines";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import {
@@ -45,7 +45,7 @@ export function RoutineForm({
   const handleChange = change;
 
   return (
-    <AdminCard className="p-8 h-full bg-gradient-to-br from-white/60 to-sidebar/5">
+    <AdminCard className="p-5 sm:p-6 h-full">
       <div className="flex items-center justify-between mb-6">
         <h4 className="text-sm font-bold text-gray-500   flex items-center gap-2">
           {editing ? "Edit Routine Entry" : "Add Routine Entry"}
@@ -55,7 +55,7 @@ export function RoutineForm({
 
       <form onSubmit={handleSubmit} className="space-y-4 flex-1">
         {/* Class & Section Row */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label className=" text-[10px]  text-gray-500 font-bold">
               Class <span className="text-red-500">*</span>
@@ -65,7 +65,7 @@ export function RoutineForm({
               value={formData.class}
               onValueChange={(val) => handleChange("class", val)}
             >
-              <SelectTrigger className="bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium">
+              <SelectTrigger aria-label="Class" className="bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium">
                 <SelectValue placeholder="Select" />
               </SelectTrigger>
               <SelectContent>
@@ -83,7 +83,7 @@ export function RoutineForm({
               disabled={disabled || !formData.class}
               onValueChange={(val) => handleChange("section", val)}
             >
-              <SelectTrigger className="bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium">
+              <SelectTrigger aria-label="Section" className="bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium">
                 <SelectValue placeholder="Select" />
               </SelectTrigger>
               <SelectContent>
@@ -108,7 +108,7 @@ export function RoutineForm({
               disabled={disabled}
               onValueChange={(val) => handleChange("day", val)}
             >
-              <SelectTrigger className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium">
+              <SelectTrigger aria-label="Day" className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium">
                 <SelectValue placeholder="Select Day" />
               </SelectTrigger>
               <SelectContent>
@@ -119,12 +119,12 @@ export function RoutineForm({
         </div>
 
         {/* Time Range */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label className=" text-[10px]  text-gray-500 font-bold">
               Start Time
             </Label>
-            <Input
+            <Input aria-label="Start Time"
               type="time"
               required
               disabled={disabled}
@@ -137,7 +137,7 @@ export function RoutineForm({
             <Label className=" text-[10px]  text-gray-500 font-bold">
               End Time
             </Label>
-            <Input
+            <Input aria-label="End Time"
               type="time"
               value={formData.endTime}
               required
@@ -163,7 +163,7 @@ export function RoutineForm({
               disabled={disabled || !formData.section}
               onValueChange={(val) => handleChange("subject", val)}
             >
-              <SelectTrigger className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium">
+              <SelectTrigger aria-label="Subject" className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium">
                 <SelectValue placeholder="Select Subject" />
               </SelectTrigger>
               <SelectContent>
@@ -188,7 +188,7 @@ export function RoutineForm({
               disabled
               onValueChange={(val) => handleChange("teacher", val)}
             >
-              <SelectTrigger className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium">
+              <SelectTrigger aria-label="Teacher" className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium">
                 <SelectValue placeholder="Select Teacher" />
               </SelectTrigger>
               <SelectContent>
@@ -209,7 +209,7 @@ export function RoutineForm({
               size={14}
             />
             <Select value={formData.room} onValueChange={val => handleChange("room", val)} disabled={disabled}>
-              <SelectTrigger className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium"><SelectValue placeholder="Select Room" /></SelectTrigger>
+              <SelectTrigger aria-label="Room / Lab" className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all font-medium"><SelectValue placeholder="Select Room" /></SelectTrigger>
               <SelectContent>{classrooms.map(room => <SelectItem key={room.id} value={room.id}>{room.roomNumber}</SelectItem>)}</SelectContent>
             </Select>
           </div>

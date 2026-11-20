@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import { schoolContentApi } from "@/lib/school-content-client";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Button } from "@/components/ui/button";
 function describe(value: unknown) {
   if (!value || typeof value !== "object") return "No previous record";

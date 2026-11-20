@@ -69,15 +69,15 @@ function SectionTitle({
   subtitle: string;
 }) {
   return (
-    <div className="flex items-center gap-4 mb-8 group">
-      <div className="p-3 bg-secondary rounded-2xl shadow-lg ring-4 ring-secondary/5 group-hover:scale-110 transition-transform">
+    <div className="flex items-center gap-3 mb-6">
+      <div className="p-2.5 bg-secondary rounded-lg">
         <Icon className="text-white" size={20} />
       </div>
       <div>
         <h4 className="text-lg font-semibold text-gray-800 tracking-tight ">
           {title}
         </h4>
-        <p className="text-[10px] text-gray-400 font-bold  ">{subtitle}</p>
+        <p className="text-sm text-gray-500 font-normal  ">{subtitle}</p>
       </div>
       <div className="flex-1 border-b border-dashed border-gray-100 ml-4"></div>
     </div>
@@ -273,7 +273,7 @@ export default function AddStaffPage() {
   };
 
   return (
-    <div className="container mx-auto space-y-12 pb-20">
+    <div className="container mx-auto space-y-6 pb-20">
       <PageHeader
         title={editingId ? "Personnel Update" : "Personnel Onboarding"}
         subtitle="Staff Recruitment Lifecycle"
@@ -294,21 +294,21 @@ export default function AddStaffPage() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} noValidate className="space-y-12">
+      <form onSubmit={handleSubmit} noValidate className="space-y-6">
         {/* Basic Info Section */}
-        <div className="bg-white rounded-[2.5rem] p-10 shadow-xl border border-gray-50 ring-1 ring-black/5">
+        <div className="bg-white rounded-xl p-5 sm:p-6 border border-gray-200">
           <SectionTitle
             icon={FaUserCircle}
             title="Primary Identity"
             subtitle="Core employment data & credentials"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
             <div className="md:col-span-1">
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 Staff ID # <span className="text-red-500">*</span>
               </label>
-              <input
+              <input aria-label="Staff ID #"
                 type="text"
                 {...bind("staffNo")}
                 maxLength={50}
@@ -322,7 +322,7 @@ export default function AddStaffPage() {
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 Role <span className="text-red-500">*</span>
               </label>
-              <select
+              <select aria-label="Role"
                 {...bind("role")}
                 disabled={isSubmitting}
                 className="w-full rounded-2xl bg-gray-50 border-gray-100 p-4 text-sm font-bold focus:ring-2 focus:ring-blue-500/20 outline-none"
@@ -339,7 +339,7 @@ export default function AddStaffPage() {
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 Department <span className="text-red-500">*</span>
               </label>
-              <select
+              <select aria-label="Department"
                 {...bind("departmentId")}
                 disabled={isSubmitting}
                 className="w-full rounded-2xl bg-gray-50 border-gray-100 p-4 text-sm font-bold focus:ring-2 focus:ring-blue-500/20 outline-none"
@@ -356,7 +356,7 @@ export default function AddStaffPage() {
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 Designation <span className="text-red-500">*</span>
               </label>
-              <select
+              <select aria-label="Designation"
                 {...bind("designationId")}
                 disabled={isSubmitting}
                 className="w-full rounded-2xl bg-gray-50 border-gray-100 p-4 text-sm font-bold focus:ring-2 focus:ring-blue-500/20 outline-none"
@@ -374,7 +374,7 @@ export default function AddStaffPage() {
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 First Name
               </label>
-              <input
+              <input aria-label="First Name"
                 type="text"
                 {...bind("firstName")}
                 maxLength={100}
@@ -386,7 +386,7 @@ export default function AddStaffPage() {
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 Last Name <span className="text-red-500">*</span>
               </label>
-              <input
+              <input aria-label="Last Name"
                 type="text"
                 {...bind("lastName")}
                 maxLength={100}
@@ -399,7 +399,7 @@ export default function AddStaffPage() {
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 Gender
               </label>
-              <select
+              <select aria-label="Gender"
                 {...bind("gender")}
                 disabled={isSubmitting}
                 className="w-full rounded-2xl bg-gray-50 border-gray-100 p-4 text-sm font-bold focus:ring-2 focus:ring-blue-500/20 outline-none"
@@ -414,7 +414,7 @@ export default function AddStaffPage() {
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 Date of Birth <span className="text-red-500">*</span>
               </label>
-              <input
+              <input aria-label="Date of Birth"
                 type="date"
                 {...bind("dob")}
                 disabled={isSubmitting}
@@ -426,7 +426,7 @@ export default function AddStaffPage() {
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 Email Address
               </label>
-              <input
+              <input aria-label="Email Address"
                 type="email"
                 {...bind("email")}
                 maxLength={255}
@@ -439,7 +439,7 @@ export default function AddStaffPage() {
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 Mobile # <span className="text-red-500">*</span>
               </label>
-              <input
+              <input aria-label="Mobile #"
                 type="text"
                 {...bind("phone")}
                 maxLength={30}
@@ -452,7 +452,7 @@ export default function AddStaffPage() {
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 Joining Date <span className="text-red-500">*</span>
               </label>
-              <input
+              <input aria-label="Joining Date"
                 type="date"
                 {...bind("joiningDate")}
                 disabled={isSubmitting}
@@ -463,18 +463,18 @@ export default function AddStaffPage() {
         </div>
 
         {/* Professional & Payroll Section */}
-        <div className="bg-white rounded-[2.5rem] p-10 shadow-xl border border-gray-50 ring-1 ring-black/5">
+        <div className="bg-white rounded-xl p-5 sm:p-6 border border-gray-200">
           <SectionTitle
             icon={FaMoneyBillWave}
             title="Payroll & Professional"
             subtitle="Salary structure and contract specifics"
           />
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
             <div>
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 EPF Number
               </label>
-              <input
+              <input aria-label="EPF Number"
                 type="text"
                 {...bind("epfNo")}
                 maxLength={50}
@@ -490,7 +490,7 @@ export default function AddStaffPage() {
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-semibold">
                   $
                 </span>
-                <input
+                <input aria-label="Basic Salary"
                   type="text"
                   inputMode="decimal"
                   {...bind("basicSalary")}
@@ -503,7 +503,7 @@ export default function AddStaffPage() {
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 Contract Type
               </label>
-              <select
+              <select aria-label="Contract Type"
                 {...bind("contractType")}
                 disabled={isSubmitting}
                 className="w-full rounded-2xl bg-gray-50 border-gray-100 p-4 text-sm font-bold focus:ring-2 focus:ring-blue-500/20 outline-none"
@@ -517,7 +517,7 @@ export default function AddStaffPage() {
               <label className="block text-xs font-semibold text-gray-400  mb-2">
                 Experience
               </label>
-              <input
+              <input aria-label="Experience"
                 type="text"
                 {...bind("experience")}
                 maxLength={100}
@@ -531,7 +531,7 @@ export default function AddStaffPage() {
 
         {/* Bank & Documents */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white rounded-[2.5rem] p-10 shadow-xl border border-gray-50 ring-1 ring-black/5">
+          <div className="bg-white rounded-xl p-5 sm:p-6 border border-gray-200">
             <SectionTitle
               icon={FaUniversity}
               title="Bank Registry"
@@ -542,7 +542,7 @@ export default function AddStaffPage() {
                 <label className="block text-xs font-semibold text-gray-400  mb-2">
                   Account Holder Name
                 </label>
-                <input
+                <input aria-label="Account Holder Name"
                   type="text"
                   {...bind("bankAccountName")}
                   maxLength={150}
@@ -550,12 +550,12 @@ export default function AddStaffPage() {
                   className="w-full rounded-2xl bg-gray-50 border-gray-100 p-4 text-sm font-bold focus:ring-2 focus:ring-blue-500/20 outline-none"
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-gray-400  mb-2">
                     Account #
                   </label>
-                  <input
+                  <input aria-label="Account #"
                     type="text"
                     {...bind("bankAccountNo")}
                     maxLength={50}
@@ -567,7 +567,7 @@ export default function AddStaffPage() {
                   <label className="block text-xs font-semibold text-gray-400  mb-2">
                     Bank Name <span className="text-red-500">*</span>
                   </label>
-                  <input
+                  <input aria-label="Bank Name"
                     type="text"
                     {...bind("bankName")}
                     maxLength={150}
@@ -579,7 +579,7 @@ export default function AddStaffPage() {
             </div>
           </div>
 
-          <div className="bg-white rounded-[2.5rem] p-10 shadow-xl border border-gray-50 ring-1 ring-black/5">
+          <div className="bg-white rounded-xl p-5 sm:p-6 border border-gray-200">
             <SectionTitle
               icon={FaCloudUploadAlt}
               title="Documentation"
@@ -590,11 +590,11 @@ export default function AddStaffPage() {
         </div>
 
         {/* Footer Actions */}
-        <div className="flex justify-center pt-8">
+        <div className="flex justify-end pt-4">
           <Button
             type="submit"
             disabled={isSubmitting || isLoadingStaff}
-            className="group relative flex items-center justify-center gap-4 rounded-full bg-secondary h-20 px-16 py-5 text-white font-semibold text-xl transition-all hover:bg-secondary/90 active:scale-[0.98] shadow-2xl shadow-secondary/20 overflow-hidden disabled:opacity-70"
+            className="relative inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-6 py-3 text-white font-semibold hover:bg-secondary/90 disabled:opacity-70"
           >
             {isSubmitting || isLoadingStaff ? (
               <div className="w-6 h-6 border-b-2 border-white rounded-full animate-spin"></div>

@@ -23,7 +23,7 @@ export function PageHeader({
   className,
 }: PageHeaderProps) {
   return (
-    <div className={cn("flex flex-col gap-4 mb-8", className)}>
+    <div className={cn("flex min-w-0 flex-col gap-4 mb-6", className)}>
       {backUrl && (
         <Link
           href={backUrl}
@@ -35,10 +35,10 @@ export function PageHeader({
       )}
 
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-        <div>
-          <div className="flex items-center gap-3">
+        <div className="min-w-0">
+          <div className="flex items-center gap-3 min-w-0">
             {icon && <div className="text-gray-900">{icon}</div>}
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
+            <h1 className="text-2xl font-semibold text-gray-900 tracking-tight">
               {title}
             </h1>
           </div>
@@ -48,7 +48,7 @@ export function PageHeader({
             </p>
           )}
         </div>
-        {action && <div className="flex items-center gap-3">{action}</div>}
+        {action && <div className="flex max-w-full flex-wrap items-center gap-2 [&>div]:flex-wrap">{action}</div>}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { PageHeader } from "@/components/common/PageHeader";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Button } from "@/components/ui/button";
 import { schoolRecordsApi, type StudentRecord, type GuardianRecord, type Page } from "@/lib/school-records-client";
 
@@ -49,7 +49,7 @@ export function StudentReports({ mode }: { mode: Mode }) {
   return <div className="space-y-6"><PageHeader title={title} subtitle="Active student records" /><AdminCard><div className="space-y-4 p-6">
     <label>Search students <input className="ml-2 rounded-xl border p-2" value={search} onChange={event => { setLoading(true); setPage(1); setSearch(event.target.value); setSelection(""); setGuardian(null); }} /></label>
     {loading && <p>Loading students…</p>}{error && <p role="alert">{error}</p>}
-    {!loading && !error && <><div className="overflow-x-auto"><table className="w-full text-left text-sm"><thead><tr><th>Admission no.</th><th>Name</th><th>Class</th><th>Section</th><th>Roll no.</th>{mode === "guardians" && <th>Guardians</th>}</tr></thead><tbody>
+    {!loading && !error && <><div role="region" aria-label="Scrollable records" tabIndex={0} className="overflow-x-auto"><table className="w-full text-left text-sm"><thead><tr><th>Admission no.</th><th>Name</th><th>Class</th><th>Section</th><th>Roll no.</th>{mode === "guardians" && <th>Guardians</th>}</tr></thead><tbody>
       {data.items.map(row => <tr className="border-t" key={row.id}><td>{row.admissionNo}</td><td>{row.firstName} {row.lastName}</td><td>{row.className ?? "—"}</td><td>{row.sectionName ?? "—"}</td><td>{row.rollNo ?? "—"}</td>{mode === "guardians" && <td><Button variant="outline" disabled={selection === row.id} onClick={() => { setGuardian(null); setGuardianError(""); setSelection(row.id); }}>View</Button></td>}</tr>)}
     </tbody></table></div>{data.total === 0 && <p>No active students found.</p>}
     <div className="flex items-center gap-3"><Button variant="outline" disabled={page === 1} onClick={() => { setLoading(true); setPage(page - 1); }}>Previous</Button><span>Page {page} · {data.total} records</span><Button variant="outline" disabled={page * data.pageSize >= data.total} onClick={() => { setLoading(true); setPage(page + 1); }}>Next</Button>{mode === "export" && <Button disabled={!data.items.length} onClick={exportPage}>Export this page as CSV</Button>}</div></>}

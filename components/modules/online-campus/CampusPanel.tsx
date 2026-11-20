@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { ModuleEditor } from "@/components/common/ModuleEditor";
 import { PageHeader } from "@/components/common/PageHeader";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Button } from "@/components/ui/button";
 import {
   campusApi,
@@ -295,7 +296,7 @@ function Pager({
   disabled: boolean;
 }) {
   return (
-    <div className="flex items-center gap-4 py-3">
+    <div className="flex flex-wrap items-center justify-between gap-3 py-3">
       <Button
         type="button"
         variant="outline"
@@ -576,7 +577,7 @@ export default function CampusPanel({
   const header = (
     <div className="flex items-center justify-between gap-3">
       <h2 className="text-lg font-semibold">{embedded ? title : ""}</h2>
-      <div className="flex gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         <Button
           type="button"
           variant="outline"
@@ -659,7 +660,7 @@ export default function CampusPanel({
         {loading ? (
           <p role="status">Loading records…</p>
         ) : (
-          <div className="overflow-x-auto">
+          <div role="region" aria-label="Scrollable records" tabIndex={0} className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr>
@@ -791,7 +792,7 @@ export default function CampusPanel({
                 ))}
                 {!data.items.length && !error && (
                   <tr>
-                    <td className="p-6 text-center" colSpan={keys.length + 1}>
+                    <td className="p-6 text-center" colSpan={keys.length + (hasActions ? 1 : 0)}>
                       No records found.
                     </td>
                   </tr>
@@ -808,7 +809,7 @@ export default function CampusPanel({
         />
       </AdminCard>
       {draft && (
-        <AdminCard className="p-6">
+        <ModuleEditor label="Record editor">
           <form
             className="space-y-4"
             onSubmit={async (e) => {
@@ -858,7 +859,7 @@ export default function CampusPanel({
             </h2>
             <fieldset
               disabled={busy}
-              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+              className="grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 gap-4"
             >
               {(specs[draft.operation] ?? [])
                 .filter(
@@ -983,7 +984,7 @@ export default function CampusPanel({
             {saveError && (
               <p role="alert">{saveError} Your draft is retained.</p>
             )}
-            <div className="flex gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <Button disabled={busy || gate}>
                 {busy ? "Saving…" : "Save"}
               </Button>
@@ -1001,7 +1002,7 @@ export default function CampusPanel({
               </Button>
             </div>
           </form>
-        </AdminCard>
+        </ModuleEditor>
       )}
       {detail && resource === "exams" && (
         <section className="space-y-4">

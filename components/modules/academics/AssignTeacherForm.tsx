@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -58,7 +58,7 @@ export function AssignTeacherForm({
   onCancel,
 }: AssignTeacherFormProps) {
   return (
-    <AdminCard className="p-4 md:p-8 h-full bg-gradient-to-br from-white/60 to-sidebar/5">
+    <AdminCard className="p-4 md:p-5 sm:p-6 h-full">
       <div className="flex items-center justify-between mb-6">
         <h4 className="text-sm font-bold text-gray-500 flex items-center gap-2">
           {editing ? "Edit Assignment" : "Add Assignment"}
@@ -115,7 +115,7 @@ export function AssignTeacherForm({
                 value={selectedSection}
                 onValueChange={setSelectedSection}
               >
-                <SelectTrigger className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all py-6 font-medium">
+                <SelectTrigger aria-label="Section" className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all py-6 font-medium">
                   <SelectValue placeholder="Select Section" />
                 </SelectTrigger>
                 <SelectContent>
@@ -144,7 +144,7 @@ export function AssignTeacherForm({
                 value={selectedTeacher}
                 onValueChange={setSelectedTeacher}
               >
-                <SelectTrigger className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all py-6 font-medium">
+                <SelectTrigger aria-label="Teacher" className="pl-10 bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all py-6 font-medium">
                   <SelectValue placeholder="Select Teacher" />
                 </SelectTrigger>
                 <SelectContent>

@@ -1,0 +1,3473 @@
+{
+  "scope": "All existing routes in the 21 requested modules, including aliases and nested editors, reports, histories and detail views",
+  "routeCount": 133,
+  "modules": [
+    {
+      "name": "Student Info",
+      "routes": [
+        "/admin/student-info/add",
+        "/admin/student-info/attendance",
+        "/admin/student-info/category",
+        "/admin/student-info/group",
+        "/admin/student-info/list",
+        "/admin/student-info/promote",
+        "/admin/student-info/studentexport",
+        "/admin/student-info/wise-attendance"
+      ]
+    },
+    {
+      "name": "Behaviour Records",
+      "routes": [
+        "/admin/behaviour/assign",
+        "/admin/behaviour/class-report",
+        "/admin/behaviour/incident-wise",
+        "/admin/behaviour/incidents",
+        "/admin/behaviour/report",
+        "/admin/behaviour/student-report"
+      ]
+    },
+    {
+      "name": "Fees",
+      "routes": [
+        "/admin/fee/carry-forward",
+        "/admin/fee/group",
+        "/admin/fee/invoice-report",
+        "/admin/fee/type",
+        "/admin/fees/carry-forward",
+        "/admin/fees/group",
+        "/admin/fees/invoice",
+        "/admin/fees/type"
+      ]
+    },
+    {
+      "name": "Homework",
+      "routes": [
+        "/admin/homework/add",
+        "/admin/homework/list",
+        "/admin/homework/report"
+      ]
+    },
+    {
+      "name": "Library",
+      "routes": [
+        "/admin/library/book",
+        "/admin/library/booklist",
+        "/admin/library/category",
+        "/admin/library/issue-return",
+        "/admin/library/issued",
+        "/admin/library/members",
+        "/admin/library/subject"
+      ]
+    },
+    {
+      "name": "Examination",
+      "routes": [
+        "/admin/examination/attendance",
+        "/admin/examination/marks-grade",
+        "/admin/examination/marks-register",
+        "/admin/examination/marksheet",
+        "/admin/examination/schedule",
+        "/admin/examination/setup",
+        "/admin/examination/type"
+      ]
+    },
+    {
+      "name": "Exam Plan",
+      "routes": [
+        "/admin/exam-plan/admit-card",
+        "/admin/exam-plan/seat-plan"
+      ]
+    },
+    {
+      "name": "Online Exam",
+      "routes": [
+        "/admin/online-exam/exam",
+        "/admin/online-exam/question-bank",
+        "/admin/online-exam/question-group"
+      ]
+    },
+    {
+      "name": "Human Resource",
+      "routes": [
+        "/admin/hr/add-staff",
+        "/admin/hr/attendance",
+        "/admin/hr/department",
+        "/admin/hr/designation",
+        "/admin/hr/payroll",
+        "/admin/hr/staff-list",
+        "/admin/human-resource/department",
+        "/admin/human-resource/designation",
+        "/admin/human-resource/payroll",
+        "/admin/human-resource/staff/add",
+        "/admin/human-resource/staff",
+        "/admin/human-resource/staff-attendance"
+      ]
+    },
+    {
+      "name": "Teacher Evaluation",
+      "routes": [
+        "/admin/teacher-evaluation/approved",
+        "/admin/teacher-evaluation/pending",
+        "/admin/teacher-evaluation/setting",
+        "/admin/teacher-evaluation/teacher-wise"
+      ]
+    },
+    {
+      "name": "Leave",
+      "routes": [
+        "/admin/leave/apply",
+        "/admin/leave/approveleaverequest",
+        "/admin/leave/define",
+        "/admin/leave/type"
+      ]
+    },
+    {
+      "name": "Admin Section",
+      "routes": [
+        "/admin/admin-section/admission-query",
+        "/admin/admin-section/certificate",
+        "/admin/admin-section/complaint",
+        "/admin/admin-section/generate-certificate",
+        "/admin/admin-section/generate-id",
+        "/admin/admin-section/id-card",
+        "/admin/admin-section/phone-log",
+        "/admin/admin-section/postal-dispatch",
+        "/admin/admin-section/postal-receive",
+        "/admin/admin-section/setup",
+        "/admin/admin-section/visitor-book"
+      ]
+    },
+    {
+      "name": "Academics",
+      "routes": [
+        "/admin/academic/assign-class-teacher",
+        "/admin/academic/assign-subject",
+        "/admin/academic/class",
+        "/admin/academic/class-room",
+        "/admin/academic/class-routine",
+        "/admin/academic/section",
+        "/admin/academic/subject",
+        "/admin/academics/assign-subject",
+        "/admin/academics/assign-teacher",
+        "/admin/academics/class",
+        "/admin/academics/classroom",
+        "/admin/academics/routine",
+        "/admin/academics/section",
+        "/admin/academics/subjects"
+      ]
+    },
+    {
+      "name": "Study Material",
+      "routes": [
+        "/admin/study-material/assignment",
+        "/admin/study-material/downloads",
+        "/admin/study-material/syllabus",
+        "/admin/study-material/upload"
+      ]
+    },
+    {
+      "name": "Lesson Plan",
+      "routes": [
+        "/admin/lesson-plan/lesson",
+        "/admin/lesson-plan/lesson-overview",
+        "/admin/lesson-plan/plan",
+        "/admin/lesson-plan/topic",
+        "/admin/lesson-plan/topic-overview"
+      ]
+    },
+    {
+      "name": "Bulk Print",
+      "routes": [
+        "/admin/bulk-print/certificate",
+        "/admin/bulk-print/fees",
+        "/admin/bulk-print/id",
+        "/admin/bulk-print/payroll"
+      ]
+    },
+    {
+      "name": "Download Centre",
+      "routes": [
+        "/admin/download-center/list",
+        "/admin/download-center/shared",
+        "/admin/download-center/type",
+        "/admin/download-center/video"
+      ]
+    },
+    {
+      "name": "Accounts",
+      "routes": [
+        "/admin/accounts/accounts/bankaccount",
+        "/admin/accounts/accounts/chartofaccount",
+        "/admin/accounts/accounts/expence",
+        "/admin/accounts/accounts/fundtransfer",
+        "/admin/accounts/accounts/income",
+        "/admin/accounts/accounts/profitandlost",
+        "/admin/accounts/wallet/approveddeposit",
+        "/admin/accounts/wallet/pendingdeposit",
+        "/admin/accounts/wallet/refundrequest",
+        "/admin/accounts/wallet/rejectdeposit",
+        "/admin/accounts/wallet/wallettransaction"
+      ]
+    },
+    {
+      "name": "Communicate",
+      "routes": [
+        "/admin/accounts/communicate/calendar",
+        "/admin/accounts/communicate/emailsmsandlog",
+        "/admin/accounts/communicate/event",
+        "/admin/accounts/communicate/noticeboard",
+        "/admin/accounts/communicate/sendemailandsms"
+      ]
+    },
+    {
+      "name": "Inventory",
+      "routes": [
+        "/admin/accounts/inventory/itemcategory",
+        "/admin/accounts/inventory/itemissue",
+        "/admin/accounts/inventory/itemlist",
+        "/admin/accounts/inventory/itemreceive",
+        "/admin/accounts/inventory/itemreceivelist",
+        "/admin/accounts/inventory/itemselllist",
+        "/admin/accounts/inventory/itemstore",
+        "/admin/accounts/inventory/supplier"
+      ]
+    },
+    {
+      "name": "Dormitory",
+      "routes": [
+        "/admin/dormitory/dormitory",
+        "/admin/dormitory/dormitoryrooms",
+        "/admin/dormitory/roomtype"
+      ]
+    }
+  ],
+  "sharedFindingsAndFixes": [
+    {
+      "issue": "Card wrapper detached spacing and flex utilities from their content",
+      "fix": "ModuleCard renders direct children. Dashboard retains the original AdminCard."
+    },
+    {
+      "issue": "Wide grids and table contents could expand the app shell",
+      "fix": "Module-only minimum widths, responsive grids and contained horizontal table scrolling."
+    },
+    {
+      "issue": "Oversized table rows and inconsistent native/component control styling",
+      "fix": "Scoped table density, readable headings, uniform fields, focus states, disabled states and errors."
+    },
+    {
+      "issue": "Financial amounts lacked consistent numeric alignment",
+      "fix": "Right-aligned tabular amounts and matching headers; corrected empty-row column spans."
+    },
+    {
+      "issue": "Pagination rendered every page button",
+      "fix": "Bounded navigation with first, last and neighboring pages, accessible names and current-page state."
+    },
+    {
+      "issue": "Toolbar displayed a nonfunctional filter button",
+      "fix": "Only show the filter action when a handler is supplied; preserve existing route filters and search."
+    },
+    {
+      "issue": "New finance and campus drafts opened below long tables without focus",
+      "fix": "Inline editors reveal themselves, receive keyboard focus and restore the opener on close."
+    },
+    {
+      "issue": "Custom choice tiles could only be clicked with a pointer",
+      "fix": "Academic section/type choices use buttons with pressed and disabled states."
+    },
+    {
+      "issue": "Legacy academic pages used a conflicting indigo palette and ornate labels",
+      "fix": "Reuse school teal, practical labels, compact card styling and accessible control names."
+    },
+    {
+      "issue": "Staff onboarding used four narrow columns at tablet sizes",
+      "fix": "Two columns on tablets, four on large desktops, compact actions and responsive card padding."
+    },
+    {
+      "issue": "Select popovers could exceed narrow viewports",
+      "fix": "Constrain popover width and allow the options viewport to use its available height."
+    },
+    {
+      "issue": "Split form/list layouts became narrow beside the desktop sidebar at 1024px",
+      "fix": "Keep 12-column form/list workspaces stacked until the xl breakpoint; use dynamic viewport height on module routes for mobile browser chrome."
+    }
+  ],
+  "preserved": {
+    "dashboardSourceUnchanged": true,
+    "originalDashboardCardUnchanged": true,
+    "sidebarAndHeaderUnchanged": true,
+    "apiAuthAndBackendFilesUnchanged": true,
+    "dependenciesUnchanged": true
+  },
+  "verification": {
+    "baselineBuild": "passed",
+    "baselineLint": "0 errors; 42 pre-existing warnings",
+    "typescript": "passed: npx tsc --noEmit",
+    "lint": "passed: 0 errors; 42 unchanged pre-existing warnings",
+    "productionBuild": "passed: npm run build; 227 pages generated",
+    "regressionTests": "passed: 216 tests, 0 failures",
+    "browser": "Unauthenticated /admin/student-info/list correctly redirects to the login screen. No auth bypass or production mock data was introduced.",
+    "diffCheck": "passed: git diff --check",
+    "responsiveComponentChecks": {
+      "method": "Actual SubjectForm, DataTable, PageHeader and ModuleCard rendered into a temporary component-only preview with the production Tailwind stylesheet and scoped module styles. Empty registry; no backend data replaced.",
+      "results": [
+        {
+          "width": 320,
+          "pageOverflow": false,
+          "moduleOverflow": false,
+          "tableScroll": true
+        },
+        {
+          "width": 375,
+          "pageOverflow": false,
+          "moduleOverflow": false,
+          "tableScroll": true
+        },
+        {
+          "width": 768,
+          "pageOverflow": false,
+          "moduleOverflow": false,
+          "tableScroll": false
+        },
+        {
+          "width": 1024,
+          "pageOverflow": false,
+          "moduleOverflow": false,
+          "tableScroll": false
+        },
+        {
+          "width": 1440,
+          "pageOverflow": false,
+          "moduleOverflow": false,
+          "tableScroll": false
+        }
+      ],
+      "limitation": "Component preview checks cover shared layout primitives; they are not authenticated end-to-end checks of every page."
+    }
+  },
+  "remainingIssues": [
+    "Authenticated visual and live API checks across all 133 routes require sign-in; source inspection and regression tests do not establish live end-to-end verification.",
+    "No custom modal exists in the active module render trees. Editors remain inline; native confirmation dialogs and existing backend gates are preserved.",
+    "42 existing ESLint warnings remain outside the changed active UI code, including Dashboard images and unused imports in inactive legacy components."
+  ],
+  "changedFiles": [
+    "app/admin/academic/assign-subject/page.tsx",
+    "app/admin/academic/class-room/page.tsx",
+    "app/admin/academic/class-routine/page.tsx",
+    "app/admin/academic/subject/page.tsx",
+    "app/admin/academics/assign-subject/page.tsx",
+    "app/admin/academics/assign-teacher/page.tsx",
+    "app/admin/academics/class/page.tsx",
+    "app/admin/academics/classroom/page.tsx",
+    "app/admin/academics/routine/page.tsx",
+    "app/admin/academics/section/page.tsx",
+    "app/admin/academics/subjects/page.tsx",
+    "app/admin/hr/add-staff/page.tsx",
+    "app/admin/hr/department/page.tsx",
+    "app/admin/hr/designation/page.tsx",
+    "components/common/DataTable.tsx",
+    "components/common/ListActionButtons.tsx",
+    "components/common/ListPagination.tsx",
+    "components/common/ListToolbar.tsx",
+    "components/common/ModuleCard.tsx",
+    "components/common/ModuleEditor.tsx",
+    "components/common/PageHeader.tsx",
+    "components/layout/AdminLayout.tsx",
+    "components/layout/module-ui.css",
+    "components/modules/academic-work/WorkPanel.tsx",
+    "components/modules/academics/AssignSubjectForm.tsx",
+    "components/modules/academics/AssignTeacherForm.tsx",
+    "components/modules/academics/ClassForm.tsx",
+    "components/modules/academics/ClassRoomForm.tsx",
+    "components/modules/academics/RoutineForm.tsx",
+    "components/modules/academics/SectionForm.tsx",
+    "components/modules/academics/SubjectForm.tsx",
+    "components/modules/administration/AdministrationPanel.tsx",
+    "components/modules/bulk-print/FinanceBatchPrint.tsx",
+    "components/modules/documents/DocumentDesigner.tsx",
+    "components/modules/documents/DocumentWorkspace.tsx",
+    "components/modules/examination/AdmissionPrint.tsx",
+    "components/modules/examination/ExaminationPanel.tsx",
+    "components/modules/finance/FinancePanel.tsx",
+    "components/modules/hr/DepartmentForm.tsx",
+    "components/modules/hr/DesignationForm.tsx",
+    "components/modules/online-campus/CampusPanel.tsx",
+    "components/modules/operations/OperationsPanel.tsx",
+    "components/modules/reports/AttendanceReport.tsx",
+    "components/modules/reports/OperationalPanel.tsx",
+    "components/modules/reports/StudentReports.tsx",
+    "components/modules/settings/ContentHistory.tsx",
+    "components/modules/settings/FoundationRecordsPanel.tsx",
+    "components/modules/student-info/AttendanceRegister.tsx",
+    "components/modules/student-info/StudentDirectory.tsx",
+    "components/modules/student-info/StudentEditorPanel.tsx",
+    "components/modules/study-material/CalendarPanel.tsx",
+    "components/modules/study-material/FileAttachmentPanel.tsx",
+    "components/modules/study-material/FileLibrary.tsx",
+    "components/modules/study-material/PublicationPanel.tsx",
+    "components/ui/select.tsx",
+    "components/ui/table.tsx",
+    "docs/FRONTEND_UI_AUDIT.json",
+    "lib/module-ui.ts",
+    "scripts/audit-module-ui.mjs",
+    "tests/academics/admin-operations.test.cjs",
+    "tests/academics/document-routes.test.cjs",
+    "tests/academics/finance.test.cjs",
+    "tests/academics/module-ui.test.cjs",
+    "tests/academics/online-campus.test.cjs",
+    "tests/academics/report-routines.test.cjs",
+    "tests/academics/table-pagination.test.cjs",
+    "tests/academics/transport.test.cjs",
+    "tests/students/reports.test.cjs"
+  ],
+  "routes": [
+    {
+      "module": "Academics",
+      "route": "/admin/academic/assign-class-teacher",
+      "file": "app/admin/academic/assign-class-teacher/page.tsx",
+      "renderedFiles": [
+        "app/admin/academic/assign-class-teacher/page.tsx",
+        "app/admin/academics/assign-teacher/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academics/AssignTeacherForm.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/select.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Academics",
+      "route": "/admin/academic/assign-subject",
+      "file": "app/admin/academic/assign-subject/page.tsx",
+      "renderedFiles": [
+        "app/admin/academic/assign-subject/page.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Academics",
+      "route": "/admin/academic/class",
+      "file": "app/admin/academic/class/page.tsx",
+      "renderedFiles": [
+        "app/admin/academic/class/page.tsx",
+        "app/admin/academics/class/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academics/ClassForm.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/select.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Academics",
+      "route": "/admin/academic/class-room",
+      "file": "app/admin/academic/class-room/page.tsx",
+      "renderedFiles": [
+        "app/admin/academic/class-room/page.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/use-classrooms.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Academics",
+      "route": "/admin/academic/class-routine",
+      "file": "app/admin/academic/class-routine/page.tsx",
+      "renderedFiles": [
+        "app/admin/academic/class-routine/page.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/use-class-routines.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Academics",
+      "route": "/admin/academic/section",
+      "file": "app/admin/academic/section/page.tsx",
+      "renderedFiles": [
+        "app/admin/academic/section/page.tsx",
+        "app/admin/academics/section/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academics/SectionForm.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Academics",
+      "route": "/admin/academic/subject",
+      "file": "app/admin/academic/subject/page.tsx",
+      "renderedFiles": [
+        "app/admin/academic/subject/page.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/use-school-subjects.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Academics",
+      "route": "/admin/academics/assign-subject",
+      "file": "app/admin/academics/assign-subject/page.tsx",
+      "renderedFiles": [
+        "app/admin/academics/assign-subject/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academics/AssignSubjectForm.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/select.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Academics",
+      "route": "/admin/academics/assign-teacher",
+      "file": "app/admin/academics/assign-teacher/page.tsx",
+      "renderedFiles": [
+        "app/admin/academics/assign-teacher/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academics/AssignTeacherForm.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/select.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Academics",
+      "route": "/admin/academics/class",
+      "file": "app/admin/academics/class/page.tsx",
+      "renderedFiles": [
+        "app/admin/academics/class/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academics/ClassForm.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/select.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Academics",
+      "route": "/admin/academics/classroom",
+      "file": "app/admin/academics/classroom/page.tsx",
+      "renderedFiles": [
+        "app/admin/academics/classroom/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academics/ClassRoomForm.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/use-classrooms.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Academics",
+      "route": "/admin/academics/routine",
+      "file": "app/admin/academics/routine/page.tsx",
+      "renderedFiles": [
+        "app/admin/academics/routine/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academics/RoutineForm.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/select.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/use-class-routines.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Academics",
+      "route": "/admin/academics/section",
+      "file": "app/admin/academics/section/page.tsx",
+      "renderedFiles": [
+        "app/admin/academics/section/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academics/SectionForm.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Academics",
+      "route": "/admin/academics/subjects",
+      "file": "app/admin/academics/subjects/page.tsx",
+      "renderedFiles": [
+        "app/admin/academics/subjects/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academics/SubjectForm.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/use-school-subjects.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Accounts",
+      "route": "/admin/accounts/accounts/bankaccount",
+      "file": "app/admin/accounts/accounts/bankaccount/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/accounts/bankaccount/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Accounts",
+      "route": "/admin/accounts/accounts/chartofaccount",
+      "file": "app/admin/accounts/accounts/chartofaccount/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/accounts/chartofaccount/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Accounts",
+      "route": "/admin/accounts/accounts/expence",
+      "file": "app/admin/accounts/accounts/expence/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/accounts/expence/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Accounts",
+      "route": "/admin/accounts/accounts/fundtransfer",
+      "file": "app/admin/accounts/accounts/fundtransfer/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/accounts/fundtransfer/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Accounts",
+      "route": "/admin/accounts/accounts/income",
+      "file": "app/admin/accounts/accounts/income/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/accounts/income/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Accounts",
+      "route": "/admin/accounts/accounts/profitandlost",
+      "file": "app/admin/accounts/accounts/profitandlost/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/accounts/profitandlost/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Communicate",
+      "route": "/admin/accounts/communicate/calendar",
+      "file": "app/admin/accounts/communicate/calendar/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/communicate/calendar/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/study-material/CalendarPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Communicate",
+      "route": "/admin/accounts/communicate/emailsmsandlog",
+      "file": "app/admin/accounts/communicate/emailsmsandlog/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/communicate/emailsmsandlog/page.tsx",
+        "components/common/AdminCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/reports/OperationalPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/admin-operations-client.ts",
+        "lib/document-print.ts",
+        "lib/documents-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Communicate",
+      "route": "/admin/accounts/communicate/event",
+      "file": "app/admin/accounts/communicate/event/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/communicate/event/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/settings/ContentHistory.tsx",
+        "components/modules/study-material/FileChooser.tsx",
+        "components/modules/study-material/PublicationPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-publications.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Communicate",
+      "route": "/admin/accounts/communicate/noticeboard",
+      "file": "app/admin/accounts/communicate/noticeboard/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/communicate/noticeboard/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/settings/ContentHistory.tsx",
+        "components/modules/study-material/FileChooser.tsx",
+        "components/modules/study-material/PublicationPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-publications.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Communicate",
+      "route": "/admin/accounts/communicate/sendemailandsms",
+      "file": "app/admin/accounts/communicate/sendemailandsms/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/communicate/sendemailandsms/page.tsx",
+        "components/common/AdminCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/reports/OperationalPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/admin-operations-client.ts",
+        "lib/document-print.ts",
+        "lib/documents-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Inventory",
+      "route": "/admin/accounts/inventory/itemcategory",
+      "file": "app/admin/accounts/inventory/itemcategory/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/inventory/itemcategory/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/operations/OperationChoice.tsx",
+        "components/modules/operations/OperationsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-operations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-operations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Inventory",
+      "route": "/admin/accounts/inventory/itemissue",
+      "file": "app/admin/accounts/inventory/itemissue/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/inventory/itemissue/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/operations/OperationChoice.tsx",
+        "components/modules/operations/OperationsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-operations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-operations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Inventory",
+      "route": "/admin/accounts/inventory/itemlist",
+      "file": "app/admin/accounts/inventory/itemlist/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/inventory/itemlist/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/operations/OperationChoice.tsx",
+        "components/modules/operations/OperationsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-operations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-operations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Inventory",
+      "route": "/admin/accounts/inventory/itemreceive",
+      "file": "app/admin/accounts/inventory/itemreceive/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/inventory/itemreceive/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/operations/OperationChoice.tsx",
+        "components/modules/operations/OperationsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-operations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-operations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Inventory",
+      "route": "/admin/accounts/inventory/itemreceivelist",
+      "file": "app/admin/accounts/inventory/itemreceivelist/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/inventory/itemreceivelist/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/operations/OperationChoice.tsx",
+        "components/modules/operations/OperationsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-operations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-operations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Inventory",
+      "route": "/admin/accounts/inventory/itemselllist",
+      "file": "app/admin/accounts/inventory/itemselllist/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/inventory/itemselllist/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/operations/OperationChoice.tsx",
+        "components/modules/operations/OperationsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-operations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-operations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Inventory",
+      "route": "/admin/accounts/inventory/itemstore",
+      "file": "app/admin/accounts/inventory/itemstore/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/inventory/itemstore/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/operations/OperationChoice.tsx",
+        "components/modules/operations/OperationsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-operations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-operations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Inventory",
+      "route": "/admin/accounts/inventory/supplier",
+      "file": "app/admin/accounts/inventory/supplier/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/inventory/supplier/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/operations/OperationChoice.tsx",
+        "components/modules/operations/OperationsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-operations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-operations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Accounts",
+      "route": "/admin/accounts/wallet/approveddeposit",
+      "file": "app/admin/accounts/wallet/approveddeposit/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/wallet/approveddeposit/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Accounts",
+      "route": "/admin/accounts/wallet/pendingdeposit",
+      "file": "app/admin/accounts/wallet/pendingdeposit/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/wallet/pendingdeposit/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Accounts",
+      "route": "/admin/accounts/wallet/refundrequest",
+      "file": "app/admin/accounts/wallet/refundrequest/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/wallet/refundrequest/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Accounts",
+      "route": "/admin/accounts/wallet/rejectdeposit",
+      "file": "app/admin/accounts/wallet/rejectdeposit/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/wallet/rejectdeposit/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Accounts",
+      "route": "/admin/accounts/wallet/wallettransaction",
+      "file": "app/admin/accounts/wallet/wallettransaction/page.tsx",
+      "renderedFiles": [
+        "app/admin/accounts/wallet/wallettransaction/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Admin Section",
+      "route": "/admin/admin-section/admission-query",
+      "file": "app/admin/admin-section/admission-query/page.tsx",
+      "renderedFiles": [
+        "app/admin/admin-section/admission-query/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/online-campus/CampusPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/campus-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Admin Section",
+      "route": "/admin/admin-section/certificate",
+      "file": "app/admin/admin-section/certificate/page.tsx",
+      "renderedFiles": [
+        "app/admin/admin-section/certificate/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/documents/DocumentDesigner.tsx",
+        "components/ui/button.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/document-print.ts",
+        "lib/documents-client.ts",
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Admin Section",
+      "route": "/admin/admin-section/complaint",
+      "file": "app/admin/admin-section/complaint/page.tsx",
+      "renderedFiles": [
+        "app/admin/admin-section/complaint/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/online-campus/CampusPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/campus-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Admin Section",
+      "route": "/admin/admin-section/generate-certificate",
+      "file": "app/admin/admin-section/generate-certificate/page.tsx",
+      "renderedFiles": [
+        "app/admin/admin-section/generate-certificate/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/documents/DocumentDesigner.tsx",
+        "components/modules/documents/DocumentWorkspace.tsx",
+        "components/ui/button.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/document-print.ts",
+        "lib/documents-client.ts",
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Admin Section",
+      "route": "/admin/admin-section/generate-id",
+      "file": "app/admin/admin-section/generate-id/page.tsx",
+      "renderedFiles": [
+        "app/admin/admin-section/generate-id/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/documents/DocumentDesigner.tsx",
+        "components/modules/documents/DocumentWorkspace.tsx",
+        "components/ui/button.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/document-print.ts",
+        "lib/documents-client.ts",
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Admin Section",
+      "route": "/admin/admin-section/id-card",
+      "file": "app/admin/admin-section/id-card/page.tsx",
+      "renderedFiles": [
+        "app/admin/admin-section/id-card/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/documents/DocumentDesigner.tsx",
+        "components/ui/button.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/document-print.ts",
+        "lib/documents-client.ts",
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Admin Section",
+      "route": "/admin/admin-section/phone-log",
+      "file": "app/admin/admin-section/phone-log/page.tsx",
+      "renderedFiles": [
+        "app/admin/admin-section/phone-log/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/online-campus/CampusPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/campus-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Admin Section",
+      "route": "/admin/admin-section/postal-dispatch",
+      "file": "app/admin/admin-section/postal-dispatch/page.tsx",
+      "renderedFiles": [
+        "app/admin/admin-section/postal-dispatch/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/online-campus/CampusPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/campus-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Admin Section",
+      "route": "/admin/admin-section/postal-receive",
+      "file": "app/admin/admin-section/postal-receive/page.tsx",
+      "renderedFiles": [
+        "app/admin/admin-section/postal-receive/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/online-campus/CampusPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/campus-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Admin Section",
+      "route": "/admin/admin-section/setup",
+      "file": "app/admin/admin-section/setup/page.tsx",
+      "renderedFiles": [
+        "app/admin/admin-section/setup/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/online-campus/CampusPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/campus-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Admin Section",
+      "route": "/admin/admin-section/visitor-book",
+      "file": "app/admin/admin-section/visitor-book/page.tsx",
+      "renderedFiles": [
+        "app/admin/admin-section/visitor-book/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/online-campus/CampusPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/campus-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Behaviour Records",
+      "route": "/admin/behaviour/assign",
+      "file": "app/admin/behaviour/assign/page.tsx",
+      "renderedFiles": [
+        "app/admin/behaviour/assign/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/administration/AdministrationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-administration-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-administration.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Behaviour Records",
+      "route": "/admin/behaviour/class-report",
+      "file": "app/admin/behaviour/class-report/page.tsx",
+      "renderedFiles": [
+        "app/admin/behaviour/class-report/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/administration/AdministrationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-administration-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-administration.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Behaviour Records",
+      "route": "/admin/behaviour/incident-wise",
+      "file": "app/admin/behaviour/incident-wise/page.tsx",
+      "renderedFiles": [
+        "app/admin/behaviour/incident-wise/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/administration/AdministrationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-administration-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-administration.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Behaviour Records",
+      "route": "/admin/behaviour/incidents",
+      "file": "app/admin/behaviour/incidents/page.tsx",
+      "renderedFiles": [
+        "app/admin/behaviour/incidents/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/administration/AdministrationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-administration-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-administration.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Behaviour Records",
+      "route": "/admin/behaviour/report",
+      "file": "app/admin/behaviour/report/page.tsx",
+      "renderedFiles": [
+        "app/admin/behaviour/report/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/administration/AdministrationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-administration-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-administration.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Behaviour Records",
+      "route": "/admin/behaviour/student-report",
+      "file": "app/admin/behaviour/student-report/page.tsx",
+      "renderedFiles": [
+        "app/admin/behaviour/student-report/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/administration/AdministrationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-administration-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-administration.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Bulk Print",
+      "route": "/admin/bulk-print/certificate",
+      "file": "app/admin/bulk-print/certificate/page.tsx",
+      "renderedFiles": [
+        "app/admin/bulk-print/certificate/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/documents/DocumentDesigner.tsx",
+        "components/modules/documents/DocumentWorkspace.tsx",
+        "components/ui/button.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/document-print.ts",
+        "lib/documents-client.ts",
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Bulk Print",
+      "route": "/admin/bulk-print/fees",
+      "file": "app/admin/bulk-print/fees/page.tsx",
+      "renderedFiles": [
+        "app/admin/bulk-print/fees/page.tsx",
+        "components/common/AdminCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/bulk-print/FinanceBatchPrint.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/document-print.ts",
+        "lib/documents-client.ts",
+        "lib/finance-client.ts",
+        "lib/finance-print.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Bulk Print",
+      "route": "/admin/bulk-print/id",
+      "file": "app/admin/bulk-print/id/page.tsx",
+      "renderedFiles": [
+        "app/admin/bulk-print/id/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/documents/DocumentDesigner.tsx",
+        "components/modules/documents/DocumentWorkspace.tsx",
+        "components/ui/button.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/document-print.ts",
+        "lib/documents-client.ts",
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Bulk Print",
+      "route": "/admin/bulk-print/payroll",
+      "file": "app/admin/bulk-print/payroll/page.tsx",
+      "renderedFiles": [
+        "app/admin/bulk-print/payroll/page.tsx",
+        "components/common/AdminCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/bulk-print/FinanceBatchPrint.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/document-print.ts",
+        "lib/documents-client.ts",
+        "lib/finance-client.ts",
+        "lib/finance-print.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Dormitory",
+      "route": "/admin/dormitory/dormitory",
+      "file": "app/admin/dormitory/dormitory/page.tsx",
+      "renderedFiles": [
+        "app/admin/dormitory/dormitory/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/online-campus/CampusPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/campus-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Dormitory",
+      "route": "/admin/dormitory/dormitoryrooms",
+      "file": "app/admin/dormitory/dormitoryrooms/page.tsx",
+      "renderedFiles": [
+        "app/admin/dormitory/dormitoryrooms/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/online-campus/CampusPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/campus-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Dormitory",
+      "route": "/admin/dormitory/roomtype",
+      "file": "app/admin/dormitory/roomtype/page.tsx",
+      "renderedFiles": [
+        "app/admin/dormitory/roomtype/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/online-campus/CampusPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/campus-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Download Centre",
+      "route": "/admin/download-center/list",
+      "file": "app/admin/download-center/list/page.tsx",
+      "renderedFiles": [
+        "app/admin/download-center/list/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/settings/ContentHistory.tsx",
+        "components/modules/study-material/FileChooser.tsx",
+        "components/modules/study-material/PublicationPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-publications.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Download Centre",
+      "route": "/admin/download-center/shared",
+      "file": "app/admin/download-center/shared/page.tsx",
+      "renderedFiles": [
+        "app/admin/download-center/shared/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/settings/ContentHistory.tsx",
+        "components/modules/study-material/FileChooser.tsx",
+        "components/modules/study-material/PublicationPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-publications.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Download Centre",
+      "route": "/admin/download-center/type",
+      "file": "app/admin/download-center/type/page.tsx",
+      "renderedFiles": [
+        "app/admin/download-center/type/page.tsx",
+        "components/common/AdminCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/reports/OperationalPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/admin-operations-client.ts",
+        "lib/document-print.ts",
+        "lib/documents-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Download Centre",
+      "route": "/admin/download-center/video",
+      "file": "app/admin/download-center/video/page.tsx",
+      "renderedFiles": [
+        "app/admin/download-center/video/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/settings/ContentHistory.tsx",
+        "components/modules/study-material/FileChooser.tsx",
+        "components/modules/study-material/PublicationPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-publications.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Exam Plan",
+      "route": "/admin/exam-plan/admit-card",
+      "file": "app/admin/exam-plan/admit-card/page.tsx",
+      "renderedFiles": [
+        "app/admin/exam-plan/admit-card/page.tsx",
+        "components/common/AdminCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/examination/AdmissionPrint.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/document-print.ts",
+        "lib/documents-client.ts",
+        "lib/examinations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Exam Plan",
+      "route": "/admin/exam-plan/seat-plan",
+      "file": "app/admin/exam-plan/seat-plan/page.tsx",
+      "renderedFiles": [
+        "app/admin/exam-plan/seat-plan/page.tsx",
+        "components/common/AdminCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/reports/OperationalPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/admin-operations-client.ts",
+        "lib/document-print.ts",
+        "lib/documents-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Examination",
+      "route": "/admin/examination/attendance",
+      "file": "app/admin/examination/attendance/page.tsx",
+      "renderedFiles": [
+        "app/admin/examination/attendance/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/examination/ExaminationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/examinations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-examinations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Examination",
+      "route": "/admin/examination/marks-grade",
+      "file": "app/admin/examination/marks-grade/page.tsx",
+      "renderedFiles": [
+        "app/admin/examination/marks-grade/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/examination/ExaminationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/examinations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-examinations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Examination",
+      "route": "/admin/examination/marks-register",
+      "file": "app/admin/examination/marks-register/page.tsx",
+      "renderedFiles": [
+        "app/admin/examination/marks-register/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/examination/ExaminationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/examinations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-examinations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Examination",
+      "route": "/admin/examination/marksheet",
+      "file": "app/admin/examination/marksheet/page.tsx",
+      "renderedFiles": [
+        "app/admin/examination/marksheet/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/examination/ExaminationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/examinations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-examinations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Examination",
+      "route": "/admin/examination/schedule",
+      "file": "app/admin/examination/schedule/page.tsx",
+      "renderedFiles": [
+        "app/admin/examination/schedule/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/examination/ExaminationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/examinations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-examinations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Examination",
+      "route": "/admin/examination/setup",
+      "file": "app/admin/examination/setup/page.tsx",
+      "renderedFiles": [
+        "app/admin/examination/setup/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/examination/ExaminationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/examinations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-examinations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Examination",
+      "route": "/admin/examination/type",
+      "file": "app/admin/examination/type/page.tsx",
+      "renderedFiles": [
+        "app/admin/examination/type/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/examination/ExaminationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/examinations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-examinations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Fees",
+      "route": "/admin/fee/carry-forward",
+      "file": "app/admin/fee/carry-forward/page.tsx",
+      "renderedFiles": [
+        "app/admin/fee/carry-forward/page.tsx",
+        "components/common/AdminCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/reports/OperationalPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/admin-operations-client.ts",
+        "lib/document-print.ts",
+        "lib/documents-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Fees",
+      "route": "/admin/fee/group",
+      "file": "app/admin/fee/group/page.tsx",
+      "renderedFiles": [
+        "app/admin/fee/group/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Fees",
+      "route": "/admin/fee/invoice-report",
+      "file": "app/admin/fee/invoice-report/page.tsx",
+      "renderedFiles": [
+        "app/admin/fee/invoice-report/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Fees",
+      "route": "/admin/fee/type",
+      "file": "app/admin/fee/type/page.tsx",
+      "renderedFiles": [
+        "app/admin/fee/type/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Fees",
+      "route": "/admin/fees/carry-forward",
+      "file": "app/admin/fees/carry-forward/page.tsx",
+      "renderedFiles": [
+        "app/admin/fees/carry-forward/page.tsx",
+        "components/common/AdminCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/reports/OperationalPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/admin-operations-client.ts",
+        "lib/document-print.ts",
+        "lib/documents-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Fees",
+      "route": "/admin/fees/group",
+      "file": "app/admin/fees/group/page.tsx",
+      "renderedFiles": [
+        "app/admin/fees/group/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Fees",
+      "route": "/admin/fees/invoice",
+      "file": "app/admin/fees/invoice/page.tsx",
+      "renderedFiles": [
+        "app/admin/fees/invoice/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Fees",
+      "route": "/admin/fees/type",
+      "file": "app/admin/fees/type/page.tsx",
+      "renderedFiles": [
+        "app/admin/fees/type/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Homework",
+      "route": "/admin/homework/add",
+      "file": "app/admin/homework/add/page.tsx",
+      "renderedFiles": [
+        "app/admin/homework/add/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academic-work/WorkPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/academic-work-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-academic-work.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Homework",
+      "route": "/admin/homework/list",
+      "file": "app/admin/homework/list/page.tsx",
+      "renderedFiles": [
+        "app/admin/homework/list/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academic-work/WorkPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/academic-work-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-academic-work.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Homework",
+      "route": "/admin/homework/report",
+      "file": "app/admin/homework/report/page.tsx",
+      "renderedFiles": [
+        "app/admin/homework/report/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academic-work/WorkPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/academic-work-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-academic-work.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Human Resource",
+      "route": "/admin/hr/add-staff",
+      "file": "app/admin/hr/add-staff/page.tsx",
+      "renderedFiles": [
+        "app/admin/hr/add-staff/page.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/study-material/FileAttachmentPanel.tsx",
+        "components/modules/study-material/FileChooser.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Human Resource",
+      "route": "/admin/hr/attendance",
+      "file": "app/admin/hr/attendance/page.tsx",
+      "renderedFiles": [
+        "app/admin/hr/attendance/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/student-info/AttendanceRegister.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-attendance-register.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Human Resource",
+      "route": "/admin/hr/department",
+      "file": "app/admin/hr/department/page.tsx",
+      "renderedFiles": [
+        "app/admin/hr/department/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/hr/DepartmentForm.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Human Resource",
+      "route": "/admin/hr/designation",
+      "file": "app/admin/hr/designation/page.tsx",
+      "renderedFiles": [
+        "app/admin/hr/designation/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/hr/DesignationForm.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Human Resource",
+      "route": "/admin/hr/payroll",
+      "file": "app/admin/hr/payroll/page.tsx",
+      "renderedFiles": [
+        "app/admin/hr/payroll/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Human Resource",
+      "route": "/admin/hr/staff-list",
+      "file": "app/admin/hr/staff-list/page.tsx",
+      "renderedFiles": [
+        "app/admin/hr/staff-list/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Human Resource",
+      "route": "/admin/human-resource/department",
+      "file": "app/admin/human-resource/department/page.tsx",
+      "renderedFiles": [
+        "app/admin/hr/department/page.tsx",
+        "app/admin/human-resource/department/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/hr/DepartmentForm.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Human Resource",
+      "route": "/admin/human-resource/designation",
+      "file": "app/admin/human-resource/designation/page.tsx",
+      "renderedFiles": [
+        "app/admin/hr/designation/page.tsx",
+        "app/admin/human-resource/designation/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/hr/DesignationForm.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Human Resource",
+      "route": "/admin/human-resource/payroll",
+      "file": "app/admin/human-resource/payroll/page.tsx",
+      "renderedFiles": [
+        "app/admin/human-resource/payroll/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/finance/FinancePanel.tsx",
+        "components/modules/settings/SchoolCurrencyField.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/finance-client.ts",
+        "lib/session-client.ts",
+        "lib/use-finance-settings.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Human Resource",
+      "route": "/admin/human-resource/staff/add",
+      "file": "app/admin/human-resource/staff/add/page.tsx",
+      "renderedFiles": [
+        "app/admin/hr/add-staff/page.tsx",
+        "app/admin/human-resource/staff/add/page.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/study-material/FileAttachmentPanel.tsx",
+        "components/modules/study-material/FileChooser.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Human Resource",
+      "route": "/admin/human-resource/staff",
+      "file": "app/admin/human-resource/staff/page.tsx",
+      "renderedFiles": [
+        "app/admin/hr/staff-list/page.tsx",
+        "app/admin/human-resource/staff/page.tsx",
+        "components/common/DataTable.tsx",
+        "components/common/ListActionButtons.tsx",
+        "components/common/ListPagination.tsx",
+        "components/common/ListToolbar.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/api-service.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Human Resource",
+      "route": "/admin/human-resource/staff-attendance",
+      "file": "app/admin/human-resource/staff-attendance/page.tsx",
+      "renderedFiles": [
+        "app/admin/hr/attendance/page.tsx",
+        "app/admin/human-resource/staff-attendance/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/student-info/AttendanceRegister.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-attendance-register.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Leave",
+      "route": "/admin/leave/apply",
+      "file": "app/admin/leave/apply/page.tsx",
+      "renderedFiles": [
+        "app/admin/leave/apply/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/administration/AdministrationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-administration-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-administration.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Leave",
+      "route": "/admin/leave/approveleaverequest",
+      "file": "app/admin/leave/approveleaverequest/page.tsx",
+      "renderedFiles": [
+        "app/admin/leave/approveleaverequest/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/administration/AdministrationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-administration-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-administration.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Leave",
+      "route": "/admin/leave/define",
+      "file": "app/admin/leave/define/page.tsx",
+      "renderedFiles": [
+        "app/admin/leave/define/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/administration/AdministrationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-administration-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-administration.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Leave",
+      "route": "/admin/leave/type",
+      "file": "app/admin/leave/type/page.tsx",
+      "renderedFiles": [
+        "app/admin/leave/type/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/administration/AdministrationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-administration-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-administration.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Lesson Plan",
+      "route": "/admin/lesson-plan/lesson",
+      "file": "app/admin/lesson-plan/lesson/page.tsx",
+      "renderedFiles": [
+        "app/admin/lesson-plan/lesson/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academic-work/WorkPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/academic-work-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-academic-work.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Lesson Plan",
+      "route": "/admin/lesson-plan/lesson-overview",
+      "file": "app/admin/lesson-plan/lesson-overview/page.tsx",
+      "renderedFiles": [
+        "app/admin/lesson-plan/lesson-overview/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academic-work/WorkPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/academic-work-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-academic-work.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Lesson Plan",
+      "route": "/admin/lesson-plan/plan",
+      "file": "app/admin/lesson-plan/plan/page.tsx",
+      "renderedFiles": [
+        "app/admin/lesson-plan/plan/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academic-work/WorkPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/academic-work-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-academic-work.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Lesson Plan",
+      "route": "/admin/lesson-plan/topic",
+      "file": "app/admin/lesson-plan/topic/page.tsx",
+      "renderedFiles": [
+        "app/admin/lesson-plan/topic/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academic-work/WorkPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/academic-work-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-academic-work.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Lesson Plan",
+      "route": "/admin/lesson-plan/topic-overview",
+      "file": "app/admin/lesson-plan/topic-overview/page.tsx",
+      "renderedFiles": [
+        "app/admin/lesson-plan/topic-overview/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/academic-work/WorkPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/academic-work-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-academic-work.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Library",
+      "route": "/admin/library/book",
+      "file": "app/admin/library/book/page.tsx",
+      "renderedFiles": [
+        "app/admin/library/book/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/operations/OperationChoice.tsx",
+        "components/modules/operations/OperationsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-operations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-operations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Library",
+      "route": "/admin/library/booklist",
+      "file": "app/admin/library/booklist/page.tsx",
+      "renderedFiles": [
+        "app/admin/library/booklist/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/operations/OperationChoice.tsx",
+        "components/modules/operations/OperationsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-operations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-operations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Library",
+      "route": "/admin/library/category",
+      "file": "app/admin/library/category/page.tsx",
+      "renderedFiles": [
+        "app/admin/library/category/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/operations/OperationChoice.tsx",
+        "components/modules/operations/OperationsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-operations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-operations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Library",
+      "route": "/admin/library/issue-return",
+      "file": "app/admin/library/issue-return/page.tsx",
+      "renderedFiles": [
+        "app/admin/library/issue-return/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/operations/OperationChoice.tsx",
+        "components/modules/operations/OperationsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-operations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-operations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Library",
+      "route": "/admin/library/issued",
+      "file": "app/admin/library/issued/page.tsx",
+      "renderedFiles": [
+        "app/admin/library/issued/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/operations/OperationChoice.tsx",
+        "components/modules/operations/OperationsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-operations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-operations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Library",
+      "route": "/admin/library/members",
+      "file": "app/admin/library/members/page.tsx",
+      "renderedFiles": [
+        "app/admin/library/members/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/operations/OperationChoice.tsx",
+        "components/modules/operations/OperationsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-operations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-operations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Library",
+      "route": "/admin/library/subject",
+      "file": "app/admin/library/subject/page.tsx",
+      "renderedFiles": [
+        "app/admin/library/subject/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/operations/OperationChoice.tsx",
+        "components/modules/operations/OperationsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-operations-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-operations.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Online Exam",
+      "route": "/admin/online-exam/exam",
+      "file": "app/admin/online-exam/exam/page.tsx",
+      "renderedFiles": [
+        "app/admin/online-exam/exam/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/online-campus/CampusPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/campus-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Online Exam",
+      "route": "/admin/online-exam/question-bank",
+      "file": "app/admin/online-exam/question-bank/page.tsx",
+      "renderedFiles": [
+        "app/admin/online-exam/question-bank/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/online-campus/CampusPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/campus-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Online Exam",
+      "route": "/admin/online-exam/question-group",
+      "file": "app/admin/online-exam/question-group/page.tsx",
+      "renderedFiles": [
+        "app/admin/online-exam/question-group/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/ModuleEditor.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/online-campus/CampusPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/campus-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Student Info",
+      "route": "/admin/student-info/add",
+      "file": "app/admin/student-info/add/page.tsx",
+      "renderedFiles": [
+        "app/admin/student-info/add/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/student-info/StudentEditorPanel.tsx",
+        "components/modules/student-info/StudentOnboarding.tsx",
+        "components/modules/study-material/FileAttachmentPanel.tsx",
+        "components/modules/study-material/FileChooser.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-student-editor.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Student Info",
+      "route": "/admin/student-info/attendance",
+      "file": "app/admin/student-info/attendance/page.tsx",
+      "renderedFiles": [
+        "app/admin/student-info/attendance/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/student-info/AttendanceRegister.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-attendance-register.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Student Info",
+      "route": "/admin/student-info/category",
+      "file": "app/admin/student-info/category/page.tsx",
+      "renderedFiles": [
+        "app/admin/student-info/category/page.tsx",
+        "components/common/AdminCard.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/settings/FoundationHistory.tsx",
+        "components/modules/settings/FoundationRecordsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/admin-foundations-client.ts",
+        "lib/session-client.ts",
+        "lib/use-foundation-records.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Student Info",
+      "route": "/admin/student-info/group",
+      "file": "app/admin/student-info/group/page.tsx",
+      "renderedFiles": [
+        "app/admin/student-info/group/page.tsx",
+        "components/common/AdminCard.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/settings/FoundationHistory.tsx",
+        "components/modules/settings/FoundationRecordsPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/admin-foundations-client.ts",
+        "lib/session-client.ts",
+        "lib/use-foundation-records.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Student Info",
+      "route": "/admin/student-info/list",
+      "file": "app/admin/student-info/list/page.tsx",
+      "renderedFiles": [
+        "app/admin/student-info/list/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/student-info/StudentDirectory.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Student Info",
+      "route": "/admin/student-info/promote",
+      "file": "app/admin/student-info/promote/page.tsx",
+      "renderedFiles": [
+        "app/admin/student-info/promote/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/student-info/StudentDirectory.tsx",
+        "components/modules/student-info/StudentEditorPanel.tsx",
+        "components/modules/study-material/FileAttachmentPanel.tsx",
+        "components/modules/study-material/FileChooser.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/table.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-student-editor.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Student Info",
+      "route": "/admin/student-info/studentexport",
+      "file": "app/admin/student-info/studentexport/page.tsx",
+      "renderedFiles": [
+        "app/admin/student-info/studentexport/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/reports/StudentReports.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Student Info",
+      "route": "/admin/student-info/wise-attendance",
+      "file": "app/admin/student-info/wise-attendance/page.tsx",
+      "renderedFiles": [
+        "app/admin/student-info/wise-attendance/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/reports/AttendanceReport.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Study Material",
+      "route": "/admin/study-material/assignment",
+      "file": "app/admin/study-material/assignment/page.tsx",
+      "renderedFiles": [
+        "app/admin/study-material/assignment/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/settings/ContentHistory.tsx",
+        "components/modules/study-material/FileChooser.tsx",
+        "components/modules/study-material/PublicationPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-publications.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Study Material",
+      "route": "/admin/study-material/downloads",
+      "file": "app/admin/study-material/downloads/page.tsx",
+      "renderedFiles": [
+        "app/admin/study-material/downloads/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/settings/ContentHistory.tsx",
+        "components/modules/study-material/FileChooser.tsx",
+        "components/modules/study-material/PublicationPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-publications.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Study Material",
+      "route": "/admin/study-material/syllabus",
+      "file": "app/admin/study-material/syllabus/page.tsx",
+      "renderedFiles": [
+        "app/admin/study-material/syllabus/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/settings/ContentHistory.tsx",
+        "components/modules/study-material/FileChooser.tsx",
+        "components/modules/study-material/PublicationPanel.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-publications.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Study Material",
+      "route": "/admin/study-material/upload",
+      "file": "app/admin/study-material/upload/page.tsx",
+      "renderedFiles": [
+        "app/admin/study-material/upload/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/settings/ContentHistory.tsx",
+        "components/modules/study-material/FileLibrary.tsx",
+        "components/ui/button.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-content-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-file-library.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Teacher Evaluation",
+      "route": "/admin/teacher-evaluation/approved",
+      "file": "app/admin/teacher-evaluation/approved/page.tsx",
+      "renderedFiles": [
+        "app/admin/teacher-evaluation/approved/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/administration/AdministrationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-administration-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-administration.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Teacher Evaluation",
+      "route": "/admin/teacher-evaluation/pending",
+      "file": "app/admin/teacher-evaluation/pending/page.tsx",
+      "renderedFiles": [
+        "app/admin/teacher-evaluation/pending/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/administration/AdministrationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-administration-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-administration.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Teacher Evaluation",
+      "route": "/admin/teacher-evaluation/setting",
+      "file": "app/admin/teacher-evaluation/setting/page.tsx",
+      "renderedFiles": [
+        "app/admin/teacher-evaluation/setting/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/administration/AdministrationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-administration-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-administration.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    },
+    {
+      "module": "Teacher Evaluation",
+      "route": "/admin/teacher-evaluation/teacher-wise",
+      "file": "app/admin/teacher-evaluation/teacher-wise/page.tsx",
+      "renderedFiles": [
+        "app/admin/teacher-evaluation/teacher-wise/page.tsx",
+        "components/common/ModuleCard.tsx",
+        "components/common/PageHeader.tsx",
+        "components/modules/administration/AdministrationPanel.tsx",
+        "components/ui/button.tsx"
+      ],
+      "apiAndHookDependencies": [
+        "lib/school-administration-client.ts",
+        "lib/school-records-client.ts",
+        "lib/session-client.ts",
+        "lib/use-school-administration.ts",
+        "lib/utils.ts"
+      ],
+      "sourceReview": "reviewed; module styles applied, shared workspace and nested views covered",
+      "liveVerification": "requires an authenticated browser session"
+    }
+  ],
+  "components": [
+    "components/common/AdminCard.tsx",
+    "components/common/DataTable.tsx",
+    "components/common/ListActionButtons.tsx",
+    "components/common/ListPagination.tsx",
+    "components/common/ListToolbar.tsx",
+    "components/common/ModuleCard.tsx",
+    "components/common/ModuleEditor.tsx",
+    "components/common/PageHeader.tsx",
+    "components/modules/academic-work/WorkPanel.tsx",
+    "components/modules/academics/AssignSubjectForm.tsx",
+    "components/modules/academics/AssignTeacherForm.tsx",
+    "components/modules/academics/ClassForm.tsx",
+    "components/modules/academics/ClassRoomForm.tsx",
+    "components/modules/academics/RoutineForm.tsx",
+    "components/modules/academics/SectionForm.tsx",
+    "components/modules/academics/SubjectForm.tsx",
+    "components/modules/administration/AdministrationPanel.tsx",
+    "components/modules/bulk-print/FinanceBatchPrint.tsx",
+    "components/modules/documents/DocumentDesigner.tsx",
+    "components/modules/documents/DocumentWorkspace.tsx",
+    "components/modules/examination/AdmissionPrint.tsx",
+    "components/modules/examination/ExaminationPanel.tsx",
+    "components/modules/finance/FinancePanel.tsx",
+    "components/modules/hr/DepartmentForm.tsx",
+    "components/modules/hr/DesignationForm.tsx",
+    "components/modules/online-campus/CampusPanel.tsx",
+    "components/modules/operations/OperationChoice.tsx",
+    "components/modules/operations/OperationsPanel.tsx",
+    "components/modules/reports/AttendanceReport.tsx",
+    "components/modules/reports/OperationalPanel.tsx",
+    "components/modules/reports/StudentReports.tsx",
+    "components/modules/settings/ContentHistory.tsx",
+    "components/modules/settings/FoundationHistory.tsx",
+    "components/modules/settings/FoundationRecordsPanel.tsx",
+    "components/modules/settings/SchoolCurrencyField.tsx",
+    "components/modules/student-info/AttendanceRegister.tsx",
+    "components/modules/student-info/StudentDirectory.tsx",
+    "components/modules/student-info/StudentEditorPanel.tsx",
+    "components/modules/student-info/StudentOnboarding.tsx",
+    "components/modules/study-material/CalendarPanel.tsx",
+    "components/modules/study-material/FileAttachmentPanel.tsx",
+    "components/modules/study-material/FileChooser.tsx",
+    "components/modules/study-material/FileLibrary.tsx",
+    "components/modules/study-material/PublicationPanel.tsx",
+    "components/ui/button.tsx",
+    "components/ui/input.tsx",
+    "components/ui/label.tsx",
+    "components/ui/select.tsx",
+    "components/ui/table.tsx"
+  ],
+  "verifiedAt": "2026-11-20T12:52:34.207Z"
+}

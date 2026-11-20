@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { PageHeader } from "@/components/common/PageHeader";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -20,6 +20,6 @@ export function StudentDirectory({ promotion = false }: { promotion?: boolean } 
     {error && <p role="alert" className="text-destructive">{error}</p>}
     <AdminCard className="p-8 overflow-x-auto"><h2 className="text-xs font-semibold text-gray-500 mb-6">Student List</h2><Table><TableHeader><TableRow><TableHead>Identity</TableHead><TableHead>Student Profile</TableHead><TableHead>Guardianship</TableHead><TableHead>Latest Placement</TableHead><TableHead>Interaction</TableHead></TableRow></TableHeader><TableBody>
       {loading ? <TableRow><TableCell colSpan={5}>Loading students…</TableCell></TableRow> : error ? <TableRow><TableCell colSpan={5}>Student records could not load. Reload to retry.</TableCell></TableRow> : data.items.length === 0 ? <TableRow><TableCell colSpan={5}>No matching students.</TableCell></TableRow> : data.items.map(student => <TableRow key={student.id}><TableCell><span className="rounded-lg bg-secondary/10 text-secondary px-3 py-1 text-xs font-semibold">{student.admissionNo}</span></TableCell><TableCell><p className="font-semibold">{student.firstName} {student.lastName}</p><p className="text-xs text-gray-500">{student.gender} · {student.birthDate}</p></TableCell><TableCell>{student.guardianName ?? "No primary contact"}</TableCell><TableCell>{student.className ? `${student.yearName} · ${student.className} · ${student.sectionName}` : "Not enrolled"}</TableCell><TableCell><Link href={`${promotion ? "/admin/student-info/promote" : "/admin/student-info/add"}?id=${student.id}`} className="text-secondary underline text-sm">{promotion ? "Review / Promote" : "View / Edit"}</Link></TableCell></TableRow>)}
-    </TableBody></Table><div className="flex justify-between gap-3 mt-6"><Button variant="outline" disabled={loading || page <= 1} onClick={() => setPage(page - 1)}>Previous</Button><span className="text-sm">Page {page} · {data.total} records</span><Button variant="outline" disabled={loading || page * data.pageSize >= data.total} onClick={() => setPage(page + 1)}>Next</Button></div></AdminCard>
+    </TableBody></Table><div className="flex flex-wrap items-center justify-between gap-3 mt-6"><Button variant="outline" disabled={loading || page <= 1} onClick={() => setPage(page - 1)}>Previous</Button><span className="text-sm">Page {page} · {data.total} records</span><Button variant="outline" disabled={loading || page * data.pageSize >= data.total} onClick={() => setPage(page + 1)}>Next</Button></div></AdminCard>
   </div>;
 }

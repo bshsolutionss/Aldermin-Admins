@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -24,7 +24,7 @@ export function SubjectForm({ form, setForm, onSubmit, disabled, editing, onCanc
   ];
 
   return (
-    <AdminCard className="p-8 h-full bg-gradient-to-br from-white/60 to-sidebar/5">
+    <AdminCard className="p-5 sm:p-6 h-full">
       <div className="flex items-center justify-between mb-6">
         <h4 className="text-sm font-bold text-gray-500   flex items-center gap-2">
           {editing ? "Edit Subject" : "Add Subject"}
@@ -43,7 +43,7 @@ export function SubjectForm({ form, setForm, onSubmit, disabled, editing, onCanc
                 className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 z-10"
                 size={14}
               />
-              <Input
+              <Input aria-label="Subject Name"
                 placeholder="e.g. Mathematics"
                 value={form.name}
                 maxLength={200}
@@ -58,7 +58,7 @@ export function SubjectForm({ form, setForm, onSubmit, disabled, editing, onCanc
             <Label className=" text-[10px]  text-gray-500 font-bold">
               Subject Code
             </Label>
-            <Input
+            <Input aria-label="Subject Code"
               placeholder="e.g. MATH101"
               value={form.code ?? ""}
               maxLength={50}
@@ -73,7 +73,7 @@ export function SubjectForm({ form, setForm, onSubmit, disabled, editing, onCanc
             </Label>
             <div className="grid grid-cols-2 gap-3">
               {types.map((type) => (
-                <div
+                <button type="button" aria-pressed={form.type === type.id} disabled={disabled}
                   key={type.id}
                   onClick={() =>
                     !disabled && setForm({
@@ -91,7 +91,7 @@ export function SubjectForm({ form, setForm, onSubmit, disabled, editing, onCanc
                   <span className="text-[10px] font-semibold  ">
                     {type.label}
                   </span>
-                </div>
+                </button>
               ))}
             </div>
           </div>

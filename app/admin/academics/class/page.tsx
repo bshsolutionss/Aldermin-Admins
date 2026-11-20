@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import Link from "next/link";
 import { FaPlus } from "react-icons/fa";
 import { PageHeader } from "@/components/common/PageHeader";
 import { ClassForm } from "@/components/modules/academics/ClassForm";
@@ -13,6 +14,7 @@ export default function ClassPage() {
   const [classes, setClasses] = useState<SchoolClass[]>([]);
   const [sections, setSections] = useState<SectionData[]>([]);
   const [currentAcademicYearId, setCurrentAcademicYearId] = useState<string | null>(null);
+  const [configurationReady, setConfigurationReady] = useState(false);
 
   const [className, setClassName] = useState("");
   const [passingMarks, setPassingMarks] = useState("33");
@@ -25,8 +27,32 @@ export default function ClassPage() {
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState("");
   const busy = useRef(false);
+  const loadSequence = useRef(0);
+  const invalidateLoads = useCallback(() => { ++loadSequence.current; }, []);
 
-  const reload = async () => setClasses(await apiService.classes.getAll());
+  const reload = useCallback(async () => {
+    const sequence = ++loadSequence.current;
+    setIsLoading(true);
+    setConfigurationReady(false);
+    setError("");
+    try {
+      const [academicYears, sectionList, classList] = await Promise.all([
+        apiService.academicYears.getAll(),
+        apiService.sections.getAll(),
+        apiService.classes.getAll(),
+      ]);
+      if (sequence !== loadSequence.current) return;
+      setCurrentAcademicYearId(academicYears.find((year) => year.isCurrent === true)?.id ?? null);
+      setSections(sectionList);
+      setClasses(classList);
+      setConfigurationReady(true);
+    } catch (err) {
+      if (sequence === loadSequence.current)
+        setError(err instanceof Error ? err.message : "Unable to load classes");
+    } finally {
+      if (sequence === loadSequence.current) setIsLoading(false);
+    }
+  }, []);
 
   const cancel = () => {
     setEditingId(null);
@@ -45,27 +71,13 @@ export default function ClassPage() {
   };
 
   useEffect(() => {
-    const init = async () => {
-      try {
-        const [academicYears, sectionList, classList] = await Promise.all([
-          apiService.academicYears.getAll(),
-          apiService.sections.getAll(),
-          apiService.classes.getAll(),
-        ]);
-        setCurrentAcademicYearId(academicYears.find((y) => y.isCurrent)?.id ?? null);
-        setSections(sectionList);
-        setClasses(classList);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Unable to load classes");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    init();
-  }, []);
+    let active = true;
+    void Promise.resolve().then(() => { if (active) return reload(); });
+    return () => { active = false; invalidateLoads(); };
+  }, [reload, invalidateLoads]);
 
   const startEdit = async (item: SchoolClass) => {
-    if (busy.current) return;
+    if (busy.current || isLoading || !configurationReady) return;
     setError("");
     setEditingId(item.id);
     setEditingAcademicYearId(item.academicYearId ?? item.academicYear?.id ?? null);
@@ -80,11 +92,14 @@ export default function ClassPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (busy.current) return;
+    if (busy.current || isLoading || !configurationReady) return;
     const name = className.trim();
     if (!name) { setError("Class name is required"); return; }
     const academicYearId = editingId ? editingAcademicYearId : currentAcademicYearId;
-    if (!academicYearId) { setError("Set a current academic year before adding classes"); return; }
+    if (!academicYearId) {
+      setError(editingId ? "This class has no academic year. Reload its record before editing." : "Set a current academic year in Academic Year settings, then reload the class setup.");
+      return;
+    }
     busy.current = true; setIsSaving(true); setError("");
     try {
       const payload = {
@@ -168,16 +183,28 @@ export default function ClassPage() {
           {error}{" "}
           <Button
             variant="ghost"
-            onClick={() => { setError(""); void reload().catch((err) => setError(err instanceof Error ? err.message : "Unable to load classes")); }}
+            disabled={isLoading || isSaving}
+            onClick={() => void reload()}
           >
             Retry
           </Button>
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      {configurationReady && !currentAcademicYearId && (
+        <div role="status" className="rounded-xl border border-amber-200 bg-amber-50 p-4 space-y-3">
+          <p className="font-medium text-amber-950">A current academic year is required to add classes.</p>
+          <p className="text-sm text-amber-900">Sections are configured separately. Create an academic year and choose Set Current, then reload the class setup. Your class form will be kept.</p>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link href="/admin/settings/general-settings/academic-year" className="text-sm font-semibold text-secondary underline">Open Academic Year settings</Link>
+            <Button type="button" variant="outline" disabled={isSaving || isLoading} onClick={() => void reload()}>Reload class setup</Button>
+          </div>
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
         {/* Creation Form */}
-        <div className="lg:col-span-4 h-full sticky top-8">
+        <div className="xl:col-span-4 h-full sticky top-8">
           <ClassForm
             className={className}
             setClassName={setClassName}
@@ -187,14 +214,15 @@ export default function ClassPage() {
             selectedSections={selectedSections}
             toggleSection={toggleSection}
             onSubmit={handleSubmit}
-            disabled={isSaving}
+            disabled={isSaving || isLoading || !configurationReady}
+            canSubmit={editingId !== null ? !!editingAcademicYearId : !!currentAcademicYearId}
             editing={editingId !== null}
             onCancel={cancel}
           />
         </div>
 
         {/* List Index */}
-        <div className="lg:col-span-8 h-full">
+        <div className="xl:col-span-8 h-full">
           <DataTable
             data={classes}
             columns={columns}

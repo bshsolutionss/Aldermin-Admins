@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -29,7 +29,7 @@ export function ClassRoomForm({
   onCancel,
 }: ClassRoomFormProps) {
   return (
-    <AdminCard className="p-8 h-full bg-gradient-to-br from-white/60 to-sidebar/5">
+    <AdminCard className="p-5 sm:p-6 h-full">
       <div className="flex items-center justify-between mb-6">
         <h4 className="text-sm font-bold text-gray-500   flex items-center gap-2">
           {editing ? "Edit Classroom" : "Add Classroom"}
@@ -48,7 +48,7 @@ export function ClassRoomForm({
                 className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 z-10"
                 size={14}
               />
-              <Input
+              <Input aria-label="Room Number"
                 disabled={disabled}
                 maxLength={100}
                 placeholder="e.g. 101"
@@ -69,7 +69,7 @@ export function ClassRoomForm({
                 className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 z-10"
                 size={14}
               />
-              <Input
+              <Input aria-label="Capacity"
                 disabled={disabled}
                 type="number"
                 min={1}

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -34,6 +34,7 @@ interface ClassFormProps {
   toggleSection: (sectionId: string) => void;
   onSubmit: (e: React.FormEvent) => void;
   disabled?: boolean;
+  canSubmit?: boolean;
   editing?: boolean;
   onCancel?: () => void;
 }
@@ -48,11 +49,12 @@ export function ClassForm({
   toggleSection,
   onSubmit,
   disabled,
+  canSubmit = true,
   editing,
   onCancel,
 }: ClassFormProps) {
   return (
-    <AdminCard className="p-8 h-full bg-gradient-to-br from-white/60 to-sidebar/5">
+    <AdminCard className="p-5 sm:p-6 h-full">
       <div className="flex items-center justify-between mb-6">
         <h4 className="text-sm font-bold text-gray-500   flex items-center gap-2">
           {editing ? "Edit Academic Grade" : "Add Academic Grade"}
@@ -88,7 +90,7 @@ export function ClassForm({
               Passing Threshold
             </Label>
             <Select value={passingMarks} onValueChange={setPassingMarks} disabled={disabled}>
-              <SelectTrigger className="bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all py-6">
+              <SelectTrigger aria-label="Passing Threshold" className="bg-white backdrop-blur-sm border-gray-200 focus:bg-white transition-all py-6">
                 <SelectValue placeholder="Select Threshold" />
               </SelectTrigger>
               <SelectContent>
@@ -110,7 +112,7 @@ export function ClassForm({
                 </p>
               )}
               {sections.map((section) => (
-                <div
+                <button type="button" aria-pressed={selectedSections.includes(section.id)} disabled={disabled}
                   key={section.id}
                   onClick={() => { if (!disabled) toggleSection(section.id); }}
                   className={`p-4 rounded-2xl border cursor-pointer transition-all flex items-center justify-between group ${
@@ -135,7 +137,7 @@ export function ClassForm({
                   {selectedSections.includes(section.id) && (
                     <FaCheckCircle size={14} />
                   )}
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -144,7 +146,7 @@ export function ClassForm({
         <div className="pt-2">
           <Button
             type="submit"
-            disabled={disabled}
+            disabled={disabled || !canSubmit}
             className="w-full py-6 text-xs font-semibold  tracking-[0.2em] bg-secondary hover:bg-secondary/90 text-white shadow-lg transition-all active:scale-[0.98]"
           >
             <div className="flex items-center gap-2">

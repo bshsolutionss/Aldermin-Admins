@@ -160,7 +160,7 @@ export function FileAttachmentPanel({
         {current?.fileArchived ? " (archived file)" : ""}
       </p>
       {current?.fileId && (
-        <div className="flex gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <Button
             type="button"
             size="sm"

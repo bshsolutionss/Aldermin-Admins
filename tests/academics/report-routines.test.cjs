@@ -4,7 +4,7 @@ const assert = (await import("node:assert/strict")).default;
 const { loadTs } = await import("../auth/load-ts.mjs");
 const stub = () => null;
 const common = {
-  '@/components/common/AdminCard': { AdminCard: stub },
+  '@/components/common/AdminCard': { AdminCard: stub }, '@/components/common/ModuleCard': {ModuleCard: stub }, '@/components/common/ModuleEditor': {ModuleEditor: stub },
   '@/components/common/PageHeader': { PageHeader: stub },
   '@/components/ui/button': { Button: stub },
 };

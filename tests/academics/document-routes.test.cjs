@@ -3,7 +3,7 @@ const { test } = await import("node:test");
 const assert = (await import("node:assert/strict")).default;
 const { loadTs } = await import("../auth/load-ts.mjs");
 const stub = () => null;
-const common = { '@/components/common/PageHeader': { PageHeader: stub }, '@/components/common/AdminCard': { AdminCard: stub }, '@/components/ui/button': { Button: stub }, '@/components/ui/table': Object.fromEntries(['Table','TableBody','TableCell','TableHead','TableHeader','TableRow'].map(k=>[k,stub])) };
+const common = { '@/components/common/PageHeader': { PageHeader: stub }, '@/components/common/AdminCard': { AdminCard: stub }, '@/components/common/ModuleCard': {ModuleCard: stub }, '@/components/common/ModuleEditor': {ModuleEditor: stub }, '@/components/ui/button': { Button: stub }, '@/components/ui/table': Object.fromEntries(['Table','TableBody','TableCell','TableHead','TableHeader','TableRow'].map(k=>[k,stub])) };
 const walk = n => !n || typeof n !== 'object' ? [] : [n,...[n.props?.children].flat(Infinity).flatMap(walk)];
 const text = n => n == null || typeof n === 'boolean' ? '' : typeof n !== 'object' ? String(n) : [n.props?.children].flat(Infinity).map(text).join('');
 const control = (tree,label,type='input') => walk(walk(tree).find(n=>n.type==='label'&&text(n).startsWith(label))).find(n=>n.type===type);

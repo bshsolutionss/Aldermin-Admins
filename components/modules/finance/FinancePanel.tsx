@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { ModuleEditor } from "@/components/common/ModuleEditor";
 import { PageHeader } from "@/components/common/PageHeader";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Button } from "@/components/ui/button";
 import { SchoolCurrencyField } from "@/components/modules/settings/SchoolCurrencyField";
 import { useFinanceSettings } from "@/lib/use-finance-settings";
@@ -173,7 +174,7 @@ function Pager({
   disabled?: boolean;
 }) {
   return (
-    <div className="flex items-center gap-4 py-3">
+    <div className="flex flex-wrap items-center justify-between gap-3 py-3">
       <Button
         type="button"
         variant="outline"
@@ -473,7 +474,7 @@ export default function FinancePanel({
         title={title}
         subtitle="School financial records"
         action={
-          <div className="flex gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <Button
               type="button"
               variant="outline"
@@ -511,7 +512,7 @@ export default function FinancePanel({
           amounts use two decimal places.
         </p>
         {data.basis && <p>{data.basis}</p>}
-        <fieldset disabled={disabled} className="flex flex-wrap gap-3">
+        <fieldset disabled={disabled} className="flex flex-wrap items-end gap-3">
           <input
             aria-label="Search financial records"
             hidden={!!report}
@@ -556,12 +557,12 @@ export default function FinancePanel({
         {loading ? (
           <p role="status">Loading financial records…</p>
         ) : (
-          <div className="overflow-x-auto">
+          <div role="region" aria-label="Scrollable records" tabIndex={0} className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr>
                   {keys.map((k) => (
-                    <th key={k} className="p-3 text-left">
+                    <th key={k} scope="col" data-numeric={moneyColumns.includes(k)} className="p-3 text-left">
                       {label(k)}
                     </th>
                   ))}
@@ -578,7 +579,7 @@ export default function FinancePanel({
                     className="border-t"
                   >
                     {keys.map((k) => (
-                      <td key={k} className="p-3">
+                      <td key={k} data-numeric={moneyColumns.includes(k)} className="p-3">
                         {moneyColumns.includes(k)
                           ? formatMinor(row[k])
                           : typeof row[k] === "boolean"
@@ -658,7 +659,7 @@ export default function FinancePanel({
                 ))}
                 {!data.items.length && !error && (
                   <tr>
-                    <td colSpan={keys.length + 1} className="p-6 text-center">
+                    <td colSpan={keys.length + (mutable ? 1 : 0)} className="p-6 text-center">
                       No financial records found.
                     </td>
                   </tr>
@@ -675,7 +676,7 @@ export default function FinancePanel({
         />
       </AdminCard>
       {draft && (
-        <AdminCard className="p-6">
+        <ModuleEditor label="Record editor">
           <form
             className="space-y-4"
             onSubmit={async (e) => {
@@ -719,7 +720,7 @@ export default function FinancePanel({
             </h2>
             <fieldset
               disabled={busy}
-              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+              className="grid grid-cols-1 md:grid-cols-1 sm:grid-cols-2 gap-4"
             >
               {(specs[draft.operation] ?? []).map((spec) => (
                 <label key={spec.key} className="block space-y-2">
@@ -839,7 +840,7 @@ export default function FinancePanel({
                 discarding if a version changed.
               </p>
             )}
-            <div className="flex gap-3">
+            <div className="flex flex-wrap items-center gap-3">
               <Button disabled={busy || gate}>
                 {busy ? "Saving…" : "Save"}
               </Button>
@@ -856,7 +857,7 @@ export default function FinancePanel({
               </Button>
             </div>
           </form>
-        </AdminCard>
+        </ModuleEditor>
       )}
     </div>
   );

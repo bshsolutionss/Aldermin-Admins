@@ -123,9 +123,9 @@ export default function AssignSubjectPage() {
       />
       {!isLoading && !options.teachers.length && <p className="text-sm text-gray-500">Add an active staff member in Human Resource before assigning subjects.</p>}
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
         {/* FORM */}
-        <div className="lg:col-span-4 h-full lg:sticky lg:top-8">
+        <div className="xl:col-span-4 h-full lg:sticky lg:top-8">
           <AssignSubjectForm
             editing={!!editingId}
             onCancel={() => { setEditingId(null); setSelectedSubject(""); setSelectedSection(""); setSelectedTeacher(""); }}
@@ -144,7 +144,7 @@ export default function AssignSubjectPage() {
         </div>
 
         {/* TABLE */}
-        <div className="lg:col-span-8 h-full">
+        <div className="xl:col-span-8 h-full">
           <DataTable
             data={assignedSubjects}
             columns={columns}

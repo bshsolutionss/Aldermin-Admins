@@ -230,9 +230,9 @@ export default function AssignClassTeacherPage() {
         }
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
         {/* FORM */}
-        <div className="lg:col-span-4 h-full lg:sticky lg:top-8">
+        <div className="xl:col-span-4 h-full lg:sticky lg:top-8">
           <AssignTeacherForm
             selectedClass={selectedClass}
             setSelectedClass={selectClass}
@@ -251,7 +251,7 @@ export default function AssignClassTeacherPage() {
         </div>
 
         {/* TABLE */}
-        <div className="lg:col-span-8 h-full">
+        <div className="xl:col-span-8 h-full">
           <DataTable
             data={assignments}
             columns={columns}

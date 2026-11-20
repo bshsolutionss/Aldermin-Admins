@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PageHeader } from "@/components/common/PageHeader";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Button } from "@/components/ui/button";
 import {
   examinationsApi,
@@ -26,7 +26,7 @@ function Pager({
   disabled?: boolean;
 }) {
   return (
-    <div className="flex items-center gap-4 py-3">
+    <div className="flex flex-wrap items-center justify-between gap-3 py-3">
       <Button
         type="button"
         variant="outline"
@@ -324,9 +324,9 @@ function Registry({ resource }: { resource: ExamResource }) {
       </div>
       {s.error && <p role="alert">{s.error}</p>}
       {s.notice && <p role="status">{s.notice}</p>}
-      <div className="grid lg:grid-cols-12 gap-8">
+      <div className="grid xl:grid-cols-12 gap-8">
         <AdminCard
-          className="lg:col-span-4"
+          className="xl:col-span-4"
           title={
             s.editing ? "Edit saved examination" : "New examination record"
           }
@@ -395,7 +395,7 @@ function Registry({ resource }: { resource: ExamResource }) {
                   Archived
                 </label>
               )}
-              <div className="flex gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <Button type="submit">{s.saving ? "Saving…" : "Save"}</Button>
                 <Button type="button" variant="outline" onClick={s.cancel}>
                   Clear
@@ -404,13 +404,13 @@ function Registry({ resource }: { resource: ExamResource }) {
             </fieldset>
           </form>
         </AdminCard>
-        <AdminCard className="lg:col-span-8" title="Saved records">
+        <AdminCard className="xl:col-span-8" title="Saved records">
           {s.loading ? (
             <p>Loading…</p>
           ) : s.data.items.length === 0 ? (
             <p>No saved records.</p>
           ) : (
-            <div className="overflow-x-auto">
+            <div role="region" aria-label="Scrollable records" tabIndex={0} className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr>
@@ -509,7 +509,7 @@ function StudentResult({
   }
   return (
     <form
-      className="grid md:grid-cols-5 gap-3 border-b p-3"
+      className="grid sm:grid-cols-2 xl:grid-cols-5 gap-3 border-b p-3"
       onSubmit={(e) => {
         e.preventDefault();
         void save({
@@ -734,7 +734,7 @@ function Register({ mode }: { mode: "attendance" | "marks" | "report" }) {
         ) : data.items.length === 0 ? (
           <p>No eligible students loaded.</p>
         ) : mode === "report" ? (
-          <div className="overflow-x-auto">
+          <div role="region" aria-label="Scrollable records" tabIndex={0} className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr>

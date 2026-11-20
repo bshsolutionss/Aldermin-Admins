@@ -27,7 +27,7 @@ function content(node){if(node===null||node===undefined)return '';if(typeof node
 function mount(api,props={title:'Online exams',resource:'exams'}){
   const slots=[],effects=[];let cursor=0;
   const react={useState(initial){const i=cursor++;if(!(i in slots))slots[i]=typeof initial==='function'?initial():initial;return [slots[i],value=>{slots[i]=typeof value==='function'?value(slots[i]):value;}];},useRef(value){const i=cursor++;if(!(i in slots))slots[i]={current:value};return slots[i];},useEffect(fn,deps){const i=cursor++,before=slots[i];if(!before||deps.some((v,k)=>v!==before.deps[k])){slots[i]={deps,cleanup:before?.cleanup};effects.push(()=>{slots[i].cleanup?.();slots[i].cleanup=fn();});}}};
-  const Panel=loadTs('components/modules/online-campus/CampusPanel.tsx',{react,'@/components/common/PageHeader':{PageHeader:'PageHeader'},'@/components/common/AdminCard':{AdminCard:'AdminCard'},'@/components/ui/button':{Button:'Button'},'@/lib/campus-client':{...client(),campusApi:api}}).default;
+  const Panel=loadTs('components/modules/online-campus/CampusPanel.tsx',{react,'@/components/common/PageHeader':{PageHeader:'PageHeader'},'@/components/common/AdminCard':{AdminCard:'AdminCard'}, '@/components/common/ModuleCard': {ModuleCard: 'AdminCard'}, '@/components/common/ModuleEditor': {ModuleEditor: 'AdminCard'},'@/components/ui/button':{Button:'Button'},'@/lib/campus-client':{...client(),campusApi:api}}).default;
   const render=()=>{cursor=0;return Panel(props);};return {render,find:fn=>nodes(render()).find(fn),flush:async()=>{render();effects.splice(0).forEach(fn=>fn());await new Promise(setImmediate);}};
 }
 test('failed exam writes retain the draft/request ID and concurrent submit clicks only send once',async()=>{

@@ -61,22 +61,22 @@ export default function AssignSubjectPage() {
   };
 
   return (
-    <div className="container mx-auto p-4 space-y-8">
+    <div className="container mx-auto space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold text-gray-900 tracking-tighter flex items-center gap-3">
-          <div className="p-2 bg-indigo-600 rounded-xl shadow-lg ring-4 ring-indigo-50">
+          <div className="p-2 bg-secondary rounded-xl shadow-sm ring-4 ring-secondary/10">
             <FaLink className="text-white" size={20} />
           </div>
-          Academic Mapping
+          Subject Assignments
         </h1>
       </div>
 
       {error && <div role="alert" className="text-red-600 text-sm">{error} <button type="button" onClick={() => void reload()}>Retry</button></div>}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
         {/* Assignment Form */}
-        <div className="lg:col-span-4">
-          <div className="rounded-3xl bg-white p-8 shadow-xl border border-gray-100 ring-1 ring-black/5 flex flex-col h-full bg-gradient-to-br from-white to-gray-50/10">
-            <h4 className="mb-8 text-xs font-semibold text-gray-400   leading-none flex items-center gap-2">
+        <div className="xl:col-span-4">
+          <div className="rounded-xl bg-white p-5 sm:p-6 border border-gray-200 flex flex-col h-full ">
+            <h4 className="mb-8 text-xs font-semibold text-gray-500   leading-none flex items-center gap-2">
               {editingId ? "Edit Assignment" : "Create Assignment"}
               <div className="h-[1px] flex-1 bg-gray-100"></div>
             </h4>
@@ -84,15 +84,15 @@ export default function AssignSubjectPage() {
             <form onSubmit={submit} className="space-y-6 flex-1">
               <div className="space-y-4">
                 <div>
-                  <label className="block text-[10px] font-semibold text-gray-400   mb-2 px-1">
+                  <label className="block text-xs font-semibold text-gray-500   mb-2 px-1">
                     Discipline <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
                     <FaBookOpen
-                      className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
                       size={12}
                     />
-                    <select required disabled={saving || isLoading} value={form.subjectId} onChange={e => setForm({ ...form, subjectId: e.target.value })} className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm appearance-none">
+                    <select aria-label="Discipline" required disabled={saving || isLoading} value={form.subjectId} onChange={e => setForm({ ...form, subjectId: e.target.value })} className="w-full rounded-lg border-gray-100 p-4 pl-10 text-xs font-bold focus:ring-4 focus:ring-secondary/10 outline-none transition-all bg-white shadow-sm appearance-none">
                       <option value="">Select Subject</option>
                       {isLoading && <option disabled>Loading subjects...</option>}
                       {options.subjects.map(subject => <option key={subject.id} value={subject.id}>{subject.name}</option>)}
@@ -101,15 +101,15 @@ export default function AssignSubjectPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-semibold text-gray-400   mb-2 px-1">
-                    Sectional Unit <span className="text-red-500">*</span>
+                  <label className="block text-xs font-semibold text-gray-500   mb-2 px-1">
+                    Class and section <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
                     <FaLayerGroup
-                      className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
                       size={12}
                     />
-                    <select required disabled={saving || isLoading} value={form.classSectionId} onChange={e => setForm({ ...form, classSectionId: e.target.value })} className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs font-bold focus:ring-4 focus:ring-indigo-500/10 outline-none transition-all bg-white shadow-sm appearance-none">
+                    <select aria-label="Class and section" required disabled={saving || isLoading} value={form.classSectionId} onChange={e => setForm({ ...form, classSectionId: e.target.value })} className="w-full rounded-lg border-gray-100 p-4 pl-10 text-xs font-bold focus:ring-4 focus:ring-secondary/10 outline-none transition-all bg-white shadow-sm appearance-none">
                       <option value="">Select Class / Section</option>
                       {options.classSections.map(section => <option key={section.id} value={section.id}>{section.className} / {section.sectionName} ({section.academicYearName})</option>)}
                     </select>
@@ -117,15 +117,15 @@ export default function AssignSubjectPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-semibold text-gray-400   mb-2 px-1">
-                    Lead Instructor <span className="text-red-500">*</span>
+                  <label className="block text-xs font-semibold text-gray-500   mb-2 px-1">
+                    Teacher <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
                     <FaUserTie
-                      className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
                       size={12}
                     />
-                    <select required disabled={saving || isLoading} value={form.staffId} onChange={e => setForm({ ...form, staffId: e.target.value })} className="w-full rounded-2xl border-gray-100 p-4 pl-10 text-xs font-semibold text-indigo-600 outline-none bg-indigo-50/30 appearance-none">
+                    <select aria-label="Teacher" required disabled={saving || isLoading} value={form.staffId} onChange={e => setForm({ ...form, staffId: e.target.value })} className="w-full rounded-lg border-gray-100 p-4 pl-10 text-xs font-semibold text-secondary outline-none bg-secondary/30 appearance-none">
                       <option value="">Select Faculty</option>
                       {options.teachers.map(teacher => <option key={teacher.id} value={teacher.id}>{teacher.name} ({teacher.staffNo})</option>)}
                     </select>
@@ -137,11 +137,11 @@ export default function AssignSubjectPage() {
                 <button
                   type="submit"
                   disabled={saving || isLoading || !form.subjectId || !form.classSectionId || !form.staffId}
-                  className="w-full relative overflow-hidden rounded-2xl bg-indigo-600 px-8 py-5 text-white font-semibold text-xs   transition-all hover:bg-indigo-700 active:scale-[0.98] shadow-2xl shadow-indigo-100"
+                  className="w-full relative overflow-hidden rounded-lg bg-secondary px-4 py-3 text-white font-semibold text-xs   transition-all hover:bg-secondary active:scale-[0.98] shadow-sm shadow-secondary/10"
                 >
                   <div className="relative z-10 flex items-center justify-center gap-2">
                     <FaCheck className="" />
-                    Establish Mapping
+                    Save assignment
                   </div>
                 </button>
               </div>
@@ -150,31 +150,30 @@ export default function AssignSubjectPage() {
         </div>
 
         {/* Assignment Registry */}
-        <div className="lg:col-span-8">
-          <div className="rounded-3xl bg-white p-8 shadow-xl border border-gray-100 ring-1 ring-black/5 relative overflow-hidden h-full">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-50/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        <div className="xl:col-span-8">
+          <div className="rounded-xl bg-white p-5 sm:p-6 border border-gray-200 relative overflow-hidden h-full">
 
             <div className="flex items-center justify-between mb-8 relative">
-              <h4 className="text-xs font-semibold text-gray-400   leading-none">
-                Assigned Faculty Registry
+              <h4 className="text-xs font-semibold text-gray-500   leading-none">
+                Subject assignments
               </h4>
             </div>
 
-            <div className="overflow-x-auto rounded-2xl border border-gray-50 relative">
-              <table className="min-w-full text-[11px]">
+            <div role="region" aria-label="Scrollable records" tabIndex={0} className="overflow-x-auto rounded-lg border border-gray-50 relative">
+              <table className="min-w-full text-xs">
                 <thead className="bg-gray-50/70 text-gray-500 font-semibold border-b border-gray-50">
                   <tr>
                     <th className="px-5 py-6 text-left w-12  tracking-tighter">
                       SN
                     </th>
-                    <th className="px-5 py-6 text-left  tracking-tighter text-gray-400">
-                      Assignment Profile
+                    <th className="px-5 py-6 text-left  tracking-tighter text-gray-500">
+                      Subject and teacher
                     </th>
-                    <th className="px-5 py-6 text-center  tracking-tighter text-gray-400">
-                      Allocated Unit
+                    <th className="px-5 py-6 text-center  tracking-tighter text-gray-500">
+                      Class and section
                     </th>
-                    <th className="px-5 py-6 text-center  tracking-tighter text-gray-400">
-                      Interaction
+                    <th className="px-5 py-6 text-center  tracking-tighter text-gray-500">
+                      Actions
                     </th>
                   </tr>
                 </thead>
@@ -182,28 +181,28 @@ export default function AssignSubjectPage() {
                   {assignments.map((a, index) => (
                     <tr
                       key={a.id}
-                      className="hover:bg-indigo-50/20 transition-all group"
+                      className="hover:bg-secondary/20 transition-all group"
                     >
-                      <td className="px-5 py-8 text-gray-300  ">
+                      <td className="px-5 py-8 text-gray-500  ">
                         {index + 1}
                       </td>
                       <td className="px-5 py-8">
                         <div className="flex items-center gap-4">
-                          <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-gray-300 group-hover:bg-indigo-600 group-hover:text-white transition-all shadow-sm">
+                          <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-gray-500 group-hover:bg-secondary group-hover:text-white transition-all shadow-sm">
                             <FaUserTie size={16} />
                           </div>
                           <div>
                             <div className="font-semibold text-gray-900 leading-tight text-xs   tracking-tighter mb-1">
                               {a.teacher}
                             </div>
-                            <div className="flex items-center gap-2 text-[10px] font-semibold text-indigo-500  ">
+                            <div className="flex items-center gap-2 text-xs font-semibold text-secondary  ">
                               <FaBookOpen size={10} /> {a.subject}
                             </div>
                           </div>
                         </div>
                       </td>
                       <td className="px-5 py-8 text-center">
-                        <span className="px-4 py-1.5 bg-gray-900 text-white text-[9px] font-semibold rounded-lg   ">
+                        <span className="px-4 py-1.5 bg-secondary text-white text-xs font-semibold rounded-lg   ">
                           {a.legacy ? `${a.section} (legacy)` : `${a.className} / ${a.section}`}
                         </span>
                       </td>

@@ -4,7 +4,7 @@ async function registerTests(){
   test('deleting the final row on the final page shows the remaining page instead of trapping the table',()=>{
     const state=['',2];let cursor=0;const react={useState:()=>{const i=cursor++;return [state[i],v=>{state[i]=v;}];},useMemo:fn=>fn()};
     const stub=name=>({[name]:name}),ui={Table:'Table',TableBody:'TableBody',TableCell:'TableCell',TableHead:'TableHead',TableHeader:'TableHeader',TableRow:'TableRow'};
-    const {DataTable}=loadTs('components/common/DataTable.tsx',{react,'@/components/common/AdminCard':stub('AdminCard'),'@/components/ui/table':ui,'@/components/common/ListToolbar':stub('ListToolbar'),'@/components/common/ListPagination':stub('ListPagination')});
+    const {DataTable}=loadTs('components/common/DataTable.tsx',{react,'@/components/common/ModuleCard':stub('ModuleCard'),'@/components/ui/table':ui,'@/components/common/ListToolbar':stub('ListToolbar'),'@/components/common/ListPagination':stub('ListPagination')});
     const props={columns:[{header:'Name',accessor:'name'}],searchKey:'name',pageSize:1};
     let nodes=walk(DataTable({...props,data:[{id:'1',name:'One'},{id:'2',name:'Two'}]}));assert.equal(nodes.find(n=>n.type==='ListPagination').props.currentPage,2);
     cursor=0;nodes=walk(DataTable({...props,data:[{id:'1',name:'One'}]}));assert.equal(nodes.find(n=>n.type==='ListPagination'),undefined);assert.ok(nodes.some(n=>n.type==='TableCell'&&n.props.children==='One'));

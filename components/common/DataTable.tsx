@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import {
   Table,
   TableBody,
@@ -62,7 +62,7 @@ export function DataTable<T extends { id: string | number }>({
   }, [filteredData, visiblePage, pageSize]);
 
   return (
-    <div className="space-y-6 flex flex-col h-full">
+    <div className="min-w-0 space-y-4 flex flex-col">
       <ListToolbar
         searchPlaceHolder={searchPlaceholder}
         onSearch={(val) => {
@@ -76,22 +76,23 @@ export function DataTable<T extends { id: string | number }>({
 
       <AdminCard className="flex-1 flex flex-col p-0 overflow-hidden relative">
         {title && (
-          <div className="p-8 pb-4 relative z-10 border-b border-gray-200">
+          <div className="p-5 relative z-10 border-b border-gray-200">
             <h4 className="text-xs font-semibold text-gray-500 leading-none">
               {title}
             </h4>
           </div>
         )}
 
-        <div className="flex-1 overflow-x-auto p-8 pt-0 relative z-10">
-          <div className="rounded-xl border border-gray-200 bg-white overflow-hidden mt-6">
+        <div className="min-w-0 relative z-10" aria-busy={isLoading}>
+          <div className="bg-white">
             <Table>
               <TableHeader className="bg-white">
                 <TableRow>
                   {columns.map((column, idx) => (
                     <TableHead
                       key={idx}
-                      className={`px-6 py-8 text-left text-[10px] font-semibold text-gray-500 ${column.headerClassName || ""}`}
+                      scope="col"
+                      className={`px-4 py-3 text-left text-xs font-semibold text-gray-500 ${column.headerClassName || ""}`}
                     >
                       {column.header}
                     </TableHead>
@@ -126,7 +127,7 @@ export function DataTable<T extends { id: string | number }>({
                       {columns.map((column, colIdx) => (
                         <TableCell
                           key={colIdx}
-                          className={`px-6 py-8 ${column.className || ""}`}
+                          className={`px-4 py-3 ${column.className || ""}`}
                         >
                           {typeof column.accessor === "function"
                             ? column.accessor(item)
@@ -142,7 +143,7 @@ export function DataTable<T extends { id: string | number }>({
         </div>
 
         {!isLoading && filteredData.length > pageSize && (
-          <div className="p-8 pt-0 relative z-10">
+          <div className="p-5 border-t border-gray-100 relative z-10">
             <ListPagination
               currentPage={visiblePage}
               totalPages={totalPages}

@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { PageHeader } from "@/components/common/PageHeader";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -33,8 +33,8 @@ export function FileLibrary() {
           {state.notice}
         </p>
       )}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <AdminCard className="lg:col-span-4 p-8 space-y-6">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+        <AdminCard className="xl:col-span-4 p-8 space-y-6">
           <h2 className="text-xs font-semibold text-gray-500">Upload File</h2>
           <form
             onSubmit={(event) => {
@@ -91,7 +91,7 @@ export function FileLibrary() {
             </fieldset>
           </form>
         </AdminCard>
-        <div className="lg:col-span-8 space-y-6">
+        <div className="xl:col-span-8 space-y-6">
           <div className="flex flex-wrap gap-4 items-center">
             <Input
               aria-label="Search files"
@@ -136,7 +136,7 @@ export function FileLibrary() {
                       {file.archived ? "Archived" : "Active"}
                     </p>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <Button
                       variant="outline"
                       size="sm"
@@ -156,7 +156,7 @@ export function FileLibrary() {
                 </div>
               ))
             )}
-            <div className="flex justify-between gap-3 pt-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-4">
               <Button
                 variant="outline"
                 disabled={state.loading || state.saving || state.page <= 1}

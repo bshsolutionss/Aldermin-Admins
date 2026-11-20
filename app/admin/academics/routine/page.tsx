@@ -87,9 +87,9 @@ export default function ClassRoutinePage() {
       <label className="block text-sm text-gray-500">Academic year <select aria-label="Academic year" value={options.academicYearId ?? ""} disabled={saving || isLoading} onChange={e => void reload(e.target.value)} className="ml-2 rounded-xl border border-gray-200 bg-white px-3 py-2"><option value="" disabled>Select year</option>{options.academicYears.map(year => <option key={year.id} value={year.id}>{year.name}</option>)}</select></label>
       {!isLoading && !options.allocations.length && <p className="text-sm text-gray-500">Create a subject allocation with an active staff member for this academic year before scheduling a routine.</p>}
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
         {/* Creation Form */}
-        <div className="lg:col-span-4 h-full sticky top-8">
+        <div className="xl:col-span-4 h-full sticky top-8">
           <RoutineForm
             formData={formData}
             change={change}
@@ -100,7 +100,7 @@ export default function ClassRoutinePage() {
         </div>
 
         {/* List Index */}
-        <div className="lg:col-span-8 h-full">
+        <div className="xl:col-span-8 h-full">
           <DataTable
             data={routines}
             columns={columns}

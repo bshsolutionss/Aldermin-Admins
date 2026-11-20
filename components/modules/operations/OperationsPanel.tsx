@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import { PageHeader } from "@/components/common/PageHeader";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -246,7 +246,7 @@ function History({ resource }: { resource: OperationResource }) {
               {new Date(row.createdAt).toLocaleString()} · {row.recordId}
             </p>
           ))}
-          <div className="flex gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <Button
               variant="ghost"
               disabled={busy || page <= 1}
@@ -282,8 +282,8 @@ export function RegistryPanel({
     <div className="container mx-auto space-y-8 pb-10">
       <PageHeader title={title} subtitle="Manage saved school records" />
       <Messages {...state} reload={state.load} disabled={state.saving} />
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <AdminCard className="p-8 lg:col-span-4">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+        <AdminCard className="p-8 xl:col-span-4">
           <form
             className="space-y-5"
             onSubmit={(event) => {
@@ -355,7 +355,7 @@ export function RegistryPanel({
             )}
           </form>
         </AdminCard>
-        <div className="lg:col-span-8 space-y-5">
+        <div className="xl:col-span-8 space-y-5">
           <Controls state={state} archive />
           <AdminCard className="p-6 space-y-4">
             {state.loading ? (
@@ -387,7 +387,7 @@ export function RegistryPanel({
                     <p className="text-sm">Whole unit: {row.unit}</p>
                   )}
                   {row.contact && <p className="text-sm">{row.contact}</p>}
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <Button
                       variant="ghost"
                       size="sm"
@@ -467,8 +467,8 @@ export function LoanPanel({
         subtitle="Saved loans, availability and explicit returns"
       />
       <Messages {...state} reload={state.load} disabled={state.saving} />
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <AdminCard className="p-8 lg:col-span-4">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+        <AdminCard className="p-8 xl:col-span-4">
           <form
             className="space-y-5"
             onSubmit={(event) => {
@@ -523,7 +523,7 @@ export function LoanPanel({
             </fieldset>
           </form>
         </AdminCard>
-        <div className="lg:col-span-8 space-y-5">
+        <div className="xl:col-span-8 space-y-5">
           <Controls
             state={state}
             statuses={["all", "open", "returned", "overdue"]}
@@ -640,8 +640,8 @@ export function MovementPanel({
         subtitle="Append-only whole-unit stock movements"
       />
       <Messages {...state} reload={state.load} disabled={state.saving} />
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <AdminCard className="p-8 lg:col-span-4">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+        <AdminCard className="p-8 xl:col-span-4">
           <form
             className="space-y-5"
             onSubmit={(event) => {
@@ -784,7 +784,7 @@ export function MovementPanel({
             invoices and ledger posting are handled separately.
           </p>
         </AdminCard>
-        <div className="lg:col-span-8 space-y-5">
+        <div className="xl:col-span-8 space-y-5">
           <Controls
             state={state}
             statuses={["all", "receive", "issue", "return", "sale"]}

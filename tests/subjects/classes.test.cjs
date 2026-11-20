@@ -35,7 +35,7 @@ test('Classes proxy appends sub-path for section lookups',async()=>{
 const Form=()=>null,Table=()=>null,Actions=()=>null;
 function mount(api){
   const state=[],effects=[];let cursor=0;
-  const react={useState(value){const key=cursor++;if(!(key in state))state[key]=value;return[state[key],next=>{state[key]=typeof next==='function'?next(state[key]):next;}];},useRef(value){const key=cursor++;if(!(key in state))state[key]={current:value};return state[key];},useEffect(fn){const key=cursor++;if(!(key in state)){state[key]=true;effects.push(fn);}}};
+  const react={useCallback:fn=>fn,useState(value){const key=cursor++;if(!(key in state))state[key]=value;return[state[key],next=>{state[key]=typeof next==='function'?next(state[key]):next;}];},useRef(value){const key=cursor++;if(!(key in state))state[key]={current:value};return state[key];},useEffect(fn){const key=cursor++;if(!(key in state)){state[key]=true;effects.push(fn);}}};
   const stub=()=>null;
   const Page=loadTs('app/admin/academics/class/page.tsx',{react,'@/lib/api-service':{apiService:{classes:api.classes,sections:api.sections,academicYears:api.academicYears}},'@/components/common/PageHeader':{PageHeader:stub},'@/components/modules/academics/ClassForm':{ClassForm:Form},'@/components/common/DataTable':{DataTable:Table},'@/components/common/ListActionButtons':{ListActionButtons:Actions},'@/components/ui/button':{Button:stub}}).default;
   const walk=node=>!node||typeof node!=='object'?[]:[node,...[node.props?.children].flat(Infinity).flatMap(walk)];
@@ -77,6 +77,52 @@ test('Classes page reloads persisted rows after writes/remount, supports section
   fail=false;
 
   global.window={confirm:()=>true};try{actions().onDelete();await new Promise(setImmediate);assert.deepEqual(returned.table().data,[]);}finally{delete global.window;}
+});
+
+test('a selected section cannot substitute for a missing current academic year',async()=>{
+  let writes=0;
+  const page=mount({academicYears:{getAll:async()=>[]},sections:{getAll:async()=>[{id:'section-a',name:'A'}]},classes:{getAll:async()=>[],create:async()=>{writes++;}}});
+  await page.start();
+  page.form().setClassName('Grade 1');page.form().toggleSection('section-a');
+  assert.equal(page.form().canSubmit,false);
+  assert.ok(page.render().some(n=>n.props?.role==='status'));
+  await page.form().onSubmit({preventDefault(){}});
+  assert.equal(writes,0);
+});
+
+test('reloading setup finds a newly configured current year, preserves selections and shows the created class',async()=>{
+  let years=[],stored=[],payload;
+  const page=mount({academicYears:{getAll:async()=>years},sections:{getAll:async()=>[{id:'section-a',name:'A'}]},classes:{getAll:async()=>stored,create:async input=>{payload=input;stored=[{id,...input}];return stored[0];}}});
+  await page.start();page.form().setClassName('Grade 1');page.form().toggleSection('section-a');
+  years=[{id:yearId,isCurrent:true}];
+  const reload=page.render().find(n=>n.props?.children==='Reload class setup');
+  await reload.props.onClick();await new Promise(setImmediate);
+  assert.equal(page.form().className,'Grade 1');assert.deepEqual(page.form().selectedSections,['section-a']);assert.equal(page.form().canSubmit,true);
+  await page.form().onSubmit({preventDefault(){}});
+  assert.equal(payload.academicYearId,yearId);assert.deepEqual(payload.sectionIds,['section-a']);
+  assert.equal(page.table().data[0].name,'Grade 1');assert.equal(page.table().title,'Registered Grades');
+});
+
+test('a year API failure is reported as a load error and Retry reloads all class prerequisites',async()=>{
+  let unavailable=true,yearReads=0,sectionReads=0,writes=0;
+  const page=mount({academicYears:{getAll:async()=>{yearReads++;if(unavailable)throw Error('Academic Year service unavailable');return[{id:yearId,isCurrent:true}];}},sections:{getAll:async()=>{sectionReads++;return[];}},classes:{getAll:async()=>[],create:async()=>{writes++;}}});
+  await page.start();assert.equal(page.form().disabled,true);
+  assert.ok(page.render().some(n=>n.props?.role==='alert'&&n.props.children.includes('Academic Year service unavailable')));
+  assert.ok(!page.render().some(n=>n.props?.role==='status'));
+  page.form().setClassName('Grade 1');await page.form().onSubmit({preventDefault(){}});assert.equal(writes,0);
+  unavailable=false;await page.render().find(n=>n.props?.children==='Retry').props.onClick();await new Promise(setImmediate);
+  assert.equal(yearReads,2);assert.equal(sectionReads,2);assert.equal(page.form().disabled,false);assert.equal(page.form().canSubmit,true);
+});
+
+test('editing an existing class preserves its academic year even when no year is current',async()=>{
+  let payload;
+  const existing={id,name:'Existing Grade',academicYearId:yearId,passingMarks:33};
+  const page=mount({academicYears:{getAll:async()=>[{id:yearId,isCurrent:false}]},sections:{getAll:async()=>[]},classes:{getAll:async()=>[existing],getSectionIds:async()=>[],update:async(key,input)=>{assert.equal(key,id);payload=input;return {...existing,...input};}}});
+  await page.start();
+  page.table().columns.find(column=>column.header==='Action').accessor(existing).props.onEdit();await new Promise(setImmediate);
+  assert.equal(page.form().canSubmit,true);
+  page.form().setClassName('Updated Grade');await page.form().onSubmit({preventDefault(){}});
+  assert.equal(payload.academicYearId,yearId);assert.equal(payload.name,'Updated Grade');
 });
 
 }

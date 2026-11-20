@@ -1,0 +1,175 @@
+/* All rules are restricted to the requested modules. Dashboard keeps its styles. */
+[data-module-ui="true"] {
+  min-width: 0;
+  scrollbar-gutter: stable;
+  color: #1f2937;
+}
+
+[data-module-ui="true"] :where(.container) {
+  width: 100%;
+  max-width: 1600px;
+}
+
+[data-module-ui="true"] :where(.grid > *, fieldset, form, [data-slot="module-card"], [data-slot="table-container"]) {
+  min-width: 0;
+}
+
+[data-module-ui="true"] :where([data-slot="module-card"]) {
+  box-shadow: 0 1px 2px rgb(15 23 42 / 3%);
+}
+
+[data-module-ui="true"] :where(h1) { overflow-wrap: anywhere; }
+[data-module-ui="true"] :where(h2, h3, h4) { line-height: 1.5; }
+[data-module-ui="true"] :where(p, dd, summary) { overflow-wrap: anywhere; }
+[data-module-ui="true"] :where(label, legend, [data-slot="label"]) {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* Native controls and existing UI primitives share one readable field treatment. */
+[data-module-ui="true"] :where(input:not([type="checkbox"], [type="radio"], [type="hidden"], [type="file"], [type="color"]), select, textarea, [data-slot="select-trigger"]) {
+  min-width: 0;
+  max-width: 100%;
+  min-height: 2.75rem;
+  border: 1px solid var(--input);
+  border-radius: 0.5rem;
+  background-color: #fff;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-block: 0.625rem;
+  box-shadow: none;
+}
+
+[data-module-ui="true"] :where(input:not([data-slot], [type="checkbox"], [type="radio"], [type="hidden"], [type="file"], [type="color"]), select, textarea) {
+  width: 100%;
+  padding-right: 0.75rem;
+}
+
+[data-module-ui="true"] :where(input:not([data-slot], [type="checkbox"], [type="radio"], [type="hidden"], [type="file"], [type="color"], [class*="pl-"]), select:not([class*="pl-"]), textarea) { padding-left: 0.75rem; }
+[data-module-ui="true"] :where(select[multiple]) { min-height: 8rem; }
+
+[data-module-ui="true"] :where(label > input:not([type="checkbox"], [type="radio"]), label > select, label > textarea) {
+  display: block;
+  margin-top: 0.375rem;
+}
+
+[data-module-ui="true"] :where(textarea) { min-height: 6rem; resize: vertical; }
+[data-module-ui="true"] :where(input[type="file"]) {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  font-size: 0.8125rem;
+  overflow: hidden;
+}
+[data-module-ui="true"] :where(input[type="file"])::file-selector-button {
+  margin-right: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: #f8fafc;
+  cursor: pointer;
+}
+[data-module-ui="true"] :where(input[type="checkbox"], input[type="radio"]) {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  accent-color: var(--secondary);
+}
+[data-module-ui="true"] :where(input, select, textarea, button, a, summary):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+[data-module-ui="true"] :where(input, select, textarea, button):disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+[data-module-ui="true"] :where([aria-invalid="true"]) { border-color: var(--destructive); }
+
+[data-module-ui="true"] :where([data-slot="button"]) {
+  max-width: 100%;
+  min-height: 2.5rem;
+  height: auto;
+  padding-block: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: normal;
+  box-shadow: none;
+}
+
+/* Scroll belongs to the table region, never to the entire module. */
+[data-module-ui="true"] :where(.overflow-x-auto, [data-slot="table-container"]) {
+  max-width: 100%;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #b8c9c5 transparent;
+}
+[data-module-ui="true"] :where(table) {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+[data-module-ui="true"] :where(th) {
+  background: #f3f7f6;
+  color: #52635f;
+  padding: 0.875rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border);
+}
+[data-module-ui="true"] :where(td) {
+  padding: 0.875rem 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #edf0f2;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+[data-module-ui="true"] :where(tbody tr:last-child td) { border-bottom: 0; }
+[data-module-ui="true"] :where(tbody tr:hover) { background-color: #f8fbfa; }
+[data-module-ui="true"] :where(td > button + button) { margin-left: 0.5rem; }
+[data-module-ui="true"] :where(td[data-numeric="true"], th[data-numeric="true"]) {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+[data-module-ui="true"] :where([role="alert"]) {
+  padding: 0.75rem 1rem;
+  border: 1px solid #fecaca;
+  border-radius: 0.5rem;
+  background: #fff7f7;
+  color: #b91c1c;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+[data-module-ui="true"] :where([role="status"]) {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+[data-module-ui="true"] :where(pre) { max-width: 100%; overflow: auto; }
+[data-module-ui="true"] :where(iframe) { max-width: 100%; background: #fff; }
+
+@media (max-width: 639px) {
+  [data-module-ui="true"] :where([data-slot="module-card"].p-8, [data-slot="module-card"].p-10) { padding: 1rem; }
+  [data-module-ui="true"] :where(.grid, .flex) { column-gap: 0.75rem; }
+  [data-module-ui="true"] :where(table) { min-width: 36rem; }
+  [data-module-ui="true"] :where(input:not([type="checkbox"], [type="radio"]), select, textarea) { font-size: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-module-ui="true"] *, [data-module-ui="true"] *::before, [data-module-ui="true"] *::after {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+    animation-duration: 0.01ms;
+  }
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { AdminCard } from "@/components/common/AdminCard";
+import { ModuleCard as AdminCard } from "@/components/common/ModuleCard";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -25,7 +25,7 @@ export function SectionForm({
   onCancel,
 }: SectionFormProps) {
   return (
-    <AdminCard className="p-8 h-full bg-gradient-to-br from-white/60 to-sidebar/5">
+    <AdminCard className="p-5 sm:p-6 h-full">
       <div className="flex items-center justify-between mb-6">
         <h4 className="text-sm font-bold text-gray-500   flex items-center gap-2">
           {editing ? "Edit Section" : "Add Section"}

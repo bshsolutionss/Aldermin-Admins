@@ -46,14 +46,13 @@ export function StatCards() {
             <div
               key={stat.label}
               className={cn(
-                "rounded-2xl p-3.5 sm:p-4 shadow-xs border backdrop-blur-sm relative overflow-hidden group hover:scale-[1.02] transition-all duration-300",
+                "dashboard-stat rounded-2xl p-3.5 sm:p-4 shadow-xs border backdrop-blur-sm relative overflow-hidden group hover:scale-[1.02] transition-all duration-300",
                 stat.color === "yellow" && "bg-yellow-50/60 border-yellow-200/80",
                 stat.color === "purple" && "bg-purple-50/60 border-purple-200/80",
                 stat.color === "orange" && "bg-orange-50/60 border-orange-200/80",
               )}
             >
-              <div className="flex justify-between items-center mb-1.5 relative z-10 gap-2">
-                <div className="flex items-center gap-1.5 min-w-0">
+              <div className="dashboard-stat-header mb-1.5 relative z-10">
                   <Icon
                     className={cn(
                       "size-4 shrink-0",
@@ -64,7 +63,7 @@ export function StatCards() {
                   />
                   <h6
                     className={cn(
-                      "font-bold uppercase tracking-wider text-[10px] truncate",
+                      "dashboard-stat-label font-bold uppercase tracking-wider text-[10px]",
                       stat.color === "yellow" && "text-yellow-700",
                       stat.color === "purple" && "text-purple-700",
                       stat.color === "orange" && "text-orange-700",
@@ -73,11 +72,10 @@ export function StatCards() {
                   >
                     {stat.label}
                   </h6>
-                </div>
                 <a
                   href={stat.href}
                   aria-label={"View " + stat.label}
-                  className="opacity-40 hover:opacity-100 transition-opacity shrink-0"
+                  className="dashboard-stat-link opacity-40 hover:opacity-100 transition-opacity shrink-0"
                 >
                   <BiDotsVerticalRounded size={18} />
                 </a>

@@ -3,6 +3,25 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Give stat labels their full row only when the existing card is narrow. */
+.dashboard-stat { container: dashboard-stat / inline-size; }
+.dashboard-stat-header {
+  display: grid;
+  grid-template-columns: 1rem minmax(0, 1fr) 1.125rem;
+  align-items: center;
+  column-gap: 0.375rem;
+}
+.dashboard-stat-label {
+  min-width: 0;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+@container dashboard-stat (max-width: 11rem) {
+  .dashboard-stat-label { grid-column: 1 / -1; grid-row: 2; margin-top: 0.5rem; }
+  .dashboard-stat-link { grid-column: 3; grid-row: 1; }
+}
+
 /* Shared LMS controls: retain native select semantics, style the menu itself. */
 select {
   min-height: 2.75rem;
